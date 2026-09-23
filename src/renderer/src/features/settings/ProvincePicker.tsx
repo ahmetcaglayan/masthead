@@ -227,7 +227,7 @@ export function ProvinceList({
                   className={cn(
                     'flex h-9 items-center gap-3 rounded-lg px-2.5 text-sm transition-colors duration-100 in-data-[density=compact]:h-8',
                     'data-active:bg-muted',
-                    selected ? 'font-medium text-accent' : 'text-fg'
+                    selected ? 'font-medium text-accent-ink' : 'text-fg'
                   )}
                 >
                   {option.kind === 'province' ? (
@@ -307,7 +307,7 @@ export function ProvincePicker({
             size={16}
             strokeWidth={1.75}
             aria-hidden
-            className={cn('shrink-0', chosen ? 'text-accent' : 'text-fg-subtle')}
+            className={cn('shrink-0', chosen ? 'text-accent-ink' : 'text-fg-subtle')}
           />
           <span className={cn('min-w-0 flex-1 truncate text-left', !chosen && 'text-fg-muted')}>
             {label ??

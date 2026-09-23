@@ -81,7 +81,7 @@ export function ArticleKicker({
     <span
       // "Türkiye" is a Turkish name: upper-case it with Turkish rules (TÜRKİYE) in any UI language.
       lang={category === 'national' && country === 'tr' ? 'tr' : undefined}
-      className={cn(KICKER, inverse ? 'text-on-scrim/85' : 'text-accent', className)}
+      className={cn(KICKER, inverse ? 'text-on-scrim/85' : 'text-accent-ink', className)}
     >
       {categoryLabel(t, category, country)}
     </span>,

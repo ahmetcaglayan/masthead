@@ -64,7 +64,7 @@ function Row({ item, quote, today, selected, onSelect }: RowProps): React.JSX.El
       )}
     >
       <span className="min-w-0 flex-1 truncate">
-        <span className={cn('font-medium', selected ? 'text-accent' : 'text-fg')}>{name}</span>
+        <span className={cn('font-medium', selected ? 'text-accent-ink' : 'text-fg')}>{name}</span>
         {(code || unit) && (
           <span className="ml-1.5 text-[11px] text-fg-subtle">
             {[code, unit].filter(Boolean).join(' · ')}

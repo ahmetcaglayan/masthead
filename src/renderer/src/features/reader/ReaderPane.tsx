@@ -104,7 +104,7 @@ export function ReaderPane({
       >
         <header>
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-ui text-[11px] font-semibold tracking-wider text-fg-subtle">
-            <span className="text-accent">{upperContent(sourceName)}</span>
+            <span className="text-accent-ink">{upperContent(sourceName)}</span>
             <span aria-hidden>·</span>
             <time
               className="uppercase"
@@ -198,7 +198,7 @@ function BlockedNotice({ onOpenOriginal }: { onOpenOriginal(): void }): React.JS
       role="status"
       className="sticky top-0 z-10 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 border-b border-line bg-glass px-4 py-2 text-center font-ui text-[13px] text-fg-muted backdrop-blur-md"
     >
-      <Info size={16} strokeWidth={1.75} aria-hidden className="shrink-0 text-accent" />
+      <Info size={16} strokeWidth={1.75} aria-hidden className="shrink-0 text-accent-ink" />
       <span>{t('web.blockedNotice')}</span>
       <span aria-hidden className="text-fg-subtle">
         ·
@@ -206,7 +206,7 @@ function BlockedNotice({ onOpenOriginal }: { onOpenOriginal(): void }): React.JS
       <button
         type="button"
         onClick={onOpenOriginal}
-        className="inline-flex items-center gap-0.5 rounded font-medium text-accent hover:underline"
+        className="inline-flex items-center gap-0.5 rounded font-medium text-accent-ink hover:underline"
       >
         {t('web.openOriginal')}
         <ArrowUpRight size={14} strokeWidth={1.75} aria-hidden />

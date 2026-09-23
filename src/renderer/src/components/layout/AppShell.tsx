@@ -1,4 +1,5 @@
 import { useCallback, useLayoutEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getMainScrollElement, setMainScrollElement } from '@/hooks/useMainScroll'
 import { useUi } from '@/stores/ui'
 import { NewStoriesPill } from './NewStoriesPill'
@@ -43,6 +44,7 @@ function scrollSettled(top: number): () => void {
  * restored when going back.
  */
 export function AppShell({ children }: { children: React.ReactNode }): React.JSX.Element {
+  const { t } = useTranslation('common')
   const route = useUi((s) => s.route)
   const depth = useUi((s) => s.history.length)
   const key = routeKey(route)
@@ -66,6 +68,17 @@ export function AppShell({ children }: { children: React.ReactNode }): React.JSX
 
   return (
     <div className="flex h-full flex-col bg-canvas text-fg">
+      {/* First stop for the keyboard: straight past the title bar and the sidebar to the page. */}
+      <a
+        href="#main"
+        onClick={(event) => {
+          event.preventDefault()
+          document.getElementById('main')?.focus()
+        }}
+        className="fixed top-2 left-2 z-[100] -translate-y-20 rounded-full bg-accent px-4 py-2 font-ui text-sm font-semibold text-on-accent shadow-float transition-transform focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      >
+        {t('nav.skipToContent')}
+      </a>
       <TitleBar />
       <div className="flex min-h-0 flex-1">
         <Sidebar />

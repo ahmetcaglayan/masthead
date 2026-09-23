@@ -227,9 +227,9 @@ function Story({ id }: { id: string }): React.JSX.Element {
             </ol>
           </section>
         </div>
-        <aside className="min-w-0">
+        <div className="min-w-0">
           <CoverageCard reports={story.reports} />
-        </aside>
+        </div>
       </div>
     </>
   )

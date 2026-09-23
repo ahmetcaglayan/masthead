@@ -55,7 +55,7 @@ export function Question({
       transition={{ duration: 0.25, ease: 'easeOut' }}
       className="scroll-my-24 outline-none"
     >
-      <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-accent uppercase">
+      <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-accent-ink uppercase">
         <span className="flex size-4 items-center justify-center tabular-nums">
           {answered ? <Check size={13} strokeWidth={2.75} aria-hidden /> : String(index + 1).padStart(2, '0')}
         </span>

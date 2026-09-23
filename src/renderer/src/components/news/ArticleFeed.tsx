@@ -215,7 +215,7 @@ function HourRule({
         size={15}
         strokeWidth={2}
         aria-hidden
-        className={tone === 'breaking' ? 'text-breaking' : 'text-accent'}
+        className={tone === 'breaking' ? 'text-breaking' : 'text-accent-ink'}
       />
       {label}
       <span aria-hidden className="h-px flex-1 bg-line" />

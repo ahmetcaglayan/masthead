@@ -165,7 +165,7 @@ const SourceRow = memo(function SourceRow({
             type="button"
             onClick={() => useUi.getState().navigate({ name: 'source', id: source.id })}
             className={cn(
-              'text-left text-[15px] font-medium transition-colors duration-150 hover:text-accent',
+              'text-left text-[15px] font-medium transition-colors duration-150 hover:text-accent-ink',
               enabled ? 'text-fg' : 'text-fg-muted'
             )}
           >
@@ -225,6 +225,7 @@ interface SourceGroupProps {
   note?: React.ReactNode
   /** Rows rendered so far (the list fills in over a few frames). */
   rowLimit: number
+  headingLevel: 'h2' | 'h3'
 }
 
 function SourceGroup({
@@ -235,7 +236,8 @@ function SourceGroup({
   rowProps,
   onToggle,
   note,
-  rowLimit
+  rowLimit,
+  headingLevel: Heading
 }: SourceGroupProps): React.JSX.Element {
   const { t } = useTranslation('settings')
   const bodyId = useId()
@@ -247,27 +249,30 @@ function SourceGroup({
   return (
     <section className="rounded-panel border border-line bg-surface shadow-soft">
       <header className="flex items-center gap-3 py-3 pr-5 pl-3 in-data-[density=compact]:py-2">
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-controls={bodyId}
-          onClick={() => onOpenChange(!open)}
-          className="flex min-w-0 flex-1 items-center gap-2 rounded-lg py-1 pr-2 pl-2 text-left transition-colors duration-150 hover:bg-muted"
-        >
-          <ChevronRight
-            size={16}
-            strokeWidth={1.75}
-            aria-hidden
-            className={cn(
-              'shrink-0 text-fg-subtle transition-transform duration-200 ease-out',
-              open && 'rotate-90'
-            )}
-          />
-          <h3 className="headline text-lg leading-tight font-semibold text-fg">{title}</h3>
-          <span className="ml-1 text-[12.5px] text-fg-subtle tabular-nums">
-            {t('sources.groupCount', { on, count: group.sources.length })}
-          </span>
-        </button>
+        {/* The accordion pattern: the heading holds the button, not the other way round. */}
+        <Heading className="flex min-w-0 flex-1">
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls={bodyId}
+            onClick={() => onOpenChange(!open)}
+            className="flex min-w-0 flex-1 items-center gap-2 rounded-lg py-1 pr-2 pl-2 text-left transition-colors duration-150 hover:bg-muted"
+          >
+            <ChevronRight
+              size={16}
+              strokeWidth={1.75}
+              aria-hidden
+              className={cn(
+                'shrink-0 text-fg-subtle transition-transform duration-200 ease-out',
+                open && 'rotate-90'
+              )}
+            />
+            <span className="headline text-lg leading-tight font-semibold text-fg">{title}</span>
+            <span className="ml-1 font-ui text-[12.5px] font-normal text-fg-subtle tabular-nums">
+              {t('sources.groupCount', { on, count: group.sources.length })}
+            </span>
+          </button>
+        </Heading>
         <Switch
           size="sm"
           checked={state}
@@ -327,6 +332,8 @@ function LocalNote({ country }: { country: CountryCode }): React.JSX.Element {
 }
 
 export interface SourcesListProps {
+  /** Level of the group headings: h2 right under a page title, h3 inside a settings section. */
+  headingLevel?: 'h2' | 'h3'
   className?: string
 }
 
@@ -335,7 +342,7 @@ export interface SourcesListProps {
  * grouped by kind, with search, bulk actions, feed health and article counts.
  * Switched-off sources are never fetched.
  */
-export function SourcesList({ className }: SourcesListProps): React.JSX.Element {
+export function SourcesList({ headingLevel = 'h3', className }: SourcesListProps): React.JSX.Element {
   const { t } = useTranslation('settings')
   const country = useSettings((s) => s.settings.country)
   const provinceCode = useSettings((s) => s.settings.location.provinceCode)
@@ -526,6 +533,7 @@ export function SourcesList({ className }: SourcesListProps): React.JSX.Element 
           <SourceGroup
             key={group.kind}
             group={group}
+            headingLevel={headingLevel}
             rowLimit={index < filledGroups ? group.sources.length : 0}
             open={searching || open.has(group.kind)}
             onOpenChange={(next) =>

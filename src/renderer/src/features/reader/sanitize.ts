@@ -184,6 +184,21 @@ function settleStandfirst(body: HTMLElement, standfirst: string): boolean {
   return false
 }
 
+/**
+ * Fit the publisher's headings under the article's own title (an h1): the highest of them
+ * reads as level 2 to assistive technology, the rest follow, while each keeps the look of
+ * its tag (a publisher's h3 stays the size of an h3).
+ */
+function outlineHeadings(body: HTMLElement): void {
+  const headings = [...body.querySelectorAll('h1, h2, h3, h4, h5, h6')]
+  if (headings.length === 0) return
+  const levelOf = (el: Element): number => Number(el.nodeName[1])
+  const top = Math.min(...headings.map(levelOf))
+  if (top === 2) return
+  for (const heading of headings)
+    heading.setAttribute('aria-level', String(Math.min(6, levelOf(heading) - top + 2)))
+}
+
 /** An image, a figure, or a block holding nothing but a picture. */
 function isPicture(el: Element): boolean {
   if (el.nodeName === 'IMG' || el.nodeName === 'PICTURE') return true
@@ -195,7 +210,7 @@ function isPicture(el: Element): boolean {
  * Sanitise extracted article HTML for Reader mode (allowlisted tags, http(s)-only
  * links and images, links marked to open elsewhere) and tidy it: drop tracking
  * pixels and broken images, flatten the markup into evenly spaced paragraphs,
- * remove empty blocks and "Kaynak: …" lines, settle the `standfirst` against
+ * remove empty blocks and "Kaynak: …" lines, fit the publisher's headings under the title, settle the `standfirst` against
  * the opening paragraph, and decide whether a separate lead image is needed.
  */
 export function prepareArticle(
@@ -217,6 +232,7 @@ export function prepareArticle(
     if (textOf(el) === '' && !el.querySelector('img')) el.remove()
   }
   dropSourceLines(body)
+  outlineHeadings(body)
   const showStandfirst = standfirst ? settleStandfirst(body, standfirst) : false
 
   const candidate = content.image ?? fallbackImage

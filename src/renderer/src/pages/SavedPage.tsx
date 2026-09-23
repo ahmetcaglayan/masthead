@@ -4,8 +4,10 @@ import { useTranslation } from 'react-i18next'
 import { Page } from '@/components/layout/Page'
 import { ArticleFeed } from '@/components/news/ArticleFeed'
 import { PageHeader } from '@/components/news/PageHeader'
+import { Button } from '@/components/ui/Button'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { useLibrary } from '@/stores/library'
+import { useUi } from '@/stores/ui'
 
 /** Saved stories, most recently saved first. */
 export function SavedPage(): React.JSX.Element {
@@ -28,7 +30,16 @@ export function SavedPage(): React.JSX.Element {
       {articles.length > 0 ? (
         <ArticleFeed articles={articles} layout="list" dimRead={false} showProvince />
       ) : (
-        <EmptyState icon={Bookmark} title={t('saved.emptyTitle')} description={t('saved.emptyBody')} />
+        <EmptyState
+          icon={Bookmark}
+          title={t('saved.emptyTitle')}
+          description={t('saved.emptyBody')}
+          action={
+            <Button variant="outline" onClick={() => useUi.getState().navigate({ name: 'home' })}>
+              {t('browse')}
+            </Button>
+          }
+        />
       )}
     </Page>
   )

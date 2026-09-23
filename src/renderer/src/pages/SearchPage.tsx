@@ -86,6 +86,7 @@ function Results({ query }: { query: string }): React.JSX.Element {
         }
       />
       <FilterBar hide={HIDE} count={results.length} />
+      {results.length > 0 && <h2 className="sr-only">{t('search.resultsHeading')}</h2>}
       {results.length > 0 ? (
         <ArticleFeed
           articles={results}

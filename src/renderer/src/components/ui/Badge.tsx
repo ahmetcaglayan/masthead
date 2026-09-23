@@ -4,7 +4,7 @@ export type BadgeVariant = 'neutral' | 'accent' | 'breaking' | 'live' | 'solid'
 
 const VARIANTS: Record<BadgeVariant, string> = {
   neutral: 'bg-muted text-fg-muted',
-  accent: 'bg-accent-soft text-accent',
+  accent: 'bg-accent-soft text-accent-ink',
   breaking: 'bg-breaking-soft text-breaking',
   live: 'bg-muted text-fg',
   solid: 'bg-breaking text-on-breaking'

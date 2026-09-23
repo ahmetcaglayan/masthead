@@ -302,7 +302,7 @@ function CoverageRow({
         <button
           type="button"
           onClick={() => openStory(article.clusterId!)}
-          className="shrink-0 rounded-full px-2.5 py-1 font-ui text-[12px] font-semibold text-accent transition-colors duration-150 hover:bg-accent-soft"
+          className="shrink-0 rounded-full px-2.5 py-1 font-ui text-[12px] font-semibold text-accent-ink transition-colors duration-150 hover:bg-accent-soft"
         >
           {t('coverage.all')}
         </button>
@@ -365,7 +365,7 @@ function CopyLinkButton({
     <ToolButton
       label={copied ? t('toolbar.linkCopied') : t('toolbar.copyLink')}
       icon={copied ? Check : Link}
-      iconClassName={cn(copied && 'text-accent')}
+      iconClassName={cn(copied && 'text-accent-ink')}
       onClick={() => void copy()}
     />
   )

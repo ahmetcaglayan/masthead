@@ -131,7 +131,8 @@
     "emptyBody": "Meldungen, über die mehr als ein Medium berichtet, sammeln sich hier. Schauen Sie gleich noch einmal vorbei.",
     "soloTitle": "Auf einer Titelseite",
     "soloBody": "Meldungen, mit denen bisher nur ein Medium aufmacht.",
-    "more": "Mehr Meldungen anzeigen"
+    "more": "Mehr Meldungen anzeigen",
+    "sharedTitle": "Themen, über die mehrere Medien berichten"
   },
   "latest": {
     "title": "Neueste",
@@ -275,7 +276,8 @@
     "startBody": "Gesucht wird in Schlagzeilen und Zusammenfassungen. Akzente sind optional — „istanbul“ findet „İstanbul“, „sao paulo“ findet „São Paulo“.",
     "focus": "Suche starten",
     "noResultsBody": "Versuchen Sie andere oder weniger Wörter. Ausdrücke in Anführungszeichen werden genau gesucht.",
-    "noResultsFiltered": "Vielleicht verbergen Ihre Filter einige Treffer."
+    "noResultsFiltered": "Vielleicht verbergen Ihre Filter einige Treffer.",
+    "resultsHeading": "Ergebnisse"
   },
   "saved": {
     "title": "Gespeichert",
@@ -330,5 +332,6 @@
       "snow": "Schnee",
       "thunderstorm": "Gewitter"
     }
-  }
+  },
+  "browse": "Nachrichten ansehen"
 }

@@ -21,7 +21,11 @@ export interface SectionHeaderProps {
   className?: string
 }
 
-const KICKER_TONES = { accent: 'text-accent', breaking: 'text-breaking', muted: 'text-fg-subtle' } as const
+const KICKER_TONES = {
+  accent: 'text-accent-ink',
+  breaking: 'text-breaking',
+  muted: 'text-fg-subtle'
+} as const
 
 /** Editorial section head: kicker, serif title, optional action on the right. */
 export function SectionHeader({
@@ -69,7 +73,7 @@ export function SectionHeader({
               size={lg ? 28 : 20}
               strokeWidth={1.75}
               aria-hidden
-              className={cn('shrink-0', lg ? 'text-accent' : 'text-fg-subtle')}
+              className={cn('shrink-0', lg ? 'text-accent-ink' : 'text-fg-subtle')}
             />
           )}
           <span className="min-w-0">{title}</span>

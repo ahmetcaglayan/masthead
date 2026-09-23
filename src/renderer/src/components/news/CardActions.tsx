@@ -37,7 +37,7 @@ export function CardActions({
         icon={Bookmark}
         label={saved ? t('common:actions.unsave') : t('common:actions.save')}
         aria-pressed={saved}
-        iconClassName={saved ? 'fill-current text-accent' : undefined}
+        iconClassName={saved ? 'fill-current text-accent-ink' : undefined}
         onClick={() => void toggleSaved(article, t)}
         className={cn(reveal && !saved && REVEAL)}
       />

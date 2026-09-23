@@ -26,7 +26,8 @@
     "collapse": "Kenar çubuğunu daralt",
     "expand": "Kenar çubuğunu genişlet",
     "breakingCount_one": "Son 2 saatte {{count}} yeni gelişme",
-    "breakingCount_other": "Son 2 saatte {{count}} yeni gelişme"
+    "breakingCount_other": "Son 2 saatte {{count}} yeni gelişme",
+    "skipToContent": "İçeriğe atla"
   },
   "category": {
     "top": "Manşet",

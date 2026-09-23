@@ -26,7 +26,8 @@
     "collapse": "साइडबार छोटा करें",
     "expand": "साइडबार बड़ा करें",
     "breakingCount_one": "पिछले 2 घंटे में {{count}} नई ख़बर",
-    "breakingCount_other": "पिछले 2 घंटे में {{count}} नई ख़बरें"
+    "breakingCount_other": "पिछले 2 घंटे में {{count}} नई ख़बरें",
+    "skipToContent": "सामग्री पर जाएँ"
   },
   "category": {
     "top": "मुख्य ख़बरें",

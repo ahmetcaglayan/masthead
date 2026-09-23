@@ -59,7 +59,7 @@ function ProvinceButton({
       className={cn(
         ROW,
         'h-8 text-[13px]',
-        selected ? 'bg-accent-soft font-semibold text-accent hover:bg-accent-soft' : 'text-fg'
+        selected ? 'bg-accent-soft font-semibold text-accent-ink hover:bg-accent-soft' : 'text-fg'
       )}
     >
       {selected && <Check size={14} strokeWidth={2.25} aria-hidden className="-ml-0.5 shrink-0" />}
@@ -157,7 +157,7 @@ export function LocationPicker({
                 className={cn(
                   ROW,
                   'h-9 text-[13.5px] font-medium',
-                  !value.provinceCode && !value.regionId ? 'text-accent' : 'text-fg'
+                  !value.provinceCode && !value.regionId ? 'text-accent-ink' : 'text-fg'
                 )}
               >
                 <Globe size={16} strokeWidth={1.75} aria-hidden className="shrink-0 text-fg-subtle" />
@@ -185,14 +185,14 @@ export function LocationPicker({
                     className={cn(
                       ROW,
                       'h-9 flex-1 text-[13.5px] font-medium',
-                      regionSelected ? 'text-accent' : 'text-fg'
+                      regionSelected ? 'text-accent-ink' : 'text-fg'
                     )}
                   >
                     <MapPin
                       size={16}
                       strokeWidth={1.75}
                       aria-hidden
-                      className={cn('shrink-0', regionSelected ? 'text-accent' : 'text-fg-subtle')}
+                      className={cn('shrink-0', regionSelected ? 'text-accent-ink' : 'text-fg-subtle')}
                     />
                     {t(`common:region.${region.id}`)}
                     <Count value={counts?.regions.get(region.id)} />

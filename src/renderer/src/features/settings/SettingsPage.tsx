@@ -148,7 +148,7 @@ function SectionNav({
                   size={17}
                   strokeWidth={1.75}
                   aria-hidden
-                  className={cn('shrink-0 transition-colors', current ? 'text-accent' : 'text-fg-subtle')}
+                  className={cn('shrink-0 transition-colors', current ? 'text-accent-ink' : 'text-fg-subtle')}
                 />
                 <span className="truncate">{t(`nav.${id}`)}</span>
               </a>

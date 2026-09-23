@@ -61,7 +61,7 @@ function MoreToggle({
       type="button"
       aria-expanded={open}
       onClick={onToggle}
-      className="relative z-10 mt-2 inline-flex items-center gap-1 self-start rounded-md font-ui text-[13px] font-semibold text-accent transition-colors duration-150 hover:text-accent-hover"
+      className="relative z-10 mt-2 inline-flex items-center gap-1 self-start rounded-md font-ui text-[13px] font-semibold text-accent-ink transition-colors duration-150 hover:text-accent-hover"
     >
       {open ? t('common:actions.showLess') : t('cluster.moreSources', { count: hidden })}
       {open ? (
@@ -113,7 +113,7 @@ export const ClusterCard = memo(function ClusterCard({
       className="group/coverage relative z-10 flex items-center gap-2 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <SourceStack articles={reporters} />
-      <span className="font-ui text-[11px] font-semibold tracking-wider text-fg-muted uppercase decoration-line-strong underline-offset-4 group-hover/coverage:text-accent group-hover/coverage:underline">
+      <span className="font-ui text-[11px] font-semibold tracking-wider text-fg-muted uppercase decoration-line-strong underline-offset-4 group-hover/coverage:text-accent-ink group-hover/coverage:underline">
         {t('cluster.coveredBy', { count: sourceCount })}
       </span>
     </button>

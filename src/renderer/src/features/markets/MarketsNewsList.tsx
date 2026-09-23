@@ -60,7 +60,7 @@ function Row({ article, tags, fresh, queue, now }: RowProps): React.JSX.Element 
           <SourceLogo source={source} size="xs" />
           <span>{source?.name ?? article.sourceId}</span>
           {fresh && (
-            <span className="rounded-[4px] bg-accent-soft px-1.5 text-[11px] font-semibold text-accent">
+            <span className="rounded-[4px] bg-accent-soft px-1.5 text-[11px] font-semibold text-accent-ink">
               {t('markets.new')}
             </span>
           )}

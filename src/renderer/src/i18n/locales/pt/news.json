@@ -131,7 +131,8 @@
     "emptyBody": "As notícias publicadas por mais de um veículo se reúnem aqui. Volte daqui a pouco.",
     "soloTitle": "Em uma primeira página",
     "soloBody": "Notícias que só um veículo destacou até agora.",
-    "more": "Mostrar mais notícias"
+    "more": "Mostrar mais notícias",
+    "sharedTitle": "Histórias que vários veículos publicaram"
   },
   "latest": {
     "title": "Últimas",
@@ -275,7 +276,8 @@
     "startBody": "A busca passa por manchetes e resumos. Os acentos são opcionais — “sao paulo” encontra “São Paulo”.",
     "focus": "Começar a busca",
     "noResultsBody": "Tente outras palavras, ou menos palavras. Expressões entre aspas são buscadas exatamente.",
-    "noResultsFiltered": "Os seus filtros podem estar escondendo alguns resultados."
+    "noResultsFiltered": "Os seus filtros podem estar escondendo alguns resultados.",
+    "resultsHeading": "Resultados"
   },
   "saved": {
     "title": "Salvos",
@@ -330,5 +332,6 @@
       "snow": "Neve",
       "thunderstorm": "Tempestade"
     }
-  }
+  },
+  "browse": "Ver as notícias"
 }

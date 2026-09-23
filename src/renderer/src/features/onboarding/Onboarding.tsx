@@ -50,7 +50,7 @@ const LANGUAGES: readonly { value: UiLanguage; name: string; monogram: string }[
 
 function Monogram({ children }: { children: React.ReactNode }): React.JSX.Element {
   return (
-    <div className="flex h-24 items-center justify-center bg-muted text-fg-muted transition-colors duration-200 group-aria-checked/choice:bg-accent-soft group-aria-checked/choice:text-accent">
+    <div className="flex h-24 items-center justify-center bg-muted text-fg-muted transition-colors duration-200 group-aria-checked/choice:bg-accent-soft group-aria-checked/choice:text-accent-ink">
       <span className="headline text-[2.5rem] leading-none font-semibold tracking-tight">{children}</span>
     </div>
   )
@@ -132,7 +132,7 @@ function FinishCard({ onStart }: { onStart: () => void }): React.JSX.Element {
 
   return (
     <div className="rounded-panel border border-line bg-glass px-8 pt-9 pb-8 text-center shadow-card backdrop-blur-xl">
-      <div className="mx-auto mb-5 flex size-12 items-center justify-center rounded-full bg-accent-soft text-accent">
+      <div className="mx-auto mb-5 flex size-12 items-center justify-center rounded-full bg-accent-soft text-accent-ink">
         <Check size={22} strokeWidth={2.25} aria-hidden />
       </div>
       <h2 className="headline text-3xl leading-tight font-semibold text-fg">{t('finish.title')}</h2>
@@ -383,7 +383,7 @@ export function Onboarding(): React.JSX.Element {
             )}
             {place && (
               <p className="mt-3 flex items-center gap-2 text-sm text-fg-muted">
-                <MapPin size={15} strokeWidth={1.75} aria-hidden className="text-accent" />
+                <MapPin size={15} strokeWidth={1.75} aria-hidden className="text-accent-ink" />
                 {t('city.chosen', { place })}
               </p>
             )}

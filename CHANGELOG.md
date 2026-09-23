@@ -46,6 +46,16 @@ All notable changes to this project are documented here. The format follows
 - **Weather on the front page.** Switch it on in Settings → Language & region: your city's temperature and today's
   high and low beside the date, the next days a click away (Open-Meteo; off by default).
 
+### Changed
+
+- **Accessibility pass.** Every page, the reader, the command palette and the dialogs pass an automated WCAG AA
+  check (axe) in the light and dark themes. Text in the accent colour uses a deeper shade of it where the accent
+  itself was too light to read (all five accents); buttons filled with the accent are a touch deeper so their white
+  labels read at 4.5:1. A "Skip to content" link is the first Tab stop; headings follow one outline on every page
+  (the front page has a title for screen readers, a publisher's headings in Reader mode sit under the article's
+  title); source groups in Settings are headings holding their toggle, not the other way round; empty Saved and
+  History pages offer a way back to the news.
+
 ## [0.3.0] - 2026-09-23
 
 Every country in its own language, with local news everywhere.

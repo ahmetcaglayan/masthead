@@ -26,7 +26,8 @@
     "collapse": "Collapse sidebar",
     "expand": "Expand sidebar",
     "breakingCount_one": "{{count}} new in the last 2 hours",
-    "breakingCount_other": "{{count}} new in the last 2 hours"
+    "breakingCount_other": "{{count}} new in the last 2 hours",
+    "skipToContent": "Skip to content"
   },
   "category": {
     "top": "Top Stories",

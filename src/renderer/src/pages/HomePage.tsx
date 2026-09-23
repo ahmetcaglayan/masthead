@@ -120,6 +120,7 @@ function FrontPage(): React.JSX.Element {
 
   return (
     <div className="flex flex-col gap-8 in-data-[density=compact]:gap-6">
+      <h1 className="sr-only">{t('common:nav.home')}</h1>
       <div className="flex flex-col gap-6 in-data-[density=compact]:gap-4">
         <Dateline view={view} />
         <BreakingTicker articles={home.breaking} />
@@ -161,7 +162,7 @@ function FrontPage(): React.JSX.Element {
         </section>
 
         {stage > 0 && (
-          <aside
+          <section
             aria-labelledby="home-latest"
             className="min-w-0 xl:sticky xl:top-6 xl:col-start-2 xl:row-span-2 xl:row-start-1 xl:max-h-[calc(100vh-var(--titlebar-height)-3rem)] xl:self-start xl:overflow-x-hidden xl:overflow-y-auto xl:overscroll-contain xl:pr-1 xl:[&::-webkit-scrollbar-thumb]:bg-transparent xl:hover:[&::-webkit-scrollbar-thumb]:bg-line-strong"
           >
@@ -190,7 +191,7 @@ function FrontPage(): React.JSX.Element {
               showSummary={false}
               onSeeAll={seeLatest}
             />
-          </aside>
+          </section>
         )}
 
         {stage > 0 && (

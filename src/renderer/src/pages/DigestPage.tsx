@@ -87,9 +87,19 @@ function Digest(): React.JSX.Element {
         <EmptyState icon={Layers} title={t('digest.emptyTitle')} description={t('digest.emptyBody')} />
       ) : (
         <div className="flex flex-col gap-12">
-          {shared.length > 0 && <StoryList stories={shared} rankFrom={1} fullCards={FULL_CARDS} />}
+          {shared.length > 0 && (
+            <section aria-labelledby="digest-shared">
+              <h2 id="digest-shared" className="sr-only">
+                {t('digest.sharedTitle')}
+              </h2>
+              <StoryList stories={shared} rankFrom={1} fullCards={FULL_CARDS} />
+            </section>
+          )}
           {solo.length > 0 && (
-            <section aria-label={t('digest.soloTitle')} className="flex flex-col gap-6">
+            <section aria-labelledby="digest-solo" className="flex flex-col gap-6">
+              <h2 id="digest-solo" className="sr-only">
+                {t('digest.soloTitle')}
+              </h2>
               <div>
                 <Divider label={t('digest.soloTitle')} />
                 <p className="mt-2 text-center font-ui text-[13px] text-fg-subtle">{t('digest.soloBody')}</p>

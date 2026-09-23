@@ -24,7 +24,7 @@ const TEXT: Record<SummarySize, string> = {
 
 /** Inline text button, layered above the card's click target. */
 const LINK =
-  'relative z-10 inline-flex items-center gap-1 rounded-md font-ui text-[13px] font-semibold text-accent transition-colors duration-150 hover:text-accent-hover'
+  'relative z-10 inline-flex items-center gap-1 rounded-md font-ui text-[13px] font-semibold text-accent-ink transition-colors duration-150 hover:text-accent-hover'
 
 /** Feed-body paragraphs that add to the summary (the body usually repeats it first). */
 function extraParagraphs(body: readonly string[], summary: string): string[] {

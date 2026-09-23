@@ -26,7 +26,8 @@
     "collapse": "Recolher barra lateral",
     "expand": "Expandir barra lateral",
     "breakingCount_one": "{{count}} nova nas últimas 2 horas",
-    "breakingCount_other": "{{count}} novas nas últimas 2 horas"
+    "breakingCount_other": "{{count}} novas nas últimas 2 horas",
+    "skipToContent": "Pular para o conteúdo"
   },
   "category": {
     "top": "Destaques",

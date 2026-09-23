@@ -14,6 +14,7 @@ import { useProgressive } from '@/hooks/useProgressive'
 import { formatNumber } from '@/lib/format'
 import { clock, dayLabel, startOfDay } from '@/lib/time'
 import { useLibrary } from '@/stores/library'
+import { useUi } from '@/stores/ui'
 
 const PAGE_SIZE = 40
 
@@ -64,7 +65,16 @@ export function HistoryPage(): React.JSX.Element {
         }
       />
       {entries.length === 0 ? (
-        <EmptyState icon={History} title={t('history.emptyTitle')} description={t('history.emptyBody')} />
+        <EmptyState
+          icon={History}
+          title={t('history.emptyTitle')}
+          description={t('history.emptyBody')}
+          action={
+            <Button variant="outline" onClick={() => useUi.getState().navigate({ name: 'home' })}>
+              {t('browse')}
+            </Button>
+          }
+        />
       ) : (
         <div className="flex flex-col gap-12">
           {days.map(({ day, entries: items }) => (

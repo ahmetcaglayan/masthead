@@ -131,7 +131,8 @@
     "emptyBody": "Stories covered by more than one outlet will gather here. Check back shortly.",
     "soloTitle": "On one front page",
     "soloBody": "Stories only one outlet has led with so far.",
-    "more": "Show more stories"
+    "more": "Show more stories",
+    "sharedTitle": "Stories several outlets carry"
   },
   "latest": {
     "title": "Latest",
@@ -275,7 +276,8 @@
     "startBody": "Search runs over headlines and summaries. Accents are optional — “istanbul” finds “İstanbul”, “sao paulo” finds “São Paulo”.",
     "focus": "Start searching",
     "noResultsBody": "Try different or fewer words. Phrases in quotes are matched exactly.",
-    "noResultsFiltered": "Your filters may be hiding some results."
+    "noResultsFiltered": "Your filters may be hiding some results.",
+    "resultsHeading": "Results"
   },
   "saved": {
     "title": "Saved",
@@ -330,5 +332,6 @@
       "snow": "Snow",
       "thunderstorm": "Thunderstorm"
     }
-  }
+  },
+  "browse": "Browse the news"
 }

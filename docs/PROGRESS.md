@@ -12,8 +12,8 @@
 
 - **Tarih:** 2026-09-23
 - **Aktif faz:** Faz 1 + Faz 4 tamamlandı; **v0.3.0 yayında** (2026-09-23). Şimdi Faz 2 ve 3 bitiriliyor
-  (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası ve hava durumu bitti;
-  erişilebilirlik turu kaldı). Otomatik güncelleme v0.4.0 ile gelecek.
+  (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası, hava durumu ve
+  erişilebilirlik turu — hepsi bitti). Otomatik güncelleme v0.4.0 ile gelecek.
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
   **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 388 birim testi yeşil.** Her ülkenin
   kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
@@ -117,10 +117,18 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   Houston, Bayern → München). Ayarlar → Dil ve bölge'de anahtar. Gizlilik metinleri (4 README, SECURITY, site)
   güncellendi.
 
+- [x] 2026-09-23 · **Erişilebilirlik turu** (Faz 2 bitti): axe-core 4.10 tarayıcıda (geçici olarak
+  `public/`'e konup silindi) 13 sayfa + okuyucu + komut paleti, açık ve koyu temada → **0 ihlal**. Kök neden
+  vurgu renginin yazı olarak düşük kontrastıydı (ember 3,2–3,6:1): her vurguya `--accent-ink` (≥4,6:1 her yüzeyde)
+  eklendi, `text-accent` → `text-accent-ink` (27 dosya); beyaz yazılı dolgular için ember/forest/gold biraz
+  koyulaştırıldı (≥4,6:1); `--live` #15803d. "İçeriğe atla" bağlantısı (ilk Tab); Ana Sayfa'ya gizli h1; Gündem
+  Özeti ve aramada gizli h2; iç içe `aside`'lar kaldırıldı; Kaynaklar'da başlık-içinde-düğme akordeon kalıbı
+  (`headingLevel`); okuyucuda yayıncı başlıklarına `aria-level` (en üst 2); boş Kaydedilenler/Geçmiş'e düğme.
+  Not: web geliştirme ayarlarında konum (il) boş görünüyordu — bu turda dokunulmadı.
+
 **Sıradaki somut adımlar:**
-1. Faz 2: erişilebilirlik turu (axe, klavye, kontrast, "içeriğe atla").
-2. Okuma modu ödeme duvarına saygı (`isAccessibleForFree: false` → "Bu haber abonelere özel" + yayıncı sayfası);
-   site/README'ye yayıncılar için "kaynağınızın çıkarılmasını istiyorsanız" notu.
+1. Okuma modu ödeme duvarına saygı; site/README'ye yayıncılar için kaldırma notu.
+2. v0.4.0 sürümü (otomatik güncelleme, Faz 2/3 özellikleri).
 3. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
 4. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
    ekran görüntüleri; News18 Hindi / Bhaskar ikonları (şu an harf monogramı görünüyor).
@@ -140,7 +148,7 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 
 1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅
 2. Faz 2 ve 3'ü bitir (bkz. PLAN.md): ~~komut paleti, kısayollar, hikâye sayfası, kelime susturma~~ ✅,
-   ~~Size Özel okuma geçmişi~~ ✅, ~~Piyasalar + hava durumu~~ ✅; kalan: erişilebilirlik turu. Ardından v0.4.0.
+   ~~Size Özel okuma geçmişi~~ ✅, ~~Piyasalar + hava durumu~~ ✅, ~~erişilebilirlik~~ ✅. Ardından ödeme duvarı + yayıncı notu, v0.4.0.
 3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
 4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; sonraki ülke paketleri
    (Fransa, İspanya/Meksika).
@@ -322,6 +330,7 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-23 | Piyasa fiyatları yalnızca açıkça ücretsiz sunulan kaynaklardan (ECB/Frankfurter, gold-api, Binance); hisse fiyatı yok | Sahibinin isteği: "sonradan başımız ağrımasın". Yahoo/TradingView resmî değil, BIST verisi lisanslı |
 | 2026-09-23 | Piyasalar ayrı sayfa; Ekonomi kategorisi olduğu gibi | Sahibinin isteği: biri yatırımcıya özel, biri normal kategori |
 | 2026-09-23 | Piyasa haberleri sayfa açıkken dakikada bir, yalnızca ekonomi/iş akışları | Canlı his + yayıncılara saygı (çekirdekte kısma, koşullu GET) |
+| 2026-09-23 | Vurgu rengi yazıda `--accent-ink`, dolguda `--accent` | Marka rengi korunur, yazılar WCAG AA (4,5:1) geçer |
 
 ## Bilinen sorunlar / notlar
 

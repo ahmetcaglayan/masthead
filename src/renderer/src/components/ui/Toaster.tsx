@@ -43,7 +43,7 @@ export function Toaster(): React.JSX.Element {
       containerAriaLabel={t('a11y.notifications')}
       icons={{
         success: <CircleCheck size={17} strokeWidth={1.75} className="text-live" />,
-        info: <Info size={17} strokeWidth={1.75} className="text-accent" />,
+        info: <Info size={17} strokeWidth={1.75} className="text-accent-ink" />,
         warning: <TriangleAlert size={17} strokeWidth={1.75} className="text-warning" />,
         error: <CircleAlert size={17} strokeWidth={1.75} className="text-breaking" />,
         loading: <Spinner size={17} label={null} className="text-fg-muted" />

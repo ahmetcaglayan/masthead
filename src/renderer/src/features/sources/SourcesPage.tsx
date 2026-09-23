@@ -25,7 +25,7 @@ export function SourcesPage(): React.JSX.Element {
         title={t('sources.page.title')}
         description={t('sources.page.description')}
       />
-      <SourcesList className="mt-8" />
+      <SourcesList headingLevel="h2" className="mt-8" />
     </Page>
   )
 }

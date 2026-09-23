@@ -83,7 +83,7 @@ function NavItem({
             'relative flex h-9 w-full items-center rounded-xl text-left font-ui text-[13.5px] font-medium transition-colors duration-150 in-data-[density=compact]:h-8',
             // Collapsed: no side padding, so the icon sits in the middle of its own pill.
             collapsed ? 'justify-center px-0' : 'gap-3 px-[15px]',
-            active ? 'bg-accent-soft text-accent' : 'text-fg-muted hover:bg-muted hover:text-fg'
+            active ? 'bg-accent-soft text-accent-ink' : 'text-fg-muted hover:bg-muted hover:text-fg'
           )}
         >
           {active && (

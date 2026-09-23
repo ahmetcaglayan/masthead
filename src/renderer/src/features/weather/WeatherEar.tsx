@@ -147,7 +147,7 @@ export function WeatherEar({ className }: { className?: string }): React.JSX.Ele
             '-mx-2 rounded-full px-2 py-0.5 transition-colors hover:bg-muted hover:text-fg data-[state=open]:bg-muted'
           )}
         >
-          <Icon size={16} strokeWidth={1.75} aria-hidden className="text-accent" />
+          <Icon size={16} strokeWidth={1.75} aria-hidden className="text-accent-ink" />
           <span className="font-semibold text-fg tabular-nums">{degrees(report.current.temperature)}</span>
           <span>{report.place}</span>
           {today && (
@@ -162,7 +162,7 @@ export function WeatherEar({ className }: { className?: string }): React.JSX.Ele
           {report.place}
         </p>
         <div className="mt-2 flex items-center gap-3">
-          <Icon size={32} strokeWidth={1.5} aria-hidden className="text-accent" />
+          <Icon size={32} strokeWidth={1.5} aria-hidden className="text-accent-ink" />
           <div>
             <p className="font-ui text-2xl leading-tight font-semibold tabular-nums">
               {degrees(report.current.temperature)}

@@ -55,7 +55,7 @@ function SourceHeader({ source, count }: { source: SourceDef; count: number }): 
           <button
             type="button"
             onClick={() => void api.reader.openExternal(source.homepage)}
-            className="inline-flex items-center gap-1 rounded-md font-medium text-fg transition-colors duration-150 hover:text-accent"
+            className="inline-flex items-center gap-1 rounded-md font-medium text-fg transition-colors duration-150 hover:text-accent-ink"
           >
             {domain(source.homepage)}
             <ExternalLink size={13} strokeWidth={1.75} aria-hidden />

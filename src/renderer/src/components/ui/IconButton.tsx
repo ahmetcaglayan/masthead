@@ -61,7 +61,7 @@ export function IconButton({
         'inline-flex shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-150 ease-out select-none active:scale-95',
         'disabled:pointer-events-none disabled:opacity-45',
         VARIANTS[variant],
-        pressed && 'bg-accent-soft text-accent hover:bg-accent-soft hover:text-accent',
+        pressed && 'bg-accent-soft text-accent-ink hover:bg-accent-soft hover:text-accent-ink',
         box,
         className
       )}

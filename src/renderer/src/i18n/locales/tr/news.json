@@ -131,7 +131,8 @@
     "emptyBody": "Birden fazla kaynağın verdiği haberler burada toplanacak. Birazdan tekrar bakın.",
     "soloTitle": "Tek manşette",
     "soloBody": "Şimdilik yalnızca bir kaynağın manşete taşıdığı haberler.",
-    "more": "Daha fazla haber göster"
+    "more": "Daha fazla haber göster",
+    "sharedTitle": "Birden çok kaynağın verdiği haberler"
   },
   "latest": {
     "title": "Son Haberler",
@@ -275,7 +276,8 @@
     "startBody": "Başlık ve özetlerde arar. Türkçe karakter şart değil: “ogretmen” yazsanız da “öğretmen”i bulur.",
     "focus": "Aramaya başla",
     "noResultsBody": "Farklı ya da daha az kelimeyle deneyin. Tırnak içindeki ifadeler birebir aranır.",
-    "noResultsFiltered": "Filtreler bazı sonuçları gizliyor olabilir."
+    "noResultsFiltered": "Filtreler bazı sonuçları gizliyor olabilir.",
+    "resultsHeading": "Sonuçlar"
   },
   "saved": {
     "title": "Kaydedilenler",
@@ -330,5 +332,6 @@
       "snow": "Karlı",
       "thunderstorm": "Gök gürültülü fırtına"
     }
-  }
+  },
+  "browse": "Haberlere göz at"
 }

@@ -30,16 +30,19 @@
   --line-strong: rgb(40 34 24 / 0.16);
 
   /* accent (overridden per data-accent) */
-  --accent: #e5462b;
-  --accent-hover: #cf3a20;
-  --accent-soft: rgb(229 70 43 / 0.1);
+  /* fills carry white text at ≥4.5:1; --accent-ink is the accent for text, ≥4.5:1 on every surface */
+  --accent: #d34028;
+  --accent-hover: #bb361f;
+  --accent-soft: rgb(211 64 40 / 0.1);
+  --accent-ink: #b03621;
   --on-accent: #ffffff;
 
   /* status — breaking is a deep crimson, kept well apart from the ember accent */
   --breaking: #c8102e;
   --breaking-soft: rgb(200 16 46 / 0.09);
   --on-breaking: #ffffff;
-  --live: #16a34a;
+  /* ≥4.5:1 on white and on the canvas: the "Live" label is small text */
+  --live: #15803d;
   --warning: #c2710c;
   /* market moves: up and down, readable as text on the canvas */
   --up: #15803d;
@@ -90,6 +93,7 @@
   --accent: #ff6a4a;
   --accent-hover: #ff8468;
   --accent-soft: rgb(255 106 74 / 0.14);
+  --accent-ink: var(--accent);
   --on-accent: #1a0d08;
 
   --breaking: #ff4d5e;
@@ -116,61 +120,72 @@
   --accent: #2463eb;
   --accent-hover: #1d4fd0;
   --accent-soft: rgb(36 99 235 / 0.1);
+  --accent-ink: #2058d1;
   --on-accent: #ffffff;
 }
 [data-theme='dark'][data-accent='ocean'] {
   --accent: #6b9bff;
   --accent-hover: #8db2ff;
   --accent-soft: rgb(107 155 255 / 0.15);
+  --accent-ink: var(--accent);
   --on-accent: #06122b;
 }
 [data-accent='forest'] {
-  --accent: #178a4c;
+  --accent: #16864a;
   --accent-hover: #117440;
-  --accent-soft: rgb(23 138 76 / 0.1);
+  --accent-soft: rgb(22 134 74 / 0.1);
+  --accent-ink: #13703e;
   --on-accent: #ffffff;
 }
 [data-theme='dark'][data-accent='forest'] {
   --accent: #45c486;
   --accent-hover: #66d49e;
   --accent-soft: rgb(69 196 134 / 0.15);
+  --accent-ink: var(--accent);
   --on-accent: #04170d;
 }
 [data-accent='violet'] {
   --accent: #7440e0;
   --accent-hover: #6232c8;
   --accent-soft: rgb(116 64 224 / 0.1);
+  --accent-ink: #6f3dd7;
   --on-accent: #ffffff;
 }
 [data-theme='dark'][data-accent='violet'] {
   --accent: #a98bff;
   --accent-hover: #bda6ff;
   --accent-soft: rgb(169 139 255 / 0.16);
+  --accent-ink: var(--accent);
   --on-accent: #140a2e;
 }
 [data-accent='gold'] {
-  --accent: #b0700c;
+  --accent: #a4680b;
   --accent-hover: #955e08;
-  --accent-soft: rgb(176 112 12 / 0.11);
+  --accent-soft: rgb(164 104 11 / 0.11);
+  --accent-ink: #885609;
   --on-accent: #ffffff;
 }
 [data-theme='dark'][data-accent='gold'] {
   --accent: #eab44f;
   --accent-hover: #f2c670;
   --accent-soft: rgb(234 180 79 / 0.16);
+  --accent-ink: var(--accent);
   --on-accent: #1f1502;
 }
 /* Ember is the :root default; restated so a nested [data-accent='ember'] (accent swatches) resolves too. */
 [data-accent='ember'] {
-  --accent: #e5462b;
-  --accent-hover: #cf3a20;
-  --accent-soft: rgb(229 70 43 / 0.1);
+  /* fills carry white text at ≥4.5:1; --accent-ink is the accent for text, ≥4.5:1 on every surface */
+  --accent: #d34028;
+  --accent-hover: #bb361f;
+  --accent-soft: rgb(211 64 40 / 0.1);
+  --accent-ink: #b03621;
   --on-accent: #ffffff;
 }
 [data-theme='dark'][data-accent='ember'] {
   --accent: #ff6a4a;
   --accent-hover: #ff8468;
   --accent-soft: rgb(255 106 74 / 0.14);
+  --accent-ink: var(--accent);
   --on-accent: #1a0d08;
 }
 
@@ -188,6 +203,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
   --color-on-accent: var(--on-accent);
   --color-breaking: var(--breaking);
   --color-breaking-soft: var(--breaking-soft);

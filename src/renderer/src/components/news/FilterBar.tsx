@@ -49,7 +49,7 @@ const setFilters = (patch: Partial<Filters>): void => useUi.getState().setFilter
 
 /** Trigger styling that shows whether its filter is in use. */
 const triggerClass = (active: boolean): string =>
-  cn(active && 'bg-accent-soft text-accent hover:bg-accent-soft hover:text-accent')
+  cn(active && 'bg-accent-soft text-accent-ink hover:bg-accent-soft hover:text-accent-ink')
 
 function CheckRow({
   checked,
@@ -149,7 +149,7 @@ function SourcePicker({
 function ActiveChip({ label, onRemove }: { label: string; onRemove: () => void }): React.JSX.Element {
   const { t } = useTranslation('news')
   return (
-    <span className="inline-flex h-7 items-center gap-1 rounded-full bg-accent-soft pr-1 pl-3 font-ui text-[12.5px] font-medium text-accent">
+    <span className="inline-flex h-7 items-center gap-1 rounded-full bg-accent-soft pr-1 pl-3 font-ui text-[12.5px] font-medium text-accent-ink">
       {label}
       <button
         type="button"
@@ -279,7 +279,7 @@ export function FilterSummary({ hide = [] }: { hide?: readonly FilterControl[] }
   if (active.length === 0) return null
   const label = active.map((f) => f.short).join(' · ')
   return (
-    <span className="inline-flex h-8 max-w-80 items-center gap-1.5 rounded-full bg-accent-soft pr-1 pl-3 font-ui text-[12.5px] font-medium text-accent">
+    <span className="inline-flex h-8 max-w-80 items-center gap-1.5 rounded-full bg-accent-soft pr-1 pl-3 font-ui text-[12.5px] font-medium text-accent-ink">
       <ListFilter size={14} strokeWidth={2} aria-hidden className="shrink-0" />
       <span className="truncate">{t('filters.filtered', { filters: label })}</span>
       <button

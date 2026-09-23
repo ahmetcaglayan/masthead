@@ -98,7 +98,7 @@ export function MenuCheckboxItem({
     >
       {Icon && <Icon size={16} strokeWidth={1.75} aria-hidden className="text-fg-muted" />}
       <span className="min-w-0 flex-1">{children}</span>
-      <DropdownMenu.ItemIndicator className="absolute right-2.5 text-accent">
+      <DropdownMenu.ItemIndicator className="absolute right-2.5 text-accent-ink">
         <Check size={15} strokeWidth={2.25} aria-hidden />
       </DropdownMenu.ItemIndicator>
     </DropdownMenu.CheckboxItem>
@@ -120,7 +120,7 @@ export function MenuRadioItem({
     <DropdownMenu.RadioItem className={cn(ITEM, 'pr-8', className)} {...props}>
       {Icon && <Icon size={16} strokeWidth={1.75} aria-hidden className="text-fg-muted" />}
       <span className="min-w-0 flex-1">{children}</span>
-      <DropdownMenu.ItemIndicator className="absolute right-2.5 text-accent">
+      <DropdownMenu.ItemIndicator className="absolute right-2.5 text-accent-ink">
         <Check size={15} strokeWidth={2.25} aria-hidden />
       </DropdownMenu.ItemIndicator>
     </DropdownMenu.RadioItem>

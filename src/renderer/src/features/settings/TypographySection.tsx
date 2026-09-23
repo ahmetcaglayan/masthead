@@ -85,7 +85,7 @@ function TypographyPreview(): React.JSX.Element {
     <div className="@container rounded-card border border-line bg-canvas p-6 in-data-[density=compact]:p-5">
       <div className="grid gap-6 @xl:grid-cols-[1.15fr_1fr] @xl:gap-8">
         <article>
-          <div className="text-[11px] font-semibold tracking-wider text-accent uppercase">
+          <div className="text-[11px] font-semibold tracking-wider text-accent-ink uppercase">
             {t('typography.preview.kicker')}
           </div>
           <h3 className="headline mt-2 text-[1.625rem] leading-[1.15] font-semibold text-fg">

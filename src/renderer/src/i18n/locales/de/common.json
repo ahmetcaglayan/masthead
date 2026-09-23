@@ -26,7 +26,8 @@
     "collapse": "Seitenleiste einklappen",
     "expand": "Seitenleiste ausklappen",
     "breakingCount_one": "{{count}} neue Meldung in den letzten 2 Stunden",
-    "breakingCount_other": "{{count}} neue Meldungen in den letzten 2 Stunden"
+    "breakingCount_other": "{{count}} neue Meldungen in den letzten 2 Stunden",
+    "skipToContent": "Zum Inhalt springen"
   },
   "category": {
     "top": "Schlagzeilen",

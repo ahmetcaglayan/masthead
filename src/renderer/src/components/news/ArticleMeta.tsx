@@ -99,7 +99,7 @@ export function SourceCountBadge({
       className={cn(
         classes,
         'relative z-10 transition-colors duration-150',
-        inverse ? 'hover:bg-on-scrim/25' : 'hover:bg-accent-soft hover:text-accent'
+        inverse ? 'hover:bg-on-scrim/25' : 'hover:bg-accent-soft hover:text-accent-ink'
       )}
     >
       {content}

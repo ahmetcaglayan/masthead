@@ -24,7 +24,7 @@ function RelatedReports({
 }): React.JSX.Element {
   const { t } = useTranslation('news')
   return (
-    <aside aria-label={t('card.alsoReporting')} className="min-w-0">
+    <div role="group" aria-label={t('card.alsoReporting')} className="min-w-0">
       <h3 className="font-ui text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
         {t('card.alsoReporting')}
       </h3>
@@ -35,7 +35,7 @@ function RelatedReports({
           </li>
         ))}
       </ul>
-    </aside>
+    </div>
   )
 }
 
