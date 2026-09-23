@@ -10,6 +10,7 @@
     "typography": "Typography",
     "language": "Language & region",
     "interests": "Interests",
+    "muted": "Muted words",
     "sources": "Sources",
     "reading": "Reading",
     "notifications": "Notifications",
@@ -297,5 +298,21 @@
       "label": "Install updates automatically",
       "description": "Masthead checks every hour, downloads new versions in the background and asks you to restart."
     }
+  },
+  "muted": {
+    "description": "Stories that mention these words disappear from every page — and never set off a breaking-news notification.",
+    "label": "Word or phrase to mute",
+    "placeholder": "Add a word or phrase…",
+    "add": "Mute",
+    "hint": "Case and accents don't matter. Words of four letters or more also hide their other forms: “election” hides “elections” too.",
+    "duplicate": "That word is already muted.",
+    "full": "You can mute up to {{count}} words.",
+    "listLabel": "Muted words",
+    "remove": "Unmute “{{word}}”",
+    "hidden_zero": "No story mentions them right now.",
+    "hidden_one": "Hiding {{formatted}} story right now.",
+    "hidden_other": "Hiding {{formatted}} stories right now.",
+    "clear": "Unmute all",
+    "empty": "Nothing is muted."
   }
 }

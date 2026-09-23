@@ -1,6 +1,7 @@
 import { useCallback, useSyncExternalStore } from 'react'
 import { create } from 'zustand'
 import type { CategoryId } from '@shared/categories'
+import type { MuteMatcher } from '@shared/mute'
 import type { Article, ArticleDetail, NewsSnapshot, RefreshStatus, StoryCluster } from '@shared/types'
 import { api } from '@/lib/api'
 import { isBreakingNews } from '@/lib/headline'
@@ -85,15 +86,32 @@ function indexSnapshot(
   }
 }
 
-let viewCache: { index: SnapshotIndex; isEnabled: (id: string) => boolean; view: NewsView } | null = null
+let viewCache: {
+  index: SnapshotIndex
+  isEnabled: (id: string) => boolean
+  isMuted: MuteMatcher | null
+  view: NewsView
+} | null = null
 
 /**
  * The indexed view of a snapshot for a source filter (`useSources().isEnabled`,
- * whose identity changes only with the settings). Cached on both inputs, so it
- * is built once per snapshot and source selection, not per component.
+ * whose identity changes only with the settings), without the stories that
+ * mention a muted word (`muteMatcherFor`, reused while the list is unchanged).
+ * Cached on all three inputs, so it is built once per snapshot, source
+ * selection and muted list, not per component.
  */
-export function selectView(index: SnapshotIndex, isEnabled: (sourceId: string) => boolean): NewsView {
-  if (viewCache && viewCache.index === index && viewCache.isEnabled === isEnabled) return viewCache.view
+export function selectView(
+  index: SnapshotIndex,
+  isEnabled: (sourceId: string) => boolean,
+  isMuted: MuteMatcher | null = null
+): NewsView {
+  if (
+    viewCache &&
+    viewCache.index === index &&
+    viewCache.isEnabled === isEnabled &&
+    viewCache.isMuted === isMuted
+  )
+    return viewCache.view
   const articles: Article[] = []
   const byCategory = new Map<CategoryId, Article[]>()
   const bySource = new Map<string, Article[]>()
@@ -101,7 +119,7 @@ export function selectView(index: SnapshotIndex, isEnabled: (sourceId: string) =
   const byRegion = new Map<string, Article[]>()
   const breaking: Article[] = []
   for (const article of index.sorted) {
-    if (!isEnabled(article.sourceId)) continue
+    if (!isEnabled(article.sourceId) || isMuted?.(article)) continue
     articles.push(article)
     push(bySource, article.sourceId, article)
     for (const c of article.categories) push(byCategory, c, article)
@@ -119,7 +137,7 @@ export function selectView(index: SnapshotIndex, isEnabled: (sourceId: string) =
     clusters: index.clusters,
     clustersById: index.clustersById
   }
-  viewCache = { index, isEnabled, view }
+  viewCache = { index, isEnabled, isMuted, view }
   return view
 }
 

@@ -10,6 +10,7 @@
     "typography": "Tipografia",
     "language": "Idioma e região",
     "interests": "Interesses",
+    "muted": "Palavras silenciadas",
     "sources": "Fontes",
     "reading": "Leitura",
     "notifications": "Notificações",
@@ -297,5 +298,21 @@
       "label": "Instalar atualizações automaticamente",
       "description": "O Masthead verifica a cada hora, baixa novas versões em segundo plano e pede que você reinicie."
     }
+  },
+  "muted": {
+    "description": "Notícias que mencionam estas palavras somem de todas as páginas — e não geram notificação de urgente.",
+    "label": "Palavra ou expressão a silenciar",
+    "placeholder": "Adicionar palavra ou expressão…",
+    "add": "Silenciar",
+    "hint": "Maiúsculas e acentos não importam. Palavras com quatro letras ou mais também escondem outras formas: “greve” esconde “greves” também.",
+    "duplicate": "Essa palavra já está silenciada.",
+    "full": "Você pode silenciar até {{count}} palavras.",
+    "listLabel": "Palavras silenciadas",
+    "remove": "Deixar de silenciar “{{word}}”",
+    "hidden_zero": "Nenhuma notícia menciona essas palavras agora.",
+    "hidden_one": "{{formatted}} notícia escondida agora.",
+    "hidden_other": "{{formatted}} notícias escondidas agora.",
+    "clear": "Remover todas",
+    "empty": "Nada silenciado."
   }
 }

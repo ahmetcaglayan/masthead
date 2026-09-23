@@ -14,6 +14,9 @@ All notable changes to this project are documented here. The format follows
   macOS app and the .deb, which can't replace themselves, say when a new version is out and link to the download.
   Settings → Data & About shows the running version and where the updater stands, checks on demand, and turns
   automatic installs off (then new versions are offered, not downloaded). Windows on ARM gets the ARM installer.
+- **Muted words.** Settings → Muted words hides every story that mentions them, on every page, and keeps them out
+  of breaking-news notifications. Case, Turkish characters and accents don't matter; words of four letters or more
+  also hide their inflected forms ("deprem" hides "depremde"), shorter ones only whole words.
 
 ## [0.3.0] - 2026-09-23
 

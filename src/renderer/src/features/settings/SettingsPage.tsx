@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import {
   Bell,
   Database,
+  EyeOff,
   Languages,
   Palette,
   RefreshCw,
@@ -25,6 +26,7 @@ import { AppearanceSection } from './AppearanceSection'
 import { DataSection } from './DataSection'
 import { InterestPicker } from './InterestPicker'
 import { LanguageRegionSection } from './LanguageRegionSection'
+import { MutedSection } from './MutedSection'
 import { NotificationsSection, ReadingSection, UpdatesSection } from './ReadingSections'
 import { SETTINGS_SECTIONS, sectionElementId, type SettingsSectionId } from './sections'
 import { SettingsCard, SettingsSection } from './SettingsLayout'
@@ -35,6 +37,7 @@ const ICONS: Record<SettingsSectionId, LucideIcon> = {
   typography: Type,
   language: Languages,
   interests: Sparkles,
+  muted: EyeOff,
   sources: Rss,
   reading: BookOpen,
   notifications: Bell,
@@ -207,6 +210,7 @@ export function SettingsPage({ section }: { section?: string }): React.JSX.Eleme
     typography: <TypographySection />,
     language: <LanguageRegionSection />,
     interests: <InterestsSection />,
+    muted: <MutedSection />,
     sources: (
       <SettingsSection id="sources" title={t('nav.sources')} description={t('sources.description')}>
         <SourcesList />

@@ -1,16 +1,20 @@
+import { muteMatcherFor } from '@shared/mute'
 import type { Article } from '@shared/types'
 import { useSources } from '@/hooks/useSources'
 import { selectView, useNews, type NewsView } from '@/stores/news'
+import { useSettings } from '@/stores/settings'
 
 /**
- * The current snapshot narrowed to the enabled sources, with per-category,
- * per-source, per-place and breaking lists indexed once (see `selectView`).
- * Re-renders only when the snapshot or the source switches change.
+ * The current snapshot narrowed to the enabled sources and without muted
+ * stories, with per-category, per-source, per-place and breaking lists indexed
+ * once (see `selectView`). Re-renders only when the snapshot, the source
+ * switches or the muted words change.
  */
 export function useNewsView(): NewsView {
   const index = useNews((s) => s.index)
   const { isEnabled } = useSources()
-  return selectView(index, isEnabled)
+  const isMuted = muteMatcherFor(useSettings((s) => s.settings.muted.keywords))
+  return selectView(index, isEnabled, isMuted)
 }
 
 /**

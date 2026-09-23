@@ -87,12 +87,7 @@ const india = (
       <circle cx="45" cy="30" r="8" strokeWidth="1.4" />
       <circle cx="45" cy="30" r="1.6" fill="#000080" stroke="none" />
       {Array.from({ length: 12 }, (_, i) => (
-        <path
-          key={i}
-          d="M45 22.4V37.6"
-          strokeWidth="0.7"
-          transform={`rotate(${i * 15} 45 30)`}
-        />
+        <path key={i} d="M45 22.4V37.6" strokeWidth="0.7" transform={`rotate(${i * 15} 45 30)`} />
       ))}
     </g>
   </>

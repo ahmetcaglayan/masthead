@@ -1,5 +1,6 @@
 import { Notification } from 'electron'
 import { getSource } from '@shared/countries'
+import { muteMatcherFor } from '@shared/mute'
 import type { Settings } from '@shared/settings'
 import type { Article } from '@shared/types'
 
@@ -15,6 +16,7 @@ export interface BreakingNotifierOptions {
 /**
  * Desktop notifications for newly seen breaking stories, newest first and at
  * most three per refresh, titled "<source> · Son dakika" ("Breaking" in the English UI).
+ * Stories mentioning a muted word stay silent.
  */
 export function createBreakingNotifier({
   getSettings,
@@ -26,7 +28,12 @@ export function createBreakingNotifier({
   return (articles) => {
     const settings = getSettings()
     if (!settings.notifications.breaking || articles.length === 0 || !Notification.isSupported()) return
-    const newest = [...articles].sort((a, b) => b.publishedAt - a.publishedAt).slice(0, MAX_PER_BATCH)
+    // A muted word silences its breaking news too.
+    const isMuted = muteMatcherFor(settings.muted.keywords)
+    const newest = articles
+      .filter((article) => !isMuted?.(article))
+      .sort((a, b) => b.publishedAt - a.publishedAt)
+      .slice(0, MAX_PER_BATCH)
     for (const article of newest) {
       const source = getSource(settings.country, article.sourceId)?.name ?? article.sourceId
       const title = `${source} · ${LABEL[settings.language]}`

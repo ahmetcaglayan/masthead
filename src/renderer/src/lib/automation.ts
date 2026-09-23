@@ -3,12 +3,13 @@
  * self-test modes (src/main/automation) use to drive the renderer. Installed once
  * after boot by main.tsx; nothing here runs until one of its methods is called.
  */
+import { muteMatcherFor } from '@shared/mute'
 import type { ReaderMode } from '@shared/settings'
 import { routeKey } from '@/components/layout/routing'
 import { getMainScrollElement } from '@/hooks/useMainScroll'
 import { getSources } from '@/hooks/useSources'
 import { selectView, useNews } from '@/stores/news'
-import { useSettings } from '@/stores/settings'
+import { getSettings, useSettings } from '@/stores/settings'
 import { useUi, type Route } from '@/stores/ui'
 
 export interface MastheadAutomation {
@@ -100,7 +101,11 @@ const automation: MastheadAutomation = {
   },
 
   openArticle(index, mode) {
-    const view = selectView(useNews.getState().index, getSources().isEnabled)
+    const view = selectView(
+      useNews.getState().index,
+      getSources().isEnabled,
+      muteMatcherFor(getSettings().muted.keywords)
+    )
     const pictured = view.articles.filter((a) => a.image)
     const article = pictured[index]
     if (!article) return null

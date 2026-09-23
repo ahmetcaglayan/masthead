@@ -10,6 +10,7 @@
     "typography": "Tipografi",
     "language": "Dil ve bölge",
     "interests": "İlgi alanları",
+    "muted": "Susturulan kelimeler",
     "sources": "Kaynaklar",
     "reading": "Okuma",
     "notifications": "Bildirimler",
@@ -297,5 +298,21 @@
       "label": "Güncellemeleri otomatik kur",
       "description": "Masthead her saat bakar, yeni sürümü arka planda indirir ve yeniden başlatmanızı ister."
     }
+  },
+  "muted": {
+    "description": "Bu kelimeleri anan haberler hiçbir sayfada görünmez, son dakika bildirimi olarak da gelmez.",
+    "label": "Susturulacak kelime ya da ifade",
+    "placeholder": "Kelime ya da ifade ekleyin…",
+    "add": "Sustur",
+    "hint": "Büyük-küçük harf ve Türkçe karakter fark etmez. Dört harf ve üstü kelimeler ekli hallerini de gizler: “deprem” yazarsanız “depremde”, “depremin” de gizlenir.",
+    "duplicate": "Bu kelime zaten susturulmuş.",
+    "full": "En fazla {{count}} kelime susturabilirsiniz.",
+    "listLabel": "Susturulan kelimeler",
+    "remove": "“{{word}}” susturmasını kaldır",
+    "hidden_zero": "Şu an bu kelimeleri anan haber yok.",
+    "hidden_one": "Şu an {{formatted}} haber gizleniyor.",
+    "hidden_other": "Şu an {{formatted}} haber gizleniyor.",
+    "clear": "Tümünü kaldır",
+    "empty": "Susturulan kelime yok."
   }
 }

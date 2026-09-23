@@ -10,6 +10,7 @@
     "typography": "Schrift",
     "language": "Sprache & Region",
     "interests": "Interessen",
+    "muted": "Stummgeschaltete Wörter",
     "sources": "Quellen",
     "reading": "Lesen",
     "notifications": "Benachrichtigungen",
@@ -297,5 +298,21 @@
       "label": "Updates automatisch installieren",
       "description": "Masthead sucht stündlich, lädt neue Versionen im Hintergrund und bittet Sie dann um einen Neustart."
     }
+  },
+  "muted": {
+    "description": "Meldungen, die diese Wörter erwähnen, verschwinden von allen Seiten – und lösen keine Eilmeldung aus.",
+    "label": "Wort oder Ausdruck zum Stummschalten",
+    "placeholder": "Wort oder Ausdruck hinzufügen…",
+    "add": "Stummschalten",
+    "hint": "Groß- und Kleinschreibung sowie Akzente spielen keine Rolle. Wörter ab vier Buchstaben verbergen auch ihre anderen Formen: „Wahl“ verbirgt auch „Wahlen“.",
+    "duplicate": "Dieses Wort ist schon stummgeschaltet.",
+    "full": "Sie können bis zu {{count}} Wörter stummschalten.",
+    "listLabel": "Stummgeschaltete Wörter",
+    "remove": "„{{word}}“ nicht mehr stummschalten",
+    "hidden_zero": "Gerade erwähnt keine Meldung diese Wörter.",
+    "hidden_one": "Gerade ist {{formatted}} Meldung ausgeblendet.",
+    "hidden_other": "Gerade sind {{formatted}} Meldungen ausgeblendet.",
+    "clear": "Alle aufheben",
+    "empty": "Nichts ist stummgeschaltet."
   }
 }

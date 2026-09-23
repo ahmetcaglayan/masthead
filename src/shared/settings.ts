@@ -1,5 +1,6 @@
 import { isCategoryId, type CategoryId } from './categories'
 import { getCountryPack } from './countries/index'
+import { cleanMutedKeywords } from './mute'
 import type { CountryCode, RegionId } from './types'
 
 export const UI_LANGUAGES = ['en', 'tr', 'de', 'pt', 'hi'] as const
@@ -140,6 +141,10 @@ export interface Settings {
     /** Download and install new versions of Masthead in the background; the user only restarts. */
     auto: boolean
   }
+  muted: {
+    /** Stories mentioning any of these words are hidden everywhere (see `createMuteMatcher`). */
+    keywords: string[]
+  }
   window?: {
     width: number
     height: number
@@ -165,7 +170,8 @@ export const DEFAULT_SETTINGS: Settings = {
   // Reader mode by default: the article as text, with the publisher's page one click away.
   reader: { defaultMode: 'reader', blockAds: true },
   notifications: { breaking: true },
-  appUpdates: { auto: true }
+  appUpdates: { auto: true },
+  muted: { keywords: [] }
 }
 
 type DeepPartial<T> = {
@@ -211,6 +217,7 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
   const reader = obj(p.reader)
   const notifications = obj(p.notifications)
   const appUpdates = obj(p.appUpdates)
+  const muted = obj(p.muted)
   const win = obj(p.window)
 
   const scale =
@@ -270,6 +277,9 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
     },
     appUpdates: {
       auto: typeof appUpdates.auto === 'boolean' ? appUpdates.auto : base.appUpdates.auto
+    },
+    muted: {
+      keywords: Array.isArray(muted.keywords) ? cleanMutedKeywords(muted.keywords) : base.muted.keywords
     },
     window: base.window
   }

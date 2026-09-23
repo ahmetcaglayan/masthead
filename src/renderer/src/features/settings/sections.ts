@@ -4,6 +4,7 @@ export const SETTINGS_SECTIONS = [
   'typography',
   'language',
   'interests',
+  'muted',
   'sources',
   'reading',
   'notifications',
