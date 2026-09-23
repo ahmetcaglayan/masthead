@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Masthead",
-    "tagline": "हर सुर्ख़ी, एक शांत मुखपृष्ठ पर।"
+    "tagline": "हर सुर्ख़ी, एक शांत पहले पन्ने पर।"
   },
   "nav": {
     "main": "मुख्य नेविगेशन",
@@ -131,7 +131,7 @@
     "updated": "{{time}} अपडेट हुआ",
     "updatedJustNow": "अभी-अभी अपडेट हुआ",
     "neverUpdated": "अभी तक अपडेट नहीं हुआ",
-    "refreshProgress": "फ़ीड आ रहे हैं ({{done}}/{{total}})",
+    "refreshProgress": "फ़ीड आ रही हैं ({{done}}/{{total}})",
     "themeTooltip": "थीम: {{mode}}",
     "webBadge": "वेब",
     "webBadgeHint": "ब्राउज़र प्रीव्यू में चल रहा है"

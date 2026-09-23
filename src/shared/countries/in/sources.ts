@@ -2,8 +2,10 @@ import type { SourceDef } from '../../types'
 
 /*
  * India — Hindi and English national sources. Someone who picks India reads the news
- * of India: the Hindi newsrooms come first and are all on by default, with the
- * English national press (which is native here, not foreign) beside them. Every feed
+ * of India, and that news is written in Hindi as much as in English: the six Hindi
+ * newsrooms are all on by default, beside four of the English nationals (the Times of
+ * India, The Hindu, The Indian Express and NDTV). The other English papers ship off —
+ * one tap on the Sources page brings them back — so the front page reads Hindi first. Every feed
  * was checked on 2026-09-23 (re-check with `npm run verify:feeds in`).
  *
  * Not included: Dainik Jagran, Navbharat Times, Zee News Hindi, Patrika and The
@@ -145,6 +147,7 @@ export const sources: SourceDef[] = [
     color: '#004B8D',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [
       {
         url: 'https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml',
@@ -202,6 +205,7 @@ export const sources: SourceDef[] = [
     color: '#E31E24',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [{ url: 'https://www.indiatoday.in/rss/1206578', category: 'general' }]
   },
   {
@@ -212,6 +216,7 @@ export const sources: SourceDef[] = [
     color: '#EE2A24',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [
       { url: 'https://www.news18.com/rss/india.xml', category: 'national' },
       { url: 'https://www.news18.com/rss/world.xml', category: 'world' }
@@ -237,6 +242,7 @@ export const sources: SourceDef[] = [
     color: '#C1272D',
     kind: 'business',
     language: 'en',
+    defaultEnabled: false,
     feeds: [{ url: 'https://economictimes.indiatimes.com/rssfeedstopstories.cms', category: 'economy' }]
   },
   {
@@ -247,6 +253,7 @@ export const sources: SourceDef[] = [
     color: '#0A7BBF',
     kind: 'business',
     language: 'en',
+    defaultEnabled: false,
     feeds: [{ url: 'https://www.livemint.com/rss/news', category: 'economy' }]
   }
 ]
