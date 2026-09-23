@@ -41,6 +41,21 @@ function RelatedReports({
 
 export type ArticleCardVariant = 'hero' | 'feature' | 'standard' | 'compact' | 'row' | 'timeline' | 'text'
 
+/**
+ * How much summary a card shows before "Full summary": enough to know what the story is,
+ * short enough that cards in a row end at about the same height. The lead story (`hero`)
+ * is the exception — it carries the whole summary, which is the point of the front page.
+ */
+const SUMMARY_CHARS: Record<ArticleCardVariant, number> = {
+  hero: 0,
+  feature: 400,
+  standard: 300,
+  compact: 240,
+  row: 320,
+  timeline: 280,
+  text: 300
+}
+
 export interface ArticleCardProps {
   article: Article
   variant?: ArticleCardVariant
@@ -58,6 +73,11 @@ export interface ArticleCardProps {
   clampSummary?: number
   /** Cut the summary after this many sentences with an inline "Full summary" (narrow columns). */
   maxSentences?: number
+  /**
+   * Cut the summary to about this many characters, with an inline "Full summary". Defaults
+   * to the variant's budget (see SUMMARY_CHARS); pass 0 for the whole summary.
+   */
+  maxChars?: number
   /** Load the image eagerly with high priority (above the fold). */
   priority?: boolean
   /** Only label breaking news, not the topic (e.g. on a category page). */
@@ -94,6 +114,7 @@ export const ArticleCard = memo(function ArticleCard({
   highlight,
   clampSummary,
   maxSentences,
+  maxChars,
   priority = false,
   breakingOnly = false,
   hideBreaking = false,
@@ -110,7 +131,15 @@ export const ArticleCard = memo(function ArticleCard({
   const titleTone = read ? 'text-fg-muted' : 'text-fg'
   const imageTone = read && 'opacity-75 saturate-[0.8]'
   const title = { article, queue, highlight, lang }
-  const summary = { article, highlight, queue, clamp: clampSummary, maxSentences }
+  const budget = maxChars ?? SUMMARY_CHARS[variant]
+  const summary = {
+    article,
+    highlight,
+    queue,
+    clamp: clampSummary,
+    maxSentences,
+    maxChars: budget || undefined
+  }
   const kicker = <ArticleKicker article={article} breakingOnly={breakingOnly} hideBreaking={hideBreaking} />
   const meta = (
     <ArticleMeta

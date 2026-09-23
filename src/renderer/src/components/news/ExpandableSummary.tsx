@@ -11,7 +11,7 @@ import { cn } from '@/lib/cn'
 import { useNews } from '@/stores/news'
 import { openArticle } from './actions'
 import { HighlightText } from './HighlightText'
-import { leadSentences } from './utils'
+import { leadCharacters, leadSentences } from './utils'
 
 export type SummarySize = 'sm' | 'md' | 'lg' | 'xl'
 
@@ -64,6 +64,11 @@ export interface ExpandableSummaryProps {
    * sentence end and never mid-word (narrow columns with long summaries).
    */
   maxSentences?: number
+  /**
+   * Show at most about this many characters until "Full summary" is pressed, so the
+   * cards in a row keep the same height. The lead story leaves it unset.
+   */
+  maxChars?: number
   size?: SummarySize
   /** Folded search terms to highlight. */
   highlight?: readonly string[]
@@ -86,6 +91,7 @@ export function ExpandableSummary({
   article,
   clamp,
   maxSentences,
+  maxChars,
   size = 'md',
   highlight,
   allowDetail = true,
@@ -100,10 +106,13 @@ export function ExpandableSummary({
   const [detailOpen, setDetailOpen] = useState(false)
   const textRef = useRef<HTMLDivElement>(null)
   const clamped = clamp !== undefined && !expanded
-  const preview = useMemo(
-    () => (maxSentences === undefined ? null : leadSentences(paras, maxSentences)),
-    [paras, maxSentences]
-  )
+  const preview = useMemo(() => {
+    const bySentence = maxSentences === undefined ? null : leadSentences(paras, maxSentences)
+    if (maxChars === undefined) return bySentence
+    const source = bySentence?.paragraphs ?? paras
+    const byLength = leadCharacters(source, maxChars)
+    return { paragraphs: byLength.paragraphs, cut: byLength.cut || (bySentence?.cut ?? false) }
+  }, [paras, maxSentences, maxChars])
   const shortened = preview !== null && preview.cut && !expanded
   const shown = shortened ? preview.paragraphs : paras
   const trimmable = clamp !== undefined || (preview?.cut ?? false)

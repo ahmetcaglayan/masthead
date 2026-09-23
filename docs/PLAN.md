@@ -101,8 +101,9 @@ Tek ekranda, **alt alta beliren kısa sorular** (her cevapta bir sonraki soru yu
 Hedef: kullanıcı hiçbir habere tıklamadan da günün gündemini eksiksiz öğrenebilsin.
 
 - **Başlıklar asla kesilmez.** Kartlarda başlığın tamamı görünür (üç nokta ile kırpma yok).
-- **Detay kartta.** RSS açıklamasının tamamı (≈1500 karaktere kadar, paragraflarıyla) özet olarak gösterilir;
-  dergi ve liste görünümlerinde özet kırpılmaz, sıkı ızgarada kırpılırsa "Devamını gör" ile kart yerinde açılır.
+- **Detay kartta.** RSS açıklamasının tamamı (≈1500 karaktere kadar, paragraflarıyla) saklanır. **Manşet**
+  özeti tam gösterir; diğer kartlar kartın boyuna göre bir karakter bütçesiyle (240–400) cümle sonunda kırpılır
+  ve "…" ile biter — "Özetin tamamı" kartı yerinde açar, sıkı ızgarada satır kırpması da aynı düğmeyle açılır.
 - **Akıştaki tam metin.** Akış tam metin veriyorsa (`content:encoded`), kart içinde genişletilerek
   siteye gitmeden okunur (`news.detail()` ile isteğe bağlı yüklenir, anlık görüntüyü şişirmez).
 - **Gündem Özeti görünümü.** Aynı olayı veren haberler tek hikâye kartında toplanır: öne çıkan görsel,

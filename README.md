@@ -29,7 +29,8 @@ and lets you read them, ad-free, without ever leaving the app.
 Following the news usually means a dozen browser tabs, cookie banners, autoplaying videos and pop-ups.
 Masthead gathers **206 newsrooms across six countries** into one calm, magazine-like front page:
 
-- **Follow the agenda without clicking.** Full headlines, full summaries and photos on every card. The **Digest**
+- **Follow the agenda without clicking.** Full headlines, a summary and a photo on every card — the lead story
+  carries its summary in full, the rest end with “Full summary”. The **Digest**
   groups the same story from different outlets, so you see who reported what at a glance.
 - **Read in place, without the ads.** Click a story and it opens in a large dialog inside the app — in
   **Reader mode** by default: the article as text, in your own reading font. The publisher's page is one

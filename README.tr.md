@@ -28,7 +28,8 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 Gündemi takip etmek genelde onlarca sekme, çerez uyarıları, kendiliğinden açılan videolar ve pop-up'lar demek.
 Masthead **altı ülkeden 206 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
 
-- **Tıklamadan gündemi takip et.** Her kartta tam başlık, tam özet ve fotoğraf. **Gündem Özeti** aynı olayı veren
+- **Tıklamadan gündemi takip et.** Her kartta tam başlık, özet ve fotoğraf; manşetin özeti tam, diğerlerinde
+  “Özetin tamamı” ile açılır. **Gündem Özeti** aynı olayı veren
   kaynakları bir araya getirir; kimin ne dediğini tek bakışta görürsün.
 - **Olduğun yerde, reklamsız oku.** Habere tıkla, uygulamanın içinde büyük bir pencerede — varsayılan olarak
   **Okuma modunda**, yani sade metin hâliyle — açılsın. Yayıncının kendi sayfası aynı pencerede bir tık

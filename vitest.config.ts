@@ -5,7 +5,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@shared': resolve(__dirname, 'src/shared'),
-      '@core': resolve(__dirname, 'src/core')
+      '@core': resolve(__dirname, 'src/core'),
+      // The renderer's own alias, so its pure helpers can be tested too.
+      '@': resolve(__dirname, 'src/renderer/src')
     }
   },
   test: {
