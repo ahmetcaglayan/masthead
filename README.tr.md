@@ -15,7 +15,11 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 [![CI](https://img.shields.io/github/actions/workflow/status/ahmetcaglayan/masthead/ci.yml?style=flat-square&label=CI)](https://github.com/ahmetcaglayan/masthead/actions/workflows/ci.yml)
 [![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-2f2a24?style=flat-square)](LICENSE)
 
-[English](README.md) · **Türkçe**
+[**Web sitesi**](https://ahmetcaglayan.github.io/masthead/) ·
+[**0.2.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[Değişiklikler](CHANGELOG.md)
+
+[English](README.md) · **Türkçe** · [Deutsch](README.de.md) · [Português](README.pt.md)
 
 </div>
 

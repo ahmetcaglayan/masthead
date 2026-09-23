@@ -16,7 +16,11 @@ and lets you read them, ad-free, without ever leaving the app.
 [![License: MIT](https://img.shields.io/badge/license-MIT-2f2a24?style=flat-square)](LICENSE)
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
-**English** · [Türkçe](README.tr.md)
+[**Website**](https://ahmetcaglayan.github.io/masthead/) ·
+[**Download 0.2.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[Changelog](CHANGELOG.md)
+
+**English** · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · [Português](README.pt.md)
 
 </div>
 
