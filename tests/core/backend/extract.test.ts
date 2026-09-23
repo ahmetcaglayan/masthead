@@ -169,3 +169,35 @@ describe('extractArticle', () => {
     expect(fetch).not.toHaveBeenCalled()
   })
 })
+
+describe('paywalls', () => {
+  const page = (head: string): string => FIXTURE.replace('</head>', `${head}</head>`)
+
+  it('gives no text of an article its publisher keeps for subscribers (JSON-LD)', () => {
+    const ld = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: 'Abonelere özel',
+      isAccessibleForFree: 'False',
+      hasPart: { '@type': 'WebPageElement', isAccessibleForFree: false, cssSelector: '.paywall' }
+    })
+    const result = extractFromHtml(page(`<script type="application/ld+json">${ld}</script>`), URL_)
+    expect(result).toMatchObject({ url: URL_, paywalled: true, html: '', textLength: 0 })
+    expect(result?.title).toBeTruthy()
+  })
+
+  it('reads the Open Graph content tier too', () => {
+    const locked = extractFromHtml(page('<meta property="article:content_tier" content="locked">'), URL_)
+    expect(locked?.paywalled).toBe(true)
+    const free = extractFromHtml(page('<meta property="article:content_tier" content="free">'), URL_)
+    expect(free?.paywalled).toBeUndefined()
+    expect(free?.textLength).toBeGreaterThanOrEqual(MIN_TEXT_LENGTH)
+  })
+
+  it('leaves free articles alone', () => {
+    const ld = JSON.stringify({ '@type': 'NewsArticle', isAccessibleForFree: true })
+    const result = extractFromHtml(page(`<script type="application/ld+json">${ld}</script>`), URL_)
+    expect(result?.paywalled).toBeUndefined()
+    expect(result?.html).toContain('Nevşehir')
+  })
+})

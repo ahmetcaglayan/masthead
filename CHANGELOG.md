@@ -46,6 +46,13 @@ All notable changes to this project are documented here. The format follows
 - **Weather on the front page.** Switch it on in Settings → Language & region: your city's temperature and today's
   high and low beside the date, the next days a click away (Open-Meteo; off by default).
 
+- **Reader mode respects paywalls.** An article its publisher keeps for subscribers — marked with schema.org's
+  `isAccessibleForFree: false` or Open Graph's `article:content_tier` "locked" or "metered" — is not turned into
+  text, in the app or in the browser version: the reader shows the headline, what the feed itself shares and
+  "For subscribers only", with the publisher's page one click away.
+- **A note for publishers** in the READMEs and on the website: how Masthead uses their feeds, and how to ask for an
+  outlet to be taken out.
+
 ### Changed
 
 - **Accessibility pass.** Every page, the reader, the command palette and the dialogs pass an automated WCAG AA

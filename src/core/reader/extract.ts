@@ -3,6 +3,7 @@
  * with Mozilla Readability on a linkedom DOM.
  */
 import { Readability } from '@mozilla/readability'
+import { PAYWALL_TIERS, jsonLdDeclaresPaywall } from '../../shared/paywall'
 import type { ReaderContent } from '../../shared/types'
 import { fetchText } from '../net'
 import { parseDocument, type DomDocument, type DomElement, type DomNode } from './dom'
@@ -51,6 +52,20 @@ export function extractFromHtml(html: string, url: string): ReaderContent | null
   const base = setBase(document, url)
   // Metadata first: Readability rewrites the DOM while it works.
   const meta = readMetadata(document, base)
+  // The publisher keeps it for subscribers: no text of it, only what the reader needs to go there.
+  if (meta.paywalled) {
+    const siteName = meta.siteName ?? new URL(url).hostname.replace(/^www\./, '')
+    return {
+      url,
+      title: cleanTitle(meta.title ?? '', siteName, url),
+      siteName,
+      html: '',
+      textLength: 0,
+      image: meta.image,
+      publishedAt: parseDate(meta.published),
+      paywalled: true
+    }
+  }
   const lead = findLead(document, meta)
   promoteLazyImages(document)
   removeBoilerplate(document)
@@ -114,6 +129,8 @@ interface PageMeta {
   author?: string
   published?: string
   image?: string
+  /** The page says the article is for subscribers (see `src/shared/paywall.ts`). */
+  paywalled: boolean
 }
 
 function readMetadata(document: DomDocument, base: string): PageMeta {
@@ -157,8 +174,22 @@ function readMetadata(document: DomDocument, base: string): PageMeta {
         'date'
       ) ??
       tidy(document.querySelector('time[datetime]')?.getAttribute('datetime')),
-    image: image ? httpUrl(image, base) : undefined
+    image: image ? httpUrl(image, base) : undefined,
+    paywalled:
+      PAYWALL_TIERS.includes(meta('article:content_tier')?.toLowerCase() ?? '') || declaresPaywall(document)
   }
+}
+
+/** Whether any JSON-LD block on the page marks the article as not free to read. */
+function declaresPaywall(document: DomDocument): boolean {
+  for (const script of document.querySelectorAll('script[type="application/ld+json" i]')) {
+    try {
+      if (jsonLdDeclaresPaywall(JSON.parse(stripJsonWrapper(script.textContent ?? '')))) return true
+    } catch {
+      // A malformed block says nothing.
+    }
+  }
+  return false
 }
 
 const LEAD_CANDIDATES =
@@ -181,6 +212,10 @@ function findLead(document: DomDocument, meta: PageMeta): string | undefined {
   return undefined
 }
 
+/** JSON-LD some CMSs wrap in HTML comments or CDATA markers. */
+const stripJsonWrapper = (text: string): string =>
+  text.replace(/^\s*(?:<!--|\/\/\s*<!\[CDATA\[)|(?:-->|\/\/\s*\]\]>)\s*$/g, '')
+
 interface JsonLdMeta {
   published?: string
   author?: string
@@ -194,9 +229,7 @@ function readJsonLd(document: DomDocument): JsonLdMeta {
   for (const script of document.querySelectorAll('script[type="application/ld+json" i]')) {
     let data: unknown
     try {
-      data = JSON.parse(
-        (script.textContent ?? '').replace(/^\s*(?:<!--|\/\/\s*<!\[CDATA\[)|(?:-->|\/\/\s*\]\]>)\s*$/g, '')
-      )
+      data = JSON.parse(stripJsonWrapper(script.textContent ?? ''))
     } catch {
       continue
     }

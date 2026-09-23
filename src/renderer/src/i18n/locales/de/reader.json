@@ -48,6 +48,8 @@
     "minutes_other": "{{count}} Min. Lesezeit",
     "failedTitle": "Der Artikel ließ sich nicht auslesen",
     "failedDescription": "Das hat {{source}} im Feed mitgeschickt. Die ganze Meldung steht auf der Seite des Mediums.",
+    "paywallTitle": "Nur für Abonnenten",
+    "paywallDescription": "{{source}} hält diesen Artikel für Abonnenten bereit, und Masthead umgeht keine Bezahlschranken. Hier steht, was der Feed teilt; den Rest lesen Sie auf der Seite des Verlags.",
     "retry": "Erneut versuchen",
     "showWeb": "Webseite anzeigen",
     "sourceLabel": "Quelle",

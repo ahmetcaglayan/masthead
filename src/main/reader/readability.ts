@@ -61,6 +61,32 @@ const EXTRACT_SCRIPT = String.raw`(() => {
     }
   }
 
+  const meta = (key) =>
+    document.querySelector('meta[property="' + key + '"], meta[name="' + key + '"]')?.getAttribute('content') || ''
+  const image = absolute(meta('og:image'))
+
+  // Paywall signals (the same as src/shared/paywall.ts): an article its publisher keeps for
+  // subscribers is not turned into text, whatever this page happens to show.
+  const lockedOut = (data, depth) => {
+    if (depth > 5 || !data || typeof data !== 'object') return false
+    if (Array.isArray(data)) return data.some((item) => lockedOut(item, depth + 1))
+    const free = data.isAccessibleForFree
+    if (free === false || (typeof free === 'string' && free.trim().toLowerCase() === 'false')) return true
+    return ['@graph', 'mainEntity', 'mainEntityOfPage', 'hasPart', 'isPartOf'].some((key) => lockedOut(data[key], depth + 1))
+  }
+  const tier = meta('article:content_tier').trim().toLowerCase()
+  const paywalled = tier === 'locked' || tier === 'metered' ||
+    [...document.querySelectorAll('script[type="application/ld+json" i]')].some((script) => {
+      try {
+        return lockedOut(JSON.parse(script.textContent.replace(/^\s*(?:<!--|\/\/\s*<!\[CDATA\[)|(?:-->|\/\/\s*\]\]>)\s*$/g, '')), 0)
+      } catch {
+        return false
+      }
+    })
+  if (paywalled) {
+    return { url: location.href, title: meta('og:title') || document.title, html: '', textLength: 0, image, paywalled: true }
+  }
+
   const article = new Readability(document.cloneNode(true)).parse()
   if (!article || !article.content) return null
   // A parsed document is inert: nothing in it runs or loads while it is cleaned.
@@ -68,9 +94,6 @@ const EXTRACT_SCRIPT = String.raw`(() => {
   const body = new DOMParser().parseFromString(markup, 'text/html').body
   clean(body)
 
-  const meta = (key) =>
-    document.querySelector('meta[property="' + key + '"], meta[name="' + key + '"]')?.getAttribute('content') || ''
-  const image = absolute(meta('og:image'))
   const published = Date.parse(article.publishedTime || meta('article:published_time'))
   return {
     url: location.href,
@@ -120,6 +143,10 @@ function toReaderContent(value: unknown): ReaderContent | null {
   const raw = value as Record<string, unknown>
   const { url, title, html, textLength, byline, siteName, image, publishedAt } = raw
   if (typeof url !== 'string' || typeof title !== 'string' || typeof html !== 'string') return null
+  // For subscribers only: nothing of the text crosses over, just where to read it.
+  if (raw.paywalled === true) {
+    return { url, title, html: '', textLength: 0, image: text(image), paywalled: true }
+  }
   const length = finite(textLength) ?? 0
   if (length < MIN_TEXT_LENGTH) return null
   return {

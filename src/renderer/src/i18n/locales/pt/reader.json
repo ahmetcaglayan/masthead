@@ -48,6 +48,8 @@
     "minutes_other": "{{count}} min de leitura",
     "failedTitle": "Não foi possível extrair a notícia",
     "failedDescription": "Isto é o que {{source}} publicou no feed. A íntegra está na página do veículo.",
+    "paywallTitle": "Exclusivo para assinantes",
+    "paywallDescription": "{{source}} reserva esta notícia para assinantes, e o Masthead não contorna paywalls. Aqui está o que o feed compartilha; leia o restante na página do veículo.",
     "retry": "Tentar de novo",
     "showWeb": "Mostrar a página web",
     "sourceLabel": "Fonte",

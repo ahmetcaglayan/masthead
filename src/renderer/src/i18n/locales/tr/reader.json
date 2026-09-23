@@ -48,6 +48,8 @@
     "minutes_other": "{{count}} dk'lık okuma",
     "failedTitle": "Makale çıkarılamadı",
     "failedDescription": "{{source}} akışında paylaşılan metni gösteriyoruz. Haberin tamamı yayıncının sayfasında.",
+    "paywallTitle": "Bu haber abonelere özel",
+    "paywallDescription": "{{source}} bu haberi abonelerine ayırıyor; Masthead ödeme duvarlarını aşmaz. Aşağıda yayıncının akışında paylaştığı kısım var; devamını kendi sayfasında okuyabilirsiniz.",
     "retry": "Tekrar dene",
     "showWeb": "Web sayfasını göster",
     "sourceLabel": "Kaynak",

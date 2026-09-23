@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'motion/react'
-import { ArrowUpRight, CircleAlert, Globe, Info, RotateCw } from 'lucide-react'
+import { ArrowUpRight, CircleAlert, Globe, Info, LockKeyhole, RotateCw } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { Article, SourceDef } from '@shared/types'
 import { Button } from '@/components/ui/Button'
@@ -61,7 +61,10 @@ export function ReaderPane({
   const now = useNow(30_000)
   const scale = useReaderPrefs((s) => s.scale)
   const typeface = useReaderPrefs((s) => s.typeface)
-  const content = extraction.status === 'ready' ? extraction.content : undefined
+  const ready = extraction.status === 'ready' ? extraction.content : undefined
+  // Kept for subscribers: no text of the page, only the feed's own summary and the way there.
+  const paywalled = ready?.paywalled === true
+  const content = paywalled ? undefined : ready
   // The gist on the first screen: the feed summary's opening paragraph, unless it only repeats the headline.
   const lede = useMemo(() => {
     const first = paragraphs(article.summary)[0] ?? ''
@@ -71,7 +74,8 @@ export function ReaderPane({
     () => (content ? prepareArticle(content, article.image, lede || undefined) : undefined),
     [content, article.image, lede]
   )
-  const standfirst = extraction.status !== 'failed' && (!prepared || prepared.standfirst) ? lede : ''
+  const fallback = extraction.status === 'failed' || paywalled
+  const standfirst = !fallback && (!prepared || prepared.standfirst) ? lede : ''
   const lang = source?.language ?? 'tr'
   const sourceName = source?.name ?? content?.siteName ?? domain(article.url)
   const rawByline = content?.byline ?? article.author
@@ -134,11 +138,12 @@ export function ReaderPane({
           {byline && <p className="mt-4 font-ui text-sm text-fg-muted">{byline}</p>}
         </header>
 
-        {extraction.status === 'failed' ? (
+        {fallback ? (
           <FeedFallback
             article={article}
             sourceName={sourceName}
             lang={lang}
+            paywalled={paywalled}
             onRetry={onRetry}
             onShowWeb={onShowWeb}
             onOpenOriginal={onOpenOriginal}
@@ -315,16 +320,23 @@ interface FeedFallbackProps {
   article: Article
   sourceName: string
   lang: string
+  /** The publisher keeps the article for subscribers (rather than the extraction failing). */
+  paywalled: boolean
   onRetry(): void
   onShowWeb?: () => void
   onOpenOriginal(): void
 }
 
-/** Extraction failed: say so plainly, then show everything the feed carried. */
+/**
+ * No article text: extraction failed, or the publisher keeps the article for subscribers
+ * (Masthead does not get round a paywall). Say which plainly, then show what the feed itself
+ * carried, and offer the publisher's page.
+ */
 function FeedFallback({
   article,
   sourceName,
   lang,
+  paywalled,
   onRetry,
   onShowWeb,
   onOpenOriginal
@@ -339,11 +351,19 @@ function FeedFallback({
   return (
     <div className="mt-8">
       <div role="status" className="flex gap-3 rounded-card border border-line bg-muted px-4 py-3.5 font-ui">
-        <CircleAlert size={18} strokeWidth={1.75} aria-hidden className="mt-0.5 shrink-0 text-fg-muted" />
+        {paywalled ? (
+          <LockKeyhole size={18} strokeWidth={1.75} aria-hidden className="mt-0.5 shrink-0 text-fg-muted" />
+        ) : (
+          <CircleAlert size={18} strokeWidth={1.75} aria-hidden className="mt-0.5 shrink-0 text-fg-muted" />
+        )}
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-fg">{t('reader.failedTitle')}</p>
+          <p className="text-sm font-semibold text-fg">
+            {paywalled ? t('reader.paywallTitle') : t('reader.failedTitle')}
+          </p>
           <p className="mt-0.5 text-[13px] leading-relaxed text-fg-muted">
-            {t('reader.failedDescription', { source: sourceName })}
+            {paywalled
+              ? t('reader.paywallDescription', { source: sourceName })
+              : t('reader.failedDescription', { source: sourceName })}
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {onShowWeb ? (
@@ -355,9 +375,11 @@ function FeedFallback({
                 {t('web.openOriginal')}
               </Button>
             )}
-            <Button variant="ghost" size="sm" icon={RotateCw} onClick={onRetry}>
-              {t('reader.retry')}
-            </Button>
+            {!paywalled && (
+              <Button variant="ghost" size="sm" icon={RotateCw} onClick={onRetry}>
+                {t('reader.retry')}
+              </Button>
+            )}
           </div>
         </div>
       </div>

@@ -126,9 +126,18 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   (`headingLevel`); okuyucuda yayıncı başlıklarına `aria-level` (en üst 2); boş Kaydedilenler/Geçmiş'e düğme.
   Not: web geliştirme ayarlarında konum (il) boş görünüyordu — bu turda dokunulmadı.
 
+- [x] 2026-09-23 · **Okuma modu ödeme duvarına saygı** (öneri): `src/shared/paywall.ts` — JSON-LD
+  `isAccessibleForFree: false` ("False" dahil; `hasPart`, `@graph`…) ya da `article:content_tier` locked/metered
+  → çekirdek çıkarıcı (`extract.ts`) ve Electron sayfa içi çıkarım (`readability.ts`) metin döndürmez
+  (`ReaderContent.paywalled`, html boş); okuyucu başlık + akış özeti + "Bu haber abonelere özel" + yayıncı sayfası
+  düğmesi gösterir. Folha de S.Paulo'nun gerçek bir haberiyle doğrulandı. 5 yeni test (393 toplam).
+- [x] 2026-09-23 · **Yayıncılar için not** (öneri): 4 README'de "For publishers / Yayıncılar için" bölümü ve
+  sitede kısa not — sunucu yok, akış kullanımı, abonelere özel haberler sitede kalır, çıkarılma talebi için
+  GitHub issue bağlantısı (`labels=publisher`). README'deki "tam haber her zaman yayıncının sayfasında okunur"
+  cümlesi okuma modunu doğru anlatacak şekilde düzeltildi.
+
 **Sıradaki somut adımlar:**
-1. Okuma modu ödeme duvarına saygı; site/README'ye yayıncılar için kaldırma notu.
-2. v0.4.0 sürümü (otomatik güncelleme, Faz 2/3 özellikleri).
+1. v0.4.0 sürümü (otomatik güncelleme, Faz 2/3 özellikleri, ödeme duvarı) — sahibinin onayıyla.
 3. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
 4. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
    ekran görüntüleri; News18 Hindi / Bhaskar ikonları (şu an harf monogramı görünüyor).
@@ -148,7 +157,7 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 
 1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅
 2. Faz 2 ve 3'ü bitir (bkz. PLAN.md): ~~komut paleti, kısayollar, hikâye sayfası, kelime susturma~~ ✅,
-   ~~Size Özel okuma geçmişi~~ ✅, ~~Piyasalar + hava durumu~~ ✅, ~~erişilebilirlik~~ ✅. Ardından ödeme duvarı + yayıncı notu, v0.4.0.
+   ~~Size Özel okuma geçmişi~~ ✅, ~~Piyasalar + hava durumu~~ ✅, ~~erişilebilirlik~~ ✅, ~~ödeme duvarı + yayıncı notu~~ ✅. Sıradaki: v0.4.0.
 3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
 4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; sonraki ülke paketleri
    (Fransa, İspanya/Meksika).
@@ -331,6 +340,8 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-23 | Piyasalar ayrı sayfa; Ekonomi kategorisi olduğu gibi | Sahibinin isteği: biri yatırımcıya özel, biri normal kategori |
 | 2026-09-23 | Piyasa haberleri sayfa açıkken dakikada bir, yalnızca ekonomi/iş akışları | Canlı his + yayıncılara saygı (çekirdekte kısma, koşullu GET) |
 | 2026-09-23 | Vurgu rengi yazıda `--accent-ink`, dolguda `--accent` | Marka rengi korunur, yazılar WCAG AA (4,5:1) geçer |
+| 2026-09-23 | Ödeme duvarlı haberde okuma modu hiç metin çıkarmaz (metered dahil) | Hukuki risk: sunucu tarafında çekmek sayaçlı ödeme duvarını da aşar; abone yayıncının sayfasında okur |
+| 2026-09-23 | Yayıncı iletişimi GitHub issue ile | Kişisel e-posta yayımlanmaz |
 
 ## Bilinen sorunlar / notlar
 

@@ -181,8 +181,17 @@ Alman yayın kuruluşlarından okursun.
 Her akış yayına girmeden önce canlı sitelere karşı doğrulanır (`npm run verify:feeds`). Tam liste, ülke paketi
 yapısı ve yeni bir kaynak ya da ülke ekleme: [docs/SOURCES.md](docs/SOURCES.md).
 
-Masthead yalnızca yayıncıların herkese açık RSS akışlarında verdiği başlık, özet ve görselleri gösterir. Haberin
-tamamı her zaman yayıncının kendi sayfasında okunur.
+Masthead, yayıncıların herkese açık RSS akışlarında verdiği başlık, özet ve görselleri; her kartta yayıncının adı
+ve sayfasına bağlantıyla gösterir. Okuma modu haberi, okurun kendi bilgisayarında yayıncının sayfasından alıp
+düzenler — yayıncının abonelerine ayırdığı haberlerde asla.
+
+### Yayıncılar için
+
+Masthead, insanların kendi bilgisayarında çalışan ücretsiz ve açık kaynak bir okuyucudur. Masthead'in sunucusu
+yoktur: hiçbir içerik yeniden yayımlanmaz, başkaları için saklanmaz ya da satılmaz. Yayımladığınız RSS
+akışlarını okur, her haberde kaynağınızı anar ve bağlantı verir, abonelere özel haberleri sitenizde bırakır (okuma
+modu `isAccessibleForFree` ve `article:content_tier` işaretlerine uyar). Kaynağınızın çıkarılmasını ya da bir
+akışın değiştirilmesini istiyorsanız [bize yazın](https://github.com/ahmetcaglayan/masthead/issues/new?labels=publisher&title=Publisher%20request%3A%20); bir sonraki sürümde çıkarılır.
 
 ## Geliştirme
 

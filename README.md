@@ -183,8 +183,17 @@ Every feed is checked against the live sites before it ships (`npm run verify:fe
 [docs/SOURCES.md](docs/SOURCES.md) for the full list, the country-pack layout and how to add a source or a
 country of your own.
 
-Masthead only shows headlines, summaries and images that publishers provide in their public RSS feeds. Full
-articles are always read on the publisher's own page.
+Masthead shows the headlines, summaries and images publishers provide in their public RSS feeds, with the
+outlet's name on every card and a link to its page. Reader mode lays out the article from the publisher's own
+page, fetched on the reader's computer — never for articles the publisher keeps for subscribers.
+
+### For publishers
+
+Masthead is a free, open-source reader that runs on people's own computers. There is no Masthead server: nothing
+is republished, stored for others or sold. It reads the RSS feeds you publish, credits and links your outlet on
+every story, and leaves subscriber-only articles on your site (Reader mode honours `isAccessibleForFree` and
+`article:content_tier`). If you would rather your outlet were not included, or want a feed changed,
+[open an issue](https://github.com/ahmetcaglayan/masthead/issues/new?labels=publisher&title=Publisher%20request%3A%20) and it will be out of the next release.
 
 ## Development
 

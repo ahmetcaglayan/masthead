@@ -176,6 +176,11 @@ export interface ReaderContent {
   textLength: number
   image?: string
   publishedAt?: number
+  /**
+   * The publisher keeps the article for subscribers (see `src/shared/paywall.ts`): Reader mode
+   * shows no text of it, `html` is empty, and the reader points to the publisher's page.
+   */
+  paywalled?: boolean
 }
 
 export interface ReaderBounds {

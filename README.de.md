@@ -197,8 +197,18 @@ Jeder Feed wird vor der Auslieferung an den echten Seiten überprüft (`npm run 
 vollständige Liste, den Aufbau der Länderpakete und die Anleitung, eine eigene Quelle oder ein eigenes Land
 hinzuzufügen, finden Sie in [docs/SOURCES.md](docs/SOURCES.md).
 
-Masthead zeigt nur die Schlagzeilen, Zusammenfassungen und Bilder, die die Medien in ihren öffentlichen
-RSS-Feeds bereitstellen. Ganze Artikel werden immer auf der Seite des Mediums gelesen.
+Masthead zeigt die Schlagzeilen, Zusammenfassungen und Bilder, die die Medien in ihren öffentlichen RSS-Feeds
+bereitstellen, mit dem Namen des Mediums auf jeder Karte und einem Link zu seiner Seite. Der Lesemodus setzt den
+Artikel aus der Seite des Mediums, abgerufen auf dem Computer der Leserin oder des Lesers — nie bei Artikeln, die
+ein Medium Abonnenten vorbehält.
+
+### Für Medienhäuser
+
+Masthead ist ein kostenloser Open-Source-Reader, der auf den Computern der Nutzer läuft. Es gibt keinen
+Masthead-Server: Nichts wird weiterveröffentlicht, für andere gespeichert oder verkauft. Masthead liest die
+RSS-Feeds, die Sie veröffentlichen, nennt und verlinkt Ihr Medium bei jeder Meldung und lässt Abo-Artikel auf Ihrer
+Seite (der Lesemodus beachtet `isAccessibleForFree` und `article:content_tier`). Wenn Ihr Medium nicht enthalten
+sein oder ein Feed geändert werden soll, [schreiben Sie uns](https://github.com/ahmetcaglayan/masthead/issues/new?labels=publisher&title=Publisher%20request%3A%20) — mit der nächsten Version ist es draußen.
 
 ## Entwicklung
 

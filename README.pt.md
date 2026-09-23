@@ -189,8 +189,17 @@ Todo feed é conferido no site do próprio veículo, no ar, antes de entrar (`np
 [docs/SOURCES.md](docs/SOURCES.md) para a lista completa, a estrutura do pacote de país e como adicionar a sua
 própria fonte ou o seu próprio país.
 
-O Masthead mostra apenas as manchetes, os resumos e as imagens que os veículos oferecem nos seus feeds RSS
-públicos. A matéria completa é sempre lida na página do próprio veículo.
+O Masthead mostra as manchetes, os resumos e as imagens que os veículos oferecem nos seus feeds RSS públicos, com o
+nome do veículo em cada cartão e um link para a página dele. O modo leitura monta a matéria a partir da página do
+próprio veículo, baixada no computador de quem lê — nunca em matérias que o veículo reserva a assinantes.
+
+### Para veículos
+
+O Masthead é um leitor gratuito e de código aberto que roda no computador de cada pessoa. Não existe servidor do
+Masthead: nada é republicado, guardado para terceiros ou vendido. Ele lê os feeds RSS que você publica, credita e
+linka o seu veículo em cada notícia e deixa as matérias para assinantes no seu site (o modo leitura respeita
+`isAccessibleForFree` e `article:content_tier`). Se preferir que o seu veículo não esteja incluído, ou quiser mudar
+um feed, [fale com a gente](https://github.com/ahmetcaglayan/masthead/issues/new?labels=publisher&title=Publisher%20request%3A%20) e ele sai na próxima versão.
 
 ## Desenvolvimento
 

@@ -48,6 +48,8 @@
     "minutes_other": "{{count}} min read",
     "failedTitle": "Couldn't extract the article",
     "failedDescription": "Here's what {{source}} shared in its feed. The full story is on the publisher's page.",
+    "paywallTitle": "For subscribers only",
+    "paywallDescription": "{{source}} keeps this story for its subscribers, and Masthead does not get round paywalls. Here is what its feed shares; read the rest on its page.",
     "retry": "Try again",
     "showWeb": "Show web page",
     "sourceLabel": "Source",
