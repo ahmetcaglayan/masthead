@@ -48,7 +48,7 @@ const TimelineItem = memo(function TimelineItem({
   const title = tameCaps(article.title)
 
   return (
-    <li>
+    <li data-article-id={article.id}>
       <button
         type="button"
         onClick={() => openArticle(article, queue)}

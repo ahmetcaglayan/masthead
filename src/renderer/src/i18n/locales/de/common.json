@@ -193,5 +193,44 @@
       "download": "Herunterladen",
       "install": "Herunterladen und installieren"
     }
+  },
+  "palette": {
+    "label": "Befehlspalette",
+    "placeholder": "Nachrichten, Seiten, Themen, Quellen suchen…",
+    "searchFor": "In den Nachrichten nach „{{query}}“ suchen",
+    "empty": "Nichts passt zu „{{query}}“.",
+    "refresh": "Nachrichten aktualisieren",
+    "theme": "Design: {{theme}}",
+    "shortcuts": "Tastenkürzel",
+    "move": "Bewegen",
+    "choose": "Öffnen",
+    "groups": {
+      "search": "Suche",
+      "stories": "Meldungen",
+      "pages": "Seiten",
+      "topics": "Themen",
+      "sources": "Quellen",
+      "actions": "Aktionen"
+    }
+  },
+  "shortcuts": {
+    "title": "Tastenkürzel",
+    "general": "Allgemein",
+    "reading": "Beim Lesen",
+    "reader": "In einer geöffneten Meldung",
+    "palette": "Befehlspalette",
+    "search": "Suche",
+    "refresh": "Nachrichten aktualisieren",
+    "back": "Zurück",
+    "settings": "Einstellungen",
+    "help": "Diese Liste",
+    "next": "Nächste Meldung",
+    "previous": "Vorherige Meldung",
+    "open": "Meldung öffnen",
+    "save": "Merken oder entfernen",
+    "readerStep": "Vorherige / nächste Meldung",
+    "readerMode": "Lesemodus / Webseite",
+    "close": "Schließen",
+    "or": "oder"
   }
 }

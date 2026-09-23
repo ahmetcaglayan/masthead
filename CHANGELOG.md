@@ -21,6 +21,10 @@ All notable changes to this project are documented here. The format follows
   each outlet reported it — who was first, what each one headlined, with its summary — ordered by who reported
   first or by the latest, and which kinds of outlets covered it. The "N sources" badge on every card, the Digest's
   "covered by" line and the reader's "Also covered by" row ("Compare all") lead there.
+- **Command palette and keyboard shortcuts.** Ctrl/⌘+K opens one box for everything: search the news, jump to a
+  matching story, a page, a topic or a source, or refresh, switch the theme, fold the sidebar. On any list of
+  stories, J and K move between them, O or Enter opens one, S saves it, R refreshes, / jumps to search, and ? shows
+  every shortcut.
 
 ## [0.3.0] - 2026-09-23
 

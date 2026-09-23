@@ -78,7 +78,7 @@ function SearchField(): React.JSX.Element {
       onValueChange={setQuery}
       onSubmit={(value) => goSearch(value.trim())}
       placeholder={t('titlebar.searchPlaceholder')}
-      shortcut="Mod+K"
+      shortcut="/"
       size="sm"
       className="no-drag w-full"
     />

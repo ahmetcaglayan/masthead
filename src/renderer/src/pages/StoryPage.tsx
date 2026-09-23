@@ -49,7 +49,7 @@ function ReportItem({
   const { article } = report
   const source = useSource(article.sourceId)
   return (
-    <li className="border-t border-line py-6 first:border-t-0 first:pt-0">
+    <li data-article-id={article.id} className="border-t border-line py-6 first:border-t-0 first:pt-0">
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-ui text-[12.5px] text-fg-muted">
         <SourceLogo source={source} size="sm" />
         <span className="font-semibold text-fg">{source?.name ?? article.sourceId}</span>

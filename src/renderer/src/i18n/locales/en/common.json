@@ -193,5 +193,44 @@
       "download": "Download",
       "install": "Download and install"
     }
+  },
+  "palette": {
+    "label": "Command palette",
+    "placeholder": "Search news, pages, topics, sources…",
+    "searchFor": "Search the news for “{{query}}”",
+    "empty": "Nothing matches “{{query}}”.",
+    "refresh": "Refresh the news",
+    "theme": "Theme: {{theme}}",
+    "shortcuts": "Keyboard shortcuts",
+    "move": "Move",
+    "choose": "Open",
+    "groups": {
+      "search": "Search",
+      "stories": "Stories",
+      "pages": "Pages",
+      "topics": "Topics",
+      "sources": "Sources",
+      "actions": "Actions"
+    }
+  },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "general": "General",
+    "reading": "Reading the news",
+    "reader": "In an open story",
+    "palette": "Command palette",
+    "search": "Search",
+    "refresh": "Refresh the news",
+    "back": "Go back",
+    "settings": "Settings",
+    "help": "This list",
+    "next": "Next story",
+    "previous": "Previous story",
+    "open": "Open the story",
+    "save": "Save or unsave",
+    "readerStep": "Previous / next story",
+    "readerMode": "Reader mode / web page",
+    "close": "Close",
+    "or": "or"
   }
 }

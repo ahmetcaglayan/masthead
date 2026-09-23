@@ -67,6 +67,8 @@ interface UiState {
   filtersByRoute: Record<string, Filters>
   reader: ReaderState | null
   commandOpen: boolean
+  /** The keyboard shortcuts list (`?`). */
+  shortcutsOpen: boolean
   navigate(route: Route): void
   back(): void
   /** Change the current page's filters. */
@@ -77,6 +79,7 @@ interface UiState {
   setReaderMode(mode: ReaderMode): void
   closeArticle(): void
   setCommandOpen(open: boolean): void
+  setShortcutsOpen(open: boolean): void
 }
 
 const sameRoute = (a: Route, b: Route): boolean => JSON.stringify(a) === JSON.stringify(b)
@@ -88,6 +91,7 @@ export const useUi = create<UiState>((set, get) => ({
   filtersByRoute: {},
   reader: null,
   commandOpen: false,
+  shortcutsOpen: false,
 
   navigate(route) {
     const current = get().route
@@ -141,5 +145,9 @@ export const useUi = create<UiState>((set, get) => ({
 
   setCommandOpen(open) {
     set({ commandOpen: open })
+  },
+
+  setShortcutsOpen(open) {
+    set({ shortcutsOpen: open })
   }
 }))

@@ -161,7 +161,7 @@ export const ArticleCard = memo(function ArticleCard({
     // run to four lines, so they are set smaller.
     const length = tameCaps(article.title).length
     return (
-      <article className={cn('group/card group', className)}>
+      <article data-article-id={article.id} className={cn('group/card group', className)}>
         <div className={cn('relative flex flex-col gap-3 rounded-panel', CARD_FOCUS_RING)}>
           <div className="relative mb-2">
             <ArticleImage
@@ -213,6 +213,7 @@ export const ArticleCard = memo(function ArticleCard({
     const feature = variant === 'feature'
     return (
       <article
+        data-article-id={article.id}
         className={cn(
           'group/card group relative flex flex-col rounded-card',
           feature ? 'gap-3.5' : 'gap-3 in-data-[density=compact]:gap-2',
@@ -252,6 +253,7 @@ export const ArticleCard = memo(function ArticleCard({
     // The thumbnail narrows in tight columns (a container query on the card).
     return (
       <article
+        data-article-id={article.id}
         className={cn('group/card group relative @container rounded-card', CARD_FOCUS_RING, className)}
       >
         <div className="grid grid-cols-[minmax(0,1fr)_5rem] gap-x-4 gap-y-1.5 @xs:grid-cols-[minmax(0,1fr)_7rem]">
@@ -286,6 +288,7 @@ export const ArticleCard = memo(function ArticleCard({
     )
     return (
       <article
+        data-article-id={article.id}
         className={cn(
           'group/card group relative flex items-start gap-5 rounded-card sm:gap-6',
           CARD_FOCUS_RING,
@@ -315,6 +318,7 @@ export const ArticleCard = memo(function ArticleCard({
 
   return (
     <article
+      data-article-id={article.id}
       className={cn('group/card relative flex flex-col gap-2 rounded-card', CARD_FOCUS_RING, className)}
     >
       {kicker}

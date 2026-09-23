@@ -193,5 +193,44 @@
       "download": "İndir",
       "install": "İndir ve kur"
     }
+  },
+  "palette": {
+    "label": "Komut paleti",
+    "placeholder": "Haber, sayfa, konu ya da kaynak arayın…",
+    "searchFor": "Haberlerde ara: “{{query}}”",
+    "empty": "“{{query}}” ile eşleşen bir şey yok.",
+    "refresh": "Haberleri yenile",
+    "theme": "Tema: {{theme}}",
+    "shortcuts": "Klavye kısayolları",
+    "move": "Gezin",
+    "choose": "Aç",
+    "groups": {
+      "search": "Ara",
+      "stories": "Haberler",
+      "pages": "Sayfalar",
+      "topics": "Konular",
+      "sources": "Kaynaklar",
+      "actions": "Eylemler"
+    }
+  },
+  "shortcuts": {
+    "title": "Klavye kısayolları",
+    "general": "Genel",
+    "reading": "Haber okurken",
+    "reader": "Açık haberde",
+    "palette": "Komut paleti",
+    "search": "Arama",
+    "refresh": "Haberleri yenile",
+    "back": "Geri git",
+    "settings": "Ayarlar",
+    "help": "Bu liste",
+    "next": "Sonraki haber",
+    "previous": "Önceki haber",
+    "open": "Haberi aç",
+    "save": "Kaydet ya da kaydı kaldır",
+    "readerStep": "Önceki / sonraki haber",
+    "readerMode": "Okuma modu / web sayfası",
+    "close": "Kapat",
+    "or": "ya da"
   }
 }

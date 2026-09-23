@@ -7,7 +7,7 @@ export function registerSearchInput(input: HTMLInputElement | null): void {
   searchInput = input
 }
 
-/** Focus and select the title-bar search field (Ctrl/Cmd+K). No-op while it is not mounted. */
+/** Focus and select the title-bar search field (`/`). No-op while it is not mounted. */
 export function focusSearch(): void {
   searchInput?.focus()
   searchInput?.select()

@@ -1,16 +1,21 @@
 import { useEffect } from 'react'
-import { MotionConfig } from 'motion/react'
+import { MotionConfig, useReducedMotion } from 'motion/react'
 import { AppShell } from '@/components/layout/AppShell'
 import { focusSearch } from '@/components/layout/search'
+import { toggleSaved } from '@/components/news/actions'
 import { Toaster } from '@/components/ui/Toaster'
 import { TooltipProvider } from '@/components/ui/Tooltip'
 import { Onboarding } from '@/features/onboarding/Onboarding'
+import { CommandPalette } from '@/features/palette/CommandPalette'
+import { ShortcutsDialog } from '@/features/palette/ShortcutsDialog'
 import { ArticleDialog } from '@/features/reader/ArticleDialog'
 import { SettingsPage } from '@/features/settings/SettingsPage'
 import { SourcesPage } from '@/features/sources/SourcesPage'
 import { UpdateDialog } from '@/features/updates/UpdateDialog'
 import { useHotkeys } from '@/hooks/useHotkeys'
+import i18n from '@/i18n'
 import { api } from '@/lib/api'
+import { focusedStoryId, moveStoryFocus, openFocusedStory } from '@/lib/feedNav'
 import { BreakingPage } from '@/pages/BreakingPage'
 import { CategoryPage } from '@/pages/CategoryPage'
 import { DigestPage } from '@/pages/DigestPage'
@@ -68,19 +73,43 @@ async function openFromHost(articleId: string): Promise<void> {
   if (article) useUi.getState().openArticle(article)
 }
 
+/** S on a focused story: save it, or take it out of Saved. */
+function saveFocusedStory(): void {
+  const id = focusedStoryId()
+  const article = id ? useNews.getState().byId.get(id) : undefined
+  if (article) void toggleSaved(article, i18n.t)
+}
+
 function useGlobalHotkeys(shell: boolean): void {
   const readerOpen = useUi((s) => s.reader !== null)
+  const overlay = useUi((s) => s.commandOpen || s.shortcutsOpen)
+  const reducedMotion = useReducedMotion() ?? false
   const inShell = shell && !readerOpen
+  // Single-letter keys only act on the page itself, not under a dialog or the palette.
+  const onPage = inShell && !overlay
+  const refresh = (): void => void useNews.getState().refresh(true)
   useHotkeys([
-    { combo: 'Mod+K', handler: focusSearch, allowInInputs: true, enabled: inShell },
-    { combo: ['Mod+R', 'F5'], handler: () => void useNews.getState().refresh(true), allowInInputs: true },
+    {
+      combo: 'Mod+K',
+      handler: () => useUi.getState().setCommandOpen(!useUi.getState().commandOpen),
+      allowInInputs: true,
+      enabled: inShell
+    },
+    { combo: ['Mod+R', 'F5'], handler: refresh, allowInInputs: true },
     {
       combo: 'Mod+,',
       handler: () => useUi.getState().navigate({ name: 'settings' }),
       allowInInputs: true,
       enabled: inShell
     },
-    { combo: 'Alt+ArrowLeft', handler: () => useUi.getState().back(), enabled: inShell }
+    { combo: 'Alt+ArrowLeft', handler: () => useUi.getState().back(), enabled: inShell },
+    { combo: '/', handler: focusSearch, enabled: onPage },
+    { combo: 'R', handler: refresh, enabled: onPage },
+    { combo: 'J', handler: () => moveStoryFocus(1, reducedMotion), enabled: onPage },
+    { combo: 'K', handler: () => moveStoryFocus(-1, reducedMotion), enabled: onPage },
+    { combo: 'O', handler: () => void openFocusedStory(), enabled: onPage },
+    { combo: 'S', handler: saveFocusedStory, enabled: onPage },
+    { combo: '?', handler: () => useUi.getState().setShortcutsOpen(true), enabled: onPage }
   ])
 }
 
@@ -103,7 +132,13 @@ export function App(): React.JSX.Element {
           <Onboarding />
         )}
         <ArticleDialog />
-        {onboarded && <UpdateDialog />}
+        {onboarded && (
+          <>
+            <CommandPalette />
+            <ShortcutsDialog />
+            <UpdateDialog />
+          </>
+        )}
         <Toaster />
       </TooltipProvider>
     </MotionConfig>

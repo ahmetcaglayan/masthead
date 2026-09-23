@@ -133,6 +133,7 @@ export const ClusterCard = memo(function ClusterCard({
   if (variant === 'compact') {
     return (
       <article
+        data-article-id={lead.id}
         className={cn(
           'group/card group relative flex flex-col overflow-hidden rounded-panel border border-line bg-surface shadow-soft transition-shadow duration-200 hover:shadow-card',
           CARD_FOCUS_RING,
@@ -168,6 +169,7 @@ export const ClusterCard = memo(function ClusterCard({
     const hidden = others.length - OTHERS_INLINE
     return (
       <article
+        data-article-id={lead.id}
         className={cn(
           'group/card group rounded-panel border border-line bg-surface p-5 shadow-soft in-data-[density=compact]:p-4',
           className
@@ -217,6 +219,7 @@ export const ClusterCard = memo(function ClusterCard({
 
   return (
     <article
+      data-article-id={lead.id}
       className={cn(
         'group/card group rounded-panel border border-line bg-surface p-5 shadow-soft sm:p-6 in-data-[density=compact]:p-4',
         className

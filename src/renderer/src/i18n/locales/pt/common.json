@@ -193,5 +193,44 @@
       "download": "Baixar",
       "install": "Baixar e instalar"
     }
+  },
+  "palette": {
+    "label": "Paleta de comandos",
+    "placeholder": "Busque notícias, páginas, temas, fontes…",
+    "searchFor": "Buscar “{{query}}” nas notícias",
+    "empty": "Nada corresponde a “{{query}}”.",
+    "refresh": "Atualizar as notícias",
+    "theme": "Tema: {{theme}}",
+    "shortcuts": "Atalhos de teclado",
+    "move": "Mover",
+    "choose": "Abrir",
+    "groups": {
+      "search": "Busca",
+      "stories": "Notícias",
+      "pages": "Páginas",
+      "topics": "Temas",
+      "sources": "Fontes",
+      "actions": "Ações"
+    }
+  },
+  "shortcuts": {
+    "title": "Atalhos de teclado",
+    "general": "Geral",
+    "reading": "Lendo as notícias",
+    "reader": "Em uma notícia aberta",
+    "palette": "Paleta de comandos",
+    "search": "Busca",
+    "refresh": "Atualizar as notícias",
+    "back": "Voltar",
+    "settings": "Ajustes",
+    "help": "Esta lista",
+    "next": "Próxima notícia",
+    "previous": "Notícia anterior",
+    "open": "Abrir a notícia",
+    "save": "Salvar ou remover",
+    "readerStep": "Notícia anterior / próxima",
+    "readerMode": "Modo de leitura / página web",
+    "close": "Fechar",
+    "or": "ou"
   }
 }
