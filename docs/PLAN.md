@@ -1,6 +1,6 @@
 # Masthead — Ürün ve Teknik Plan
 
-> Durum: **Faz 1 tamamlandı — v0.2.0 yayında; Faz 4: 6 ülke tam paketle (ulusal + yerel), 5 arayüz dili**
+> Durum: **Faz 1 tamamlandı — v0.3.0 yayında; Faz 4: 6 ülke tam paketle (ulusal + yerel), 5 arayüz dili**
 > · Son güncelleme: 2026-09-23
 > Bu doküman projenin yol haritasıdır: ne yapıyoruz, nasıl yapıyoruz, hangi sırayla yapıyoruz.
 > Her faz bittiğinde ilgili kutucuklar işaretlenir.

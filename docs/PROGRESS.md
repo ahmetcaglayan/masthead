@@ -11,8 +11,8 @@
 ## Son durum
 
 - **Tarih:** 2026-09-23
-- **Aktif faz:** Faz 1 + Faz 4 (6 ülke, tam paketler: ulusal + yerel) tamamlandı; **v0.2.0 yayında**
-  (depo public, site yayında). Sıradaki sürüm v0.3.0 (Hintçe + yerel haberler + genişleyen kaynaklar).
+- **Aktif faz:** Faz 1 + Faz 4 (6 ülke, tam paketler: ulusal + yerel) tamamlandı; **v0.3.0 yayında**
+  (2026-09-23; depo public, site yayında).
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
   **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 342 birim testi yeşil.** Her ülkenin
   kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
@@ -51,15 +51,19 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
 - Dokümanlar: 4 README, site, SOURCES.md, CHANGELOG güncellendi; yeni ekran görüntüsü `docs/images/in-local.png`
   (eski `in-latest.png` silindi).
 
+- [x] 2026-09-23 · **v0.3.0 yayınlandı:** sürüm 0.3.0'a çekildi (package.json + package-lock.json), CHANGELOG
+  `[0.3.0]`, README/site indirme metinleri; `v0.3.0` etiketi → Release iş akışı (Windows/macOS/Linux) başarılı →
+  taslak Releases listesindeki kalemden açılıp notlarla yayınlandı (Latest). 14 derleme dosyası + 2 kaynak arşivi;
+  `releases/latest/download/...` bağlantıları doğrulandı.
+
 **Sıradaki somut adımlar:**
-1. `v0.3.0` etiketi (Release iş akışı paketleri üretir, taslağı yayına al).
-   **Dikkat:** electron-builder taslağı GitHub'da "untagged-..." URL'siyle görünür; `/releases/edit/<tag>`
-   adresine gidersen **ikinci, boş bir sürüm** oluşturursun (v0.2.0'da bu oldu). Taslağı Releases
-   listesindeki kalem simgesinden aç.
-2. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
-3. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
+1. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
+2. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
    ekran görüntüleri; News18 Hindi / Bhaskar ikonları (şu an harf monogramı görünüyor).
-4. Faz 2 (komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik).
+3. Faz 2 (komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik).
+4. Sonraki sürümde de: taslağı Releases listesindeki kalemden aç (`/releases/edit/<tag>` ikinci boş sürüm
+   açar); listedeki "Assets" sayısı yayından hemen sonra yanlış (2) görünebilir —
+   `releases/expanded_assets/<tag>` ile doğrula.
 
 **Sayılar (güncel):** 532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi).
 
