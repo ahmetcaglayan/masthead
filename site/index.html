@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Masthead — every newsroom in your country, on one calm front page</title>
+    <meta
+      name="description"
+      content="A free, open-source desktop news reader. 203 newsrooms across six countries on one quiet front page, every story read inside the app with ads and trackers blocked. No account, no telemetry."
+    />
+    <link rel="icon" href="logo-256.png" type="image/png" />
+    <link rel="apple-touch-icon" href="logo-256.png" />
+    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#13120f" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Masthead — one calm front page" />
+    <meta
+      property="og:description"
+      content="203 newsrooms across six countries on one quiet front page. Every story opens inside the app, with ads and trackers blocked."
+    />
+    <meta property="og:image" content="images/home.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style>
+      /* Fonts are served from this site — no CDN, no Google Fonts, no third party. */
+      @font-face {
+        font-family: 'Inter Variable';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Inter Variable';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('fonts/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+          U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Newsreader Variable';
+        font-style: normal;
+        font-weight: 200 800;
+        font-display: swap;
+        src: url('fonts/newsreader-latin-wght-normal.woff2') format('woff2-variations');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2212, U+FEFF,
+          U+FFFD;
+      }
+      @font-face {
+        font-family: 'Newsreader Variable';
+        font-style: normal;
+        font-weight: 200 800;
+        font-display: swap;
+        src: url('fonts/newsreader-latin-ext-wght-normal.woff2') format('woff2-variations');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+          U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+
+      /* The app's own tokens (src/renderer/src/styles/globals.css), so the page and the app
+         are the same surface. */
+      :root {
+        color-scheme: light;
+        --canvas: #f6f4ef;
+        --surface: #ffffff;
+        --muted: #efece5;
+        --subtle: #e7e3da;
+        --fg: #1b1915;
+        --fg-muted: #5c574d;
+        --fg-subtle: #6f695d;
+        --line: rgb(40 34 24 / 0.09);
+        --line-strong: rgb(40 34 24 / 0.16);
+        --accent: #e5462b;
+        --accent-hover: #cf3a20;
+        --accent-soft: rgb(229 70 43 / 0.1);
+        --on-accent: #ffffff;
+        --breaking: #c8102e;
+        --shadow-md: 0 4px 14px -4px rgb(40 30 15 / 0.12), 0 2px 4px -2px rgb(40 30 15 / 0.06);
+        --shadow-lg: 0 24px 60px -18px rgb(30 20 5 / 0.28), 0 10px 24px -12px rgb(30 20 5 / 0.14);
+        --ui: 'Inter Variable', system-ui, -apple-system, sans-serif;
+        --headline: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
+        --gutter: clamp(1rem, 4vw, 3rem);
+        --measure: 34rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: dark;
+          --canvas: #13120f;
+          --surface: #1b1a17;
+          --muted: #23211d;
+          --subtle: #2d2b26;
+          --fg: #e6e2d9;
+          --fg-muted: #aba596;
+          --fg-subtle: #8a867e;
+          --line: rgb(255 245 230 / 0.07);
+          --line-strong: rgb(255 245 230 / 0.13);
+          --accent: #ff6a4a;
+          --accent-hover: #ff8468;
+          --accent-soft: rgb(255 106 74 / 0.14);
+          --on-accent: #1a0d08;
+          --breaking: #ff4d5e;
+          --shadow-md: 0 4px 14px -4px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+          --shadow-lg: 0 24px 60px -18px rgb(0 0 0 / 0.7), 0 10px 24px -12px rgb(0 0 0 / 0.5);
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--fg);
+        font-family: var(--ui);
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--accent);
+        color: var(--on-accent);
+        padding: 0.6rem 1rem;
+        border-radius: 0 0 8px 0;
+        z-index: 10;
+      }
+      .skip:focus {
+        left: 0;
+      }
+
+      .wrap {
+        width: min(72rem, 100%);
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+
+      /* ── masthead ───────────────────────────────────────────────────────── */
+      .masthead {
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        background: color-mix(in srgb, var(--canvas) 88%, transparent);
+        backdrop-filter: blur(10px);
+        z-index: 5;
+      }
+      .masthead .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 60px;
+      }
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--headline);
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+      }
+      .wordmark img {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+      }
+      .masthead nav {
+        display: flex;
+        gap: clamp(0.75rem, 2vw, 1.6rem);
+        font-size: 0.92rem;
+        color: var(--fg-muted);
+      }
+      .masthead nav a {
+        text-decoration: none;
+        padding: 0.35rem 0;
+        border-bottom: 1.5px solid transparent;
+      }
+      .masthead nav a:hover {
+        color: var(--fg);
+        border-bottom-color: var(--accent);
+      }
+      @media (max-width: 34rem) {
+        .masthead nav a.optional {
+          display: none;
+        }
+      }
+
+      /* ── type ───────────────────────────────────────────────────────────── */
+      h1,
+      h2,
+      h3 {
+        font-family: var(--headline);
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.12;
+        text-wrap: balance;
+        margin: 0;
+      }
+      h1 {
+        font-size: clamp(2.35rem, 6.2vw, 4rem);
+      }
+      h2 {
+        font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+      }
+      h3 {
+        font-size: 1.16rem;
+        line-height: 1.3;
+      }
+      p {
+        margin: 0 0 1rem;
+        text-wrap: pretty;
+      }
+      .kicker {
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 0.6rem;
+      }
+      .lede {
+        font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+        color: var(--fg-muted);
+        max-width: var(--measure);
+      }
+      .muted {
+        color: var(--fg-muted);
+      }
+      .small {
+        font-size: 0.88rem;
+        color: var(--fg-subtle);
+      }
+
+      /* ── hero ───────────────────────────────────────────────────────────── */
+      .hero {
+        padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 4vw, 3rem);
+      }
+      .dateline {
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fg-subtle);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 0.7rem;
+        margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1rem;
+        justify-content: space-between;
+      }
+      .hero p.lede {
+        margin-top: 1.25rem;
+        font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+        max-width: 42rem;
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin: 1.75rem 0 0.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.72rem 1.4rem;
+        border-radius: 999px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--on-accent);
+      }
+      .btn-primary:hover {
+        background: var(--accent-hover);
+      }
+      .btn-ghost {
+        border-color: var(--line-strong);
+        color: var(--fg);
+      }
+      .btn-ghost:hover {
+        background: var(--muted);
+      }
+
+      .shot {
+        margin-top: clamp(2rem, 5vw, 3.5rem);
+        border: 1px solid var(--line-strong);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        background: var(--surface);
+      }
+      figure {
+        margin: 0;
+      }
+      figcaption {
+        font-size: 0.85rem;
+        color: var(--fg-subtle);
+        margin-top: 0.7rem;
+      }
+
+      /* ── stat rule ──────────────────────────────────────────────────────── */
+      .stats {
+        border-block: 1px solid var(--line);
+        padding: clamp(1.25rem, 3vw, 2rem) 0;
+        margin-top: clamp(2.5rem, 6vw, 4rem);
+      }
+      .stats ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+        gap: 1.25rem 1rem;
+        text-align: center;
+      }
+      .stats b {
+        display: block;
+        font-family: var(--headline);
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .stats span {
+        font-size: 0.82rem;
+        color: var(--fg-subtle);
+      }
+
+      /* ── sections ───────────────────────────────────────────────────────── */
+      section {
+        padding: clamp(3rem, 8vw, 5.5rem) 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .split {
+        display: grid;
+        gap: clamp(1.75rem, 4vw, 3.5rem);
+        align-items: center;
+      }
+      @media (min-width: 60rem) {
+        .split {
+          grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        }
+        .split.reverse > figure {
+          order: -1;
+        }
+      }
+      ul.ticks {
+        list-style: none;
+        margin: 1.25rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0.7rem;
+        max-width: var(--measure);
+      }
+      ul.ticks li {
+        position: relative;
+        padding-left: 1.5rem;
+        color: var(--fg-muted);
+      }
+      ul.ticks li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.62em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      ul.ticks b {
+        color: var(--fg);
+      }
+
+      /* ── country gallery ────────────────────────────────────────────────── */
+      .filmstrip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: min(38rem, 84%);
+        gap: 1.25rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0.5rem 0 1.5rem;
+        margin-top: 2rem;
+        scrollbar-width: thin;
+      }
+      .filmstrip > figure {
+        scroll-snap-align: center;
+      }
+      .filmstrip .shot {
+        margin-top: 0;
+        box-shadow: var(--shadow-md);
+      }
+      .flags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0;
+        list-style: none;
+      }
+      .flags a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        padding: 0.3rem 0.85rem 0.3rem 0.55rem;
+        font-size: 0.88rem;
+        text-decoration: none;
+        color: var(--fg-muted);
+      }
+      .flags a:hover {
+        color: var(--fg);
+        background: var(--muted);
+      }
+      .flags svg {
+        width: 22px;
+        height: 15px;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px var(--line);
+      }
+
+      /* ── grids and cards ────────────────────────────────────────────────── */
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        margin-top: 2rem;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.4rem;
+        background: var(--surface);
+      }
+      .card h3 {
+        margin-bottom: 0.45rem;
+      }
+      .card p {
+        margin: 0;
+        color: var(--fg-muted);
+        font-size: 0.95rem;
+      }
+      .card ul {
+        margin: 0.8rem 0 0;
+        padding-left: 1.1rem;
+        color: var(--fg-muted);
+        font-size: 0.95rem;
+      }
+      .card li {
+        margin-bottom: 0.35rem;
+      }
+      .card .btn {
+        margin-top: 1.1rem;
+      }
+
+      .note {
+        border-left: 3px solid var(--accent);
+        background: var(--accent-soft);
+        padding: 0.9rem 1.1rem;
+        border-radius: 0 10px 10px 0;
+        margin-top: 2rem;
+        font-size: 0.93rem;
+        color: var(--fg-muted);
+        max-width: 46rem;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.88em;
+        background: var(--muted);
+        padding: 0.1rem 0.4rem;
+        border-radius: 5px;
+      }
+
+      /* ── footer ─────────────────────────────────────────────────────────── */
+      footer {
+        padding: clamp(2.5rem, 6vw, 4rem) 0;
+        color: var(--fg-subtle);
+        font-size: 0.9rem;
+      }
+      footer .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        margin: 0 0 1rem;
+        padding: 0;
+        list-style: none;
+      }
+      footer a {
+        text-decoration-color: var(--line-strong);
+        text-underline-offset: 3px;
+      }
+      footer a:hover {
+        color: var(--fg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="wrap">
+        <a class="wordmark" href="#top">
+          <img src="logo-256.png" alt="" width="26" height="26" />
+          Masthead
+        </a>
+        <nav aria-label="Sections">
+          <a href="#reading">Reading</a>
+          <a href="#digest" class="optional">Coverage</a>
+          <a href="#countries">Countries</a>
+          <a href="#download">Download</a>
+          <a href="https://github.com/ahmetcaglayan/masthead">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div id="top" class="wrap hero">
+        <p class="dateline">
+          <span>Masthead 0.2.0 — free and open source</span>
+          <span>Türkiye · United States · India · United Kingdom · Germany · Brazil</span>
+        </p>
+
+        <h1>Every newsroom in your country, on one calm front page.</h1>
+        <p class="lede">
+          Masthead is a desktop news reader. It gathers 203 newsrooms into one quiet, magazine-like front
+          page — and every story opens inside the app, with ads and trackers blocked. No account, no
+          telemetry, nothing to sign in to.
+        </p>
+
+        <p class="cta-row">
+          <a class="btn btn-primary" href="#download">Download Masthead</a>
+          <a class="btn btn-ghost" href="#reading">See how it reads</a>
+        </p>
+        <p class="small">Windows · macOS · Linux — and it runs in your browser too.</p>
+
+        <figure class="shot">
+          <img
+            src="images/home.png"
+            width="1440"
+            height="900"
+            alt="Masthead's front page: a breaking-news bar, a top story covered by 16 sources, and a live timeline of the latest headlines"
+          />
+        </figure>
+      </div>
+
+      <div class="wrap stats">
+        <ul>
+          <li><b>203</b><span>newsrooms</span></li>
+          <li><b>731</b><span>feeds, all verified</span></li>
+          <li><b>6</b><span>countries</span></li>
+          <li><b>4</b><span>interface languages</span></li>
+          <li><b>0</b><span>trackers</span></li>
+        </ul>
+      </div>
+
+      <section id="reading">
+        <div class="wrap split reverse">
+          <div>
+            <p class="kicker">Read in place</p>
+            <h2>Read the news, not the ads.</h2>
+            <p class="muted">
+              Click a story and the publisher's own page opens in a dialog inside Masthead, with EasyList-based
+              ad and tracker blocking switched on. Press <kbd>Esc</kbd> and you are back on the front page.
+            </p>
+            <ul class="ticks">
+              <li><b>Reader mode</b> strips the page back to the text, in your own reading font and size.</li>
+              <li>
+                <b>No pop-ups, no downloads.</b> Pop-ups, downloads and permission prompts from news pages are
+                refused, and the embedded browser runs in its own sandboxed session.
+              </li>
+              <li>
+                <b>Your call.</b> Open everything in Reader mode by default, or switch between Web and Reader
+                in the toolbar whenever a page gets in the way.
+              </li>
+            </ul>
+          </div>
+          <figure>
+            <div class="shot">
+              <img
+                src="images/de-reader.png"
+                width="1440"
+                height="900"
+                loading="lazy"
+                alt="Reader mode showing a Frankfurter Allgemeine article as plain text with a photograph, in a German interface"
+              />
+            </div>
+            <figcaption>Reader mode on a German article — two minutes' reading, nothing else on the page.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="digest">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">One story, every outlet</p>
+            <h2>See who reported what, without opening a tab.</h2>
+            <p class="muted">
+              The same event is rarely told the same way twice. Masthead clusters what different newsrooms
+              publish about one event, so you can read around a story instead of through a single outlet.
+            </p>
+            <ul class="ticks">
+              <li><b>On the front page</b>, the top story says how many outlets are covering it — and lists their headlines.</li>
+              <li><b>The Digest</b> is that idea end to end: one card per event, the fullest summary, every outlet's own headline underneath.</li>
+              <li><b>Inside an article</b>, “Also covered by” takes you from one newsroom's version to another's in a click.</li>
+            </ul>
+          </div>
+          <figure>
+            <div class="shot">
+              <img
+                src="images/digest.png"
+                width="1440"
+                height="900"
+                loading="lazy"
+                alt="The Digest page: one card per story with the headline of every outlet that covered it"
+              />
+            </div>
+            <figcaption>The Digest — each story once, with every outlet's headline below it.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="countries">
+        <div class="wrap">
+          <p class="kicker">Six countries</p>
+          <h2>Six countries. Four interface languages.</h2>
+          <p class="lede">
+            Each country ships a curated, politically balanced pack — public broadcasters, news agencies,
+            mainstream papers, independent media, plus business, sport and technology titles. The interface
+            language and the language of the news are independent.
+          </p>
+
+          <ul class="flags">
+            <li>
+              <a href="#gallery">
+                <svg viewBox="0 0 90 60" aria-hidden="true">
+                  <rect width="90" height="60" fill="#E30A17" />
+                  <g transform="translate(0 30) scale(0.001)">
+                    <path
+                      fill="#fff"
+                      d="m41750 0 13568-4408-8386 11541V-7133l8386 11541zm925 8021a15000 15000 0 1 1 0-16042 12000 12000 0 1 0 0 16042z"
+                    />
+                  </g>
+                </svg>
+                Türkiye · 136
+              </a>
+            </li>
+            <li>
+              <a href="#gallery">
+                <svg viewBox="0 0 90 60" aria-hidden="true">
+                  <rect width="90" height="60" fill="#fff" />
+                  <g fill="#B22234">
+                    <rect width="90" height="4.6" /><rect y="9.2" width="90" height="4.6" /><rect y="18.4" width="90" height="4.6" /><rect y="27.6" width="90" height="4.6" /><rect y="36.8" width="90" height="4.6" /><rect y="46" width="90" height="4.6" /><rect y="55.2" width="90" height="4.6" />
+                  </g>
+                  <rect width="36" height="32.3" fill="#3C3B6E" />
+                </svg>
+                United States · 15
+              </a>
+            </li>
+            <li>
+              <a href="#gallery">
+                <svg viewBox="0 0 90 60" aria-hidden="true">
+                  <rect width="90" height="60" fill="#012169" />
+                  <path d="M0 0 90 60M90 0 0 60" stroke="#fff" stroke-width="12" />
+                  <path d="M0 0 90 60M90 0 0 60" stroke="#C8102E" stroke-width="4" />
+                  <path d="M45 0v60M0 30h90" stroke="#fff" stroke-width="20" />
+                  <path d="M45 0v60M0 30h90" stroke="#C8102E" stroke-width="12" />
+                </svg>
+                United Kingdom · 10
+              </a>
+            </li>
+            <li>
+              <a href="#gallery">
+                <svg viewBox="0 0 90 60" aria-hidden="true">
+                  <rect width="90" height="20" fill="#FF9933" />
+                  <rect y="20" width="90" height="20" fill="#fff" />
+                  <rect y="40" width="90" height="20" fill="#138808" />
+                  <circle cx="45" cy="30" r="8" fill="none" stroke="#000080" stroke-width="1.4" />
+                </svg>
+                India · 10
+              </a>
+            </li>
+            <li>
+              <a href="#gallery">
+                <svg viewBox="0 0 90 60" aria-hidden="true">
+                  <rect width="90" height="20" />
+                  <rect y="20" width="90" height="20" fill="#DD0000" />
+                  <rect y="40" width="90" height="20" fill="#FFCE00" />
+                </svg>
+                Germany · 15
+              </a>
+            </li>
+            <li>
+              <a href="#gallery">
+                <svg viewBox="0 0 90 60" aria-hidden="true">
+                  <rect width="90" height="60" fill="#009C3B" />
+                  <path d="M45 7 83 30 45 53 7 30Z" fill="#FFDF00" />
+                  <circle cx="45" cy="30" r="13.5" fill="#002776" />
+                </svg>
+                Brazil · 17
+              </a>
+            </li>
+          </ul>
+
+          <div class="filmstrip" id="gallery" tabindex="0" role="region" aria-label="The same app in six countries">
+            <figure>
+              <div class="shot">
+                <img src="images/us-home.png" width="1440" height="900" loading="lazy" alt="Masthead's front page with United States sources in English" />
+              </div>
+              <figcaption><b>United States</b> — NPR, the New York Times, the Washington Post, CBS, ABC, Fox News, Axios, CNBC.</figcaption>
+            </figure>
+            <figure>
+              <div class="shot">
+                <img src="images/gb-home.png" width="1440" height="900" loading="lazy" alt="Masthead's front page with United Kingdom sources" />
+              </div>
+              <figcaption><b>United Kingdom</b> — BBC News, the Guardian, Sky News, the Independent, the FT, the Economist.</figcaption>
+            </figure>
+            <figure>
+              <div class="shot">
+                <img src="images/de-home.png" width="1440" height="900" loading="lazy" alt="Masthead's front page with German sources and a German interface" />
+              </div>
+              <figcaption><b>Germany</b> — tagesschau, ZDFheute, Spiegel, Zeit, FAZ, SZ, Welt, n-tv, heise, kicker. Interface in German.</figcaption>
+            </figure>
+            <figure>
+              <div class="shot">
+                <img src="images/br-digest.png" width="1440" height="900" loading="lazy" alt="The Digest page with Brazilian sources and a Portuguese interface" />
+              </div>
+              <figcaption><b>Brazil</b> — G1, Folha, UOL, Estadão, CNN Brasil, Agência Brasil, ge. Interface in Portuguese.</figcaption>
+            </figure>
+            <figure>
+              <div class="shot">
+                <img src="images/in-latest.png" width="1440" height="900" loading="lazy" alt="The Latest timeline with Indian sources" />
+              </div>
+              <figcaption><b>India</b> — the Times of India, the Hindu, Hindustan Times, the Indian Express, NDTV, Mint.</figcaption>
+            </figure>
+            <figure>
+              <div class="shot">
+                <img src="images/latest-tr.png" width="1440" height="900" loading="lazy" alt="The Latest timeline with Turkish sources in a Turkish interface" />
+              </div>
+              <figcaption><b>Türkiye</b> — 67 national outlets and local papers in all 81 provinces, with local news of your own city.</figcaption>
+            </figure>
+          </div>
+          <p class="small">Scroll the strip sideways. More countries are on the way.</p>
+        </div>
+      </section>
+
+      <section id="more">
+        <div class="wrap">
+          <p class="kicker">The rest of it</p>
+          <h2>Everything else it does.</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Breaking news</h3>
+              <p>A ticker across the front page, a page of its own, and optional desktop notifications.</p>
+            </div>
+            <div class="card">
+              <h3>Local news</h3>
+              <p>In Türkiye, pick your city for its own papers and every story tagged with your province.</p>
+            </div>
+            <div class="card">
+              <h3>Filters and search</h3>
+              <p>Time range, sources, topics, region, most-covered sort, images only, hide read — and search that ignores accents.</p>
+            </div>
+            <div class="card">
+              <h3>Your sources</h3>
+              <p>Switch any outlet on or off. Switched-off sources are never fetched, and feed health is on the Sources page.</p>
+            </div>
+            <div class="card">
+              <h3>Library</h3>
+              <p>Saved stories and reading history, stored on your machine and nowhere else.</p>
+            </div>
+            <div class="card">
+              <h3>Make it yours</h3>
+              <p>Light, dark or system; five accent colours; twelve bundled reading fonts; text size and a compact mode.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="download">
+        <div class="wrap">
+          <p class="kicker">Download</p>
+          <h2>Get Masthead 0.2.0</h2>
+          <p class="lede">
+            Free, MIT licensed, no account. Every build is produced in the open by GitHub Actions and published
+            on the Releases page.
+          </p>
+
+          <div class="grid">
+            <div class="card">
+              <h3>Windows</h3>
+              <ul>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — Intel / AMD (x64)</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — ARM64</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Portable, no install</a></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>macOS</h3>
+              <ul>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Apple Silicon (.dmg)</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Intel (.dmg)</a></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Linux</h3>
+              <ul>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">AppImage</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Debian / Ubuntu (.deb)</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/ahmetcaglayan/masthead/releases/latest">
+              All downloads on GitHub
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/ahmetcaglayan/masthead/blob/main/CHANGELOG.md">
+              What's new in 0.2.0
+            </a>
+          </p>
+
+          <div class="note">
+            <p style="margin: 0 0 0.5rem">
+              <b>The builds are not code-signed yet.</b> Windows SmartScreen may warn on first launch — choose
+              <em>More info → Run anyway</em>. On macOS, right-click the app and choose <em>Open</em> the first
+              time.
+            </p>
+            <p style="margin: 0">
+              <b>Can't install software?</b> The whole app also runs in a normal browser, on your own machine,
+              from source: <code>git clone</code>, <code>npm install</code>, <code>npm run dev:web</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="wrap">
+          <p class="kicker">Private by design</p>
+          <h2>No account. No telemetry. Not even on this page.</h2>
+          <p class="lede">
+            Masthead has no sign-up and no analytics. Your settings, saved stories and reading history stay in a
+            folder on your computer. The app connects to the news sites you enable, to fetch the stories and
+            their pictures — and, if ad blocking is on, to download the public filter lists. Nothing else.
+          </p>
+          <p class="small">
+            This page is the same: no cookies, no analytics, no third-party requests. The fonts are served from
+            here, not from a font CDN.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <ul class="links">
+          <li><a href="https://github.com/ahmetcaglayan/masthead">Source on GitHub</a></li>
+          <li><a href="https://github.com/ahmetcaglayan/masthead/releases">Releases</a></li>
+          <li><a href="https://github.com/ahmetcaglayan/masthead/blob/main/CHANGELOG.md">Changelog</a></li>
+          <li><a href="https://github.com/ahmetcaglayan/masthead/blob/main/docs/SOURCES.md">Sources</a></li>
+          <li><a href="https://github.com/ahmetcaglayan/masthead/blob/main/CONTRIBUTING.md">Contributing</a></li>
+          <li><a href="https://github.com/ahmetcaglayan/masthead/issues">Report a problem</a></li>
+        </ul>
+        <p>
+          Masthead is built with Electron, React, TypeScript and Vite, and set in Newsreader and Inter. MIT
+          licensed. News content belongs to its publishers — Masthead shows the headline, the summary and the
+          picture a newsroom puts in its own public feed, and the article is always read on the publisher's
+          page.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

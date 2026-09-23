@@ -15,3 +15,7 @@ coverage/
 .masthead-web/
 # npm run screenshots output (≈26 MB); README images are copied to docs/images/
 assets/screenshots/
+
+# local preview only: the Pages workflow copies these in
+site/images
+site/logo-256.png
