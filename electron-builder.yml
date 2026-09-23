@@ -55,4 +55,4 @@ linux:
 publish:
   provider: github
   owner: ahmetcaglayan
-  repo: Masthead
+  repo: masthead

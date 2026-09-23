@@ -3,7 +3,7 @@
 ## Reporting a vulnerability
 
 Please **do not** open a public issue for security problems. Use GitHub's
-[private vulnerability reporting](https://github.com/ahmetcaglayan/Masthead/security/advisories/new)
+[private vulnerability reporting](https://github.com/ahmetcaglayan/masthead/security/advisories/new)
 instead. You should get a response within a few days.
 
 ## How Masthead handles your data

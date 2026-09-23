@@ -12,7 +12,7 @@ import { useSettings } from '@/stores/settings'
 import { useUi } from '@/stores/ui'
 import { SettingRow, SettingsCard, SettingsSection } from './SettingsLayout'
 
-const REPOSITORY = 'https://github.com/ahmetcaglayan/Masthead'
+const REPOSITORY = 'https://github.com/ahmetcaglayan/masthead'
 
 function About(): React.JSX.Element {
   const { t } = useTranslation('settings')

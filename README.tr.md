@@ -9,9 +9,9 @@
 Türkiye'nin önde gelen haber sitelerinin manşetlerini tek bir yerde toplayan, haberleri uygulamadan hiç
 çıkmadan okumanı sağlayan şık bir masaüstü haber uygulaması.
 
-[![Sürüm](https://img.shields.io/github/v/release/ahmetcaglayan/Masthead?style=flat-square&color=f4502f&label=s%C3%BCr%C3%BCm)](https://github.com/ahmetcaglayan/Masthead/releases/latest)
-[![İndirme](https://img.shields.io/github/downloads/ahmetcaglayan/Masthead/total?style=flat-square&color=f4502f&label=indirme)](https://github.com/ahmetcaglayan/Masthead/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/ahmetcaglayan/Masthead/ci.yml?style=flat-square&label=CI)](https://github.com/ahmetcaglayan/Masthead/actions/workflows/ci.yml)
+[![Sürüm](https://img.shields.io/github/v/release/ahmetcaglayan/masthead?style=flat-square&color=f4502f&label=s%C3%BCr%C3%BCm)](https://github.com/ahmetcaglayan/masthead/releases/latest)
+[![İndirme](https://img.shields.io/github/downloads/ahmetcaglayan/masthead/total?style=flat-square&color=f4502f&label=indirme)](https://github.com/ahmetcaglayan/masthead/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/ahmetcaglayan/masthead/ci.yml?style=flat-square&label=CI)](https://github.com/ahmetcaglayan/masthead/actions/workflows/ci.yml)
 [![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-2f2a24?style=flat-square)](LICENSE)
 
 [English](README.md) · **Türkçe**
@@ -49,7 +49,7 @@ Masthead 67 ulusal yayının (24'ü varsayılan olarak açık) ve 81 ilin tamam�
 
 ## İndir
 
-Son sürümü [Releases sayfasından](https://github.com/ahmetcaglayan/Masthead/releases/latest) indir:
+Son sürümü [Releases sayfasından](https://github.com/ahmetcaglayan/masthead/releases/latest) indir:
 
 | Platform | Dosya |
 | --- | --- |
@@ -72,8 +72,8 @@ Uygulamanın tamamı kendi bilgisayarında, normal bir tarayıcıda da çalış�
 bilgisayarları için ideal:
 
 ```bash
-git clone https://github.com/ahmetcaglayan/Masthead.git
-cd Masthead
+git clone https://github.com/ahmetcaglayan/masthead.git
+cd masthead
 npm install
 npm run dev:web      # http://localhost:5173 adresini aç
 ```

@@ -9,9 +9,9 @@
 A beautiful desktop news reader that brings together the headlines of every major Turkish news outlet —
 and lets you read them without ever leaving the app.
 
-[![Release](https://img.shields.io/github/v/release/ahmetcaglayan/Masthead?style=flat-square&color=f4502f)](https://github.com/ahmetcaglayan/Masthead/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/ahmetcaglayan/Masthead/total?style=flat-square&color=f4502f)](https://github.com/ahmetcaglayan/Masthead/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/ahmetcaglayan/Masthead/ci.yml?style=flat-square&label=CI)](https://github.com/ahmetcaglayan/Masthead/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/ahmetcaglayan/masthead?style=flat-square&color=f4502f)](https://github.com/ahmetcaglayan/masthead/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/ahmetcaglayan/masthead/total?style=flat-square&color=f4502f)](https://github.com/ahmetcaglayan/masthead/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/ahmetcaglayan/masthead/ci.yml?style=flat-square&label=CI)](https://github.com/ahmetcaglayan/masthead/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2f2a24?style=flat-square)](LICENSE)
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
@@ -50,7 +50,7 @@ Masthead gathers the stories of 67 national outlets (24 on by default) and local
 
 ## Download
 
-Grab the latest version from the [Releases page](https://github.com/ahmetcaglayan/Masthead/releases/latest):
+Grab the latest version from the [Releases page](https://github.com/ahmetcaglayan/masthead/releases/latest):
 
 | Platform | File |
 | --- | --- |
@@ -72,8 +72,8 @@ The whole app also runs in a normal browser on your own machine — handy on a w
 software isn't allowed:
 
 ```bash
-git clone https://github.com/ahmetcaglayan/Masthead.git
-cd Masthead
+git clone https://github.com/ahmetcaglayan/masthead.git
+cd masthead
 npm install
 npm run dev:web      # open http://localhost:5173
 ```

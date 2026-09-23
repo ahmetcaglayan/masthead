@@ -14,12 +14,12 @@
 - **Aktif faz:** Faz 1 — Temel (MVP) **tamamlandı**; v0.1.0 yayına hazır
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
   136 kaynak (67 ulusal + 81 ilin yerel kaynakları), 285 birim testi, `npm run selftest` 11/11, tasarım ve kod
-  incelemeleri yapıldı, Windows paketleri `release/0.1.0/` altında. Kalan tek iş: kodu GitHub'a koymak ve
-  Release yayınlamak (sahibinin onayıyla).
+  incelemeleri yapıldı, Windows paketleri `release/0.1.0/` altında. Kod GitHub'da
+  (https://github.com/ahmetcaglayan/masthead). Kalan: v0.1.0 Release'i yayınlamak (sahibinin onayıyla).
 
 ## Sıradaki adım
 
-1. GitHub'da boş `ahmetcaglayan/Masthead` deposunu aç (README/lisans ekleme), sonra `git push -u origin main`.
+1. ~~GitHub deposu + push~~ ✅ https://github.com/ahmetcaglayan/masthead
 2. `v0.1.0` etiketi → `.github/workflows/release.yml` Windows/macOS/Linux paketlerini taslak Release'e yükler;
    notları `CHANGELOG.md`'den kontrol edip yayınla. (Ya da `release/0.1.0/` altındaki Windows dosyalarını elle yükle.)
 3. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
@@ -29,8 +29,8 @@
 ## Nasıl devam edilir (yeni bilgisayarda)
 
 ```bash
-git clone https://github.com/ahmetcaglayan/Masthead.git
-cd Masthead
+git clone https://github.com/ahmetcaglayan/masthead.git
+cd masthead
 npm install              # Electron binary'si de iner
 npm run dev:web          # tarayıcı modu → http://localhost:5173  (exe gerekmez)
 npm run dev              # masaüstü uygulaması (Electron)
@@ -129,8 +129,9 @@ Gereksinimler: Node.js 22.12+ (geliştirmede 24 kullanıldı), npm 10+. Windows'
       içeriğinin self-test'i 11/11 (bu PC'de Akıllı Uygulama Denetimi imzasız `Masthead.exe`'yi bazen engelliyor —
       aynı paket resmi Electron exe'siyle test edildi)
 - [x] 2026-09-23 · README ekran görüntüleri (`docs/images/`, 7 görsel) ve README'de arm64 + Akıllı Uygulama Denetimi notu
-- [x] 2026-09-23 · Git deposu (`main`), ilk commit, `origin` = `https://github.com/ahmetcaglayan/Masthead.git`
-- [ ] GitHub'da boş `Masthead` deposunu aç → `git push -u origin main`
+- [x] 2026-09-23 · Git deposu (`main`), ilk commit, `origin` = `https://github.com/ahmetcaglayan/masthead.git`
+- [x] 2026-09-23 · GitHub'a push: https://github.com/ahmetcaglayan/masthead (`main`); tüm bağlantılar küçük harfli
+      depo adına çevrildi
 - [ ] v0.1.0 etiketi + Release (sahibinin onayıyla)
 - [ ] (İsteğe bağlı) Kod imzalama: SignPath Foundation (açık kaynak için ücretsiz) veya Azure Trusted Signing —
       Akıllı Uygulama Denetimi engelini kaldırır

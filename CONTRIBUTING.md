@@ -5,8 +5,8 @@ Thanks for helping! Bug reports, new news sources, translations and code are all
 ## Getting started
 
 ```bash
-git clone https://github.com/ahmetcaglayan/Masthead.git
-cd Masthead
+git clone https://github.com/ahmetcaglayan/masthead.git
+cd masthead
 npm install
 npm run dev        # desktop app (Electron) with hot reload
 npm run dev:web    # the same app in your browser at http://localhost:5173
