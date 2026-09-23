@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { getCountryPack, getProvince, getSource, type CountryPack } from '@shared/countries'
+import { findSource, getCountryPack, getProvince, type CountryPack } from '@shared/countries'
 import type { Province, SourceDef } from '@shared/types'
 import { sourcesInfo, switchSources, type SourcePrefs, type SourcesInfo } from '@/lib/sources'
 import { getSettings, useSettings } from '@/stores/settings'
@@ -38,10 +38,14 @@ export function restoreSources(prefs: SourcePrefs): void {
   void useSettings.getState().update({ sources: { disabled: prefs.disabled, enabled: prefs.enabled ?? [] } })
 }
 
-/** A single source of the selected country, or undefined when unknown. Ignores the on/off switches. */
+/**
+ * A single source by id, from the selected country first and then the other packs, so a
+ * saved story or a history entry from another country still shows its outlet. Ignores the
+ * on/off switches.
+ */
 export function useSource(id: string | undefined): SourceDef | undefined {
   const country = useSettings((s) => s.settings.country)
-  return id ? getSource(country, id) : undefined
+  return id ? findSource(country, id) : undefined
 }
 
 /** The selected country's pack (regions, provinces, sources), or undefined if it is not shipped. */

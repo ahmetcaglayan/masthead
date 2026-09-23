@@ -99,7 +99,7 @@
     },
     "country": {
       "label": "Ülke",
-      "description": "Hangi ülkenin haber kaynaklarını takip ettiğiniz. Şu an altı ülke kapsanıyor; yenileri yolda.",
+      "description": "Haberleri hangi ülkenin kaynaklarından okuyacağınız. Şimdilik altı ülke var; yenileri yolda.",
       "soon": "Yakında"
     },
     "city": {

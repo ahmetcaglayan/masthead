@@ -36,13 +36,13 @@
     },
     "density": {
       "label": "Densidade",
-      "description": "O modo compacto cabe mais notícias na tela.",
+      "description": "O modo compacto mostra mais notícias na tela.",
       "comfortable": "Confortável",
       "compact": "Compacto"
     },
     "cardStyle": {
-      "label": "Estilo das cartas",
-      "description": "Como as notícias aparecem em listas e seções.",
+      "label": "Estilo dos cartões",
+      "description": "Como as notícias ficam dispostas em listas e seções.",
       "magazine": "Revista",
       "magazineHint": "Fotos grandes, resumos completos",
       "grid": "Grade",
@@ -83,7 +83,7 @@
       "summary": "A autoridade monetária disse que a pressão sobre os preços cede mais rápido que o esperado e sinalizou cortes no início do ano que vem se a tendência continuar.",
       "meta": "Redação · há 5 min",
       "readerLabel": "Modo de leitura",
-      "body": "A decisão já era esperada. Analistas veem o primeiro corte na primavera, e os mercados ficaram calmos depois do anúncio.",
+      "body": "A decisão já era esperada. Analistas veem o primeiro corte no início do ano que vem, e os mercados ficaram calmos depois do anúncio.",
       "faces": {
         "ui": "Interface",
         "headline": "Manchete",
@@ -104,7 +104,7 @@
     },
     "city": {
       "label": "Cidade ou região",
-      "description": "Enche a sua página Local com notícias de perto de você."
+      "description": "Preenche a sua página Local com notícias de perto de você."
     }
   },
   "interests": {
@@ -144,7 +144,7 @@
     "stories_other": "{{formatted}} notícias",
     "health": {
       "ok_one": "Feed funcionando · verificado {{time}}",
-      "ok_other": "Os {{count}} feeds funcionando · verificado {{time}}",
+      "ok_other": "Todos os {{count}} feeds funcionando · verificado {{time}}",
       "partial": "{{failing}} de {{count}} feeds com falha · verificado {{time}}",
       "failing_one": "Feed não responde · tentado {{time}}",
       "failing_other": "Nenhum dos {{count}} feeds responde · tentado {{time}}",
@@ -226,7 +226,7 @@
       "description": "Tudo volta ao padrão e a apresentação inicial roda de novo. Notícias salvas e histórico são mantidos.",
       "action": "Redefinir ajustes",
       "confirmTitle": "Redefinir todos os ajustes?",
-      "confirmDescription": "Tema, fontes, veículos e interesses voltam ao padrão, e a apresentação inicial começa de novo. Notícias salvas e histórico são mantidos."
+      "confirmDescription": "Tema, tipografia, veículos e interesses voltam ao padrão, e a apresentação inicial começa de novo. Notícias salvas e histórico são mantidos."
     }
   },
   "about": {

@@ -21,11 +21,11 @@
     "search": "Suche",
     "collapse": "Seitenleiste einklappen",
     "expand": "Seitenleiste ausklappen",
-    "breakingCount_one": "{{count}} neue in den letzten 2 Stunden",
-    "breakingCount_other": "{{count}} neue in den letzten 2 Stunden"
+    "breakingCount_one": "{{count}} neue Meldung in den letzten 2 Stunden",
+    "breakingCount_other": "{{count}} neue Meldungen in den letzten 2 Stunden"
   },
   "category": {
-    "top": "Top-Themen",
+    "top": "Schlagzeilen",
     "breaking": "Eilmeldungen",
     "general": "Aktuelles",
     "national": "Inland",

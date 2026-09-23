@@ -11,9 +11,9 @@
 ## Son durum
 
 - **Tarih:** 2026-09-23
-- **Aktif faz:** Faz 1 — Temel (MVP) **tamamlandı**; v0.1.0 yayına hazır
+- **Aktif faz:** Faz 1 tamamlandı, Faz 4'ün ilk adımı (6 ülke, 4 dil) tamamlandı; **v0.2.0 yayınlanıyor**
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
-  136 kaynak (67 ulusal + 81 ilin yerel kaynakları), 285 birim testi, `npm run selftest` 11/11, tasarım ve kod
+  206 kaynak (6 ülke), 317 birim testi, `npm run selftest` 11/11 (v0.1.0'da), tasarım ve kod
   incelemeleri yapıldı, Windows paketleri (Windows PC'de) `release/0.1.0/` altında. Kod GitHub'da
   (https://github.com/ahmetcaglayan/masthead). Kalan: v0.1.0 Release'i yayınlamak (sahibinin onayıyla).
   Geliştirme artık macOS'ta da sürüyor: `npm install` + testler + typecheck + lint yeşil, tarayıcı modu

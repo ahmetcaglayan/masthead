@@ -21,6 +21,7 @@ export const sources: SourceDef[] = [
     feeds: [
       { url: 'https://timesofindia.indiatimes.com/rssfeedstopstories.cms', category: 'top', headline: true },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms', category: 'national' },
+      { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128838597.cms', category: 'politics' },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/296589292.cms', category: 'world' },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/1898055.cms', category: 'economy' },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/4719148.cms', category: 'sports' },
@@ -40,6 +41,7 @@ export const sources: SourceDef[] = [
       { url: 'https://www.thehindu.com/news/international/feeder/default.rss', category: 'world' },
       { url: 'https://www.thehindu.com/business/feeder/default.rss', category: 'economy' },
       { url: 'https://www.thehindu.com/sci-tech/feeder/default.rss', category: 'science' },
+      { url: 'https://www.thehindu.com/entertainment/feeder/default.rss', category: 'culture' },
       { url: 'https://www.thehindu.com/sport/feeder/default.rss', category: 'sports' }
     ]
   },
@@ -60,6 +62,7 @@ export const sources: SourceDef[] = [
       { url: 'https://www.hindustantimes.com/feeds/rss/world-news/rssfeed.xml', category: 'world' },
       { url: 'https://www.hindustantimes.com/feeds/rss/business/rssfeed.xml', category: 'economy' },
       { url: 'https://www.hindustantimes.com/feeds/rss/technology/rssfeed.xml', category: 'technology' },
+      { url: 'https://www.hindustantimes.com/feeds/rss/lifestyle/health/rssfeed.xml', category: 'health' },
       { url: 'https://www.hindustantimes.com/feeds/rss/sports/rssfeed.xml', category: 'sports' },
       { url: 'https://www.hindustantimes.com/feeds/rss/entertainment/rssfeed.xml', category: 'entertainment' }
     ]
@@ -75,10 +78,12 @@ export const sources: SourceDef[] = [
     feeds: [
       { url: 'https://indianexpress.com/feed/', category: 'top', headline: true },
       { url: 'https://indianexpress.com/section/india/feed/', category: 'national' },
+      { url: 'https://indianexpress.com/section/political-pulse/feed/', category: 'politics' },
       { url: 'https://indianexpress.com/section/world/feed/', category: 'world' },
       { url: 'https://indianexpress.com/section/business/feed/', category: 'economy' },
       { url: 'https://indianexpress.com/section/technology/feed/', category: 'technology' },
-      { url: 'https://indianexpress.com/section/sports/feed/', category: 'sports' }
+      { url: 'https://indianexpress.com/section/sports/feed/', category: 'sports' },
+      { url: 'https://indianexpress.com/section/entertainment/feed/', category: 'entertainment' }
     ]
   },
 

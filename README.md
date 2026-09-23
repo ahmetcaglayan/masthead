@@ -27,7 +27,7 @@ and lets you read them, ad-free, without ever leaving the app.
 ## Why Masthead?
 
 Following the news usually means a dozen browser tabs, cookie banners, autoplaying videos and pop-ups.
-Masthead gathers **203 newsrooms across six countries** into one calm, magazine-like front page:
+Masthead gathers **206 newsrooms across six countries** into one calm, magazine-like front page:
 
 - **Follow the agenda without clicking.** Full headlines, full summaries and photos on every card. The **Digest**
   groups the same story from different outlets, so you see who reported what at a glance.
@@ -36,8 +36,8 @@ Masthead gathers **203 newsrooms across six countries** into one calm, magazine-
   Switch to **Reader mode**.
 - **Breaking news, front page and a live timeline.** A breaking-news ticker, a front-page hero built from
   the stories most outlets are covering, and a minute-by-minute "latest" column.
-- **Your sources, your rules.** Turn any outlet on or off. Filter by time, source, topic — and, in Türkiye,
-  by region and all 81 provinces.
+- **Your sources, your rules.** Turn any outlet on or off. Filter by time range, source, sort order and
+  pictures — and, in Türkiye, by region and all 81 provinces.
 - **Private by design.** No account, no telemetry. Settings, saved stories and history stay on your computer.
 
 ### Read the news, not the ads
@@ -45,6 +45,8 @@ Masthead gathers **203 newsrooms across six countries** into one calm, magazine-
 Every story opens inside Masthead, and the embedded browser runs with **ad and tracker blocking** switched on
 (EasyList-based, toggleable in Settings → Reading). No consent banners fighting for your attention, no
 autoplaying video, no newsletter pop-up over the second paragraph — the article, the way the newsroom wrote it.
+Ad blocking belongs to the desktop app: in the browser version an article is shown in a frame or in Reader mode,
+and only the publisher's own page can block anything.
 
 When a page still gets in the way, **Reader mode** strips it back to the text: headline, byline and body in your
 own reading font and size, on the app's warm paper or deep-ink background. Same story, no layout, no scripts.
@@ -62,7 +64,8 @@ about one event, so you can read around a story instead of through a single outl
 - The **Digest** page is that idea end to end: one card per event, the fullest summary at the top, and every
   other outlet's headline below it with its logo and the time it published — the whole day's agenda, no clicking.
 - Inside an open article, **"Also covered by"** lists the same event elsewhere, so you can jump from one
-  newsroom's version to another's in a click, or step through them with <kbd>←</kbd> / <kbd>→</kbd>.
+  newsroom's version to another's in a click, or step through the day's stories with
+  <kbd>Alt</kbd> + <kbd>←</kbd> / <kbd>→</kbd>.
 - Sort any feed by **Most covered** to put the stories many outlets are running first.
 
 ## Screenshots
@@ -84,7 +87,7 @@ interface if that is what you want.
 | | |
 | --- | --- |
 | ![Masthead's front page with United States sources](docs/images/us-home.png) | ![Masthead's front page with United Kingdom sources](docs/images/gb-home.png) |
-| 🇺🇸 **United States** — 15 newsrooms, from NPR and the NYT to Fox News and Axios | 🇬🇧 **United Kingdom** — BBC, Guardian, Sky News, the Independent, the FT |
+| 🇺🇸 **United States** — 18 newsrooms, from NPR and the NYT to Fox News and National Review | 🇬🇧 **United Kingdom** — BBC, Guardian, Sky News, the Independent, the FT |
 | ![Masthead in German with German sources](docs/images/de-home.png) | ![The Digest page in Portuguese with Brazilian sources](docs/images/br-digest.png) |
 | 🇩🇪 **Germany** — tagesschau, Spiegel, Zeit, FAZ, SZ… with the interface in German | 🇧🇷 **Brazil** — the Digest in Portuguese: one card, every outlet's headline |
 | ![The Latest timeline with Indian sources](docs/images/in-latest.png) | ![Reader mode on a German article](docs/images/de-reader.png) |
@@ -128,12 +131,12 @@ block most news sites from being embedded; the desktop app has no such limit).
 
 | | |
 | --- | --- |
-| 📰 **Front page** | Manşet hero, secondary headlines, sections for your interests, live "latest" timeline |
+| 📰 **Front page** | A front-page hero, secondary headlines, sections for your interests, a live "latest" timeline |
 | ⚡ **Breaking news** | Scrolling ticker, dedicated page, optional desktop notifications |
 | 🧭 **Digest** | Stories grouped across outlets with every outlet's headline — the day's agenda in one scroll |
-| 🔎 **Filters & search** | Time range, sources, 7 regions / 81 provinces, most-covered sort, images only, hide read; Turkish-aware search |
+| 🔎 **Filters & search** | Time range, sources, most-covered sort, images only, hide read — plus 7 regions / 81 provinces in Türkiye; accent-insensitive search |
 | 📖 **In-app reading** | Publisher's page in a dialog (<kbd>Esc</kbd> to close), Reader mode, ad & tracker blocking |
-| 📍 **Local news** | Pick your city for local outlets and province-tagged stories |
+| 📍 **Local news** | Türkiye: pick your city for local papers and province-tagged stories |
 | 🗂️ **Sources** | Switch each outlet on or off; feed health at a glance |
 | 🔖 **Library** | Saved stories and reading history, stored locally |
 | 🎨 **Make it yours** | Light / dark / system, five accent colours, twelve reading fonts, text size, compact mode |
@@ -147,9 +150,9 @@ broadcasters, news agencies, mainstream papers, independent media, plus business
 
 | Country | Sources | Feeds |
 | --- | --- | --- |
-| 🇹🇷 Türkiye | 136 (67 national + local papers in all 81 provinces) | 536 |
-| 🇺🇸 United States | 15 | 46 |
-| 🇮🇳 India | 10 | 32 |
+| 🇹🇷 Türkiye | 136 (67 national + local: city feeds for all 81 provinces, papers in 33 of them) | 536 |
+| 🇺🇸 United States | 18 | 49 |
+| 🇮🇳 India | 10 | 37 |
 | 🇬🇧 United Kingdom | 10 | 37 |
 | 🇩🇪 Germany | 15 | 46 |
 | 🇧🇷 Brazil | 17 | 34 |

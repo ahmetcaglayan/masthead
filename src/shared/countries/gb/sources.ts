@@ -110,7 +110,7 @@ export const sources: SourceDef[] = [
     color: '#E3120B',
     kind: 'international',
     language: 'en',
-    feeds: [{ url: 'https://www.economist.com/latest/rss.xml', category: 'world' }]
+    feeds: [{ url: 'https://www.economist.com/latest/rss.xml', category: 'general' }]
   },
 
   // Popular press — off by default, like the tabloids in the Turkey pack.

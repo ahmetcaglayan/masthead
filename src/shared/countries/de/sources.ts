@@ -43,7 +43,7 @@ export const sources: SourceDef[] = [
     color: '#0098DB',
     kind: 'international',
     language: 'de',
-    feeds: [{ url: 'https://rss.dw.com/rdf/rss-de-all', category: 'world' }]
+    feeds: [{ url: 'https://rss.dw.com/rdf/rss-de-all', category: 'general' }]
   },
 
   // Mainstream
@@ -79,7 +79,7 @@ export const sources: SourceDef[] = [
       { url: 'https://newsfeed.zeit.de/index', category: 'top', headline: true },
       { url: 'https://newsfeed.zeit.de/politik/index', category: 'politics' },
       { url: 'https://newsfeed.zeit.de/wirtschaft/index', category: 'economy' },
-      { url: 'https://newsfeed.zeit.de/gesellschaft/index', category: 'lifestyle' },
+      { url: 'https://newsfeed.zeit.de/gesellschaft/index', category: 'general' },
       { url: 'https://newsfeed.zeit.de/digital/index', category: 'technology' }
     ]
   },
@@ -150,7 +150,6 @@ export const sources: SourceDef[] = [
     id: 'stern',
     name: 'Stern',
     homepage: 'https://www.stern.de',
-    icon: 'https://www.stern.de/public/favicon-FMX3RXE2.ico',
     color: '#E3000F',
     kind: 'mainstream',
     language: 'de',

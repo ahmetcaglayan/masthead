@@ -8,7 +8,7 @@
     "updated": "aktualisiert {{time}}"
   },
   "card": {
-    "alsoReporting": "Berichten auch"
+    "alsoReporting": "Ebenfalls berichtet"
   },
   "summary": {
     "continueHere": "Den Rest der Meldung hier lesen",
@@ -190,7 +190,7 @@
     "newest": "Neueste",
     "startTitle": "Wonach suchen Sie?",
     "startKicker": "Alle Quellen",
-    "startBody": "Gesucht wird in Schlagzeilen und Zusammenfassungen. Akzente sind optional — „istanbul“ findet „İstanbul“.",
+    "startBody": "Gesucht wird in Schlagzeilen und Zusammenfassungen. Akzente sind optional — „istanbul“ findet „İstanbul“, „sao paulo“ findet „São Paulo“.",
     "focus": "Suche starten",
     "noResultsBody": "Versuchen Sie andere oder weniger Wörter. Ausdrücke in Anführungszeichen werden genau gesucht.",
     "noResultsFiltered": "Vielleicht verbergen Ihre Filter einige Treffer."
@@ -208,7 +208,7 @@
     "readAt": "Gelesen um {{time}}",
     "emptyTitle": "Noch kein Verlauf",
     "emptyBody": "Meldungen, die Sie öffnen, stehen hier Tag für Tag.",
-    "clearTitle": "Lese-Verlauf löschen?",
+    "clearTitle": "Leseverlauf löschen?",
     "clearBody": "Die Liste der gelesenen Meldungen wird entfernt. Gespeicherte Meldungen bleiben. Das lässt sich nicht rückgängig machen.",
     "clearConfirm": "Verlauf löschen"
   }

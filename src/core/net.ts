@@ -16,6 +16,13 @@ export interface FetchTextOptions {
   /** Charset override, wins over headers and XML/HTML declarations. */
   encoding?: string
   accept?: string
+  /** `Accept-Language` for this request; defaults to the Turkish pack's preference. */
+  acceptLanguage?: string
+  /**
+   * The 8-bit codepage to fall back to when a body claims `iso-8859-1` or turns out not to be
+   * UTF-8 after all. Turkish sites mean windows-1254; everyone else means windows-1252.
+   */
+  legacyCharset?: string
   headers?: Record<string, string>
   fetch?: typeof fetch
 }
@@ -63,14 +70,23 @@ function isMisdecodedUtf8(text: string): boolean {
   return broken > 3 && broken * 2 > nonAscii
 }
 
-/** Decode bytes with the detected charset; falls back to windows-1254 when UTF-8 decoding is clearly broken. */
-export function decodeBody(bytes: Uint8Array, contentType: string, override?: string): string {
+/**
+ * Decode bytes with the detected charset; falls back to `legacyCharset` when a body claims
+ * `iso-8859-1` (Turkish and Brazilian CMSs both do, meaning different codepages) or when UTF-8
+ * decoding is clearly broken.
+ */
+export function decodeBody(
+  bytes: Uint8Array,
+  contentType: string,
+  override?: string,
+  legacyCharset = 'windows-1254'
+): string {
   let charset = detectCharset(bytes, contentType, override)
-  if (charset === 'iso-8859-1' || charset === 'latin1') charset = 'windows-1254'
+  if (charset === 'iso-8859-1' || charset === 'latin1') charset = legacyCharset
   const buffer = Buffer.from(bytes)
   let text = iconv.encodingExists(charset) ? iconv.decode(buffer, charset) : buffer.toString('utf8')
   if (!override && (charset === 'utf-8' || charset === 'utf8') && isMisdecodedUtf8(text)) {
-    text = iconv.decode(buffer, 'windows-1254')
+    text = iconv.decode(buffer, legacyCharset)
   }
   return text.charCodeAt(0) === 0xfeff ? text.slice(1) : text
 }
@@ -81,7 +97,7 @@ export async function fetchText(url: string, options: FetchTextOptions = {}): Pr
   const headers: Record<string, string> = {
     'User-Agent': BROWSER_UA,
     Accept: options.accept ?? '*/*',
-    'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
+    'Accept-Language': options.acceptLanguage ?? 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
     ...options.headers
   }
   if (options.etag) headers['If-None-Match'] = options.etag
@@ -124,7 +140,7 @@ export async function fetchText(url: string, options: FetchTextOptions = {}): Pr
       bytes.set(chunk, offset)
       offset += chunk.byteLength
     }
-    return { ...base, notModified: false, text: decodeBody(bytes, contentType, options.encoding) }
+    return { ...base, notModified: false, text: decodeBody(bytes, contentType, options.encoding, options.legacyCharset) }
   } finally {
     clearTimeout(timer)
   }

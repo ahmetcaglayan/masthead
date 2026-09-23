@@ -68,6 +68,22 @@ export function getSource(code: CountryCode, id: string): SourceDef | undefined 
   return indexed(sourceIndex, code, listSources(code), (s) => s.id).get(id)
 }
 
+/**
+ * A source by id from any shipped pack. Saved stories and reading history outlive a
+ * country switch, so their outlet has to stay nameable; the selected country wins when
+ * two packs ever share an id.
+ */
+export function findSource(code: CountryCode, id: string): SourceDef | undefined {
+  const own = getSource(code, id)
+  if (own) return own
+  for (const other of ORDER) {
+    if (other === code) continue
+    const found = getSource(other, id)
+    if (found) return found
+  }
+  return undefined
+}
+
 /** Province by its code (plate code for Turkey). */
 export function getProvince(code: CountryCode, provinceCode: string): Province | undefined {
   return indexed(provinceIndex, code, PACKS[code]?.provinces ?? [], (p) => p.code).get(provinceCode)

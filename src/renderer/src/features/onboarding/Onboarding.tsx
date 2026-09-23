@@ -63,7 +63,7 @@ function Headline({ article }: { article: Article }): React.JSX.Element {
         {clock(article.publishedAt, i18n.language)}
       </time>
       <SourceLogo source={source} size="xs" className="mt-0.5" />
-      <span lang="tr" className="headline min-w-0 text-[14.5px] leading-snug font-medium text-pretty text-fg">
+      <span lang={source?.language ?? 'tr'} className="headline min-w-0 text-[14.5px] leading-snug font-medium text-pretty text-fg">
         {tameCaps(article.title)}
       </span>
     </li>
@@ -74,6 +74,9 @@ function Headline({ article }: { article: Article }): React.JSX.Element {
 function FirstFrontPage(): React.JSX.Element | null {
   const view = useNewsView()
   const interests = useSettings((s) => s.settings.interests)
+  const country = useSettings((s) => s.settings.country)
+  // The preview shows the chosen country's own headlines, so they carry its language.
+  const lang = getCountryPack(country)?.language ?? 'tr'
   const now = useNow(60_000)
   const home = useMemo(() => buildHome(view, { interests }, now), [view, interests, now])
   const hero = home.hero
@@ -98,7 +101,7 @@ function FirstFrontPage(): React.JSX.Element | null {
           className="absolute inset-0 bg-linear-to-t from-scrim via-scrim/40 via-45% to-transparent"
         />
         <div className="relative z-10 flex flex-col gap-2 p-4">
-          <p lang="tr" className="headline text-xl leading-tight font-semibold text-pretty text-on-scrim">
+          <p lang={lang} className="headline text-xl leading-tight font-semibold text-pretty text-on-scrim">
             {tameCaps(hero.lead.title)}
           </p>
           {hero.sourceCount > 1 && (

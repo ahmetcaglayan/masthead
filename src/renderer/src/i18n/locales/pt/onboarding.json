@@ -41,8 +41,8 @@
   "finish": {
     "title": "Tudo pronto.",
     "fetching": "Reunindo as primeiras manchetes · {{done}} de {{total}} feeds",
-    "ready_one": "{{count, number}} notícia esperando por você.",
-    "ready_other": "{{count, number}} notícias esperando por você.",
+    "ready_one": "{{count, number}} notícia está esperando por você.",
+    "ready_other": "{{count, number}} notícias estão esperando por você.",
     "soon": "Suas primeiras manchetes chegam num instante.",
     "cta": "Abrir minha primeira página",
     "later": "Você pode mudar tudo isso depois nos Ajustes."

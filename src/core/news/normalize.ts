@@ -248,10 +248,10 @@ export function normalizeItem(raw: RawItem, ctx: NormalizeContext): NormalizedIt
   if (feed.headline) categories.add('top')
   if (feed.province) categories.add('local')
   for (const label of raw.categories) {
-    for (const category of categoriesFromLabel(label)) categories.add(category)
+    for (const category of categoriesFromLabel(label, pack.language)) categories.add(category)
   }
   if (META_CATEGORIES.includes(feed.category)) {
-    for (const category of categoriesFromUrl(url)) categories.add(category)
+    for (const category of categoriesFromUrl(url, pack.language)) categories.add(category)
   }
 
   const geoTags = geo.tag(`${title}\n${summary}`)

@@ -1,7 +1,7 @@
 {
   "page": {
     "title": "Einstellungen",
-    "kicker": "Vorlieben",
+    "kicker": "Einstellungen",
     "description": "Machen Sie Masthead zu Ihrem. Änderungen werden sofort gespeichert.",
     "sections": "Einstellungsbereiche"
   },
@@ -217,7 +217,7 @@
       "description_other": "{{count}} Meldungen in Ihrem Verlauf, nur auf diesem Gerät gespeichert.",
       "action": "Verlauf löschen",
       "done": "Leseverlauf gelöscht",
-      "confirmTitle": "Lese-Verlauf löschen?",
+      "confirmTitle": "Leseverlauf löschen?",
       "confirmDescription_one": "{{count}} Meldung wird aus Ihrem Verlauf entfernt. Gespeicherte Meldungen bleiben.",
       "confirmDescription_other": "{{count}} Meldungen werden aus Ihrem Verlauf entfernt. Gespeicherte Meldungen bleiben."
     },

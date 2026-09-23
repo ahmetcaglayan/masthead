@@ -12,7 +12,7 @@
 **Masthead**, Türkiye'nin (ileride seçilen ülkenin) önde gelen haber sitelerinden haberleri toplayıp tek,
 sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygulamasıdır.
 
-- **Toplar:** 6 ülkeden 203 kaynağın (Türkiye 136, ABD 15, Hindistan 10, Birleşik Krallık 10, Almanya 15,
+- **Toplar:** 6 ülkeden 206 kaynağın (Türkiye 136, ABD 18, Hindistan 10, Birleşik Krallık 10, Almanya 15,
   Brezilya 17) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
   haberleri kümeler ("5 kaynak bu haberi verdi").
 - **Sunar:** Modern bir haber sitesi düzeni — manşet alanı, son dakika bandı, kategori bölümleri,
@@ -333,7 +333,7 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 
 ---
 
-## 8. Çoklu Ülke (ileride)
+## 8. Çoklu Ülke
 
 - Her ülke bir **ülke paketi**: kaynaklar, bölgeler, il/eyaletler, saat dilimi, içerik dili.
 - Paketi olmayan ülkeler için **Google News RSS** yedeği (ülkenin `hl/gl/ceid` baskısıyla

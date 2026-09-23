@@ -13,8 +13,9 @@ Six countries, four interface languages.
 ### Added
 
 - **Five more countries.** Country packs for the United States, India, the United Kingdom, Germany and Brazil —
-  67 national newsrooms and 195 feeds, all verified against the live sites — alongside the Turkey pack. Switch
-  country in Settings → Language & region; each country keeps its own cache, sources and reading history.
+  70 national newsrooms and 203 feeds, all verified against the live sites — alongside the Turkey pack. Switch
+  country in Settings → Language & region; each country keeps its own news cache and its own source switches,
+  while saved stories and reading history stay shared.
 - **German and Brazilian Portuguese interface**, next to English and Turkish. The interface language and the
   language of the news are independent.
 - Breaking-news markers in the new languages ("BREAKING", "Eilmeldung", "URGENTE", "Plantão") are recognised in
@@ -23,8 +24,13 @@ Six countries, four interface languages.
 ### Changed
 
 - `npm run verify:feeds` now checks every country pack; pass country codes (`-- de br`) to narrow it.
-- Countries without a province pack hide the Local page, the city question in the first-run setup and the city
-  row in Settings.
+- Countries without a province pack hide the Local page, the location filter, the city question in the
+  first-run setup and the city row in Settings.
+- Feeds are requested with the pack's own `Accept-Language`, and a body that claims `iso-8859-1` is read as
+  windows-1252 outside Türkiye instead of windows-1254.
+- Section keywords in feed labels and article URLs are matched per language (German and Portuguese section
+  names were added), so a Brazilian `/para-…/` URL is no longer filed under Economy.
+- A saved story or a history entry keeps its outlet's name and logo after a country switch.
 
 ### Fixed
 

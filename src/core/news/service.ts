@@ -589,6 +589,23 @@ export const createNewsService: CreateNewsService = (options) => {
     else scheduleFull(intervalMs() - age)
   }
 
+  /** What to ask a publisher for, and how to read a body that claims an 8-bit codepage. */
+  function requestLocale(pack: CountryPack | undefined): {
+    acceptLanguage: string
+    legacyCharset: string
+  } {
+    const locale = pack?.locale ?? 'tr-TR'
+    const language = pack?.language ?? 'tr'
+    return {
+      acceptLanguage:
+        language === 'en'
+          ? `${locale},en;q=0.9`
+          : `${locale},${language};q=0.9,en-US;q=0.8,en;q=0.7`,
+      // Turkish CMSs that label windows-1254 as iso-8859-1 are the exception; elsewhere it means 1252.
+      legacyCharset: language === 'tr' ? 'windows-1254' : 'windows-1252'
+    }
+  }
+
   async function fetchFeed(planned: PlannedFeed, force: boolean, s: CountryState): Promise<FeedOutcome> {
     const previous = s.feedState.get(planned.key)
     const fetchedAt = now()
@@ -599,6 +616,7 @@ export const createNewsService: CreateNewsService = (options) => {
         timeoutMs: FEED_TIMEOUT_MS,
         encoding: planned.feed.encoding,
         accept: FEED_ACCEPT,
+        ...requestLocale(s.pack),
         etag: force ? undefined : previous?.etag,
         lastModified: force ? undefined : previous?.lastModified
       })
@@ -793,7 +811,8 @@ export const createNewsService: CreateNewsService = (options) => {
         fetch: fetchUntilStopped,
         timeoutMs: IMAGE_TIMEOUT_MS,
         maxBytes: IMAGE_MAX_BYTES,
-        accept: PAGE_ACCEPT
+        accept: PAGE_ACCEPT,
+        ...requestLocale(state.pack)
       })
       if (!res.ok) return { image: null, definitive: res.status === 404 || res.status === 410 }
       return { image: extractPageImage(res.text, res.url || url), definitive: true }

@@ -26,7 +26,7 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 ## Neden Masthead?
 
 Gündemi takip etmek genelde onlarca sekme, çerez uyarıları, kendiliğinden açılan videolar ve pop-up'lar demek.
-Masthead **altı ülkeden 203 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
+Masthead **altı ülkeden 206 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
 
 - **Tıklamadan gündemi takip et.** Her kartta tam başlık, tam özet ve fotoğraf. **Gündem Özeti** aynı olayı veren
   kaynakları bir araya getirir; kimin ne dediğini tek bakışta görürsün.
@@ -35,15 +35,16 @@ Masthead **altı ülkeden 203 haber kaynağını** tek, sakin, dergi gibi bir ö
   Daha sade bir görünüm için **Okuma modu**.
 - **Son dakika, manşet ve canlı akış.** Kayan son dakika bandı, en çok kaynağın verdiği haberlerden oluşan
   manşet ve dakika dakika "son haberler" sütunu.
-- **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, konuya — Türkiye'de ayrıca
-  bölgeye ve 81 ile — göre filtrele.
+- **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, sıralamaya ve görsele —
+  Türkiye'de ayrıca bölgeye ve 81 ile — göre filtrele.
 - **Gizlilik öncelikli.** Üyelik yok, izleme yok. Ayarların, kaydettiklerin ve geçmişin bilgisayarında kalır.
 
 ### Reklamı değil, haberi oku
 
 Her haber Masthead'in içinde açılır ve gömülü tarayıcı **reklam ve izleyici engelleme** açıkken çalışır
 (EasyList tabanlı; Ayarlar → Okuma'dan kapatılabilir). Dikkatini dağıtan çerez bandı, kendiliğinden başlayan
-video, ikinci paragrafın üstüne düşen bülten penceresi yok — haber, yazıldığı hâliyle.
+video, ikinci paragrafın üstüne düşen bülten penceresi yok — haber, yazıldığı hâliyle. Reklam engelleme
+masaüstü uygulamaya özgüdür; tarayıcı sürümünde haber çerçeve içinde ya da Okuma modunda açılır.
 
 Sayfa yine de yoruyorsa **Okuma modu** her şeyi metne indirger: başlık, imza ve gövde; senin seçtiğin okuma
 fontu ve boyutuyla, uygulamanın sıcak kâğıt ya da koyu mürekkep zemininde. Aynı haber; düzen yok, betik yok.
@@ -61,7 +62,8 @@ kümeler; böylece haberi tek bir kaynaktan değil, etrafını dolaşarak okursu
 - **Gündem Özeti** sayfası bu fikrin tamamı: olay başına tek kart, en doyurucu özet üstte, altında her kaynağın
   başlığı logosu ve yayımlama saatiyle — günün gündemi, hiç tıklamadan.
 - Açık haberin içinde **"Diğer kaynaklarda"** aynı olayın başka yerlerdeki hâlini listeler; bir kaynağın
-  versiyonundan diğerine tek tıkla geçer ya da <kbd>←</kbd> / <kbd>→</kbd> ile sırayla gezersin.
+  versiyonundan diğerine tek tıkla geçer ya da <kbd>Alt</kbd> + <kbd>←</kbd> / <kbd>→</kbd> ile günün
+  haberleri arasında sırayla gezersin.
 - Herhangi bir akışı **En çok kaynak** sırasına alarak çok kaynağın verdiği haberleri öne çıkarabilirsin.
 
 ## Ekran görüntüleri
@@ -82,7 +84,7 @@ Arayüz dili ile haberlerin dili birbirinden bağımsız: istersen Brezilya gaze
 | | |
 | --- | --- |
 | ![ABD kaynaklarıyla Masthead ön sayfası](docs/images/us-home.png) | ![Birleşik Krallık kaynaklarıyla Masthead ön sayfası](docs/images/gb-home.png) |
-| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve Axios'a 15 kaynak | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Sky News, Independent, FT |
+| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve National Review'a 18 kaynak | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Sky News, Independent, FT |
 | ![Almanca arayüz ve Alman kaynakları](docs/images/de-home.png) | ![Portekizce arayüzle Gündem Özeti](docs/images/br-digest.png) |
 | 🇩🇪 **Almanya** — tagesschau, Spiegel, Zeit, FAZ, SZ… arayüz de Almanca | 🇧🇷 **Brezilya** — Portekizce Gündem Özeti: tek kart, her kaynağın başlığı |
 | ![Hindistan kaynaklarıyla Son Haberler](docs/images/in-latest.png) | ![Almanca bir haberde Okuma modu](docs/images/de-reader.png) |
@@ -130,9 +132,9 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 📰 **Ön sayfa** | Manşet, ikincil manşetler, ilgi alanı bölümleri, canlı "son haberler" akışı |
 | ⚡ **Son dakika** | Kayan bant, ayrı sayfa, isteğe bağlı masaüstü bildirimleri |
 | 🧭 **Gündem Özeti** | Kaynaklar arası gruplanmış haberler ve her kaynağın başlığı — günün gündemi tek kaydırmada |
-| 🔎 **Filtre ve arama** | Zaman, kaynak, 7 bölge / 81 il, en çok kaynak sıralaması, görselli, okunanları gizle; Türkçe'ye duyarlı arama |
+| 🔎 **Filtre ve arama** | Zaman, kaynak, en çok kaynak sıralaması, görselli, okunanları gizle — Türkiye'de ayrıca 7 bölge / 81 il; aksana duyarsız arama |
 | 📖 **Uygulama içi okuma** | Yayıncının sayfası pencerede (<kbd>Esc</kbd> ile kapat), Okuma modu, reklam ve izleyici engelleme |
-| 📍 **Yerel haberler** | Şehrini seç; yerel gazeteler ve ilinle ilgili haberler |
+| 📍 **Yerel haberler** | Türkiye: şehrini seç; yerel gazeteler ve ilinle ilgili haberler |
 | 🗂️ **Kaynaklar** | Her siteyi aç/kapat; akışların durumu bir bakışta |
 | 🔖 **Kitaplık** | Kaydedilen haberler ve okuma geçmişi, yerelde |
 | 🎨 **Kişiselleştir** | Açık / koyu / sistem tema, 5 vurgu rengi, 12 okuma fontu, yazı boyutu, sıkı görünüm |
@@ -146,9 +148,9 @@ bağımsız medya ile ekonomi, spor ve teknoloji siteleri arasından dengeli se�
 
 | Ülke | Kaynak | Akış |
 | --- | --- | --- |
-| 🇹🇷 Türkiye | 136 (67 ulusal + 81 ilin yerel gazeteleri) | 536 |
-| 🇺🇸 ABD | 15 | 46 |
-| 🇮🇳 Hindistan | 10 | 32 |
+| 🇹🇷 Türkiye | 136 (67 ulusal + yerel: 81 ilin akışı, 33 ilde yerel gazete) | 536 |
+| 🇺🇸 ABD | 18 | 49 |
+| 🇮🇳 Hindistan | 10 | 37 |
 | 🇬🇧 Birleşik Krallık | 10 | 37 |
 | 🇩🇪 Almanya | 15 | 46 |
 | 🇧🇷 Brezilya | 17 | 34 |

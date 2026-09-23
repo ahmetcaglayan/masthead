@@ -6,8 +6,8 @@ Every country Masthead covers is one **country pack** under `src/shared/countrie
 | Pack | Language | Sources | Feeds | On by default | Provinces |
 | --- | --- | --- | --- | --- | --- |
 | `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 |
-| `us` United States | English | 15 | 46 | 15 | — |
-| `in` India | English | 10 | 32 | 9 | — |
+| `us` United States | English | 18 | 49 | 17 | — |
+| `in` India | English | 10 | 37 | 9 | — |
 | `gb` United Kingdom | English | 10 | 37 | 7 | — |
 | `de` Germany | German | 15 | 46 | 14 | — |
 | `br` Brazil | Portuguese | 17 | 34 | 13 | — |
@@ -35,7 +35,7 @@ category, no stale or empty feeds, a balanced default set — apply to every pac
 | `tr/index.ts`        | The `CountryPack` (`tr-TR`, `Europe/Istanbul`, Google News edition `hl=tr&gl=TR&ceid=TR:tr`)                                    |
 | `countries/index.ts` | Registry: `COUNTRY_OPTIONS`, `getCountryPack`, `listSources`, `getSource`, `getProvince`, `isSourceEnabled`, `setSourceEnabled` |
 
-In total: **136 sources, 536 feeds**. Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
+In total, the Turkey pack: **136 sources, 536 feeds** (all six packs together: 206 sources, 739 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
 `black-sea`, `eastern-anatolia`, `southeastern-anatolia`.
 
 ### Categories
@@ -307,7 +307,7 @@ answers 500).
 ```sh
 npm run verify:feeds            # default-enabled sources of every pack + 3 city feeds per local source
 npm run verify:feeds -- de br   # only those countries
-npm run verify:feeds -- --all   # every feed of every pack
+npm run verify:feeds -- --all   # every feed of every pack, Turkey's 536 included
 npm run verify:feeds -- sozcu   # every feed of the named sources
 ```
 
@@ -319,9 +319,10 @@ items; it is **stale** when its newest item is older than 3 days. The exit code 
 ## The other country packs
 
 The five packs added on 2026-09-23 follow the Turkey pack's rules but carry national sources only: no local
-outlets, no province or district tables (`provinces: []`), so the app hides the Local page and the city
-question for them. Every feed below was checked against the live site on 2026-09-23; 185 of 186 feeds
-answered with fresh items (the one stale feed, CBS News health, was dropped).
+outlets, no province or district tables (`provinces: []`), so the app hides the Local page, the location
+filter and the city question for them. Every feed below was checked against the live site on 2026-09-23 and
+answered with fresh items; the ones that came back stale, empty or bot-blocked were dropped before shipping
+(among them CBS News health and the Times of India technology feed).
 
 **Why these five:** the countries with the largest online-news audiences that Masthead can serve well today —
 the United States (322M internet users), India (806M, with a large English-language press), the United
@@ -330,7 +331,7 @@ Three of them need no new interface language; German and Brazilian Portuguese we
 
 | Pack | Sources |
 | --- | --- |
-| `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Politico, The Hill, Axios, CNBC, The Verge, Ars Technica, ESPN |
+| `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Washington Examiner, National Review, New York Post*, Politico, The Hill, Axios, CNBC, The Verge, Ars Technica, ESPN |
 | `in` | The Times of India, The Hindu, Hindustan Times, The Indian Express, NDTV, India Today, News18, Firstpost*, The Economic Times, Mint |
 | `gb` | BBC News, The Guardian, Sky News, The Independent, Evening Standard, Financial Times, The Economist, Daily Mail*, Daily Mirror*, Metro* |
 | `de` | tagesschau, ZDFheute, Deutsche Welle, Der Spiegel, Zeit Online, FAZ, Süddeutsche Zeitung, Welt, n-tv, Stern, Focus Online*, taz, Handelsblatt, heise online, kicker |
@@ -350,13 +351,15 @@ CNN, whose `rss.cnn.com` feeds stopped updating years ago.
 2. Add the code to `CountryCode` (`src/shared/types.ts`), to `COUNTRIES` in `src/shared/settings.ts`, and to
    `PACKS` and `ORDER` in `countries/index.ts`.
 3. Add `common:country.<code>` and `common:category.national_<code>` to every locale, and flag artwork to
-   `CountryFlag.tsx`.
+   `src/renderer/src/features/settings/CountryFlag.tsx`.
 4. Run `npm run verify:feeds <code>` and `npm test` (the pack tests in `tests/shared/countries.test.ts` check
    ids, urls, categories and languages).
 
 If the interface should also speak the country's language, copy `src/renderer/src/i18n/locales/en` to a new
-folder, translate it, and add the code to `UI_LANGUAGES`, `LOCALES` in `i18n/index.ts`, `LANGUAGE_OPTIONS`
-and `LABEL` in `src/main/notifications.ts`.
+folder, translate it, and add the code to four lists: `UI_LANGUAGES` in `src/shared/settings.ts`, `LOCALES`
+in `src/renderer/src/i18n/index.ts`, `LANGUAGE_OPTIONS` in `features/settings/LanguageRegionSection.tsx`,
+`LANGUAGES` in `features/onboarding/Onboarding.tsx` — and the breaking-news `LABEL` in
+`src/main/notifications.ts`.
 
 ## Future: Google News RSS
 

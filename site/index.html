@@ -6,7 +6,7 @@
     <title>Masthead — every newsroom in your country, on one calm front page</title>
     <meta
       name="description"
-      content="A free, open-source desktop news reader. 203 newsrooms across six countries on one quiet front page, every story read inside the app with ads and trackers blocked. No account, no telemetry."
+      content="A free, open-source desktop news reader. 206 newsrooms across six countries on one quiet front page, every story read inside the app with ads and trackers blocked. No account, no telemetry."
     />
     <link rel="icon" href="logo-256.png" type="image/png" />
     <link rel="apple-touch-icon" href="logo-256.png" />
@@ -16,7 +16,7 @@
     <meta property="og:title" content="Masthead — one calm front page" />
     <meta
       property="og:description"
-      content="203 newsrooms across six countries on one quiet front page. Every story opens inside the app, with ads and trackers blocked."
+      content="206 newsrooms across six countries on one quiet front page. Every story opens inside the app, with ads and trackers blocked."
     />
     <meta property="og:image" content="images/home.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -76,7 +76,9 @@
         --line: rgb(40 34 24 / 0.09);
         --line-strong: rgb(40 34 24 / 0.16);
         --accent: #e5462b;
-        --accent-hover: #cf3a20;
+        /* Accent text and the primary button need AA on warm paper: #e5462b is 3.6:1, this is 5.3:1. */
+        --accent-ink: #b83218;
+        --accent-hover: #9e2a12;
         --accent-soft: rgb(229 70 43 / 0.1);
         --on-accent: #ffffff;
         --breaking: #c8102e;
@@ -101,6 +103,7 @@
           --line: rgb(255 245 230 / 0.07);
           --line-strong: rgb(255 245 230 / 0.13);
           --accent: #ff6a4a;
+          --accent-ink: #ff6a4a;
           --accent-hover: #ff8468;
           --accent-soft: rgb(255 106 74 / 0.14);
           --on-accent: #1a0d08;
@@ -259,7 +262,7 @@
         font-weight: 600;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: var(--accent);
+        color: var(--accent-ink);
         margin: 0 0 0.6rem;
       }
       .lede {
@@ -317,7 +320,7 @@
         transition: background-color 0.15s, border-color 0.15s, color 0.15s;
       }
       .btn-primary {
-        background: var(--accent);
+        background: var(--accent-ink);
         color: var(--on-accent);
       }
       .btn-primary:hover {
@@ -331,6 +334,9 @@
         background: var(--muted);
       }
 
+      .shot img {
+        aspect-ratio: 8 / 5;
+      }
       .shot {
         margin-top: clamp(2rem, 5vw, 3.5rem);
         border: 1px solid var(--line-strong);
@@ -504,7 +510,7 @@
       }
 
       .note {
-        border-left: 3px solid var(--accent);
+        border-left: 3px solid var(--accent-ink);
         background: var(--accent-soft);
         padding: 0.9rem 1.1rem;
         border-radius: 0 10px 10px 0;
@@ -571,9 +577,9 @@
           <span>Türkiye · United States · India · United Kingdom · Germany · Brazil</span>
         </p>
 
-        <h1>Every newsroom in your country, on one calm front page.</h1>
+        <h1>Every major newsroom in your country, on one calm front page.</h1>
         <p class="lede">
-          Masthead is a desktop news reader. It gathers 203 newsrooms into one quiet, magazine-like front
+          Masthead is a desktop news reader. It gathers 206 newsrooms into one quiet, magazine-like front
           page — and every story opens inside the app, with ads and trackers blocked. No account, no
           telemetry, nothing to sign in to.
         </p>
@@ -596,8 +602,8 @@
 
       <div class="wrap stats">
         <ul>
-          <li><b>203</b><span>newsrooms</span></li>
-          <li><b>731</b><span>feeds, all verified</span></li>
+          <li><b>206</b><span>newsrooms</span></li>
+          <li><b>739</b><span>feeds, all verified</span></li>
           <li><b>6</b><span>countries</span></li>
           <li><b>4</b><span>interface languages</span></li>
           <li><b>0</b><span>trackers</span></li>
@@ -704,7 +710,7 @@
                   </g>
                   <rect width="36" height="32.3" fill="#3C3B6E" />
                 </svg>
-                United States · 15
+                United States · 18
               </a>
             </li>
             <li>
@@ -757,7 +763,7 @@
               <div class="shot">
                 <img src="images/us-home.png" width="1440" height="900" loading="lazy" alt="Masthead's front page with United States sources in English" />
               </div>
-              <figcaption><b>United States</b> — NPR, the New York Times, the Washington Post, CBS, ABC, Fox News, Axios, CNBC.</figcaption>
+              <figcaption><b>United States</b> — NPR, the New York Times, the Washington Post, CBS, ABC, Fox News, the Washington Examiner, National Review.</figcaption>
             </figure>
             <figure>
               <div class="shot">
@@ -840,23 +846,23 @@
             <div class="card">
               <h3>Windows</h3>
               <ul>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — Intel / AMD (x64)</a></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — ARM64</a></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Portable, no install</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — Intel / AMD</a><br /><span class="small"><code>Masthead-0.2.0-win-x64.exe</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — ARM64</a><br /><span class="small"><code>Masthead-0.2.0-win-arm64.exe</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Portable, no install</a><br /><span class="small"><code>Masthead-0.2.0-portable.exe</code></span></li>
               </ul>
             </div>
             <div class="card">
               <h3>macOS</h3>
               <ul>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Apple Silicon (.dmg)</a></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Intel (.dmg)</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Apple Silicon</a><br /><span class="small"><code>Masthead-0.2.0-arm64.dmg</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Intel</a><br /><span class="small"><code>Masthead-0.2.0-x64.dmg</code></span></li>
               </ul>
             </div>
             <div class="card">
               <h3>Linux</h3>
               <ul>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">AppImage</a></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Debian / Ubuntu (.deb)</a></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">AppImage</a><br /><span class="small"><code>Masthead-0.2.0-linux-x86_64.AppImage</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Debian / Ubuntu</a><br /><span class="small"><code>Masthead-0.2.0-linux-amd64.deb</code></span></li>
               </ul>
             </div>
           </div>

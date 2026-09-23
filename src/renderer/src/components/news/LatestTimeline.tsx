@@ -52,7 +52,9 @@ const TimelineItem = memo(function TimelineItem({
       <button
         type="button"
         onClick={() => openArticle(article, queue)}
-        className="group/item grid w-full grid-cols-[2.75rem_minmax(0,1fr)] gap-x-3 rounded-lg text-left"
+        // The row runs the full width of its column, so the focus ring goes inside it: an
+        // outline drawn outside would be clipped on the left.
+        className="group/item grid w-full grid-cols-[2.75rem_minmax(0,1fr)] gap-x-3 rounded-lg text-left focus-visible:[outline-offset:-2px]"
       >
         <time
           dateTime={new Date(article.publishedAt).toISOString()}

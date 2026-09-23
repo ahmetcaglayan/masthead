@@ -9,6 +9,10 @@ import type { SourceDef } from '../../types'
  * no longer serve XML), CNN, whose rss.cnn.com feeds have not been updated for
  * years, and the CBS health feed, which runs days behind (NPR and the NYT cover
  * health here).
+ *
+ * The default set is balanced the way the Turkey pack is: public media and the
+ * mainstream dailies alongside Fox News, the Washington Examiner and National
+ * Review from the right, with the tabloid off by default.
  */
 
 export const sources: SourceDef[] = [
@@ -137,6 +141,36 @@ export const sources: SourceDef[] = [
       { url: 'https://moxie.foxnews.com/google-publisher/politics.xml', category: 'politics' },
       { url: 'https://moxie.foxnews.com/google-publisher/world.xml', category: 'world' }
     ]
+  },
+
+  {
+    id: 'washington-examiner',
+    name: 'Washington Examiner',
+    homepage: 'https://www.washingtonexaminer.com',
+    icon: 'https://www.washingtonexaminer.com/apple-touch-icon.png',
+    color: '#0C2C52',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.washingtonexaminer.com/feed', category: 'general' }]
+  },
+  {
+    id: 'national-review',
+    name: 'National Review',
+    homepage: 'https://www.nationalreview.com',
+    color: '#1B3F73',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.nationalreview.com/feed/', category: 'opinion' }]
+  },
+  {
+    id: 'new-york-post',
+    name: 'New York Post',
+    homepage: 'https://nypost.com',
+    color: '#C60800',
+    kind: 'mainstream',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://nypost.com/feed/', category: 'general' }]
   },
 
   // Politics and independent

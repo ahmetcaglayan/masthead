@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpDown, Check, ChevronDown, EyeOff, Image, ListFilter, MapPin, Rss, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { getProvince } from '@shared/countries'
+import { getProvince, hasLocalNews } from '@shared/countries'
 import { TIME_RANGES, type TimeRange } from '@shared/settings'
 import type { SourceDef } from '@shared/types'
 import { Button } from '@/components/ui/Button'
@@ -186,7 +186,9 @@ function useActiveFilters(hide: readonly FilterControl[]): ActiveFilters {
   const filters = useUi((s) => s.filters)
   const country = useSettings((s) => s.settings.country)
   const { byId } = useSources()
-  const shows = (control: FilterControl): boolean => !hide.includes(control)
+  // Countries without a province pack have nothing to put in the location filter.
+  const shows = (control: FilterControl): boolean =>
+    !hide.includes(control) && (control !== 'location' || hasLocalNews(country))
 
   const province = filters.provinceCode ? getProvince(country, filters.provinceCode) : undefined
   const locationLabel = province
@@ -334,11 +336,13 @@ export function FilterBar({ hide = [], count, className }: FilterBarProps): Reac
   const { t, i18n } = useTranslation('news')
   const { enabled } = useSources()
   const counts = useCounts()
+  const country = useSettings((s) => s.settings.country)
   const ref = useRef<HTMLDivElement>(null)
   useStickyOffset(ref)
   const { filters, sourcesLabel, locationLabel, active: chips, clearAll } = useActiveFilters(hide)
   const selectedSources = filters.sourceIds
-  const shows = (control: FilterControl): boolean => !hide.includes(control)
+  const shows = (control: FilterControl): boolean =>
+    !hide.includes(control) && (control !== 'location' || hasLocalNews(country))
 
   const timeOptions = useMemo(
     () => TIME_RANGES.map((value) => ({ value, label: t(`filters.time.${value}`) })),
