@@ -33,6 +33,8 @@ export interface NewsService {
   snapshot(): NewsSnapshot
   status(): RefreshStatus
   refresh(force?: boolean): Promise<void>
+  /** Fetch just the economy and business feeds (the markets page, once a minute at most). */
+  refreshMarkets(): Promise<void>
   resolveImage(articleId: string): Promise<string | null>
   detail(articleId: string): Promise<ArticleDetail | null>
   /**

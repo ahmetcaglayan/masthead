@@ -12,6 +12,7 @@ export type Route =
   | { name: 'breaking' }
   | { name: 'foryou' }
   | { name: 'local' }
+  | { name: 'markets' }
   | { name: 'category'; id: CategoryId }
   | { name: 'source'; id: string }
   | { name: 'search'; query: string }

@@ -11,6 +11,7 @@
     "language": "Sprache & Region",
     "interests": "Interessen",
     "muted": "Stummgeschaltete Wörter",
+    "markets": "Märkte",
     "sources": "Quellen",
     "reading": "Lesen",
     "notifications": "Benachrichtigungen",
@@ -109,6 +110,10 @@
       "label_land": "Bundesland oder Region",
       "label_area": "Gebiet oder Region",
       "description": "Füllt Ihre Seite „Regional“ mit Nachrichten aus Ihrer Umgebung."
+    },
+    "weather": {
+      "label": "Wetter auf der Startseite",
+      "description": "Das Wetter an Ihrem Ort neben dem Datum, von Open-Meteo. Nur der Name und die Lage Ihres Ortes werden gesendet, und nur solange dies eingeschaltet ist."
     }
   },
   "interests": {
@@ -316,5 +321,31 @@
     "hidden_other": "Gerade sind {{formatted}} Meldungen ausgeblendet.",
     "clear": "Alle aufheben",
     "empty": "Nichts ist stummgeschaltet."
+  },
+  "markets": {
+    "description": "Was die Seite „Märkte“ verfolgt. Die Meldungen zu jedem Eintrag werden über die darunter stehenden Wörter gefunden, in der Sprache der Meldungen.",
+    "editWords": "Wörter für {{name}} bearbeiten",
+    "remove": "{{name}} entfernen",
+    "words": "Suchwörter",
+    "wordsHint": "Mit Kommas trennen. Ein Wort mit * am Ende findet auch seine anderen Formen (Dollar* → Dollars).",
+    "saveWords": "Speichern",
+    "addTitle": "Zur Watchlist hinzufügen",
+    "offered": "Vorschläge",
+    "add": "Hinzufügen",
+    "company": {
+      "hint": "Oder verfolgen Sie ein beliebiges Unternehmen oder einen Markt über die Meldungen:",
+      "name": "Name",
+      "ticker": "Kürzel (optional)",
+      "words": "Suchwörter (optional)"
+    },
+    "full": "Die Watchlist ist voll ({{count}}).",
+    "empty": "Die Watchlist ist leer.",
+    "reset": "Zur Standardliste zurück",
+    "kinds": {
+      "currency": "Devisen",
+      "metal": "Edelmetalle",
+      "crypto": "Kryptowährungen",
+      "equity": "Börse & Unternehmen"
+    }
   }
 }

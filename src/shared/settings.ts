@@ -1,5 +1,6 @@
 import { isCategoryId, type CategoryId } from './categories'
 import { getCountryPack } from './countries/index'
+import { cleanWatchlist, type WatchItem } from './markets'
 import { cleanMutedKeywords } from './mute'
 import type { CountryCode, RegionId } from './types'
 
@@ -149,6 +150,15 @@ export interface Settings {
     /** Let "For you" learn from the reading history (worked out on the device, never sent anywhere). */
     useHistory: boolean
   }
+  /** Optional mini cards on the front page; off until switched on, as they call outside services. */
+  widgets: {
+    /** The weather for the selected city (Open-Meteo). */
+    weather: boolean
+  }
+  markets: {
+    /** What the markets page follows; null until the user changes it (the country's defaults). */
+    watchlist: WatchItem[] | null
+  }
   window?: {
     width: number
     height: number
@@ -176,7 +186,9 @@ export const DEFAULT_SETTINGS: Settings = {
   notifications: { breaking: true },
   appUpdates: { auto: true },
   muted: { keywords: [] },
-  personalization: { useHistory: true }
+  personalization: { useHistory: true },
+  widgets: { weather: false },
+  markets: { watchlist: null }
 }
 
 type DeepPartial<T> = {
@@ -224,6 +236,8 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
   const appUpdates = obj(p.appUpdates)
   const muted = obj(p.muted)
   const personalization = obj(p.personalization)
+  const widgets = obj(p.widgets)
+  const markets = obj(p.markets)
   const win = obj(p.window)
 
   const scale =
@@ -292,6 +306,17 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
         typeof personalization.useHistory === 'boolean'
           ? personalization.useHistory
           : base.personalization.useHistory
+    },
+    widgets: {
+      weather: typeof widgets.weather === 'boolean' ? widgets.weather : base.widgets.weather
+    },
+    markets: {
+      watchlist:
+        markets.watchlist === null
+          ? null
+          : Array.isArray(markets.watchlist)
+            ? cleanWatchlist(markets.watchlist)
+            : base.markets.watchlist
     },
     window: base.window
   }

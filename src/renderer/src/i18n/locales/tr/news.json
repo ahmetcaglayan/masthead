@@ -200,6 +200,51 @@
     "nearby": "{{region}} bölgesinden",
     "top": "{{place}} manşeti"
   },
+  "markets": {
+    "kicker": "Yatırımcı",
+    "title": "Piyasalar",
+    "description": "İzlediğiniz kurlar, madenler, kripto paralar ve şirketler, haberleriyle birlikte. Fiyatlar ve haberler dakikada bir yenilenir.",
+    "edit": "Listeyi düzenle",
+    "watchlist": "İzleme listeniz",
+    "noPrice": "Fiyat yok",
+    "noChange": "Kaynak değişim bilgisi vermiyor",
+    "newsToday_one": "Bugün {{count}} haber",
+    "newsToday_other": "Bugün {{count}} haber",
+    "noNewsToday": "Bugün haber yok",
+    "live": "Canlı",
+    "updated": "Fiyatlar {{time}} itibarıyla",
+    "loading": "Fiyatlar yükleniyor…",
+    "failed": "Fiyatlara şu an ulaşılamıyor; birazdan yeniden denenecek.",
+    "ratesDate": "Döviz: {{date}} ECB referans kuru",
+    "news": "Piyasa haberleri",
+    "newsAbout": "{{name}} haberleri",
+    "filter": "Haberleri süz",
+    "all": "Tümü",
+    "new": "Yeni",
+    "more": "Daha fazla göster",
+    "emptyNews": "Şimdilik bu konuda haber yok.",
+    "emptyTitle": "İzleme listeniz boş",
+    "emptyBody": "Takip etmek istediğiniz kurları, madenleri, kripto paraları ve şirketleri ekleyin.",
+    "sources": "Kaynaklar: döviz — Avrupa Merkez Bankası referans kurları (Frankfurter üzerinden, iş günlerinde günde bir kez); madenler — gold-api.com; kripto paralar — Binance kamuya açık piyasa verisi; altının 24 saatlik değişimi — Binance’teki PAX Gold. Hisse fiyatları lisanslı olduğundan şirketler haberleriyle izlenir.",
+    "disclaimer": "Bilgi amaçlıdır, yatırım tavsiyesi değildir. Fiyatlar gecikmeli olabilir.",
+    "kinds": {
+      "currency": "Döviz",
+      "metal": "Madenler",
+      "crypto": "Kripto paralar",
+      "equity": "Borsa ve şirketler"
+    },
+    "metals": {
+      "XAU": "Altın",
+      "XAG": "Gümüş",
+      "XPT": "Platin",
+      "XPD": "Paladyum"
+    },
+    "unit": {
+      "gram": "gram",
+      "tenGrams": "10 g",
+      "ounce": "ons"
+    }
+  },
   "category": {
     "kicker": "Konu",
     "top": "{{topic}} manşeti",
@@ -269,5 +314,25 @@
     "goneTitle": "Bu hikâye gündemden düştü",
     "goneBody": "Güncel haberlerden çıktı ya da onu veren kaynaklar kapalı.",
     "toDigest": "Gündem Özeti'ne git"
+  },
+  "weather": {
+    "label": "{{place}} hava durumu: {{temp}}, {{sky}}",
+    "chooseCity": "Hava durumu için şehir seçin",
+    "today": "Bugün",
+    "feelsLike": "hissedilen {{temp}}",
+    "wind": "Rüzgâr {{speed}} {{unit}}",
+    "source": "Tahmin:",
+    "sky": {
+      "clear": "Açık",
+      "mainlyClear": "Az bulutlu",
+      "partlyCloudy": "Parçalı bulutlu",
+      "overcast": "Bulutlu",
+      "fog": "Sisli",
+      "drizzle": "Çisenti",
+      "rain": "Yağmurlu",
+      "showers": "Sağanak",
+      "snow": "Karlı",
+      "thunderstorm": "Gök gürültülü fırtına"
+    }
   }
 }

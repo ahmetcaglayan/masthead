@@ -5,6 +5,7 @@ export const SETTINGS_SECTIONS = [
   'language',
   'interests',
   'muted',
+  'markets',
   'sources',
   'reading',
   'notifications',

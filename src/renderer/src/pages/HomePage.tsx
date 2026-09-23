@@ -11,6 +11,7 @@ import { LatestTimeline } from '@/components/news/LatestTimeline'
 import { HomeSkeleton, NewsGate } from '@/components/news/NewsGate'
 import { Button } from '@/components/ui/Button'
 import { SectionHeader } from '@/components/ui/SectionHeader'
+import { WeatherEar } from '@/features/weather/WeatherEar'
 import { useNewsView } from '@/hooks/useArticles'
 import { useNow, useNowSelect } from '@/hooks/useNow'
 import { useProgressive } from '@/hooks/useProgressive'
@@ -34,7 +35,7 @@ function SectionsPlaceholder({ count }: { count: number }): React.JSX.Element {
 
 const datelineFormats = new Map<string, Intl.DateTimeFormat>()
 
-/** Today's date as a newspaper dateline over a double rule, plus how much news is on the page. */
+/** Today's date as a newspaper dateline over a double rule, the weather (if on) and how much news there is. */
 function Dateline({ view }: { view: NewsView }): React.JSX.Element {
   const { t, i18n } = useTranslation('news')
   const today = useNowSelect(60_000, startOfDay)
@@ -51,12 +52,15 @@ function Dateline({ view }: { view: NewsView }): React.JSX.Element {
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b-[3px] border-double border-line-strong pb-3">
       <p className="headline text-2xl font-semibold text-fg first-letter:uppercase">{format.format(today)}</p>
-      <p className="font-ui text-[12.5px] text-fg-subtle tabular-nums">
-        {t('home.dateline', {
-          stories: formatNumber(view.articles.length, i18n.language),
-          count: view.bySource.size
-        })}
-      </p>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+        <WeatherEar />
+        <p className="font-ui text-[12.5px] text-fg-subtle tabular-nums">
+          {t('home.dateline', {
+            stories: formatNumber(view.articles.length, i18n.language),
+            count: view.bySource.size
+          })}
+        </p>
+      </div>
     </div>
   )
 }

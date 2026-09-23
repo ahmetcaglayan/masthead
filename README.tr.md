@@ -149,6 +149,12 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 🔎 **Filtre ve arama** | Zaman, kaynak, en çok kaynak sıralaması, görselli, okunanları gizle — her ülkede bölge ve şehir/eyalet/yöre; aksana duyarsız arama |
 | 📖 **Uygulama içi okuma** | Yayıncının sayfası pencerede (<kbd>Esc</kbd> ile kapat), Okuma modu, reklam ve izleyici engelleme |
 | 📍 **Yerel haberler** | Türkiye'de 81 il, ABD'de 50 eyalet ve D.C., Hindistan'da 36 eyalet, Almanya'da 16 Bundesland, Brezilya'da 27 eyalet, Birleşik Krallık'ta 51 yöre — yerel gazeteler, yayıncılar ve orayı anan haberler |
+| 📈 **Piyasalar** | İzlediğin döviz, maden, kripto ve şirketler — dakikada bir fiyat, her birinin haberleri ve canlı akan piyasa haberleri |
+| ✨ **Size Özel** | İlgi alanların, şehrin ve okuduklarından (bilgisayarında) öğrenilenler; her kart neden orada olduğunu söyler |
+| 🧵 **Hikâye sayfası** | Bir haberi veren her kaynağın haberi yan yana: ilk kim verdi, kim nasıl başlık attı |
+| ⌨️ **Komut paleti** | <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd> ile her yere; <kbd>J</kbd>/<kbd>K</kbd> ile haberler arasında gezin, <kbd>S</kbd> ile kaydet |
+| 🔇 **Kelime susturma** | Geçtiği haberler her yerden, bildirimler dahil, kaybolur |
+| ⛅ **Hava durumu** | Ana Sayfa'da tarihin yanında şehrinin hava durumu (isteğe bağlı) |
 | 🗂️ **Kaynaklar** | Her siteyi aç/kapat; akışların durumu bir bakışta |
 | 🔖 **Kitaplık** | Kaydedilen haberler ve okuma geçmişi, yerelde |
 | 🎨 **Kişiselleştir** | Açık / koyu / sistem tema, 5 vurgu rengi, 12 okuma fontu, yazı boyutu, sıkı görünüm |
@@ -210,7 +216,10 @@ görünümünde açılır, ama akışları Node çeker.
 ## Gizlilik
 
 Üyelik, analitik ve izleme yok. Uygulama yalnızca etkinleştirdiğin haber sitelerine, yeni sürüm çıkıp çıkmadığını
-görmek için saatte bir GitHub'a ve reklam engelleme açıksa herkese açık filtre listelerine bağlanır. Ayrıntılar: [SECURITY.md](SECURITY.md).
+görmek için saatte bir GitHub'a ve reklam engelleme açıksa herkese açık filtre listelerine bağlanır. Piyasalar
+sayfası açıkken fiyatlar için Avrupa Merkez Bankası kurlarına (Frankfurter), gold-api.com'a ve Binance'in herkese açık
+piyasa verisine; hava durumu kartını açarsan yalnızca şehrinin adı ve konumuyla Open-Meteo'ya bağlanır. "Size Özel"
+okuma geçmişinden bilgisayarında hesaplanır. Ayrıntılar: [SECURITY.md](SECURITY.md).
 
 ## Lisans
 

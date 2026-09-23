@@ -19,6 +19,8 @@ import type {
   ReaderContent,
   RefreshStatus
 } from '../shared/types'
+import type { QuotesReport } from '../shared/markets'
+import type { WeatherReport } from '../shared/widgets'
 
 export interface Logger {
   info(message: string, ...rest: unknown[]): void
@@ -64,6 +66,8 @@ export interface Backend {
     status(): RefreshStatus
     /** Resolves when the refresh finishes. Concurrent calls share one in-flight refresh. */
     refresh(force?: boolean): Promise<void>
+    /** Just the economy and business feeds, at most about once a minute (the markets page). */
+    refreshMarkets(): Promise<void>
     resolveImage(articleId: string): Promise<string | null>
     detail(articleId: string): Promise<ArticleDetail | null>
   }
@@ -76,6 +80,14 @@ export interface Backend {
   reader: {
     extract(url: string): Promise<ReaderContent | null>
     probe(url: string): Promise<ReaderProbe>
+  }
+  /** The optional weather card, for the city in the settings; null when unavailable. */
+  widgets: {
+    weather(): Promise<WeatherReport | null>
+  }
+  markets: {
+    /** Prices of the watchlist in the settings (or the country's default one). */
+    quotes(): Promise<QuotesReport>
   }
   on<E extends BackendEventName>(event: E, listener: (payload: BackendEvents[E]) => void): () => void
   /** Load caches, start the refresh schedule. */

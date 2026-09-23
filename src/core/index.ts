@@ -1,5 +1,6 @@
 import { EventEmitter } from 'node:events'
 import { getCountryPack } from '../shared/countries'
+import { defaultWatchlist } from '../shared/markets'
 import type { Backend, BackendEvents, BackendOptions, Logger } from './backend'
 import { createLogger, scopeLogger } from './log'
 import { createNewsService } from './news/service'
@@ -7,6 +8,8 @@ import type { NewsService, NewsServiceOptions } from './news/types'
 import { createReaderService } from './reader'
 import { LibraryStore } from './stores/library-store'
 import { SettingsStore } from './stores/settings-store'
+import { createMarketsService } from './markets'
+import { createWidgetsService } from './widgets'
 
 export type { Backend, BackendEventName, BackendEvents, BackendOptions, Logger } from './backend'
 export { createLogger, scopeLogger, type LogEntry, type LogLevel, type LogSink } from './log'
@@ -43,6 +46,8 @@ export async function createBackend(options: BackendOptions): Promise<Backend> {
   const news: NewsService = createNewsService(newsOptions)
 
   const reader = createReaderService({ fetch: fetchImpl, logger: scopeLogger(logger, 'reader'), now })
+  const widgets = createWidgetsService({ fetch: fetchImpl, logger: scopeLogger(logger, 'widgets'), now })
+  const markets = createMarketsService({ fetch: fetchImpl, logger: scopeLogger(logger, 'markets'), now })
 
   settings.onChange((prev, next) => {
     try {
@@ -66,6 +71,7 @@ export async function createBackend(options: BackendOptions): Promise<Backend> {
       snapshot: () => news.snapshot(),
       status: () => news.status(),
       refresh: (force) => news.refresh(force),
+      refreshMarkets: () => news.refreshMarkets(),
       resolveImage: (articleId) => news.resolveImage(articleId),
       detail: (articleId) => news.detail(articleId)
     },
@@ -78,6 +84,19 @@ export async function createBackend(options: BackendOptions): Promise<Backend> {
     reader: {
       extract: (url) => reader.extract(url),
       probe: (url) => reader.probe(url)
+    },
+    widgets: {
+      weather: async () => {
+        const { country, location } = settings.get()
+        return location.provinceCode ? widgets.weather(country, location.provinceCode) : null
+      }
+    },
+    markets: {
+      quotes: () => {
+        const { country, markets: prefs } = settings.get()
+        const language = getCountryPack(country)?.language ?? 'en'
+        return markets.quotes(prefs.watchlist ?? defaultWatchlist(country, language), country)
+      }
     },
     on: (event, listener) => events.on(event, listener),
     async start() {

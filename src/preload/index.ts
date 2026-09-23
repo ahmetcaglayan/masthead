@@ -51,6 +51,7 @@ const api: MastheadApi = {
   news: {
     snapshot: () => invoke('news:snapshot'),
     refresh: (force) => invoke('news:refresh', force),
+    refreshMarkets: () => invoke('news:refresh-markets'),
     onUpdated: (callback) => subscribe('news:updated', callback),
     onStatus: (callback) => subscribe('news:status', callback),
     resolveImage: (articleId) => invoke('news:resolve-image', articleId),
@@ -81,6 +82,12 @@ const api: MastheadApi = {
     download: () => invoke('updates:download'),
     install: () => invoke('updates:install'),
     onChange: (callback) => subscribe('updates:changed', callback)
+  },
+  widgets: {
+    weather: () => invoke('widgets:weather')
+  },
+  markets: {
+    quotes: () => invoke('markets:quotes')
   },
   window: {
     setTitleBarColors: (colors) => send('window:title-bar', colors),

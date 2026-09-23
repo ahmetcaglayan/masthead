@@ -24,6 +24,7 @@ import { HistoryPage } from '@/pages/HistoryPage'
 import { HomePage } from '@/pages/HomePage'
 import { LatestPage } from '@/pages/LatestPage'
 import { LocalPage } from '@/pages/LocalPage'
+import { MarketsPage } from '@/pages/MarketsPage'
 import { SavedPage } from '@/pages/SavedPage'
 import { SearchPage } from '@/pages/SearchPage'
 import { SourcePage } from '@/pages/SourcePage'
@@ -46,6 +47,8 @@ function RoutePage({ route }: { route: Route }): React.JSX.Element {
       return <ForYouPage />
     case 'local':
       return <LocalPage />
+    case 'markets':
+      return <MarketsPage />
     case 'category':
       return <CategoryPage id={route.id} />
     case 'source':

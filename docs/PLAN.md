@@ -409,7 +409,8 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 ### Faz 3 — Yerel ve kişisel
 - [x] Yerel kaynaklar (33 ilde yerel gazete) ve 81 il için il bazlı akışlar (Faz 1 içinde yapıldı)
 - [x] 2026-09-23 · "Sana özel" sıralaması (ilgi alanı + okuma geçmişi, tamamen yerel; her kartta gerekçe)
-- [ ] Hava durumu ve döviz/altın mini kartları (opsiyonel)
+- [x] 2026-09-23 · Hava durumu kartı (opsiyonel, Open-Meteo) ve döviz/altın → ayrı **Piyasalar** sayfası
+      (izleme listesi, dakikalık fiyat ve canlı piyasa haberleri; hisseler haberleriyle)
 
 ### Faz 4 — Çoklu ülke ve dil
 - [x] 2026-09-23 · Ülke paketi mimarisinin genelleştirilmesi (il paketi olmayan ülkeler, `hasLocalNews`,

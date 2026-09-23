@@ -36,6 +36,12 @@ const FEED_CONCURRENCY = 8
 const FEED_ACCEPT =
   'application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.9, */*;q=0.8'
 const BREAKING_INTERVAL_MS = 2 * 60_000
+/**
+ * The markets page refreshes the economy and business feeds at most this often, however many
+ * windows ask: once a minute is quick enough for a markets desk and still polite to publishers
+ * (their validators turn most of these into "not modified").
+ */
+const MARKETS_INTERVAL_MS = 50_000
 /** Wait after 1, 2, 3, 4, 5+ consecutive failures of a feed. */
 const BACKOFF_MINUTES = [5, 10, 20, 40, 60]
 const RETENTION_MS = 72 * 3_600_000
@@ -131,6 +137,16 @@ interface CountryState {
 }
 
 const feedKey = (source: SourceDef, feed: FeedDef): string => `${source.id} ${feed.url}`
+
+/** What a refresh fetches: every feed, the breaking-news streams, or the markets feeds. */
+type Scope = 'full' | 'breaking' | 'markets'
+
+/** Economy feeds and everything business outlets publish. */
+const isMarketsFeed = ({ source, feed }: PlannedFeed): boolean =>
+  feed.category === 'economy' || source.kind === 'business'
+
+const inScope = (scope: Scope, planned: PlannedFeed): boolean =>
+  scope === 'full' || (scope === 'breaking' ? planned.feed.breaking === true : isMarketsFeed(planned))
 
 /** Ids of the pack's sources that are switched on (see `isSourceEnabled`). */
 function enabledSources(pack: CountryPack | undefined, settings: Settings): Set<string> {
@@ -582,7 +598,7 @@ export const createNewsService: CreateNewsService = (options) => {
     clearInterval(breakingTimer)
     if (manualRefresh) return
     breakingTimer = setInterval(() => {
-      if (!inflight && !stopped) void run(false, false)
+      if (!inflight && !stopped) void run('breaking', false)
     }, BREAKING_INTERVAL_MS)
     breakingTimer.unref?.()
   }
@@ -735,14 +751,15 @@ export const createNewsService: CreateNewsService = (options) => {
     }
   }
 
-  async function execute(full: boolean, force: boolean, runGeneration: number): Promise<void> {
+  async function execute(scope: Scope, force: boolean, runGeneration: number): Promise<void> {
+    const full = scope === 'full'
     const s = state
     if (!s.pack) {
       if (full) setStatus({ state: 'idle', done: 0, total: 0, lastCompletedAt: s.lastCompletedAt }, true)
       return
     }
     const startedAt = now()
-    const planned = planFeeds(s.pack, options.getSettings()).filter((p) => full || p.feed.breaking)
+    const planned = planFeeds(s.pack, options.getSettings()).filter((p) => inScope(scope, p))
     const due = force ? planned : planned.filter((p) => (s.feedState.get(p.key)?.retryAt ?? 0) <= startedAt)
     const total = due.length
     let done = 0
@@ -766,10 +783,10 @@ export const createNewsService: CreateNewsService = (options) => {
     }
   }
 
-  /** Start a refresh (full, or just the breaking-news feeds) and track it as the in-flight one. */
-  function run(full: boolean, force: boolean): Promise<void> {
+  /** Start a refresh (full, or just the breaking-news or markets feeds) and track it as the in-flight one. */
+  function run(scope: Scope, force: boolean): Promise<void> {
     const runGeneration = generation
-    const promise: Promise<void> = execute(full, force, runGeneration)
+    const promise: Promise<void> = execute(scope, force, runGeneration)
       .catch((error: unknown) => logger.error('Refresh failed', error))
       .finally(() => {
         if (inflight?.promise === promise) inflight = undefined
@@ -778,7 +795,7 @@ export const createNewsService: CreateNewsService = (options) => {
           void refresh()
         }
       })
-    inflight = { promise, full, generation: runGeneration }
+    inflight = { promise, full: scope === 'full', generation: runGeneration }
     return promise
   }
 
@@ -786,7 +803,18 @@ export const createNewsService: CreateNewsService = (options) => {
     if (inflight && inflight.generation === generation) {
       return inflight.full ? inflight.promise : inflight.promise.then(() => refresh(force))
     }
-    return run(true, force)
+    return run('full', force)
+  }
+
+  let marketsRunAt = -Infinity
+
+  /** The markets feeds, unless another refresh is under way or they were fetched under a minute ago. */
+  function refreshMarkets(): Promise<void> {
+    if (!started || stopped) return Promise.resolve()
+    if (inflight && inflight.generation === generation) return inflight.promise
+    if (now() - marketsRunAt < MARKETS_INTERVAL_MS) return Promise.resolve()
+    marketsRunAt = now()
+    return run('markets', false)
   }
 
   /** Refresh as soon as possible: now, or right after the refresh already running. */
@@ -857,6 +885,8 @@ export const createNewsService: CreateNewsService = (options) => {
     status: () => status,
 
     refresh,
+
+    refreshMarkets,
 
     resolveImage(articleId) {
       const s = state

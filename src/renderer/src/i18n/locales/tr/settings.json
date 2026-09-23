@@ -11,6 +11,7 @@
     "language": "Dil ve bölge",
     "interests": "İlgi alanları",
     "muted": "Susturulan kelimeler",
+    "markets": "Piyasalar",
     "sources": "Kaynaklar",
     "reading": "Okuma",
     "notifications": "Bildirimler",
@@ -109,6 +110,10 @@
       "label_land": "Eyalet veya bölge",
       "label_area": "Yöre veya bölge",
       "description": "Yerel sayfanızı çevrenizdeki haberlerle doldurur."
+    },
+    "weather": {
+      "label": "Ana Sayfa’da hava durumu",
+      "description": "Şehrinizin hava durumu tarihin yanında, Open-Meteo’dan. Yalnızca açıkken ve yalnızca şehrinizin adı ile konumu gönderilir."
     }
   },
   "interests": {
@@ -316,5 +321,31 @@
     "hidden_other": "Şu an {{formatted}} haber gizleniyor.",
     "clear": "Tümünü kaldır",
     "empty": "Susturulan kelime yok."
+  },
+  "markets": {
+    "description": "Piyasalar sayfasında izlenenler. Her birinin haberleri, altında yazan kelimelerle, haberlerin dilinde bulunur.",
+    "editWords": "{{name}} için kelimeleri düzenle",
+    "remove": "{{name}} listeden çıkar",
+    "words": "Aranacak kelimeler",
+    "wordsHint": "Virgülle ayırın. Sonu * ile biten kelime çekimli hallerini de bulur (dolar* → doları, dolardan).",
+    "saveWords": "Kaydet",
+    "addTitle": "Listeye ekle",
+    "offered": "Öneriler",
+    "add": "Ekle",
+    "company": {
+      "hint": "Ya da herhangi bir şirketi veya piyasayı haberleriyle izleyin:",
+      "name": "Ad",
+      "ticker": "Kısaltma (isteğe bağlı)",
+      "words": "Aranacak kelimeler (isteğe bağlı)"
+    },
+    "full": "Liste dolu ({{count}}).",
+    "empty": "Liste boş.",
+    "reset": "Varsayılan listeye dön",
+    "kinds": {
+      "currency": "Döviz",
+      "metal": "Madenler",
+      "crypto": "Kripto paralar",
+      "equity": "Borsa ve şirketler"
+    }
   }
 }

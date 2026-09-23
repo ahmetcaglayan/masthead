@@ -12,10 +12,10 @@
 
 - **Tarih:** 2026-09-23
 - **Aktif faz:** Faz 1 + Faz 4 tamamlandı; **v0.3.0 yayında** (2026-09-23). Şimdi Faz 2 ve 3 bitiriliyor
-  (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel" bitti; hava/döviz kartları ve
+  (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası ve hava durumu bitti;
   erişilebilirlik turu kaldı). Otomatik güncelleme v0.4.0 ile gelecek.
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
-  **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 371 birim testi yeşil.** Her ülkenin
+  **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 388 birim testi yeşil.** Her ülkenin
   kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
   Kod GitHub'da (https://github.com/ahmetcaglayan/masthead). Geliştirme macOS'ta sürüyor:
   **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
@@ -98,9 +98,26 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   paneli (öğrenilen kelimeler → tıklayınca arama) ve anahtar; Ayarlar → İlgi alanları'nda "Okuduklarımdan öğren"
   (`settings.personalization.useHistory`, varsayılan açık). 9 yeni test (371 toplam).
 
+- [x] 2026-09-23 · **Piyasalar sayfası** (sahibinin isteği: yatırımcıya özel ayrı sayfa; Ekonomi kategorisi
+  olduğu gibi kaldı). İzleme listesi (`src/shared/markets.ts`: döviz, maden, kripto, borsa/şirket; ülke başına en
+  çok yatırım yapılanlar varsayılan, `settings.markets.watchlist` null = varsayılan). Fiyatlar yalnızca açıkça
+  ücretsiz sunulan kaynaklardan (`src/core/markets.ts`): döviz ECB referans kuru (Frankfurter, günlük), madenler
+  gold-api.com (anlık), kripto Binance `data-api.binance.vision` (anlık, 24 sa değişim); altının 24 sa değişimi
+  PAXG'den. **Hisse fiyatı yok** (borsa verisi lisanslı; Yahoo/TradingView gibi resmî olmayan uçlar sahibinin
+  isteğiyle kullanılmadı) — şirketler haberleriyle izleniyor. Sayfa açıkken fiyatlar dakikada bir, ekonomi/iş
+  akışları dakikada bir (`news.refreshMarkets`, çekirdekte 50 sn kısma, koşullu GET); yeni haberler "Yeni"
+  etiketiyle en üste kayarak eklenir. Kutucuk/çip ile tek varlığın haberleri. Haber eşleştirme `keywordMatcher`
+  (tam kelime; sonu `*` olan çekimleri de bulur; "altın" ≠ "altında", "dolar kuru" ≠ "milyar dolarlık");
+  döviz/maden/kripto yalnızca ekonomi/iş haberlerinde aranır. Ayarlar → Piyasalar: ekle/çıkar, öneriler, özel
+  şirket, kelime düzenleme, varsayılana dön. Yeni renk token'ları `--up`/`--down`, `animate-arrive`.
+- [x] 2026-09-23 · **Hava durumu kartı** (Faz 3, isteğe bağlı, varsayılan kapalı): Ana Sayfa tarih satırında
+  seçili şehrin sıcaklığı, en yüksek/en düşük; tıklayınca 4 günlük tahmin (Open-Meteo, `src/core/widgets.ts`).
+  Eyaletler için konum: eyalet adıyla ve ilk listelenen şehirle arama, eyalet içindeki en kalabalık yer (Texas →
+  Houston, Bayern → München). Ayarlar → Dil ve bölge'de anahtar. Gizlilik metinleri (4 README, SECURITY, site)
+  güncellendi.
+
 **Sıradaki somut adımlar:**
-1. Faz 3: hava durumu ve döviz/altın mini kartları (isteğe bağlı, varsayılan kapalı; Open-Meteo, Frankfurter,
-   gold-api) → Faz 2: erişilebilirlik turu (axe, klavye, kontrast, "içeriğe atla").
+1. Faz 2: erişilebilirlik turu (axe, klavye, kontrast, "içeriğe atla").
 2. Okuma modu ödeme duvarına saygı (`isAccessibleForFree: false` → "Bu haber abonelere özel" + yayıncı sayfası);
    site/README'ye yayıncılar için "kaynağınızın çıkarılmasını istiyorsanız" notu.
 3. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
@@ -122,7 +139,7 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 
 1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅
 2. Faz 2 ve 3'ü bitir (bkz. PLAN.md): ~~komut paleti, kısayollar, hikâye sayfası, kelime susturma~~ ✅,
-   ~~Size Özel okuma geçmişi~~ ✅; kalan: hava/döviz kartları, erişilebilirlik turu. Ardından v0.4.0.
+   ~~Size Özel okuma geçmişi~~ ✅, ~~Piyasalar + hava durumu~~ ✅; kalan: erişilebilirlik turu. Ardından v0.4.0.
 3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
 4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; sonraki ülke paketleri
    (Fransa, İspanya/Meksika).
@@ -301,6 +318,9 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-23 | Geo etiketlemede kesme işareti kuralı yalnızca Türkçe | İngilizce iyelik ("Washington's allies") yer adı olduğunu göstermez |
 | 2026-09-23 | "Size Özel" profili cihazda, okuma geçmişinden; kelimeler haber akışına karşı G² testiyle seçilir | Sunucu/hesap yok, gizlilik; oran eşiği az okumada "istedi", "yola" gibi genel kelimeleri alıyordu, anlamlılık testi dil bağımsız ayıklıyor |
 | 2026-09-23 | Okuma profili için okumalar önce habere göre tekilleştirilir | Aynı haberin üç raporunu okumak "operasyon" kelimesine ilgi demek değil |
+| 2026-09-23 | Piyasa fiyatları yalnızca açıkça ücretsiz sunulan kaynaklardan (ECB/Frankfurter, gold-api, Binance); hisse fiyatı yok | Sahibinin isteği: "sonradan başımız ağrımasın". Yahoo/TradingView resmî değil, BIST verisi lisanslı |
+| 2026-09-23 | Piyasalar ayrı sayfa; Ekonomi kategorisi olduğu gibi | Sahibinin isteği: biri yatırımcıya özel, biri normal kategori |
+| 2026-09-23 | Piyasa haberleri sayfa açıkken dakikada bir, yalnızca ekonomi/iş akışları | Canlı his + yayıncılara saygı (çekirdekte kısma, koşullu GET) |
 
 ## Bilinen sorunlar / notlar
 

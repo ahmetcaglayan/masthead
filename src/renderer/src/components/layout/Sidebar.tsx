@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react'
 import { motion } from 'motion/react'
 import {
   Bookmark,
+  ChartCandlestick,
   Clock3,
   History,
   House,
@@ -18,6 +19,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { TOPIC_CATEGORIES, type CategoryId } from '@shared/categories'
 import { getCountryPack, hasLocalNews } from '@shared/countries'
+import { hasMarkets } from '@shared/markets'
 import { Tooltip } from '@/components/ui/Tooltip'
 import { useNewsView } from '@/hooks/useArticles'
 import { useNowSelect } from '@/hooks/useNow'
@@ -227,6 +229,14 @@ export function Sidebar(): React.JSX.Element {
               icon={MapPin}
               label={province?.name ?? t('nav.chooseCity', { context: getCountryPack(country)?.localUnit })}
               title={`${t('nav.local')}: ${province?.name ?? t('nav.chooseCity', { context: getCountryPack(country)?.localUnit })}`}
+            />
+          )}
+          {hasMarkets(country) && (
+            <NavItem
+              collapsed={collapsed}
+              route={{ name: 'markets' }}
+              icon={ChartCandlestick}
+              label={t('nav.markets')}
             />
           )}
         </ul>

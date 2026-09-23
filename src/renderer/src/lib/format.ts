@@ -32,6 +32,30 @@ export function formatPercent(ratio: number, lang: string): string {
   return numberFormat(lang, 'percent', { style: 'percent', maximumFractionDigits: 0 }).format(ratio)
 }
 
+/**
+ * A price in its currency, as precise as its size calls for: `85.476 $`, `48,83 ₺`,
+ * `0,6512 $` — whole units from ten thousand up, four decimals below one.
+ */
+export function formatPrice(value: number, currency: string, lang: string): string {
+  const digits = value >= 10_000 ? 0 : value >= 1 ? 2 : 4
+  return numberFormat(lang, `price:${currency}:${digits}`, {
+    style: 'currency',
+    currency,
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits
+  }).format(value)
+}
+
+/** A change in percent with its sign: `+0.25%` (en) / `+%0,25` (tr); `0.00%` unsigned. */
+export function formatChange(percent: number, lang: string): string {
+  return numberFormat(lang, 'change', {
+    style: 'percent',
+    signDisplay: 'exceptZero',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(percent / 100)
+}
+
 /** Bare host name of a URL without `www.`; the input itself when it is not a URL. */
 export function domain(url: string): string {
   try {

@@ -32,6 +32,18 @@ All notable changes to this project are documented here. The format follows
   page lists what it learned, one subject never fills the page, and one outlet never takes more than two slots in
   a row. Stories you already read, in any outlet's report, sink to the end. It is worked out on your device only;
   turn it off on the page or in Settings → Interests.
+- **Markets page.** A page for investors next to the Economy section: a watchlist of currencies, metals, crypto,
+  stock markets and companies, starting with what people in your country invest in most (for Türkiye: the dollar,
+  euro and pound, gram gold and silver, Bitcoin and Ethereum, Borsa İstanbul, THY, Aselsan, Garanti BBVA, Koç
+  Holding, Tüpraş and BİM). Metals and crypto are priced live and currencies at the European Central Bank's daily
+  reference rate, refreshed every minute while the page is open; companies are followed through their news (stock
+  prices are licensed, so Masthead shows none). The economy and business feeds are fetched every minute while the
+  page is open and new stories slide in at the top; a tile or chip narrows the news to one item. Add and remove
+  items — any currency, metal, cryptocurrency, a suggested company or one of your own — and edit the words its news
+  is found by, in Settings → Markets. Prices come only from free services that offer them openly (Frankfurter/ECB,
+  gold-api.com, Binance public market data).
+- **Weather on the front page.** Switch it on in Settings → Language & region: your city's temperature and today's
+  high and low beside the date, the next days a click away (Open-Meteo; off by default).
 
 ## [0.3.0] - 2026-09-23
 

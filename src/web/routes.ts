@@ -114,6 +114,10 @@ export function createApiHandler(host: ApiHost): (req: IncomingMessage, res: Ser
     }),
     route('DELETE', '/library/history', ({ backend }) => backend.library.clearHistory()),
 
+    route('POST', '/news/refresh-markets', ({ backend }) => backend.news.refreshMarkets()),
+    route('GET', '/widgets/weather', ({ backend }) => backend.widgets.weather()),
+    route('GET', '/markets/quotes', ({ backend }) => backend.markets.quotes()),
+
     route('GET', '/events', ({ backend, res }) => streamEvents(backend, res))
   ]
 

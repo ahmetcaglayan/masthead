@@ -200,6 +200,51 @@
     "nearby": "Na região {{region}}",
     "top": "Destaques de {{place}}"
   },
+  "markets": {
+    "kicker": "Investidor",
+    "title": "Mercados",
+    "description": "As moedas, os metais, as criptomoedas e as empresas que você acompanha, com as notícias de cada um. Cotações e notícias se atualizam a cada minuto.",
+    "edit": "Editar lista",
+    "watchlist": "Sua lista",
+    "noPrice": "Sem cotação",
+    "noChange": "A fonte não informa a variação",
+    "newsToday_one": "{{count}} notícia hoje",
+    "newsToday_other": "{{count}} notícias hoje",
+    "noNewsToday": "Nenhuma notícia hoje",
+    "live": "Ao vivo",
+    "updated": "Cotações das {{time}}",
+    "loading": "Carregando cotações…",
+    "failed": "As cotações estão fora do ar agora; nova tentativa em instantes.",
+    "ratesDate": "Câmbio: taxa de referência do BCE de {{date}}",
+    "news": "Notícias do mercado",
+    "newsAbout": "Notícias sobre {{name}}",
+    "filter": "Mostrar notícias sobre",
+    "all": "Todas",
+    "new": "Nova",
+    "more": "Mostrar mais",
+    "emptyNews": "Ainda não há notícias sobre isso.",
+    "emptyTitle": "Sua lista está vazia",
+    "emptyBody": "Adicione as moedas, os metais, as criptomoedas e as empresas que você quer acompanhar.",
+    "sources": "Fontes: câmbio — taxas de referência do Banco Central Europeu (via Frankfurter, uma vez por dia útil); metais — gold-api.com; criptomoedas — dados públicos de mercado da Binance; variação de 24 horas do ouro — PAX Gold na Binance. Cotações de ações são licenciadas, por isso as empresas são acompanhadas pelas notícias.",
+    "disclaimer": "Apenas informativo, não é recomendação de investimento. As cotações podem ter atraso.",
+    "kinds": {
+      "currency": "Câmbio",
+      "metal": "Metais",
+      "crypto": "Criptomoedas",
+      "equity": "Bolsa e empresas"
+    },
+    "metals": {
+      "XAU": "Ouro",
+      "XAG": "Prata",
+      "XPT": "Platina",
+      "XPD": "Paládio"
+    },
+    "unit": {
+      "gram": "grama",
+      "tenGrams": "10 g",
+      "ounce": "onça"
+    }
+  },
   "category": {
     "kicker": "Tema",
     "top": "Destaques de {{topic}}",
@@ -269,5 +314,25 @@
     "goneTitle": "Esta história saiu do radar",
     "goneBody": "Ela saiu das notícias atuais, ou os veículos que a deram estão desligados.",
     "toDigest": "Ir para o Resumo"
+  },
+  "weather": {
+    "label": "Tempo em {{place}}: {{temp}}, {{sky}}",
+    "chooseCity": "Escolha uma cidade para o tempo",
+    "today": "Hoje",
+    "feelsLike": "sensação de {{temp}}",
+    "wind": "Vento {{speed}} {{unit}}",
+    "source": "Previsão:",
+    "sky": {
+      "clear": "Céu limpo",
+      "mainlyClear": "Predomínio de sol",
+      "partlyCloudy": "Parcialmente nublado",
+      "overcast": "Nublado",
+      "fog": "Neblina",
+      "drizzle": "Garoa",
+      "rain": "Chuva",
+      "showers": "Pancadas de chuva",
+      "snow": "Neve",
+      "thunderstorm": "Tempestade"
+    }
   }
 }

@@ -13,6 +13,11 @@ instead. You should get a response within a few days.
   hour to see whether a new version is out (the installed Windows app and the Linux AppImage then download it from
   GitHub Releases, verified against the SHA-512 in the release's `latest.yml`), and, when ad blocking is on, to
   the filter-list hosts (GitHub, AdGuard) to download block lists. The check sends nothing about you.
+- While the Markets page is open, prices come from free public services: the ECB's reference rates via
+  `api.frankfurter.dev`, metals from `api.gold-api.com` and crypto from Binance's public market data
+  (`data-api.binance.vision`). They are asked for the watched symbols only. With the weather card switched on
+  (off by default), `open-meteo.com` gets the selected city's name and coordinates.
+- "For You" builds its reading profile from the history on your computer; it is never sent anywhere.
 - Settings, saved articles and reading history are plain JSON files in your user data folder
   (`%APPDATA%\Masthead` on Windows, `~/Library/Application Support/Masthead` on macOS,
   `~/.config/Masthead` on Linux). Web mode stores them in `.masthead-web/` in the project folder.

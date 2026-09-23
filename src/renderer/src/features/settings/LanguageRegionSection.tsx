@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { ChevronsUpDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { COUNTRY_OPTIONS, getCountryPack, hasLocalNews } from '@shared/countries'
@@ -6,6 +7,7 @@ import type { CountryCode } from '@shared/types'
 import { Badge } from '@/components/ui/Badge'
 import { buttonClass } from '@/components/ui/Button'
 import { Menu, MenuContent, MenuRadioGroup, MenuRadioItem, MenuTrigger } from '@/components/ui/Menu'
+import { Switch } from '@/components/ui/Switch'
 import { cn } from '@/lib/cn'
 import { useSettings } from '@/stores/settings'
 import { CountryFlag } from './CountryFlag'
@@ -107,7 +109,9 @@ export function LanguageRegionSection(): React.JSX.Element {
   const language = useSettings((s) => s.settings.language)
   const country = useSettings((s) => s.settings.country)
   const location = useSettings((s) => s.settings.location)
+  const weather = useSettings((s) => s.settings.widgets.weather)
   const update = useSettings((s) => s.update)
+  const weatherId = useId()
 
   return (
     <SettingsSection id="language" title={t('nav.language')} description={t('locale.description')}>
@@ -141,6 +145,20 @@ export function LanguageRegionSection(): React.JSX.Element {
                 value={location}
                 country={country}
                 onChange={(next) => void update({ location: next })}
+              />
+            }
+          />
+        )}
+        {hasLocalNews(country) && (
+          <SettingRow
+            label={t('locale.weather.label')}
+            description={t('locale.weather.description')}
+            htmlFor={weatherId}
+            control={
+              <Switch
+                id={weatherId}
+                checked={weather}
+                onCheckedChange={(on) => void update({ widgets: { weather: on } })}
               />
             }
           />

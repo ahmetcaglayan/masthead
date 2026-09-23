@@ -200,6 +200,51 @@
     "nearby": "Around the {{region}} region",
     "top": "Top stories in {{place}}"
   },
+  "markets": {
+    "kicker": "Investor",
+    "title": "Markets",
+    "description": "The currencies, metals, crypto and companies you follow, with their news. Prices and news refresh every minute.",
+    "edit": "Edit watchlist",
+    "watchlist": "Your watchlist",
+    "noPrice": "No price",
+    "noChange": "No change figure from the source",
+    "newsToday_one": "{{count}} story today",
+    "newsToday_other": "{{count}} stories today",
+    "noNewsToday": "No stories today",
+    "live": "Live",
+    "updated": "Prices as of {{time}}",
+    "loading": "Loading prices…",
+    "failed": "Prices are out of reach right now; trying again shortly.",
+    "ratesDate": "Currencies: ECB reference rate of {{date}}",
+    "news": "Markets news",
+    "newsAbout": "News about {{name}}",
+    "filter": "Show news about",
+    "all": "All",
+    "new": "New",
+    "more": "Show more",
+    "emptyNews": "No stories on this yet.",
+    "emptyTitle": "Your watchlist is empty",
+    "emptyBody": "Add the currencies, metals, crypto and companies you want to follow.",
+    "sources": "Sources: currencies — European Central Bank reference rates (via Frankfurter, once every working day); metals — gold-api.com; crypto — Binance public market data; gold’s 24-hour change — PAX Gold on Binance. Stock prices are licensed, so companies are followed through their news.",
+    "disclaimer": "For information only, not investment advice. Prices may be delayed.",
+    "kinds": {
+      "currency": "Currencies",
+      "metal": "Metals",
+      "crypto": "Crypto",
+      "equity": "Stocks & companies"
+    },
+    "metals": {
+      "XAU": "Gold",
+      "XAG": "Silver",
+      "XPT": "Platinum",
+      "XPD": "Palladium"
+    },
+    "unit": {
+      "gram": "gram",
+      "tenGrams": "10 g",
+      "ounce": "oz"
+    }
+  },
   "category": {
     "kicker": "Topic",
     "top": "Top {{topic}} stories",
@@ -269,5 +314,25 @@
     "goneTitle": "This story has moved on",
     "goneBody": "It dropped out of the current news, or the outlets that carried it are switched off.",
     "toDigest": "Go to the Digest"
+  },
+  "weather": {
+    "label": "Weather in {{place}}: {{temp}}, {{sky}}",
+    "chooseCity": "Choose a city for the weather",
+    "today": "Today",
+    "feelsLike": "feels like {{temp}}",
+    "wind": "Wind {{speed}} {{unit}}",
+    "source": "Forecast:",
+    "sky": {
+      "clear": "Clear",
+      "mainlyClear": "Mostly clear",
+      "partlyCloudy": "Partly cloudy",
+      "overcast": "Cloudy",
+      "fog": "Fog",
+      "drizzle": "Drizzle",
+      "rain": "Rain",
+      "showers": "Showers",
+      "snow": "Snow",
+      "thunderstorm": "Thunderstorm"
+    }
   }
 }

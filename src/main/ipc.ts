@@ -165,6 +165,10 @@ export function registerIpc({ backend, ready, updates, current, observe }: IpcCo
   })
   handleBackend(IPC.libraryClearHistory, () => backend.library.clearHistory())
 
+  handleBackend(IPC.newsRefreshMarkets, () => backend.news.refreshMarkets())
+  handleBackend(IPC.widgetsWeather, () => backend.widgets.weather())
+  handleBackend(IPC.marketsQuotes, () => backend.markets.quotes())
+
   handle(IPC.readerOpen, ({ reader }, request) => {
     if (!isOpenRequest(request)) throw new InvalidArgument(IPC.readerOpen)
     reader.open(request.article, request.mode)

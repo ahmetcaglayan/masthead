@@ -164,6 +164,12 @@ Grenze nicht).
 | 🔎 **Filter & Suche** | Zeitraum, Quellen, Sortierung nach „Am meisten berichtet“, nur mit Bild, Gelesene ausblenden — dazu Regionen und Städte, Bundesländer oder Gebiete in jedem Land; akzentunabhängige Suche |
 | 📖 **Lesen in der App** | Seite des Mediums im Dialogfenster (<kbd>Esc</kbd> zum Schließen), Lesemodus, Werbung und Tracker blockieren |
 | 📍 **Regionale Nachrichten** | 81 türkische Provinzen, 50 US-Bundesstaaten und D.C., 36 indische Bundesstaaten, 16 Bundesländer, 27 brasilianische Bundesstaaten, 51 britische Gebiete — Medien vor Ort und Meldungen, die den Ort nennen |
+| 📈 **Märkte** | Ihre Watchlist aus Währungen, Edelmetallen, Krypto und Unternehmen — Kurse jede Minute, die Meldungen zu jedem Eintrag und der Markt-Ticker live |
+| ✨ **Für Sie** | Ihre Interessen, Ihr Ort und was Sie lesen (auf Ihrem Computer gelernt); jede Karte sagt, warum sie da ist |
+| 🧵 **Themenseiten** | Die Meldungen aller Medien zu einem Thema nebeneinander: wer zuerst berichtete, wer was titelte |
+| ⌨️ **Befehlspalette** | <kbd>Strg</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd> führt überallhin; <kbd>J</kbd>/<kbd>K</kbd> blättert durch Meldungen, <kbd>S</kbd> speichert |
+| 🔇 **Stummgeschaltete Wörter** | Meldungen, die sie nennen, verschwinden überall, auch aus Benachrichtigungen |
+| ⛅ **Wetter** | Die Vorhersage für Ihren Ort neben dem Datum auf der Startseite (optional) |
 | 🗂️ **Quellen** | Jedes Medium ein- oder ausschalten; Zustand der Feeds auf einen Blick |
 | 🔖 **Bibliothek** | Gespeicherte Meldungen und Leseverlauf, lokal abgelegt |
 | 🎨 **Machen Sie es zu Ihrem** | Hell / dunkel / System, fünf Akzentfarben, zwölf Leseschriften, Schriftgröße, kompakte Ansicht |
@@ -227,8 +233,10 @@ den Zertifikatspeicher des Systems nutzt; die Feeds holt jedoch Node.
 
 Keine Konten, keine Analysedienste, kein Tracking. Die App verbindet sich nur mit den Nachrichtenseiten, die Sie
 eingeschaltet haben, stündlich mit GitHub, um nach einer neuen Masthead-Version zu sehen — und, wenn Werbung und
-Tracker blockiert werden, zum Laden öffentlicher Filterlisten. Siehe
-[SECURITY.md](SECURITY.md).
+Tracker blockiert werden, zum Laden öffentlicher Filterlisten. Solange die Seite „Märkte“ offen ist, holt sie Kurse
+aus den Referenzkursen der Europäischen Zentralbank (über Frankfurter), von gold-api.com und aus den öffentlichen
+Marktdaten von Binance; wenn Sie die Wetterkarte einschalten, erhält Open-Meteo Namen und Lage Ihres Ortes. „Für Sie“
+lernt aus Ihrem Leseverlauf auf Ihrem Computer. Siehe [SECURITY.md](SECURITY.md).
 
 ## Lizenz
 

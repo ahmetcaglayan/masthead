@@ -11,6 +11,7 @@
     "language": "Language & region",
     "interests": "Interests",
     "muted": "Muted words",
+    "markets": "Markets",
     "sources": "Sources",
     "reading": "Reading",
     "notifications": "Notifications",
@@ -109,6 +110,10 @@
       "label_land": "State or region",
       "label_area": "Area or region",
       "description": "Fills your Local page with news from around you."
+    },
+    "weather": {
+      "label": "Weather on the front page",
+      "description": "The weather for your city next to the date, from Open-Meteo. Only your city’s name and position are sent, and only while this is on."
     }
   },
   "interests": {
@@ -316,5 +321,31 @@
     "hidden_other": "Hiding {{formatted}} stories right now.",
     "clear": "Unmute all",
     "empty": "Nothing is muted."
+  },
+  "markets": {
+    "description": "What the Markets page follows. Each item’s news is found by the words listed under it, in the language of the news.",
+    "editWords": "Edit the words for {{name}}",
+    "remove": "Remove {{name}}",
+    "words": "Words to look for",
+    "wordsHint": "Separate with commas. A word ending in * also finds its other forms (dollar* → dollars).",
+    "saveWords": "Save",
+    "addTitle": "Add to the watchlist",
+    "offered": "Suggestions",
+    "add": "Add",
+    "company": {
+      "hint": "Or follow any company or market through its news:",
+      "name": "Name",
+      "ticker": "Ticker (optional)",
+      "words": "Words to look for (optional)"
+    },
+    "full": "The watchlist is full ({{count}}).",
+    "empty": "The watchlist is empty.",
+    "reset": "Back to the default list",
+    "kinds": {
+      "currency": "Currencies",
+      "metal": "Metals",
+      "crypto": "Crypto",
+      "equity": "Stocks & companies"
+    }
   }
 }

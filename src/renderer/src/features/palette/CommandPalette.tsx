@@ -3,6 +3,7 @@ import { Command } from 'cmdk'
 import { Dialog as RDialog } from 'radix-ui'
 import {
   Bookmark,
+  ChartCandlestick,
   Clock3,
   History,
   House,
@@ -25,6 +26,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { TOPIC_CATEGORIES } from '@shared/categories'
 import { hasLocalNews } from '@shared/countries'
+import { hasMarkets } from '@shared/markets'
 import type { Article } from '@shared/types'
 import { goSearch } from '@/components/layout/search'
 import { openArticle } from '@/components/news/actions'
@@ -51,6 +53,7 @@ const PAGES: readonly { route: Route; label: string; icon: LucideIcon }[] = [
   { route: { name: 'breaking' }, label: 'nav.breaking', icon: Zap },
   { route: { name: 'foryou' }, label: 'nav.forYou', icon: Sparkles },
   { route: { name: 'local' }, label: 'nav.local', icon: MapPin },
+  { route: { name: 'markets' }, label: 'nav.markets', icon: ChartCandlestick },
   { route: { name: 'saved' }, label: 'nav.saved', icon: Bookmark },
   { route: { name: 'history' }, label: 'nav.history', icon: History },
   { route: { name: 'sources' }, label: 'nav.sources', icon: Rss },
@@ -115,7 +118,10 @@ export function CommandPalette(): React.JSX.Element {
   }, [deferred, q, view.articles])
 
   const pages = PAGES.filter(
-    (page) => (page.route.name !== 'local' || hasLocalNews(country)) && matches(t(page.label), q)
+    (page) =>
+      (page.route.name !== 'local' || hasLocalNews(country)) &&
+      (page.route.name !== 'markets' || hasMarkets(country)) &&
+      matches(t(page.label), q)
   )
   const topics = q ? TOPIC_CATEGORIES.filter((id) => matches(categoryLabel(t, id, country), q)) : []
   const sources = q ? enabled.filter((s) => matches(s.name, q)).slice(0, SOURCES_SHOWN) : []

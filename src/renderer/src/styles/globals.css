@@ -41,6 +41,9 @@
   --on-breaking: #ffffff;
   --live: #16a34a;
   --warning: #c2710c;
+  /* market moves: up and down, readable as text on the canvas */
+  --up: #15803d;
+  --down: #c2410c;
   /* search-match highlighter */
   --mark: #f6e3a6;
   /* the tile behind source favicons */
@@ -94,6 +97,8 @@
   --on-breaking: #1c0306;
   --live: #3ccf7a;
   --warning: #f0a53a;
+  --up: #4ade80;
+  --down: #fb8a5a;
   --mark: rgb(240 165 58 / 0.24);
   /* dimmed so favicons are not the brightest thing next to the text */
   --logo-tile: color-mix(in oklab, var(--fg) 80%, var(--canvas));
@@ -191,6 +196,8 @@
   --color-logo-tile: var(--logo-tile);
   --color-live: var(--live);
   --color-warning: var(--warning);
+  --color-up: var(--up);
+  --color-down: var(--down);
   --color-overlay: var(--overlay);
   --color-scrim: var(--scrim);
   --color-on-scrim: var(--on-scrim);
@@ -212,11 +219,26 @@
   --animate-ticker: ticker var(--ticker-duration, 60s) linear infinite;
   --animate-pulse-dot: pulse-dot 1.8s ease-out infinite;
   --animate-page-in: page-in 160ms ease-out both;
+  --animate-arrive: arrive 2.4s ease-out both;
 
   @keyframes page-in {
     from {
       opacity: 0;
       transform: translateY(6px);
+    }
+  }
+
+  /* a story that just came in: slides in, then its tint fades */
+  @keyframes arrive {
+    from {
+      background-color: var(--accent-soft);
+      transform: translateY(-4px);
+    }
+    15% {
+      transform: translateY(0);
+    }
+    to {
+      background-color: transparent;
     }
   }
 

@@ -200,6 +200,51 @@
     "nearby": "Rund um die Region {{region}}",
     "top": "Topmeldungen aus {{place}}"
   },
+  "markets": {
+    "kicker": "Anleger",
+    "title": "Märkte",
+    "description": "Die Währungen, Edelmetalle, Kryptowährungen und Unternehmen, denen Sie folgen, mit ihren Meldungen. Kurse und Meldungen werden jede Minute aktualisiert.",
+    "edit": "Watchlist bearbeiten",
+    "watchlist": "Ihre Watchlist",
+    "noPrice": "Kein Kurs",
+    "noChange": "Die Quelle nennt keine Veränderung",
+    "newsToday_one": "{{count}} Meldung heute",
+    "newsToday_other": "{{count}} Meldungen heute",
+    "noNewsToday": "Heute keine Meldungen",
+    "live": "Live",
+    "updated": "Kurse von {{time}}",
+    "loading": "Kurse werden geladen …",
+    "failed": "Die Kurse sind gerade nicht erreichbar; gleich neuer Versuch.",
+    "ratesDate": "Devisen: EZB-Referenzkurs vom {{date}}",
+    "news": "Marktmeldungen",
+    "newsAbout": "Meldungen zu {{name}}",
+    "filter": "Meldungen zeigen zu",
+    "all": "Alle",
+    "new": "Neu",
+    "more": "Mehr anzeigen",
+    "emptyNews": "Dazu gibt es noch keine Meldungen.",
+    "emptyTitle": "Ihre Watchlist ist leer",
+    "emptyBody": "Fügen Sie die Währungen, Edelmetalle, Kryptowährungen und Unternehmen hinzu, denen Sie folgen möchten.",
+    "sources": "Quellen: Devisen — Referenzkurse der Europäischen Zentralbank (über Frankfurter, einmal pro Arbeitstag); Edelmetalle — gold-api.com; Kryptowährungen — öffentliche Marktdaten von Binance; 24-Stunden-Veränderung von Gold — PAX Gold bei Binance. Aktienkurse sind lizenzpflichtig, Unternehmen werden daher über ihre Meldungen verfolgt.",
+    "disclaimer": "Nur zur Information, keine Anlageberatung. Kurse können verzögert sein.",
+    "kinds": {
+      "currency": "Devisen",
+      "metal": "Edelmetalle",
+      "crypto": "Kryptowährungen",
+      "equity": "Börse & Unternehmen"
+    },
+    "metals": {
+      "XAU": "Gold",
+      "XAG": "Silber",
+      "XPT": "Platin",
+      "XPD": "Palladium"
+    },
+    "unit": {
+      "gram": "Gramm",
+      "tenGrams": "10 g",
+      "ounce": "Unze"
+    }
+  },
   "category": {
     "kicker": "Thema",
     "top": "Top-Meldungen: {{topic}}",
@@ -269,5 +314,25 @@
     "goneTitle": "Dieses Thema ist weitergezogen",
     "goneBody": "Es ist aus den aktuellen Meldungen gefallen, oder die Medien, die berichteten, sind ausgeschaltet.",
     "toDigest": "Zum Überblick"
+  },
+  "weather": {
+    "label": "Wetter in {{place}}: {{temp}}, {{sky}}",
+    "chooseCity": "Ort für das Wetter wählen",
+    "today": "Heute",
+    "feelsLike": "gefühlt {{temp}}",
+    "wind": "Wind {{speed}} {{unit}}",
+    "source": "Vorhersage:",
+    "sky": {
+      "clear": "Klar",
+      "mainlyClear": "Überwiegend klar",
+      "partlyCloudy": "Teils bewölkt",
+      "overcast": "Bewölkt",
+      "fog": "Nebel",
+      "drizzle": "Nieselregen",
+      "rain": "Regen",
+      "showers": "Schauer",
+      "snow": "Schnee",
+      "thunderstorm": "Gewitter"
+    }
   }
 }

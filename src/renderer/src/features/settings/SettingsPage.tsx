@@ -2,6 +2,7 @@ import { Fragment, useCallback, useEffect, useId, useRef, useState } from 'react
 import { motion, useReducedMotion } from 'motion/react'
 import {
   Bell,
+  ChartCandlestick,
   Database,
   EyeOff,
   Languages,
@@ -27,6 +28,7 @@ import { AppearanceSection } from './AppearanceSection'
 import { DataSection } from './DataSection'
 import { InterestPicker } from './InterestPicker'
 import { LanguageRegionSection } from './LanguageRegionSection'
+import { MarketsSection } from './MarketsSection'
 import { MutedSection } from './MutedSection'
 import { NotificationsSection, ReadingSection, UpdatesSection } from './ReadingSections'
 import { SETTINGS_SECTIONS, sectionElementId, type SettingsSectionId } from './sections'
@@ -39,6 +41,7 @@ const ICONS: Record<SettingsSectionId, LucideIcon> = {
   language: Languages,
   interests: Sparkles,
   muted: EyeOff,
+  markets: ChartCandlestick,
   sources: Rss,
   reading: BookOpen,
   notifications: Bell,
@@ -230,6 +233,7 @@ export function SettingsPage({ section }: { section?: string }): React.JSX.Eleme
     language: <LanguageRegionSection />,
     interests: <InterestsSection />,
     muted: <MutedSection />,
+    markets: <MarketsSection />,
     sources: (
       <SettingsSection id="sources" title={t('nav.sources')} description={t('sources.description')}>
         <SourcesList />

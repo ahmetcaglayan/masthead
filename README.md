@@ -150,6 +150,12 @@ block most news sites from being embedded; the desktop app has no such limit).
 | 🔎 **Filters & search** | Time range, sources, most-covered sort, images only, hide read — plus regions and cities, states or areas in every country; accent-insensitive search |
 | 📖 **In-app reading** | Publisher's page in a dialog (<kbd>Esc</kbd> to close), Reader mode, ad & tracker blocking |
 | 📍 **Local news** | 81 Turkish cities, 50 US states and D.C., 36 Indian states, 16 German Länder, 27 Brazilian states, 51 UK areas — local papers, broadcasters and the stories that name your place |
+| 📈 **Markets** | Your watchlist of currencies, metals, crypto and companies — prices every minute, each one's news, and the markets wire filling in live |
+| ✨ **For You** | Your interests, your city and what you have been reading (learned on your computer); every card says why it is there |
+| 🧵 **Story pages** | Every outlet's report of a story side by side: who was first, what each headlined |
+| ⌨️ **Command palette** | <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd> to go anywhere; <kbd>J</kbd>/<kbd>K</kbd> to move through stories, <kbd>S</kbd> to save |
+| 🔇 **Muted words** | Stories that mention them disappear everywhere, notifications included |
+| ⛅ **Weather** | Your city's forecast beside the date on the front page (optional) |
 | 🗂️ **Sources** | Switch each outlet on or off; feed health at a glance |
 | 🔖 **Library** | Saved stories and reading history, stored locally |
 | 🎨 **Make it yours** | Light / dark / system, five accent colours, twelve reading fonts, text size, compact mode |
@@ -212,8 +218,10 @@ store, but the feeds are fetched by Node.
 ## Privacy
 
 No accounts, no analytics, no tracking. The app only connects to the news sites you enable, to GitHub once an hour
-to see whether a new version of Masthead is out, and, if ad blocking is on, to download public filter lists. See
-[SECURITY.md](SECURITY.md).
+to see whether a new version of Masthead is out, and, if ad blocking is on, to download public filter lists. While
+the Markets page is open it asks for prices from the European Central Bank's reference rates (via Frankfurter),
+gold-api.com and Binance's public market data; if you switch the weather card on, Open-Meteo gets your city's name
+and position. For You learns from your reading history on your computer. See [SECURITY.md](SECURITY.md).
 
 ## License
 

@@ -11,6 +11,7 @@
     "language": "Idioma e região",
     "interests": "Interesses",
     "muted": "Palavras silenciadas",
+    "markets": "Mercados",
     "sources": "Fontes",
     "reading": "Leitura",
     "notifications": "Notificações",
@@ -109,6 +110,10 @@
       "label_land": "Estado ou região",
       "label_area": "Área ou região",
       "description": "Preenche a sua página Local com notícias de perto de você."
+    },
+    "weather": {
+      "label": "Tempo na página inicial",
+      "description": "O tempo da sua cidade ao lado da data, do Open-Meteo. Só o nome e a posição da cidade são enviados, e só enquanto isto estiver ligado."
     }
   },
   "interests": {
@@ -316,5 +321,31 @@
     "hidden_other": "{{formatted}} notícias escondidas agora.",
     "clear": "Remover todas",
     "empty": "Nada silenciado."
+  },
+  "markets": {
+    "description": "O que a página Mercados acompanha. As notícias de cada item são encontradas pelas palavras listadas abaixo dele, no idioma das notícias.",
+    "editWords": "Editar as palavras de {{name}}",
+    "remove": "Remover {{name}}",
+    "words": "Palavras a buscar",
+    "wordsHint": "Separe com vírgulas. Uma palavra terminada em * também encontra suas outras formas (dólar* → dólares).",
+    "saveWords": "Salvar",
+    "addTitle": "Adicionar à lista",
+    "offered": "Sugestões",
+    "add": "Adicionar",
+    "company": {
+      "hint": "Ou acompanhe qualquer empresa ou mercado pelas notícias:",
+      "name": "Nome",
+      "ticker": "Código (opcional)",
+      "words": "Palavras a buscar (opcional)"
+    },
+    "full": "A lista está cheia ({{count}}).",
+    "empty": "A lista está vazia.",
+    "reset": "Voltar à lista padrão",
+    "kinds": {
+      "currency": "Câmbio",
+      "metal": "Metais",
+      "crypto": "Criptomoedas",
+      "equity": "Bolsa e empresas"
+    }
   }
 }

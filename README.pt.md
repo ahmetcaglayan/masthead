@@ -156,6 +156,12 @@ não tem esse limite).
 | 🔎 **Filtros e busca** | Período, fontes, ordem por mais publicadas, só com imagem, ocultar lidas — além de regiões e cidades, estados ou áreas em cada país; busca que ignora acentos |
 | 📖 **Leitura no aplicativo** | Página do veículo em uma janela (<kbd>Esc</kbd> para fechar), Modo de leitura, bloqueio de anúncios e rastreadores |
 | 📍 **Notícias locais** | 81 províncias turcas, 50 estados americanos e D.C., 36 estados indianos, 16 Länder alemães, 27 estados brasileiros, 51 áreas britânicas — veículos locais e as notícias que citam o lugar |
+| 📈 **Mercados** | Sua lista de moedas, metais, cripto e empresas — cotações a cada minuto, as notícias de cada um e o noticiário do mercado ao vivo |
+| ✨ **Para você** | Seus interesses, sua cidade e o que você lê (aprendido no seu computador); cada cartão diz por que está ali |
+| 🧵 **Páginas de história** | A reportagem de cada veículo sobre uma história lado a lado: quem deu primeiro, qual foi cada manchete |
+| ⌨️ **Paleta de comandos** | <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd> leva a qualquer lugar; <kbd>J</kbd>/<kbd>K</kbd> passam pelas notícias, <kbd>S</kbd> salva |
+| 🔇 **Palavras silenciadas** | Notícias que as citam somem de todo lugar, notificações incluídas |
+| ⛅ **Tempo** | A previsão da sua cidade ao lado da data na página inicial (opcional) |
 | 🗂️ **Fontes** | Ligue ou desligue cada veículo; o estado dos feeds de relance |
 | 🔖 **Biblioteca** | Notícias salvas e histórico de leitura, guardados localmente |
 | 🎨 **Do seu jeito** | Claro / escuro / sistema, cinco cores de destaque, doze fontes de leitura, tamanho do texto, modo compacto |
@@ -219,7 +225,10 @@ repositório do sistema, mas os feeds são buscados pelo Node.
 
 Sem contas, sem analytics, sem rastreamento. O aplicativo só se conecta aos sites de notícias que você liga, ao
 GitHub uma vez por hora para ver se saiu uma nova versão do Masthead e, se o bloqueio de anúncios estiver ligado,
-baixa as listas de filtros públicas. Veja [SECURITY.md](SECURITY.md).
+baixa as listas de filtros públicas. Com a página Mercados aberta, busca cotações nas taxas de referência do Banco
+Central Europeu (via Frankfurter), no gold-api.com e nos dados públicos de mercado da Binance; se você ligar o cartão
+do tempo, o Open-Meteo recebe o nome e a posição da sua cidade. "Para você" aprende com o seu histórico de leitura no
+seu computador. Veja [SECURITY.md](SECURITY.md).
 
 ## Licença
 

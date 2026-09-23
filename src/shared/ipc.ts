@@ -1,4 +1,6 @@
 import type { Settings, SettingsPatch, ReaderMode } from './settings'
+import type { QuotesReport } from './markets'
+import type { WeatherReport } from './widgets'
 import type {
   Article,
   ArticleDetail,
@@ -50,7 +52,11 @@ export const IPC = {
   updatesCheck: 'updates:check',
   updatesDownload: 'updates:download',
   updatesInstall: 'updates:install',
-  updatesChanged: 'updates:changed'
+  updatesChanged: 'updates:changed',
+
+  newsRefreshMarkets: 'news:refresh-markets',
+  widgetsWeather: 'widgets:weather',
+  marketsQuotes: 'markets:quotes'
 } as const
 
 export type Unsubscribe = () => void
@@ -146,6 +152,8 @@ export interface MastheadApi {
   news: {
     snapshot(): Promise<NewsSnapshot>
     refresh(force?: boolean): Promise<void>
+    /** Fetch just the economy and business feeds (the markets page asks once a minute; the host throttles). */
+    refreshMarkets(): Promise<void>
     onUpdated(cb: (update: NewsUpdate) => void): Unsubscribe
     onStatus(cb: (status: RefreshStatus) => void): Unsubscribe
     /** Lazily look up an og:image for an article that has no image; null if none. */
@@ -186,6 +194,14 @@ export interface MastheadApi {
     /** Restart into the downloaded version. */
     install(): Promise<void>
     onChange(cb: (status: UpdateStatus) => void): Unsubscribe
+  }
+  /** The optional weather card, for the city in the settings; null when unavailable. */
+  widgets: {
+    weather(): Promise<WeatherReport | null>
+  }
+  markets: {
+    /** Prices of the watchlist in the settings (or the country's default one). */
+    quotes(): Promise<QuotesReport>
   }
   window: {
     /** Recolour the native caption buttons (Windows/Linux title-bar overlay). No-op in web mode. */

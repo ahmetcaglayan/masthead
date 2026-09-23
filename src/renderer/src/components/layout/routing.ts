@@ -16,10 +16,14 @@ export function routeKey(route: Route): string {
   }
 }
 
-/** Routes that show news (the "N new stories" pill only makes sense there). */
+/**
+ * Routes that show news (the "N new stories" pill only makes sense there). The markets page
+ * takes new stories in at the top by itself.
+ */
 export function isNewsRoute(route: Route): boolean {
   return (
     route.name !== 'settings' &&
+    route.name !== 'markets' &&
     route.name !== 'sources' &&
     route.name !== 'saved' &&
     route.name !== 'history'

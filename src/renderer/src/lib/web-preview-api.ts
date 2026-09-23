@@ -6,6 +6,8 @@
  */
 import type { AppInfo, MastheadApi, ReaderProbe, Unsubscribe, UpdateStatus, WindowState } from '@shared/ipc'
 import type { Settings } from '@shared/settings'
+import type { QuotesReport } from '@shared/markets'
+import type { WeatherReport } from '@shared/widgets'
 import type {
   ArticleDetail,
   Library,
@@ -191,6 +193,7 @@ export function createWebPreviewApi(): MastheadApi {
     news: {
       snapshot: () => get<NewsSnapshot>('/news/snapshot'),
       refresh: (force = false) => request<void>('POST', force ? '/news/refresh?force=1' : '/news/refresh'),
+      refreshMarkets: () => request<void>('POST', '/news/refresh-markets'),
       onUpdated: (cb) => events.on('newsUpdated', cb),
       onStatus: (cb) => events.on('newsStatus', cb),
       resolveImage: async (articleId) =>
@@ -226,6 +229,12 @@ export function createWebPreviewApi(): MastheadApi {
       download: () => Promise.resolve(),
       install: () => Promise.resolve(),
       onChange: () => noop
+    },
+    widgets: {
+      weather: () => get<WeatherReport | null>('/widgets/weather')
+    },
+    markets: {
+      quotes: () => get<QuotesReport>('/markets/quotes')
     },
     window: {
       setTitleBarColors: noop,

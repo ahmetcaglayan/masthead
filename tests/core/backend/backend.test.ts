@@ -21,6 +21,7 @@ vi.mock('../../../src/core/news/service', () => ({
       snapshot: vi.fn(() => snapshot),
       status: vi.fn(() => status),
       refresh: vi.fn(async () => undefined),
+      refreshMarkets: vi.fn(async () => undefined),
       resolveImage: vi.fn(async (id: string) => `https://img.example/${id}.jpg`),
       detail: vi.fn(async () => null),
       settingsChanged: vi.fn()
