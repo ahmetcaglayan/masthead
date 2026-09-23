@@ -11,7 +11,7 @@
 ## Son durum
 
 - **Tarih:** 2026-09-23
-- **Aktif faz:** Faz 1 + Faz 4 tamamlandı; **v0.3.0 yayında** (2026-09-23). Şimdi Faz 2 ve 3 bitiriliyor
+- **Aktif faz:** Faz 1–4 tamamlandı; **v0.4.0 yayında** (2026-09-23, otomatik güncellemeli ilk sürüm). Faz 2 ve 3
   (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası, hava durumu ve
   erişilebilirlik turu — hepsi bitti). Otomatik güncelleme v0.4.0 ile gelecek.
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
@@ -136,8 +136,19 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   GitHub issue bağlantısı (`labels=publisher`). README'deki "tam haber her zaman yayıncının sayfasında okunur"
   cümlesi okuma modunu doğru anlatacak şekilde düzeltildi.
 
+- [x] 2026-09-23 · **v0.4.0 yayınlandı** (Latest): yayın öncesi çok ajanlı inceleme (güncelleyici, paketleme,
+  ana süreç/IPC, çekirdek; her ciddi bulguya 3 şüpheci) → doğrulanmış ciddi sorun yok. Küçük bulgulardan
+  düzeltilenler: AppImage adı artık sürümsüz (`Masthead-linux-x86_64.AppImage`, güncelleyici dosyayı yerinde
+  değiştirir), ödeme duvarında `isPartOf`/açık "ücretsiz" yanlış pozitifi, piyasa/hava önbelleği hatada son iyi
+  değeri korur, Open-Meteo bağlantısı Electron'da `openExternal` ile. Sürüm 0.4.0 (package.json + lock),
+  CHANGELOG `[0.4.0]`, README/site indirme metinleri ve sitede 6 yeni özellik kartı. `v0.4.0` etiketi → Release
+  iş akışı başarılı → taslak listedeki kalemden (`untagged-…`) açılıp notlarla yayınlandı; 14 derleme dosyası,
+  `latest.yml` (x64 + arm64) ve `latest-linux.yml` doğrulandı. Ertelenen küçük bulgu: yazılamayan dizindeki
+  AppImage yine "otomatik" sayılıyor (nadir).
+
 **Sıradaki somut adımlar:**
-1. v0.4.0 sürümü (otomatik güncelleme, Faz 2/3 özellikleri, ödeme duvarı) — sahibinin onayıyla.
+1. v0.4.0 kullanıcılarından sonraki sürümle otomatik güncellemenin gerçekten çalıştığını doğrula (0.4.1 çıkınca
+   Windows kurulum sürümü ve AppImage kendiliğinden güncellenmeli).
 3. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
 4. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
    ekran görüntüleri; News18 Hindi / Bhaskar ikonları (şu an harf monogramı görünüyor).
