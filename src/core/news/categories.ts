@@ -151,7 +151,34 @@ const KEYWORDS: Record<string, CategoryId> = {
   viagem: 'travel',
   ambiente: 'environment',
   opiniao: 'opinion',
-  cotidiano: 'general'
+  cotidiano: 'general',
+
+  // Hindi (Devanagari sites write their section paths in Latin script)
+  desh: 'national',
+  rashtriya: 'national',
+  bharat: 'national',
+  duniya: 'world',
+  videsh: 'world',
+  antarrashtriya: 'world',
+  rajniti: 'politics',
+  rajneeti: 'politics',
+  chunav: 'politics',
+  karobar: 'economy',
+  vyapar: 'economy',
+  vyapaar: 'economy',
+  arthjagat: 'economy',
+  khel: 'sports',
+  cricket: 'sports',
+  manoranjan: 'entertainment',
+  bollywood: 'entertainment',
+  swasthya: 'health',
+  vigyan: 'science',
+  shiksha: 'education',
+  jeevan: 'lifestyle',
+  dharm: 'lifestyle',
+  yatra: 'travel',
+  paryavaran: 'environment',
+  vichar: 'opinion'
 }
 
 /**

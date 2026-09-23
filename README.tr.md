@@ -30,7 +30,7 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 ## Neden Masthead?
 
 Gündemi takip etmek genelde onlarca sekme, çerez uyarıları, kendiliğinden açılan videolar ve pop-up'lar demek.
-Masthead **altı ülkeden 206 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
+Masthead **altı ülkeden 212 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
 
 - **Tıklamadan gündemi takip et.** Her kartta tam başlık, özet ve fotoğraf; manşetin özeti tam, diğerlerinde
   “Özetin tamamı” ile açılır. **Gündem Özeti** aynı olayı veren
@@ -82,7 +82,7 @@ kümeler; böylece haberi tek bir kaynaktan değil, etrafını dolaşarak okursu
 | ![İlk açılış](docs/images/onboarding.png) | ![Ayarlar](docs/images/settings.png) |
 | **İlk açılış** — birkaç kısa soru ve hazırsın | **Ayarlar** — tema, vurgu rengi, fontlar, kaynaklar |
 
-## Altı ülke, dört dil
+## Altı ülke, beş dil
 
 Arayüz dili ile haberlerin dili birbirinden bağımsız: istersen Brezilya gazetelerini Almanca arayüzle okursun.
 
@@ -155,7 +155,7 @@ bağımsız medya ile ekonomi, spor ve teknoloji siteleri arasından dengeli se�
 | --- | --- | --- |
 | 🇹🇷 Türkiye | 136 (67 ulusal + yerel: 81 ilin akışı, 33 ilde yerel gazete) | 536 |
 | 🇺🇸 ABD | 18 | 49 |
-| 🇮🇳 Hindistan | 10 | 37 |
+| 🇮🇳 Hindistan | 16 (6 Hintçe + 10 İngilizce) | 60 |
 | 🇬🇧 Birleşik Krallık | 10 | 37 |
 | 🇩🇪 Almanya | 15 | 46 |
 | 🇧🇷 Brezilya | 17 | 34 |

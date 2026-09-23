@@ -31,7 +31,7 @@ und in der Sie sie werbefrei lesen, ohne die App je zu verlassen.
 ## Warum Masthead?
 
 Nachrichten zu verfolgen heißt meist: ein Dutzend Browser-Tabs, Cookie-Banner, automatisch startende Videos und
-Pop-ups. Masthead führt **206 Redaktionen aus sechs Ländern** auf einer ruhigen, magazinartigen Titelseite zusammen:
+Pop-ups. Masthead führt **212 Redaktionen aus sechs Ländern** auf einer ruhigen, magazinartigen Titelseite zusammen:
 
 - **Dem Tagesgeschehen folgen, ohne zu klicken.** Auf jeder Karte die ganze Schlagzeile, eine Zusammenfassung und
   ein Foto — die Topmeldung bringt ihre Zusammenfassung vollständig, bei den übrigen steht am Ende
@@ -92,7 +92,7 @@ statt nur durch ein einziges Medium hindurch:
 | ![Erster Start](docs/images/onboarding.png) | ![Einstellungen](docs/images/settings.png) |
 | **Erster Start** — ein paar kurze Fragen, dann sind Sie drin | **Einstellungen** — Designs, Akzentfarben, Schriften, Quellen |
 
-## Sechs Länder, vier Sprachen
+## Sechs Länder, fünf Sprachen
 
 Die Sprache der Oberfläche und die Sprache der Nachrichten sind unabhängig voneinander: Lesen Sie brasilianische
 Zeitungen mit deutscher Oberfläche, wenn Ihnen das lieber ist.
@@ -157,7 +157,7 @@ Grenze nicht).
 | 🔖 **Bibliothek** | Gespeicherte Meldungen und Leseverlauf, lokal abgelegt |
 | 🎨 **Machen Sie es zu Ihrem** | Hell / dunkel / System, fünf Akzentfarben, zwölf Leseschriften, Schriftgröße, kompakte Ansicht |
 | 🌍 **Länder** | Türkei, Vereinigte Staaten, Indien, Vereinigtes Königreich, Deutschland und Brasilien — in den Einstellungen wechseln |
-| 💬 **Sprachen** | Oberfläche: English, Türkçe, Deutsch und Português — die Nachrichten bleiben in ihrer eigenen Sprache |
+| 💬 **Sprachen** | Oberfläche: English, Türkçe, Deutsch, Português und हिन्दी — die Nachrichten bleiben in ihrer eigenen Sprache |
 
 ## Quellen
 
@@ -169,7 +169,7 @@ Sport und Technik.
 | --- | --- | --- |
 | 🇹🇷 Türkei | 136 (67 national + regional: Stadt-Feeds für alle 81 Provinzen, Zeitungen in 33 davon) | 536 |
 | 🇺🇸 Vereinigte Staaten | 18 | 49 |
-| 🇮🇳 Indien | 10 | 37 |
+| 🇮🇳 Indien | 16 (6 auf Hindi + 10 auf Englisch) | 60 |
 | 🇬🇧 Vereinigtes Königreich | 10 | 37 |
 | 🇩🇪 Deutschland | 15 | 46 |
 | 🇧🇷 Brasilien | 17 | 34 |

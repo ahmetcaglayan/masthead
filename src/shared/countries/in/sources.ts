@@ -1,14 +1,106 @@
 import type { SourceDef } from '../../types'
 
 /*
- * India — English-language national sources. Every feed was checked on
- * 2026-09-23 (re-check with `npm run verify:feeds in`).
+ * India — Hindi and English national sources. Someone who picks India reads the news
+ * of India: the Hindi newsrooms come first and are all on by default, with the
+ * English national press (which is native here, not foreign) beside them. Every feed
+ * was checked on 2026-09-23 (re-check with `npm run verify:feeds in`).
  *
- * Not included: Scroll.in, The Wire and Deccan Herald (their feed URLs no longer
- * serve XML) and the Times of India technology feed, which has been stale for years.
+ * Not included: Dainik Jagran, Navbharat Times, Zee News Hindi, Patrika and The
+ * Lallantop (their feed URLs answer 404 or no longer serve XML), Live Hindustan (its
+ * feed host answers with HTML), Scroll.in, The Wire and Deccan Herald, and the Times
+ * of India technology feed, which has been stale for years.
  */
 
 export const sources: SourceDef[] = [
+  // Hindi
+  {
+    id: 'amar-ujala',
+    name: 'अमर उजाला',
+    homepage: 'https://www.amarujala.com',
+    icon: 'https://www.amarujala.com/favicon.ico',
+    color: '#E8262C',
+    kind: 'mainstream',
+    language: 'hi',
+    feeds: [
+      { url: 'https://www.amarujala.com/rss/india-news.xml', category: 'national', headline: true },
+      { url: 'https://www.amarujala.com/rss/world.xml', category: 'world' },
+      { url: 'https://www.amarujala.com/rss/business.xml', category: 'economy' },
+      { url: 'https://www.amarujala.com/rss/sports.xml', category: 'sports' },
+      { url: 'https://www.amarujala.com/rss/technology.xml', category: 'technology' },
+      { url: 'https://www.amarujala.com/rss/entertainment.xml', category: 'entertainment' },
+      { url: 'https://www.amarujala.com/rss/education.xml', category: 'education' }
+    ]
+  },
+  {
+    id: 'dainik-bhaskar',
+    name: 'दैनिक भास्कर',
+    homepage: 'https://www.bhaskar.com',
+    icon: 'https://www.bhaskar.com/favicon.ico',
+    color: '#D01A1A',
+    kind: 'mainstream',
+    language: 'hi',
+    feeds: [
+      { url: 'https://www.bhaskar.com/rss-v1--category-1061.xml', category: 'national', headline: true },
+      { url: 'https://www.bhaskar.com/rss-v1--category-1051.xml', category: 'economy' },
+      { url: 'https://www.bhaskar.com/rss-v1--category-1053.xml', category: 'sports' },
+      { url: 'https://www.bhaskar.com/rss-v1--category-1057.xml', category: 'lifestyle' }
+    ]
+  },
+  {
+    id: 'ndtv-india',
+    name: 'NDTV इंडिया',
+    homepage: 'https://khabar.ndtv.com',
+    icon: 'https://khabar.ndtv.com/apple-touch-icon.png',
+    color: '#E21B22',
+    kind: 'mainstream',
+    language: 'hi',
+    feeds: [
+      { url: 'https://feeds.feedburner.com/ndtvkhabar-latest', category: 'top', headline: true },
+      { url: 'https://feeds.feedburner.com/ndtvkhabar-india', category: 'national' },
+      { url: 'https://feeds.feedburner.com/ndtvkhabar-world', category: 'world' },
+      { url: 'https://feeds.feedburner.com/ndtvkhabar-business', category: 'economy' }
+    ]
+  },
+  {
+    id: 'news18-hindi',
+    name: 'News18 हिंदी',
+    homepage: 'https://hindi.news18.com',
+    icon: 'https://hindi.news18.com/apple-touch-icon.png',
+    color: '#EE2A24',
+    kind: 'mainstream',
+    language: 'hi',
+    feeds: [
+      { url: 'https://hindi.news18.com/commonfeeds/v1/hin/rss/nation.xml', category: 'national' },
+      { url: 'https://hindi.news18.com/commonfeeds/v1/hin/rss/world.xml', category: 'world' },
+      { url: 'https://hindi.news18.com/commonfeeds/v1/hin/rss/business.xml', category: 'economy' },
+      { url: 'https://hindi.news18.com/commonfeeds/v1/hin/rss/sports.xml', category: 'sports' },
+      { url: 'https://hindi.news18.com/commonfeeds/v1/hin/rss/tech.xml', category: 'technology' },
+      { url: 'https://hindi.news18.com/commonfeeds/v1/hin/rss/entertainment.xml', category: 'entertainment' }
+    ]
+  },
+  {
+    id: 'aaj-tak',
+    name: 'आज तक',
+    homepage: 'https://www.aajtak.in',
+    icon: 'https://smedia2.intoday.in/aajtak_pwapp/resources/atmobile/public/images/apple-touch-icon.png',
+    color: '#E4002B',
+    kind: 'mainstream',
+    language: 'hi',
+    feeds: [{ url: 'https://www.aajtak.in/rssfeeds/?id=home', category: 'top', headline: true }]
+  },
+  {
+    id: 'bbc-hindi',
+    name: 'BBC News हिंदी',
+    homepage: 'https://www.bbc.com/hindi',
+    icon: 'https://www.bbc.co.uk/apple-touch-icon.png',
+    color: '#BB1919',
+    kind: 'international',
+    language: 'hi',
+    feeds: [{ url: 'https://feeds.bbci.co.uk/hindi/rss.xml', category: 'general' }]
+  },
+
+  // English — India's own national press, not a foreign edition
   // Mainstream dailies
   {
     id: 'times-of-india',

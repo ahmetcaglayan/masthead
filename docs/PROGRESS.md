@@ -21,6 +21,39 @@
   **2026-09-23 akşamı:** Faz 4'ün ilk adımı yapıldı — uygulama artık 6 ülke (Türkiye, ABD, Hindistan,
   Birleşik Krallık, Almanya, Brezilya) ve 4 arayüz dili (en, tr, de, pt) ile geliyor.
 
+## Devralma notu (2026-09-23, oturum sonu)
+
+**Yapılan son iş:** Hindistan paketine Hintçe kaynaklar + arayüze Hintçe dili.
+
+- `src/shared/countries/in/sources.ts` — 6 Hintçe kaynak eklendi (अमर उजाला, दैनिक भास्कर, NDTV इंडिया,
+  News18 हिंदी, आज तक, BBC News हिंदी; 23 akış) + mevcut 10 İngilizce kaynak. **59/59 akış doğrulandı.**
+- `in/index.ts`: `language: 'hi'`, `languages: ['hi','en']`, `locale: 'hi-IN'`; `CountryPack.languages` alanı
+  eklendi (`countries/types.ts`), paket testi buna göre güncellendi + yeni test: her ülkenin kendi ana
+  dilinde en az 3 varsayılan açık kaynağı olmalı (hepsi geçiyor — Hindistan dışında sorun yoktu).
+- `src/core/news/categories.ts`: Hintçe bölüm kelimeleri (desh, duniya, khel, manoranjan, vyapar…).
+- Arayüz: `UI_LANGUAGES`'e `hi`, `LOCALES`'e `hi-IN`, ayarlar/onboarding dil listelerine हिन्दी,
+  `notifications.ts` LABEL'a `ब्रेकिंग`.
+- `src/renderer/src/i18n/locales/hi/` — 5 namespace yazıldı; **iki denetçi (anahtar eşliği + ana dil
+  akıcılığı) çalışıyordu**, oturum bitmeden sonuçları gelmemiş olabilir.
+
+**Sıradaki somut adımlar:**
+1. `npm test && npm run typecheck && npm run lint` (hi locale anahtar eşliği için
+   `tests/renderer/...` yok; parity'yi denetçi betiği yaptı — gerekirse elle karşılaştır).
+2. Tarayıcıda doğrula: Ayarlar → ülke **Hindistan**, dil **हिन्दी** → Hintçe haberler + Hintçe arayüz.
+3. Commit + push; ardından `v0.3.0` etiketi (Release iş akışı paketleri üretir, taslağı yayına al).
+   **Dikkat:** electron-builder taslağı GitHub'da "untagged-..." URL'siyle görünür; `/releases/edit/<tag>`
+   adresine gidersen **ikinci, boş bir sürüm** oluşturursun (v0.2.0'da bu oldu). Taslağı Releases
+   listesindeki kalem simgesinden aç.
+4. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek; şimdilik çıkarıldı).
+5. İstenirse açılış sayfasının (site/index.html) diğer dillere çevrilmesi.
+
+**Sayılar (güncel):** 212 kaynak, 762 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi).
+
+**Ortam:** Kurumsal TLS proxy yüzünden Node sertifikayı tanımıyor →
+`NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca.pem` ile çalıştır (dev sunucusu, verify:feeds, her şey).
+`npm run verify:feeds` Node 22+ ister; bu Mac'te Node 20 olduğu için `npx vite-node scripts/verify-feeds.ts -- in`
+şeklinde çalıştır. Bu bilgisayara uygulama kurulmaz; doğrulama yalnızca `npm run dev:web` üzerinden.
+
 ## Sıradaki adım
 
 1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅

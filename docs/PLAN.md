@@ -12,7 +12,7 @@
 **Masthead**, Türkiye'nin (ileride seçilen ülkenin) önde gelen haber sitelerinden haberleri toplayıp tek,
 sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygulamasıdır.
 
-- **Toplar:** 6 ülkeden 206 kaynağın (Türkiye 136, ABD 18, Hindistan 10, Birleşik Krallık 10, Almanya 15,
+- **Toplar:** 6 ülkeden 212 kaynağın (Türkiye 136, ABD 18, Hindistan 16, Birleşik Krallık 10, Almanya 15,
   Brezilya 17) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
   haberleri kümeler ("5 kaynak bu haberi verdi").
 - **Sunar:** Modern bir haber sitesi düzeni — manşet alanı, son dakika bandı, kategori bölümleri,
@@ -23,8 +23,8 @@ sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygula
 - **Kaynak kontrolü sende:** Her haber sitesi listeden tek tıkla açılıp kapatılır; seçim kaydedilir.
 - **Tarayıcıda da çalışır:** `npm run dev:web` ile uygulamanın tamamı `localhost` üzerinden tarayıcıda açılır —
   exe kurulamayan bilgisayarlarda test ve geliştirme için.
-- **Çok dilli:** Arayüz dili İngilizce (varsayılan), Türkçe, Almanca ve Portekizce; içerik dili arayüz
-  dilinden bağımsız.
+- **Çok dilli:** Arayüz dili İngilizce (varsayılan), Türkçe, Almanca, Portekizce ve Hintçe; içerik dili
+  arayüz dilinden bağımsız. Her ülke paketi kendi ülkesinin dilinde yayın yapan kaynakları taşır.
 
 ### Neden "Masthead"?
 
@@ -55,7 +55,7 @@ Logo, katlanmış bir ön sayfayı andıran yuvarlatılmış bir **M** ve altın
 
 Tek ekranda, **alt alta beliren kısa sorular** (her cevapta bir sonraki soru yumuşakça açılır):
 
-1. **Dil** — English / Türkçe / Deutsch / Português (seçince arayüz anında değişir)
+1. **Dil** — English / Türkçe / Deutsch / Português / हिन्दी (seçince arayüz anında değişir)
 2. **Tema** — Açık / Koyu / Sistem (mini önizlemeli kartlar, anında uygulanır)
 3. **Ülke** — Türkiye, ABD, Hindistan, Birleşik Krallık, Almanya, Brezilya (paketi olmayanlar "yakında"
    rozetiyle, pasif)

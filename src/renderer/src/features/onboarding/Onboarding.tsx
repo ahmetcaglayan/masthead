@@ -44,7 +44,8 @@ const LANGUAGES: readonly { value: UiLanguage; name: string; monogram: string }[
   { value: 'en', name: 'English', monogram: 'EN' },
   { value: 'tr', name: 'Türkçe', monogram: 'TR' },
   { value: 'de', name: 'Deutsch', monogram: 'DE' },
-  { value: 'pt', name: 'Português', monogram: 'PT' }
+  { value: 'pt', name: 'Português', monogram: 'PT' },
+  { value: 'hi', name: 'हिन्दी', monogram: 'हि' }
 ]
 
 function Monogram({ children }: { children: React.ReactNode }): React.JSX.Element {

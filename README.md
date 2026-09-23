@@ -31,7 +31,7 @@ and lets you read them, ad-free, without ever leaving the app.
 ## Why Masthead?
 
 Following the news usually means a dozen browser tabs, cookie banners, autoplaying videos and pop-ups.
-Masthead gathers **206 newsrooms across six countries** into one calm, magazine-like front page:
+Masthead gathers **212 newsrooms across six countries** into one calm, magazine-like front page:
 
 - **Follow the agenda without clicking.** Full headlines, a summary and a photo on every card — the lead story
   carries its summary in full, the rest end with “Full summary”. The **Digest**
@@ -83,7 +83,7 @@ about one event, so you can read around a story instead of through a single outl
 | ![First-run setup](docs/images/onboarding.png) | ![Settings](docs/images/settings.png) |
 | **First run** — a few quick questions and you're in | **Settings** — themes, accent colours, fonts, sources |
 
-## Six countries, four languages
+## Six countries, five languages
 
 The interface language and the language of the news are independent: read Brazilian newspapers with a German
 interface if that is what you want.
@@ -95,7 +95,7 @@ interface if that is what you want.
 | ![Masthead in German with German sources](docs/images/de-home.png) | ![The Digest page in Portuguese with Brazilian sources](docs/images/br-digest.png) |
 | 🇩🇪 **Germany** — tagesschau, Spiegel, Zeit, FAZ, SZ… with the interface in German | 🇧🇷 **Brazil** — the Digest in Portuguese: one card, every outlet's headline |
 | ![The Latest timeline with Indian sources](docs/images/in-latest.png) | ![Reader mode on a German article](docs/images/de-reader.png) |
-| 🇮🇳 **India** — the Latest timeline across TOI, The Hindu, HT, NDTV and more | 📖 **Reader mode** — the article and nothing else, in your own reading font |
+| 🇮🇳 **India** — Hindi newsrooms (अमर उजाला, दैनिक भास्कर, आज तक, NDTV इंडिया) beside the English press | 📖 **Reader mode** — the article and nothing else, in your own reading font |
 
 
 ## Download
@@ -145,7 +145,7 @@ block most news sites from being embedded; the desktop app has no such limit).
 | 🔖 **Library** | Saved stories and reading history, stored locally |
 | 🎨 **Make it yours** | Light / dark / system, five accent colours, twelve reading fonts, text size, compact mode |
 | 🌍 **Countries** | Türkiye, the United States, India, the United Kingdom, Germany and Brazil — switch in Settings |
-| 💬 **Languages** | English, Türkçe, Deutsch and Português interface; the news stays in its own language |
+| 💬 **Languages** | English, Türkçe, Deutsch, Português and हिन्दी interface; the news stays in its own language |
 
 ## Sources
 
@@ -156,7 +156,7 @@ broadcasters, news agencies, mainstream papers, independent media, plus business
 | --- | --- | --- |
 | 🇹🇷 Türkiye | 136 (67 national + local: city feeds for all 81 provinces, papers in 33 of them) | 536 |
 | 🇺🇸 United States | 18 | 49 |
-| 🇮🇳 India | 10 | 37 |
+| 🇮🇳 India | 16 (6 Hindi + 10 English) | 60 |
 | 🇬🇧 United Kingdom | 10 | 37 |
 | 🇩🇪 Germany | 15 | 46 |
 | 🇧🇷 Brazil | 17 | 34 |

@@ -47,13 +47,22 @@ describe('country packs', () => {
   )
 
   it.each(packs.map((pack) => [pack.code, pack] as const))(
-    '%s: source language matches the pack and the locale starts with it',
+    '%s: every source speaks one of the pack languages, and the locale starts with the main one',
     (_code, pack) => {
       expect(pack.locale.startsWith(pack.language)).toBe(true)
-      const foreign = pack.sources.filter((s) => s.language !== pack.language)
+      const spoken = new Set(pack.languages ?? [pack.language])
+      expect(spoken.has(pack.language)).toBe(true)
+      const foreign = pack.sources.filter((s) => !spoken.has(s.language))
       expect(foreign.map((s) => s.id)).toEqual([])
     }
   )
+
+  it('gives every country a source in its own main language', () => {
+    for (const pack of packs) {
+      const own = pack.sources.filter((s) => s.language === pack.language && s.defaultEnabled !== false)
+      expect(own.length, `${pack.code} has no default-on source in ${pack.language}`).toBeGreaterThanOrEqual(3)
+    }
+  })
 
   it('only claims local news where the pack ships provinces', () => {
     for (const pack of packs) {

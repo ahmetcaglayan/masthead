@@ -31,7 +31,7 @@ e deixa você lê-las sem anúncios, sem sair do aplicativo.
 ## Por que o Masthead?
 
 Acompanhar as notícias costuma significar uma dúzia de abas no navegador, avisos de cookies, vídeos que começam
-sozinhos e pop-ups. O Masthead reúne **206 redações de seis países** em uma única primeira página, tranquila e
+sozinhos e pop-ups. O Masthead reúne **212 redações de seis países** em uma única primeira página, tranquila e
 com cara de revista:
 
 - **Acompanhe a agenda sem clicar.** Manchete completa, resumo e foto em cada cartão — a notícia principal traz
@@ -88,7 +88,7 @@ veículo só:
 | ![Primeira abertura](docs/images/onboarding.png) | ![Ajustes](docs/images/settings.png) |
 | **Primeira abertura** — algumas perguntas rápidas e pronto | **Ajustes** — temas, cores de destaque, tipografia, fontes de notícias |
 
-## Seis países, quatro idiomas
+## Seis países, cinco idiomas
 
 O idioma da interface e o idioma das notícias são independentes: leia jornais brasileiros com a interface em
 alemão, se for isso que você quer.
@@ -164,7 +164,7 @@ negócios, esportes e tecnologia.
 | --- | --- | --- |
 | 🇹🇷 Turquia | 136 (67 nacionais + locais: feeds de cidade para todas as 81 províncias, jornais em 33 delas) | 536 |
 | 🇺🇸 Estados Unidos | 18 | 49 |
-| 🇮🇳 Índia | 10 | 37 |
+| 🇮🇳 Índia | 16 (6 em híndi + 10 em inglês) | 60 |
 | 🇬🇧 Reino Unido | 10 | 37 |
 | 🇩🇪 Alemanha | 15 | 46 |
 | 🇧🇷 Brasil | 17 | 34 |

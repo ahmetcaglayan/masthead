@@ -7,7 +7,7 @@ Every country Masthead covers is one **country pack** under `src/shared/countrie
 | --- | --- | --- | --- | --- | --- |
 | `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 |
 | `us` United States | English | 18 | 49 | 17 | — |
-| `in` India | English | 10 | 37 | 9 | — |
+| `in` India | Hindi + English | 16 | 60 | 15 | — |
 | `gb` United Kingdom | English | 10 | 37 | 7 | — |
 | `de` Germany | German | 15 | 46 | 14 | — |
 | `br` Brazil | Portuguese | 17 | 34 | 13 | — |
@@ -35,7 +35,7 @@ category, no stale or empty feeds, a balanced default set — apply to every pac
 | `tr/index.ts`        | The `CountryPack` (`tr-TR`, `Europe/Istanbul`, Google News edition `hl=tr&gl=TR&ceid=TR:tr`)                                    |
 | `countries/index.ts` | Registry: `COUNTRY_OPTIONS`, `getCountryPack`, `listSources`, `getSource`, `getProvince`, `isSourceEnabled`, `setSourceEnabled` |
 
-In total, the Turkey pack: **136 sources, 536 feeds** (all six packs together: 206 sources, 739 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
+In total, the Turkey pack: **136 sources, 536 feeds** (all six packs together: 212 sources, 762 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
 `black-sea`, `eastern-anatolia`, `southeastern-anatolia`.
 
 ### Categories
@@ -332,7 +332,7 @@ Three of them need no new interface language; German and Brazilian Portuguese we
 | Pack | Sources |
 | --- | --- |
 | `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Washington Examiner, National Review, New York Post*, Politico, The Hill, Axios, CNBC, The Verge, Ars Technica, ESPN |
-| `in` | The Times of India, The Hindu, Hindustan Times, The Indian Express, NDTV, India Today, News18, Firstpost*, The Economic Times, Mint |
+| `in` | **Hindi:** अमर उजाला, दैनिक भास्कर, NDTV इंडिया, News18 हिंदी, आज तक, BBC News हिंदी · **English:** The Times of India, The Hindu, Hindustan Times, The Indian Express, NDTV, India Today, News18, Firstpost*, The Economic Times, Mint |
 | `gb` | BBC News, The Guardian, Sky News, The Independent, Evening Standard, Financial Times, The Economist, Daily Mail*, Daily Mirror*, Metro* |
 | `de` | tagesschau, ZDFheute, Deutsche Welle, Der Spiegel, Zeit Online, FAZ, Süddeutsche Zeitung, Welt, n-tv, Stern, Focus Online*, taz, Handelsblatt, heise online, kicker |
 | `br` | G1, Folha de S.Paulo, UOL, Estadão, CNN Brasil, Metrópoles*, Agência Brasil, BBC News Brasil, Poder360, CartaCapital*, Gazeta do Povo*, Veja, InfoMoney, Exame, Olhar Digital, Tecnoblog*, ge |

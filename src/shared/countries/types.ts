@@ -18,8 +18,13 @@ export interface GoogleNewsEdition {
  */
 export interface CountryPack {
   code: CountryCode
-  /** Content language of the pack's sources (BCP-47). */
+  /** Main content language of the pack's sources (BCP-47). */
   language: string
+  /**
+   * Every content language the pack's sources publish in, when it is more than one
+   * (India reads Hindi and English). Defaults to `[language]`.
+   */
+  languages?: readonly string[]
   /** Locale used for case-folding and date parsing of content (e.g. `tr-TR`). */
   locale: string
   /** IANA time zone feeds without an offset are assumed to be in. */

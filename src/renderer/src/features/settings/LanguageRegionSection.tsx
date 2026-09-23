@@ -17,7 +17,8 @@ const LANGUAGE_OPTIONS = [
   { value: 'en', label: 'English' },
   { value: 'tr', label: 'Türkçe' },
   { value: 'de', label: 'Deutsch' },
-  { value: 'pt', label: 'Português' }
+  { value: 'pt', label: 'Português' },
+  { value: 'hi', label: 'हिन्दी' }
 ] as const satisfies readonly { value: UiLanguage; label: string }[]
 
 function LanguageSelect({
