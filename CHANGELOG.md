@@ -6,6 +6,17 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **India reads Hindi.** Six Hindi newsrooms — अमर उजाला, दैनिक भास्कर, NDTV इंडिया, News18 हिंदी, आज तक and
+  BBC News हिंदी, 23 feeds — join the India pack, and the front page leads with them: they ship on beside four
+  English nationals, while the other English papers ship off, one tap away on the Sources page.
+- **हिन्दी is the fifth interface language**, next to English, Türkçe, Deutsch and Português.
+- A country pack can now declare several content languages (`CountryPack.languages`), and a test holds every
+  country to at least three default-on sources in its own main language.
+- Hindi section words (desh, duniya, khel, manoranjan, vyapar…) are recognised in feed labels and URLs.
+- German and Brazilian Portuguese READMEs, and a link to the website from every README.
+
 ## [0.2.0] - 2026-09-23
 
 Six countries, four interface languages.

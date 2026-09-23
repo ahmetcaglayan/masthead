@@ -35,6 +35,12 @@
   `notifications.ts` LABEL'a `ब्रेकिंग`.
 - `src/renderer/src/i18n/locales/hi/` — 5 namespace yazıldı; **iki denetçi (anahtar eşliği + ana dil
   akıcılığı) çalışıyordu**, oturum bitmeden sonuçları gelmemiş olabilir.
+- [x] 2026-09-23 · **Hintçe akıcılık denetimi bitti** — 5 dosyada ~35 düzeltme: ürün terimleri tek tipe
+  indirildi (front page = "पहला पन्ना", outlet = "मीडिया", interests = "रुचि", section = "सेक्शन",
+  "Try again" = "फिर कोशिश करें"), nukta yazımı tüm dosyalarda tutarlı, dilbilgisi hataları
+  (`फ़ीड आ रहे हैं` → `आ रही हैं`, `आप ऑनलाइन आते ही` → `आपके ऑनलाइन लौटते ही`, yarım cümleler),
+  Sanskritçe kaçışlar günlük gazete diline çekildi (`मुखपृष्ठ`, `दृश्य`, `अन्य`, `दिखावट`) ve taşan
+  etiketler kısaltıldı. Anahtar + placeholder eşliği betikle yeniden doğrulandı (5/5 namespace tam).
 
 **Sıradaki somut adımlar:**
 1. `npm test && npm run typecheck && npm run lint` (hi locale anahtar eşliği için
