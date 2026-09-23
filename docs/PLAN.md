@@ -426,7 +426,8 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 ### Faz 5 — Yayın
 - [x] electron-builder: Windows NSIS (x64 + arm64) + portable; macOS dmg ve Linux AppImage/deb yapılandırıldı (CI üretir)
 - [x] GitHub Actions: CI (lint, typecheck, test, build) + etiketle yayın (`release.yml`)
-- [ ] Otomatik güncelleme (electron-updater, GitHub Releases)
+- [x] 2026-09-23 · Otomatik güncelleme (electron-updater, GitHub Releases): açılışta + saatte bir kontrol, arka planda
+      indirme, "Şimdi yeniden başlat" diyaloğu; taşınabilir/macOS/.deb için "yeni sürüm çıktı" bildirimi
 - [x] README (EN + TR), ekran görüntüleri, CONTRIBUTING, SECURITY, CHANGELOG, MIT lisansı
 - [ ] Kod imzalama (SignPath Foundation / Azure Trusted Signing) — Akıllı Uygulama Denetimi için
 

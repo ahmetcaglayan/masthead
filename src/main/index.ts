@@ -8,6 +8,7 @@ import { setUpAutomation, type AppHandle, type AutomationSession } from './autom
 import { registerIpc, type HostWindow } from './ipc'
 import { createBreakingNotifier } from './notifications'
 import { APP_CACHE_DIR } from './paths'
+import { createUpdates } from './updates'
 import { Adblocker } from './reader/adblock'
 import { ReaderViewManager, readerSession } from './reader/view'
 import { applyWindowTheme, createMainWindow, isDarkTheme, type MainWindow } from './window'
@@ -100,7 +101,25 @@ async function start(automation: AutomationSession | null): Promise<AppHandle> {
   openWindow()
   const ready = backend.start().catch((error: unknown) => logger.error('Backend failed to start', error))
 
-  registerIpc({ backend, ready, current: () => host, observe: automation?.observeIpc })
+  // Automation runs exit on their own and never update; a normal run saves before it quits.
+  const stopBackend = automation ? () => Promise.resolve() : stopBackendOnQuit(backend)
+  const updates = createUpdates({
+    disabled: automation !== null,
+    autoInstall: () => backend.settings.get().appUpdates.auto,
+    prepareToQuit: stopBackend,
+    onChange: (status) => {
+      if (host && !host.win.isDestroyed()) host.win.webContents.send(IPC.updatesChanged, status)
+    },
+    logger: createLogger('updates', automation?.logSink)
+  })
+  updates
+    .then((controller) => {
+      controller.start()
+      backend.on('settings', () => controller.settingsChanged())
+    })
+    .catch((error: unknown) => logger.error('Updater failed to start', error))
+
+  registerIpc({ backend, ready, updates, current: () => host, observe: automation?.observeIpc })
 
   backend.on('settings', (settings) => applySettings(settings, adblock))
   nativeTheme.on('updated', () => {
@@ -139,7 +158,6 @@ async function start(automation: AutomationSession | null): Promise<AppHandle> {
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
   })
-  stopBackendOnQuit(backend)
   return handle
 }
 
@@ -153,24 +171,35 @@ function applySettings(settings: Settings, adblock: Adblocker): void {
   host.reader.setDark(dark)
 }
 
-/** Hold the quit until the backend has flushed its stores, but never longer than `STOP_TIMEOUT_MS`. */
-function stopBackendOnQuit(backend: Backend): void {
-  let state: 'running' | 'stopping' | 'stopped' = 'running'
+/**
+ * Hold the quit until the backend has flushed its stores, but never longer than `STOP_TIMEOUT_MS`.
+ * Returns the stop itself, so a restart into an update can save everything before the
+ * installer takes over; the quit that follows then goes straight through.
+ */
+function stopBackendOnQuit(backend: Backend): () => Promise<void> {
+  let stopping: Promise<void> | null = null
+  let stopped = false
+  let quitting = false
+  const stop = (): Promise<void> => {
+    stopping ??= (async () => {
+      host?.flushBounds()
+      host?.win.hide()
+      const timeout = new Promise<void>((resolve) => setTimeout(resolve, STOP_TIMEOUT_MS).unref())
+      await Promise.race([backend.stop(), timeout]).catch((error: unknown) =>
+        logger.error('Backend did not stop cleanly', error)
+      )
+      stopped = true
+    })()
+    return stopping
+  }
   app.on('before-quit', (event) => {
-    if (state === 'stopped') return
+    if (stopped) return
     event.preventDefault()
-    if (state === 'stopping') return
-    state = 'stopping'
-    host?.flushBounds()
-    host?.win.hide()
-    const timeout = new Promise<void>((resolve) => setTimeout(resolve, STOP_TIMEOUT_MS).unref())
-    Promise.race([backend.stop(), timeout])
-      .catch((error: unknown) => logger.error('Backend did not stop cleanly', error))
-      .finally(() => {
-        state = 'stopped'
-        app.quit()
-      })
+    if (quitting) return
+    quitting = true
+    void stop().then(() => app.quit())
   })
+  return stop
 }
 
 /** App-wide defaults for every web contents: no new windows, no <webview>. Views opt in to more themselves. */

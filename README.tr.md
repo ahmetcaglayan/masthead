@@ -113,6 +113,10 @@ Son sürümü [Releases sayfasından](https://github.com/ahmetcaglayan/masthead/
 | macOS (Apple Silicon / Intel) | `Masthead-x.y.z-arm64.dmg` / `Masthead-x.y.z-x64.dmg` |
 | Linux | `Masthead-x.y.z-linux-x86_64.AppImage` / `.deb` |
 
+**Bir kez kur, gerisini kendisi halleder.** Windows kurulum sürümü ve Linux AppImage her saat yeni sürüm olup
+olmadığına bakar, arka planda indirir ve yeniden başlatmanı ister; taşınabilir exe, macOS uygulaması ve .deb yeni
+sürüm çıkınca haber verir. Otomatik kurulumu Ayarlar → Veriler ve uygulama bölümünden kapatabilirsin.
+
 > **Sürümler henüz dijital olarak imzalı değil.**
 > - Windows SmartScreen uyarısında **Ek bilgi → Yine de çalıştır**'ı seç.
 > - **Akıllı Uygulama Denetimi** (Smart App Control) açıksa (Windows 11 → Windows Güvenliği → Uygulama ve tarayıcı
@@ -149,7 +153,8 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 🔖 **Kitaplık** | Kaydedilen haberler ve okuma geçmişi, yerelde |
 | 🎨 **Kişiselleştir** | Açık / koyu / sistem tema, 5 vurgu rengi, 12 okuma fontu, yazı boyutu, sıkı görünüm |
 | 🌍 **Ülkeler** | Türkiye, ABD, Hindistan, Birleşik Krallık, Almanya ve Brezilya — Ayarlar'dan değiştir |
-| 💬 **Diller** | İngilizce, Türkçe, Almanca ve Portekizce arayüz; haberler kendi dilinde kalır |
+| 💬 **Diller** | İngilizce, Türkçe, Almanca, Portekizce ve Hintçe arayüz; haberler kendi dilinde kalır |
+| 🔄 **Otomatik güncelleme** | Yeni sürümler arka planda iner; tek tıkla yeniden başlatıp geçersin |
 
 ## Kaynaklar
 
@@ -204,8 +209,8 @@ görünümünde açılır, ama akışları Node çeker.
 
 ## Gizlilik
 
-Üyelik, analitik ve izleme yok. Uygulama yalnızca etkinleştirdiğin haber sitelerine ve reklam engelleme açıksa
-herkese açık filtre listelerine bağlanır. Ayrıntılar: [SECURITY.md](SECURITY.md).
+Üyelik, analitik ve izleme yok. Uygulama yalnızca etkinleştirdiğin haber sitelerine, yeni sürüm çıkıp çıkmadığını
+görmek için saatte bir GitHub'a ve reklam engelleme açıksa herkese açık filtre listelerine bağlanır. Ayrıntılar: [SECURITY.md](SECURITY.md).
 
 ## Lisans
 

@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **Masthead keeps itself up to date.** The installed Windows app and the Linux AppImage check GitHub for a new
+  version when they start and every hour after, download it in the background and ask to restart: "Restart now"
+  saves everything and opens the new version, "Later" installs it the next time you quit. The portable exe, the
+  macOS app and the .deb, which can't replace themselves, say when a new version is out and link to the download.
+  Settings → Data & About shows the running version and where the updater stands, checks on demand, and turns
+  automatic installs off (then new versions are offered, not downloaded). Windows on ARM gets the ARM installer.
+
 ## [0.3.0] - 2026-09-23
 
 Every country in its own language, with local news everywhere.

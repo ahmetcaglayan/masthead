@@ -275,5 +275,27 @@
     "license": "MIT-Lizenz",
     "github": "Quellcode auf GitHub",
     "issue": "Problem melden"
+  },
+  "appUpdates": {
+    "version": "Masthead {{version}}",
+    "hourly": "Sucht stündlich nach einer neuen Version.",
+    "upToDate": "Aktuell · geprüft {{time}}",
+    "checking": "Suche nach Updates…",
+    "downloading": "{{version}} wird geladen · {{percent}} %",
+    "ready": "{{version}} ist geladen – zum Abschließen neu starten.",
+    "available": "{{version}} ist da.",
+    "availableManual": "{{version}} ist da – laden Sie sie von GitHub.",
+    "failed": "Konnte nicht nach Updates suchen. Neuer Versuch innerhalb einer Stunde.",
+    "web": "Die Browser-Version wird aus dem Quellcode aktualisiert: git pull ausführen.",
+    "development": "Entwicklungsversion – Updates sind aus.",
+    "manualNote": "Diese Kopie (portabel, macOS oder .deb) kann Updates nicht selbst installieren; Sie erfahren, wenn eine neue Version da ist.",
+    "check": "Nach Updates suchen",
+    "restart": "Jetzt neu starten",
+    "download": "Herunterladen",
+    "install": "Herunterladen und installieren",
+    "auto": {
+      "label": "Updates automatisch installieren",
+      "description": "Masthead sucht stündlich, lädt neue Versionen im Hintergrund und bittet Sie dann um einen Neustart."
+    }
   }
 }

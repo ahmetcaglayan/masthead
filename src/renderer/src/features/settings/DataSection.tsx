@@ -10,6 +10,7 @@ import { api } from '@/lib/api'
 import { useLibrary } from '@/stores/library'
 import { useSettings } from '@/stores/settings'
 import { useUi } from '@/stores/ui'
+import { AppUpdatesCard } from '@/features/updates/AppUpdatesCard'
 import { SettingRow, SettingsCard, SettingsSection } from './SettingsLayout'
 
 const REPOSITORY = 'https://github.com/ahmetcaglayan/masthead'
@@ -57,7 +58,7 @@ function About(): React.JSX.Element {
   )
 }
 
-/** Reading history, factory reset and the about card. */
+/** Reading history, factory reset, app updates and the about card. */
 export function DataSection(): React.JSX.Element {
   const { t } = useTranslation('settings')
   const historyCount = useLibrary((s) => s.library.history.length)
@@ -102,6 +103,7 @@ export function DataSection(): React.JSX.Element {
             }
           />
         </SettingsCard>
+        <AppUpdatesCard />
         <SettingsCard>
           <About />
         </SettingsCard>

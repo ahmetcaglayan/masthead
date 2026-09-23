@@ -119,6 +119,10 @@ Baixe a versão mais recente na [página de Releases](https://github.com/ahmetca
 | macOS (Apple Silicon / Intel) | `Masthead-x.y.z-arm64.dmg` / `Masthead-x.y.z-x64.dmg` |
 | Linux | `Masthead-x.y.z-linux-x86_64.AppImage` / `.deb` |
 
+**Instale uma vez e ele se mantém atualizado.** O instalador do Windows e o AppImage do Linux procuram uma nova
+versão a cada hora, baixam em segundo plano e pedem que você reinicie; o exe portátil, o app de macOS e o .deb
+avisam quando sai uma nova versão. Desligue a instalação automática em Ajustes → Dados e sobre.
+
 > **Os builds ainda não são assinados digitalmente.**
 > - O SmartScreen do Windows pode avisar na primeira execução: escolha **Mais informações → Executar assim mesmo**.
 > - Se o **Controle Inteligente de Aplicativos** (Smart App Control) estiver ligado (Windows 11 → Segurança do
@@ -156,7 +160,8 @@ não tem esse limite).
 | 🔖 **Biblioteca** | Notícias salvas e histórico de leitura, guardados localmente |
 | 🎨 **Do seu jeito** | Claro / escuro / sistema, cinco cores de destaque, doze fontes de leitura, tamanho do texto, modo compacto |
 | 🌍 **Países** | Turquia, Estados Unidos, Índia, Reino Unido, Alemanha e Brasil — troque nos Ajustes |
-| 💬 **Idiomas** | Interface em inglês, turco, alemão e português; as notícias continuam no idioma original |
+| 💬 **Idiomas** | Interface em inglês, turco, alemão, português e híndi; as notícias continuam no idioma original |
+| 🔄 **Atualizações automáticas** | Novas versões baixam em segundo plano; um clique reinicia nelas |
 
 ## Fontes
 
@@ -212,8 +217,9 @@ repositório do sistema, mas os feeds são buscados pelo Node.
 
 ## Privacidade
 
-Sem contas, sem analytics, sem rastreamento. O aplicativo só se conecta aos sites de notícias que você liga e,
-se o bloqueio de anúncios estiver ligado, baixa as listas de filtros públicas. Veja [SECURITY.md](SECURITY.md).
+Sem contas, sem analytics, sem rastreamento. O aplicativo só se conecta aos sites de notícias que você liga, ao
+GitHub uma vez por hora para ver se saiu uma nova versão do Masthead e, se o bloqueio de anúncios estiver ligado,
+baixa as listas de filtros públicas. Veja [SECURITY.md](SECURITY.md).
 
 ## Licença
 

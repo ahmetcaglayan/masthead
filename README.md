@@ -115,6 +115,10 @@ Grab the latest version from the [Releases page](https://github.com/ahmetcaglaya
 | macOS (Apple Silicon / Intel) | `Masthead-x.y.z-arm64.dmg` / `Masthead-x.y.z-x64.dmg` |
 | Linux | `Masthead-x.y.z-linux-x86_64.AppImage` / `.deb` |
 
+**Install once, then it keeps itself up to date.** The Windows installer and the Linux AppImage check for a new
+version every hour, download it in the background and ask you to restart; the portable exe, the macOS app and
+the .deb tell you when one is out. Switch automatic installs off in Settings → Data & About.
+
 > **Builds are not code-signed yet.**
 > - Windows SmartScreen may warn on first launch: choose **More info → Run anyway**.
 > - If **Smart App Control** is on (Windows 11 → Windows Security → App & browser control), Windows may block
@@ -151,6 +155,7 @@ block most news sites from being embedded; the desktop app has no such limit).
 | 🎨 **Make it yours** | Light / dark / system, five accent colours, twelve reading fonts, text size, compact mode |
 | 🌍 **Countries** | Türkiye, the United States, India, the United Kingdom, Germany and Brazil — switch in Settings |
 | 💬 **Languages** | English, Türkçe, Deutsch, Português and हिन्दी interface; the news stays in its own language |
+| 🔄 **Automatic updates** | New versions download in the background; one click restarts into them |
 
 ## Sources
 
@@ -206,8 +211,9 @@ store, but the feeds are fetched by Node.
 
 ## Privacy
 
-No accounts, no analytics, no tracking. The app only connects to the news sites you enable and, if ad blocking is
-on, to download public filter lists. See [SECURITY.md](SECURITY.md).
+No accounts, no analytics, no tracking. The app only connects to the news sites you enable, to GitHub once an hour
+to see whether a new version of Masthead is out, and, if ad blocking is on, to download public filter lists. See
+[SECURITY.md](SECURITY.md).
 
 ## License
 

@@ -275,5 +275,27 @@
     "license": "MIT Lisansı",
     "github": "GitHub'da kaynak kodu",
     "issue": "Sorun bildir"
+  },
+  "appUpdates": {
+    "version": "Masthead {{version}}",
+    "hourly": "Her saat yeni sürüm olup olmadığına bakar.",
+    "upToDate": "Güncel · {{time}} kontrol edildi",
+    "checking": "Güncelleme aranıyor…",
+    "downloading": "{{version}} indiriliyor · %{{percent}}",
+    "ready": "{{version}} indirildi — tamamlamak için yeniden başlatın.",
+    "available": "{{version}} çıktı.",
+    "availableManual": "{{version}} çıktı — GitHub'dan indirin.",
+    "failed": "Güncellemelere bakılamadı. Bir saat içinde yeniden denenecek.",
+    "web": "Tarayıcı sürümü kaynaktan güncellenir: git pull çalıştırın.",
+    "development": "Geliştirme sürümü — güncellemeler kapalı.",
+    "manualNote": "Bu kopya (taşınabilir, macOS ya da .deb) güncellemeleri kendisi kuramaz; yeni sürüm çıkınca haber verilir.",
+    "check": "Güncellemeleri denetle",
+    "restart": "Şimdi yeniden başlat",
+    "download": "İndir",
+    "install": "İndir ve kur",
+    "auto": {
+      "label": "Güncellemeleri otomatik kur",
+      "description": "Masthead her saat bakar, yeni sürümü arka planda indirir ve yeniden başlatmanızı ister."
+    }
   }
 }

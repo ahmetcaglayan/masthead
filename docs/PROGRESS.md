@@ -56,6 +56,19 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   taslak Releases listesindeki kalemden açılıp notlarla yayınlandı (Latest). 14 derleme dosyası + 2 kaynak arşivi;
   `releases/latest/download/...` bağlantıları doğrulandı.
 
+- [x] 2026-09-23 · **Otomatik güncelleme** (henüz sürüm çıkmadı; v0.4.0 ile gelecek): `electron-updater`,
+  `src/main/updates/` (Electron'suz `controller.ts` + bağlayan `index.ts`), IPC `updates:*`, preload, web modunda
+  "git pull" notu. Açılıştan 10 sn sonra ve saatte bir kontrol; Windows kurulum sürümü ve AppImage arka planda
+  indirir → "Masthead X hazır · Şimdi yeniden başlat / Sonra" diyaloğu (Sonra → kapatınca kurulur); yeniden
+  başlatmadan önce arka uç kaydediliyor, kurucu 10 sn'de devralmazsa uygulama kendini yeniden açıyor.
+  Taşınabilir exe, imzasız macOS (Squirrel.Mac yalnızca imzalıyı kurar, üstelik yalnızca dmg var) ve .deb
+  kendini güncelleyemez → "yeni sürüm çıktı · İndir" diyaloğu. Ayarlar → Veriler ve uygulama: sürüm, durum,
+  "Güncellemeleri denetle", "Güncellemeleri otomatik kur" (`settings.appUpdates.auto`, varsayılan açık).
+  Windows ARM, `latest.yml`'deki arm64 kurucusunu alıyor (electron-updater dosya adında `process.arch` arar).
+  **Tuzak:** electron-updater CommonJS; `import()` ile `autoUpdater` isimli dışa aktarım gelmiyor (tembel
+  getter) → `(await import('electron-updater')).default` kullanılıyor. 10 yeni test (352 toplam).
+  **Önemli:** v0.3.0 ve öncesinde güncelleyici yok; kullanıcılar v0.4.0'ı bir kez elle kurmalı, sonrası otomatik.
+
 **Sıradaki somut adımlar:**
 1. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
 2. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
@@ -78,7 +91,8 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅
 2. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
 3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
-4. Otomatik güncelleme (electron-updater) ve kod imzalama; sonraki ülke paketleri (Fransa, İspanya/Meksika).
+4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; sonraki ülke paketleri
+   (Fransa, İspanya/Meksika).
 
 ---
 

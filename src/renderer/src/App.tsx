@@ -8,6 +8,7 @@ import { Onboarding } from '@/features/onboarding/Onboarding'
 import { ArticleDialog } from '@/features/reader/ArticleDialog'
 import { SettingsPage } from '@/features/settings/SettingsPage'
 import { SourcesPage } from '@/features/sources/SourcesPage'
+import { UpdateDialog } from '@/features/updates/UpdateDialog'
 import { useHotkeys } from '@/hooks/useHotkeys'
 import { api } from '@/lib/api'
 import { BreakingPage } from '@/pages/BreakingPage'
@@ -99,6 +100,7 @@ export function App(): React.JSX.Element {
           <Onboarding />
         )}
         <ArticleDialog />
+        {onboarded && <UpdateDialog />}
         <Toaster />
       </TooltipProvider>
     </MotionConfig>

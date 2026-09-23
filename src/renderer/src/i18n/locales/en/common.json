@@ -177,5 +177,21 @@
     "description": "This page is being built."
   },
   "newStories_one": "{{count}} new story",
-  "newStories_other": "{{count}} new stories"
+  "newStories_other": "{{count}} new stories",
+  "update": {
+    "later": "Later",
+    "ready": {
+      "title": "Masthead {{version}} is ready",
+      "description": "The update has been downloaded. Restart Masthead to finish installing it — it only takes a few seconds.",
+      "restart": "Restart now",
+      "laterNote": "Choose Later and it installs the next time you quit Masthead."
+    },
+    "available": {
+      "title": "Masthead {{version}} is out",
+      "manual": "This copy can't update itself. Download the new version and install it over this one — your settings and saved stories stay.",
+      "auto": "Download and install it now? You can keep reading while it downloads.",
+      "download": "Download",
+      "install": "Download and install"
+    }
+  }
 }

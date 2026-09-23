@@ -177,5 +177,21 @@
     "description": "Esta página está sendo feita."
   },
   "newStories_one": "{{count}} notícia nova",
-  "newStories_other": "{{count}} notícias novas"
+  "newStories_other": "{{count}} notícias novas",
+  "update": {
+    "later": "Depois",
+    "ready": {
+      "title": "O Masthead {{version}} está pronto",
+      "description": "A atualização foi baixada. Reinicie o Masthead para terminar a instalação — leva só alguns segundos.",
+      "restart": "Reiniciar agora",
+      "laterNote": "Se escolher Depois, ela é instalada na próxima vez que você fechar o Masthead."
+    },
+    "available": {
+      "title": "Saiu o Masthead {{version}}",
+      "manual": "Esta cópia não se atualiza sozinha. Baixe a nova versão e instale por cima desta — seus ajustes e notícias salvas continuam.",
+      "auto": "Baixar e instalar agora? Você pode continuar lendo enquanto baixa.",
+      "download": "Baixar",
+      "install": "Baixar e instalar"
+    }
+  }
 }

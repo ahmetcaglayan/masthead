@@ -177,5 +177,21 @@
     "description": "Bu sayfa yapım aşamasında."
   },
   "newStories_one": "{{count}} yeni haber",
-  "newStories_other": "{{count}} yeni haber"
+  "newStories_other": "{{count}} yeni haber",
+  "update": {
+    "later": "Sonra",
+    "ready": {
+      "title": "Masthead {{version}} hazır",
+      "description": "Güncelleme indirildi. Kurulumu tamamlamak için Masthead'i yeniden başlatın; birkaç saniye sürer.",
+      "restart": "Şimdi yeniden başlat",
+      "laterNote": "Sonra'yı seçerseniz Masthead'i kapattığınızda kurulur."
+    },
+    "available": {
+      "title": "Masthead {{version}} çıktı",
+      "manual": "Bu kopya kendini güncelleyemiyor. Yeni sürümü indirip bunun üzerine kurun; ayarlarınız ve kaydettiğiniz haberler kalır.",
+      "auto": "Şimdi indirilip kurulsun mu? İnerken okumaya devam edebilirsiniz.",
+      "download": "İndir",
+      "install": "İndir ve kur"
+    }
+  }
 }

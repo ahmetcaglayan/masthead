@@ -44,7 +44,13 @@ export const IPC = {
 
   windowTitleBar: 'window:title-bar',
   windowState: 'window:state',
-  appInfo: 'app:info'
+  appInfo: 'app:info',
+
+  updatesStatus: 'updates:status',
+  updatesCheck: 'updates:check',
+  updatesDownload: 'updates:download',
+  updatesInstall: 'updates:install',
+  updatesChanged: 'updates:changed'
 } as const
 
 export type Unsubscribe = () => void
@@ -60,6 +66,40 @@ export interface AppInfo {
   chrome: string
   platform: 'win32' | 'darwin' | 'linux'
   locale: string
+}
+
+/**
+ * How this copy of Masthead gets new versions.
+ * - `auto`: it downloads and installs them itself (Windows installer, Linux AppImage).
+ * - `manual`: it can only tell the user one is out (portable exe, unsigned macOS app, .deb).
+ * - `none`: no updates here (web mode, a development build).
+ */
+export type UpdateMode = 'auto' | 'manual' | 'none'
+
+export type UpdateState =
+  /** Nothing to report: never checked yet, or the last check found no newer version. */
+  | 'idle'
+  | 'checking'
+  /** A newer version exists and is not being downloaded (manual mode, or automatic installs off). */
+  | 'available'
+  | 'downloading'
+  /** Downloaded; a restart installs it. */
+  | 'ready'
+  | 'error'
+
+export interface UpdateStatus {
+  mode: UpdateMode
+  state: UpdateState
+  /** The running version. */
+  current: string
+  /** The newer version, once one is known. */
+  version?: string
+  /** Download progress, 0–100, while downloading. */
+  percent?: number
+  /** When the last check finished (epoch ms). */
+  checkedAt?: number
+  /** Short reason when `state` is `error`. */
+  error?: string
 }
 
 export interface WindowState {
@@ -136,6 +176,16 @@ export interface MastheadApi {
     markRead(article: Article): Promise<void>
     clearHistory(): Promise<Library>
     onChange(cb: (library: Library) => void): Unsubscribe
+  }
+  updates: {
+    status(): Promise<UpdateStatus>
+    /** Look for a new version now (the host also checks on start and every hour). */
+    check(): Promise<UpdateStatus>
+    /** Download the available version (when automatic installs are off). */
+    download(): Promise<void>
+    /** Restart into the downloaded version. */
+    install(): Promise<void>
+    onChange(cb: (status: UpdateStatus) => void): Unsubscribe
   }
   window: {
     /** Recolour the native caption buttons (Windows/Linux title-bar overlay). No-op in web mode. */

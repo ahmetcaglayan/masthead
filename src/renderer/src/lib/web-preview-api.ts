@@ -4,7 +4,7 @@
  * Events stream (`/api/events`). Electron-only features (embedded reader view, native title bar)
  * are no-ops; the reader dialog falls back to an iframe or Reader mode.
  */
-import type { AppInfo, MastheadApi, ReaderProbe, Unsubscribe, WindowState } from '@shared/ipc'
+import type { AppInfo, MastheadApi, ReaderProbe, Unsubscribe, UpdateStatus, WindowState } from '@shared/ipc'
 import type { Settings } from '@shared/settings'
 import type {
   ArticleDetail,
@@ -168,6 +168,12 @@ function windowState(): WindowState {
   return { maximized: false, fullscreen: document.fullscreenElement !== null, focused: document.hasFocus() }
 }
 
+const webUpdateStatus = (info: AppInfo): UpdateStatus => ({
+  mode: 'none',
+  state: 'idle',
+  current: info.version
+})
+
 /** Builds the browser implementation of `window.masthead` on top of the web host's HTTP API. */
 export function createWebPreviewApi(): MastheadApi {
   const events = createEventStream()
@@ -212,6 +218,14 @@ export function createWebPreviewApi(): MastheadApi {
       markRead: (article) => request<void>('POST', '/library/read', article),
       clearHistory: () => request<Library>('DELETE', '/library/history'),
       onChange: (cb) => events.on('library', cb)
+    },
+    updates: {
+      // The browser version is updated from source (`git pull`); there is nothing to install.
+      status: () => get<AppInfo>('/info').then(webUpdateStatus),
+      check: () => get<AppInfo>('/info').then(webUpdateStatus),
+      download: () => Promise.resolve(),
+      install: () => Promise.resolve(),
+      onChange: () => noop
     },
     window: {
       setTitleBarColors: noop,

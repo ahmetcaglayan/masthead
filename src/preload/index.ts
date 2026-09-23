@@ -75,6 +75,13 @@ const api: MastheadApi = {
     clearHistory: () => invoke('library:clear-history'),
     onChange: (callback) => subscribe('library:changed', callback)
   },
+  updates: {
+    status: () => invoke('updates:status'),
+    check: () => invoke('updates:check'),
+    download: () => invoke('updates:download'),
+    install: () => invoke('updates:install'),
+    onChange: (callback) => subscribe('updates:changed', callback)
+  },
   window: {
     setTitleBarColors: (colors) => send('window:title-bar', colors),
     state: () => invoke('window:state'),

@@ -275,5 +275,27 @@
     "license": "MIT License",
     "github": "Source on GitHub",
     "issue": "Report a problem"
+  },
+  "appUpdates": {
+    "version": "Masthead {{version}}",
+    "hourly": "Checks for a new version every hour.",
+    "upToDate": "Up to date · checked {{time}}",
+    "checking": "Checking for updates…",
+    "downloading": "Downloading {{version}} · {{percent}}%",
+    "ready": "{{version}} is downloaded — restart to finish.",
+    "available": "{{version}} is out.",
+    "availableManual": "{{version}} is out — download it from GitHub.",
+    "failed": "Couldn't check for updates. It will try again within the hour.",
+    "web": "The browser version updates from source: run git pull.",
+    "development": "Development build — updates are off.",
+    "manualNote": "This copy (portable, macOS or .deb) can't install updates itself; you'll be told when a new version is out.",
+    "check": "Check for updates",
+    "restart": "Restart now",
+    "download": "Download",
+    "install": "Download and install",
+    "auto": {
+      "label": "Install updates automatically",
+      "description": "Masthead checks every hour, downloads new versions in the background and asks you to restart."
+    }
   }
 }

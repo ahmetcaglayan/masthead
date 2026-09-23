@@ -10,6 +10,7 @@ import {
 import type { SettingsPatch } from '@shared/settings'
 import type { Article, ReaderBounds } from '@shared/types'
 import { isWebUrl, type ReaderViewManager } from './reader/view'
+import type { UpdateController } from './updates'
 import { isRendererUrl, setTitleBarColors, windowState } from './window'
 
 /** The main window and the reader view layered on it. */
@@ -22,6 +23,8 @@ export interface IpcContext {
   backend: Backend
   /** Settles once `backend.start()` has; backend calls wait for it. */
   ready: Promise<void>
+  /** The app updater, once it has loaded. */
+  updates: Promise<UpdateController>
   /** The open main window, or null while there is none (macOS keeps running without one). */
   current(): HostWindow | null
   /** Sees every accepted `invoke` call and its outcome (automation modes). Must handle rejections. */
@@ -97,7 +100,7 @@ function appInfo(): AppInfo {
  * forward backend events to the renderer. Only the main window's top frame,
  * showing the app's own page, may call in; every argument is validated.
  */
-export function registerIpc({ backend, ready, current, observe }: IpcContext): void {
+export function registerIpc({ backend, ready, updates, current, observe }: IpcContext): void {
   const senderWindow = (event: IpcMainEvent | IpcMainInvokeEvent): HostWindow | null => {
     const host = current()
     const frame = event.senderFrame
@@ -192,6 +195,11 @@ export function registerIpc({ backend, ready, current, observe }: IpcContext): v
   listen(IPC.readerNavigate, ({ reader }, action) => {
     if (NAVIGATIONS.includes(action as ReaderNavigation)) reader.navigate(action as ReaderNavigation)
   })
+
+  handle(IPC.updatesStatus, async () => (await updates).get())
+  handle(IPC.updatesCheck, async () => (await updates).check())
+  handle(IPC.updatesDownload, async () => (await updates).download())
+  handle(IPC.updatesInstall, async () => (await updates).install())
 
   handle(IPC.windowState, ({ win }) => windowState(win))
   listen(IPC.windowTitleBar, ({ win }, colors) => {

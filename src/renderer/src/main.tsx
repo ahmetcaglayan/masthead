@@ -9,6 +9,7 @@ import { initI18n, setLanguage } from '@/i18n'
 import { getSettings, useSettings } from '@/stores/settings'
 import { useNews } from '@/stores/news'
 import { useLibrary } from '@/stores/library'
+import { useUpdates } from '@/stores/updates'
 import { App } from './App'
 
 let rendered = false
@@ -35,6 +36,12 @@ async function boot(): Promise<void> {
     </StrictMode>
   )
   rendered = true
+
+  // The updater's state arrives behind the first paint; nothing waits for it.
+  useUpdates
+    .getState()
+    .init()
+    .catch((error: unknown) => console.warn('Update status unavailable', error))
 
   // Inert until called: lets the Electron screenshot / self-test modes drive the UI.
   installAutomation()

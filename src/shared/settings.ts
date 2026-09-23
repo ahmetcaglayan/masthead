@@ -40,8 +40,18 @@ export interface FontDef {
 export const FONTS: readonly FontDef[] = [
   { id: 'inter', label: 'Inter', stack: "'Inter Variable', 'Inter', system-ui, sans-serif", style: 'sans' },
   { id: 'figtree', label: 'Figtree', stack: "'Figtree Variable', system-ui, sans-serif", style: 'sans' },
-  { id: 'nunito-sans', label: 'Nunito Sans', stack: "'Nunito Sans Variable', system-ui, sans-serif", style: 'sans' },
-  { id: 'ibm-plex-sans', label: 'IBM Plex Sans', stack: "'IBM Plex Sans Variable', system-ui, sans-serif", style: 'sans' },
+  {
+    id: 'nunito-sans',
+    label: 'Nunito Sans',
+    stack: "'Nunito Sans Variable', system-ui, sans-serif",
+    style: 'sans'
+  },
+  {
+    id: 'ibm-plex-sans',
+    label: 'IBM Plex Sans',
+    stack: "'IBM Plex Sans Variable', system-ui, sans-serif",
+    style: 'sans'
+  },
   { id: 'lexend', label: 'Lexend', stack: "'Lexend Variable', system-ui, sans-serif", style: 'sans' },
   {
     id: 'atkinson',
@@ -50,10 +60,20 @@ export const FONTS: readonly FontDef[] = [
     style: 'sans'
   },
   { id: 'newsreader', label: 'Newsreader', stack: "'Newsreader Variable', Georgia, serif", style: 'serif' },
-  { id: 'source-serif', label: 'Source Serif', stack: "'Source Serif 4 Variable', Georgia, serif", style: 'serif' },
+  {
+    id: 'source-serif',
+    label: 'Source Serif',
+    stack: "'Source Serif 4 Variable', Georgia, serif",
+    style: 'serif'
+  },
   { id: 'literata', label: 'Literata', stack: "'Literata Variable', Georgia, serif", style: 'serif' },
   { id: 'lora', label: 'Lora', stack: "'Lora Variable', Georgia, serif", style: 'serif' },
-  { id: 'merriweather', label: 'Merriweather', stack: "'Merriweather Variable', Georgia, serif", style: 'serif' },
+  {
+    id: 'merriweather',
+    label: 'Merriweather',
+    stack: "'Merriweather Variable', Georgia, serif",
+    style: 'serif'
+  },
   {
     id: 'system',
     label: 'System',
@@ -116,6 +136,10 @@ export interface Settings {
   notifications: {
     breaking: boolean
   }
+  appUpdates: {
+    /** Download and install new versions of Masthead in the background; the user only restarts. */
+    auto: boolean
+  }
   window?: {
     width: number
     height: number
@@ -140,10 +164,13 @@ export const DEFAULT_SETTINGS: Settings = {
   refresh: { intervalMinutes: 10 },
   // Reader mode by default: the article as text, with the publisher's page one click away.
   reader: { defaultMode: 'reader', blockAds: true },
-  notifications: { breaking: true }
+  notifications: { breaking: true },
+  appUpdates: { auto: true }
 }
 
-type DeepPartial<T> = { [K in keyof T]?: T[K] extends (infer U)[] ? U[] : T[K] extends object ? DeepPartial<T[K]> : T[K] }
+type DeepPartial<T> = {
+  [K in keyof T]?: T[K] extends (infer U)[] ? U[] : T[K] extends object ? DeepPartial<T[K]> : T[K]
+}
 export type SettingsPatch = DeepPartial<Settings>
 
 const pick = <T extends string>(value: unknown, allowed: readonly T[], fallback: T): T =>
@@ -183,9 +210,11 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
   const refresh = obj(p.refresh)
   const reader = obj(p.reader)
   const notifications = obj(p.notifications)
+  const appUpdates = obj(p.appUpdates)
   const win = obj(p.window)
 
-  const scale = typeof typo.scale === 'number' && Number.isFinite(typo.scale) ? typo.scale : base.typography.scale
+  const scale =
+    typeof typo.scale === 'number' && Number.isFinite(typo.scale) ? typo.scale : base.typography.scale
   const interval =
     typeof refresh.intervalMinutes === 'number' && refresh.intervalMinutes >= 1
       ? Math.min(240, Math.round(refresh.intervalMinutes))
@@ -236,7 +265,11 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
       blockAds: typeof reader.blockAds === 'boolean' ? reader.blockAds : base.reader.blockAds
     },
     notifications: {
-      breaking: typeof notifications.breaking === 'boolean' ? notifications.breaking : base.notifications.breaking
+      breaking:
+        typeof notifications.breaking === 'boolean' ? notifications.breaking : base.notifications.breaking
+    },
+    appUpdates: {
+      auto: typeof appUpdates.auto === 'boolean' ? appUpdates.auto : base.appUpdates.auto
     },
     window: base.window
   }

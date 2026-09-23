@@ -275,5 +275,27 @@
     "license": "Licença MIT",
     "github": "Código no GitHub",
     "issue": "Relatar um problema"
+  },
+  "appUpdates": {
+    "version": "Masthead {{version}}",
+    "hourly": "Procura uma nova versão a cada hora.",
+    "upToDate": "Atualizado · verificado {{time}}",
+    "checking": "Procurando atualizações…",
+    "downloading": "Baixando a {{version}} · {{percent}}%",
+    "ready": "A {{version}} foi baixada — reinicie para concluir.",
+    "available": "Saiu a {{version}}.",
+    "availableManual": "Saiu a {{version}} — baixe no GitHub.",
+    "failed": "Não foi possível procurar atualizações. Nova tentativa em até uma hora.",
+    "web": "A versão de navegador se atualiza pelo código-fonte: rode git pull.",
+    "development": "Versão de desenvolvimento — atualizações desligadas.",
+    "manualNote": "Esta cópia (portátil, macOS ou .deb) não instala atualizações sozinha; você será avisado quando sair uma nova versão.",
+    "check": "Procurar atualizações",
+    "restart": "Reiniciar agora",
+    "download": "Baixar",
+    "install": "Baixar e instalar",
+    "auto": {
+      "label": "Instalar atualizações automaticamente",
+      "description": "O Masthead verifica a cada hora, baixa novas versões em segundo plano e pede que você reinicie."
+    }
   }
 }

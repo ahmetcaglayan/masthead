@@ -125,6 +125,11 @@ Die aktuelle Version gibt es auf der [Releases-Seite](https://github.com/ahmetca
 | macOS (Apple Silicon / Intel) | `Masthead-x.y.z-arm64.dmg` / `Masthead-x.y.z-x64.dmg` |
 | Linux | `Masthead-x.y.z-linux-x86_64.AppImage` / `.deb` |
 
+**Einmal installieren, danach hält sich Masthead selbst aktuell.** Der Windows-Installer und das Linux-AppImage
+suchen stündlich nach einer neuen Version, laden sie im Hintergrund und bitten dann um einen Neustart; die
+portable exe, die macOS-App und das .deb melden, wenn eine neue Version da ist. Automatische Installation
+abschalten: Einstellungen → Daten & Über.
+
 > **Die Builds sind noch nicht signiert.**
 > - Windows SmartScreen warnt beim ersten Start unter Umständen: Wählen Sie
 >   **Weitere Informationen → Trotzdem ausführen**.
@@ -163,6 +168,7 @@ Grenze nicht).
 | 🔖 **Bibliothek** | Gespeicherte Meldungen und Leseverlauf, lokal abgelegt |
 | 🎨 **Machen Sie es zu Ihrem** | Hell / dunkel / System, fünf Akzentfarben, zwölf Leseschriften, Schriftgröße, kompakte Ansicht |
 | 🌍 **Länder** | Türkei, Vereinigte Staaten, Indien, Vereinigtes Königreich, Deutschland und Brasilien — in den Einstellungen wechseln |
+| 🔄 **Automatische Updates** | Neue Versionen laden im Hintergrund; ein Klick startet sie |
 | 💬 **Sprachen** | Oberfläche: English, Türkçe, Deutsch, Português und हिन्दी — die Nachrichten bleiben in ihrer eigenen Sprache |
 
 ## Quellen
@@ -220,7 +226,8 @@ den Zertifikatspeicher des Systems nutzt; die Feeds holt jedoch Node.
 ## Datenschutz
 
 Keine Konten, keine Analysedienste, kein Tracking. Die App verbindet sich nur mit den Nachrichtenseiten, die Sie
-eingeschaltet haben — und, wenn Werbung und Tracker blockiert werden, zum Laden öffentlicher Filterlisten. Siehe
+eingeschaltet haben, stündlich mit GitHub, um nach einer neuen Masthead-Version zu sehen — und, wenn Werbung und
+Tracker blockiert werden, zum Laden öffentlicher Filterlisten. Siehe
 [SECURITY.md](SECURITY.md).
 
 ## Lizenz
