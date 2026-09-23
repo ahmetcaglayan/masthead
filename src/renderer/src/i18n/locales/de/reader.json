@@ -29,7 +29,8 @@
     "uiFont": "Oberflächenschrift"
   },
   "coverage": {
-    "label": "Auch berichtet von"
+    "label": "Auch berichtet von",
+    "all": "Alle vergleichen"
   },
   "web": {
     "loading": "{{site}} wird geladen…",

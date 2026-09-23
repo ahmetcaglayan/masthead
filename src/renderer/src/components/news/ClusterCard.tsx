@@ -11,7 +11,7 @@ import { tameCaps } from '@/lib/format'
 import { cn } from '@/lib/cn'
 import { useLibrary } from '@/stores/library'
 import { useSettings } from '@/stores/settings'
-import { openArticle } from './actions'
+import { openArticle, openStory } from './actions'
 import { ArticleKicker } from './ArticleKicker'
 import { ArticleMeta, RelativeTime } from './ArticleMeta'
 import { CardActions } from './CardActions'
@@ -104,13 +104,19 @@ export const ClusterCard = memo(function ClusterCard({
   const reporters = useMemo(() => [lead, ...others], [lead, others])
   const titleTone = read ? 'text-fg-muted' : 'text-fg'
 
+  // Raised above the stretched headline link: it opens the story page, every outlet side by side.
   const coverage = (
-    <span className="flex items-center gap-2">
+    <button
+      type="button"
+      title={t('meta.compare', { count: sourceCount })}
+      onClick={() => openStory(story.cluster.id)}
+      className="group/coverage relative z-10 flex items-center gap-2 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
       <SourceStack articles={reporters} />
-      <span className="font-ui text-[11px] font-semibold tracking-wider text-fg-muted uppercase">
+      <span className="font-ui text-[11px] font-semibold tracking-wider text-fg-muted uppercase decoration-line-strong underline-offset-4 group-hover/coverage:text-accent group-hover/coverage:underline">
         {t('cluster.coveredBy', { count: sourceCount })}
       </span>
-    </span>
+    </button>
   )
   const labels = (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">

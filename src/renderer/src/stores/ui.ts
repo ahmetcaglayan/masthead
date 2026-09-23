@@ -17,6 +17,8 @@ export type Route =
   | { name: 'search'; query: string }
   | { name: 'saved' }
   | { name: 'history' }
+  /** Every outlet's report of one clustered story (`id` is the cluster id). */
+  | { name: 'story'; id: string }
   | { name: 'sources' }
   | { name: 'settings'; section?: string }
 

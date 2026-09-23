@@ -5,7 +5,9 @@
   "meta": {
     "sources_one": "{{count}} kaynak",
     "sources_other": "{{count}} kaynak",
-    "updated": "{{time}} güncellendi"
+    "updated": "{{time}} güncellendi",
+    "compare_one": "{{count}} kaynağın haberini gör",
+    "compare_other": "{{count}} kaynağın haberini karşılaştır"
   },
   "card": {
     "alsoReporting": "Diğer kaynaklar"
@@ -232,5 +234,22 @@
     "clearTitle": "Okuma geçmişi temizlensin mi?",
     "clearBody": "Okuduğunuz haberlerin listesi silinir; kaydettikleriniz yerinde kalır. Bu işlem geri alınamaz.",
     "clearConfirm": "Geçmişi temizle"
+  },
+  "story": {
+    "kicker": "Hikâye",
+    "description_one": "{{count}} kaynak verdi · ilk haber {{first}}",
+    "description_other": "{{count}} kaynak verdi · ilk haber {{first}}",
+    "updated": "{{time}} güncellendi",
+    "reports_one": "{{count}} kaynak nasıl verdi",
+    "reports_other": "{{count}} kaynak nasıl verdi",
+    "order": "Sıralama",
+    "orderFirst": "İlk verenden",
+    "orderLatest": "En yeniden",
+    "first": "İlk veren",
+    "coverage": "Kimler verdi",
+    "outlets": "Kaynaklar",
+    "goneTitle": "Bu hikâye gündemden düştü",
+    "goneBody": "Güncel haberlerden çıktı ya da onu veren kaynaklar kapalı.",
+    "toDigest": "Gündem Özeti'ne git"
   }
 }

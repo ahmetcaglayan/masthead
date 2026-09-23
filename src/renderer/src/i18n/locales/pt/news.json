@@ -5,7 +5,9 @@
   "meta": {
     "sources_one": "{{count}} fonte",
     "sources_other": "{{count}} fontes",
-    "updated": "atualizado {{time}}"
+    "updated": "atualizado {{time}}",
+    "compare_one": "Ver como {{count}} veículo noticiou",
+    "compare_other": "Comparar como {{count}} veículos noticiaram"
   },
   "card": {
     "alsoReporting": "Também noticiaram"
@@ -232,5 +234,22 @@
     "clearTitle": "Limpar o histórico de leitura?",
     "clearBody": "A lista de notícias lidas será removida. As notícias salvas continuam. Isso não pode ser desfeito.",
     "clearConfirm": "Limpar histórico"
+  },
+  "story": {
+    "kicker": "História",
+    "description_one": "{{count}} veículo noticiou · primeiro: {{first}}",
+    "description_other": "{{count}} veículos noticiaram · primeiro: {{first}}",
+    "updated": "atualizado {{time}}",
+    "reports_one": "Como {{count}} veículo noticiou",
+    "reports_other": "Como {{count}} veículos noticiaram",
+    "order": "Ordem",
+    "orderFirst": "Quem deu primeiro",
+    "orderLatest": "Mais recentes",
+    "first": "Primeiro",
+    "coverage": "Quem noticiou",
+    "outlets": "Veículos",
+    "goneTitle": "Esta história saiu do radar",
+    "goneBody": "Ela saiu das notícias atuais, ou os veículos que a deram estão desligados.",
+    "toDigest": "Ir para o Resumo"
   }
 }

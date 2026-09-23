@@ -5,7 +5,9 @@
   "meta": {
     "sources_one": "{{count}} source",
     "sources_other": "{{count}} sources",
-    "updated": "updated {{time}}"
+    "updated": "updated {{time}}",
+    "compare_one": "See how {{count}} source reported it",
+    "compare_other": "Compare how {{count}} sources reported it"
   },
   "card": {
     "alsoReporting": "Also reporting"
@@ -232,5 +234,22 @@
     "clearTitle": "Clear your reading history?",
     "clearBody": "The list of stories you've read will be removed. Saved stories stay. This can't be undone.",
     "clearConfirm": "Clear history"
+  },
+  "story": {
+    "kicker": "Story",
+    "description_one": "{{count}} source reported it · first at {{first}}",
+    "description_other": "{{count}} sources reported it · first at {{first}}",
+    "updated": "updated {{time}}",
+    "reports_one": "How {{count}} outlet reported it",
+    "reports_other": "How {{count}} outlets reported it",
+    "order": "Order",
+    "orderFirst": "First to report",
+    "orderLatest": "Latest",
+    "first": "First",
+    "coverage": "Who covered it",
+    "outlets": "Outlets",
+    "goneTitle": "This story has moved on",
+    "goneBody": "It dropped out of the current news, or the outlets that carried it are switched off.",
+    "toDigest": "Go to the Digest"
   }
 }

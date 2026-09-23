@@ -23,6 +23,7 @@ import { getSource } from '@shared/countries'
 import type { ReaderNavigation } from '@shared/ipc'
 import { fontById, type ReaderMode } from '@shared/settings'
 import type { Article, SourceDef } from '@shared/types'
+import { openStory } from '@/components/news/actions'
 import { Divider } from '@/components/ui/Divider'
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton'
 import { Kbd } from '@/components/ui/Kbd'
@@ -297,6 +298,15 @@ function CoverageRow({
           )
         })}
       </ul>
+      {article.clusterId && (
+        <button
+          type="button"
+          onClick={() => openStory(article.clusterId!)}
+          className="shrink-0 rounded-full px-2.5 py-1 font-ui text-[12px] font-semibold text-accent transition-colors duration-150 hover:bg-accent-soft"
+        >
+          {t('coverage.all')}
+        </button>
+      )}
     </div>
   )
 }

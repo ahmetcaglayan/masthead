@@ -17,6 +17,10 @@ All notable changes to this project are documented here. The format follows
 - **Muted words.** Settings → Muted words hides every story that mentions them, on every page, and keeps them out
   of breaking-news notifications. Case, Turkish characters and accents don't matter; words of four letters or more
   also hide their inflected forms ("deprem" hides "depremde"), shorter ones only whole words.
+- **The story page.** Every story several outlets carry has a page of its own: the lead report in full, then how
+  each outlet reported it — who was first, what each one headlined, with its summary — ordered by who reported
+  first or by the latest, and which kinds of outlets covered it. The "N sources" badge on every card, the Digest's
+  "covered by" line and the reader's "Also covered by" row ("Compare all") lead there.
 
 ## [0.3.0] - 2026-09-23
 

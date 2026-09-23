@@ -5,7 +5,9 @@
   "meta": {
     "sources_one": "{{count}} Quelle",
     "sources_other": "{{count}} Quellen",
-    "updated": "aktualisiert {{time}}"
+    "updated": "aktualisiert {{time}}",
+    "compare_one": "Sehen, wie {{count}} Medium berichtet",
+    "compare_other": "Vergleichen, wie {{count}} Medien berichten"
   },
   "card": {
     "alsoReporting": "Ebenfalls berichtet"
@@ -232,5 +234,22 @@
     "clearTitle": "Leseverlauf löschen?",
     "clearBody": "Die Liste der gelesenen Meldungen wird entfernt. Gespeicherte Meldungen bleiben. Das lässt sich nicht rückgängig machen.",
     "clearConfirm": "Verlauf löschen"
+  },
+  "story": {
+    "kicker": "Thema",
+    "description_one": "{{count}} Medium berichtet · zuerst: {{first}}",
+    "description_other": "{{count}} Medien berichten · zuerst: {{first}}",
+    "updated": "aktualisiert {{time}}",
+    "reports_one": "Wie {{count}} Medium berichtet",
+    "reports_other": "Wie {{count}} Medien berichten",
+    "order": "Reihenfolge",
+    "orderFirst": "Wer zuerst berichtete",
+    "orderLatest": "Neueste",
+    "first": "Zuerst",
+    "coverage": "Wer berichtet",
+    "outlets": "Medien",
+    "goneTitle": "Dieses Thema ist weitergezogen",
+    "goneBody": "Es ist aus den aktuellen Meldungen gefallen, oder die Medien, die berichteten, sind ausgeschaltet.",
+    "toDigest": "Zum Überblick"
   }
 }

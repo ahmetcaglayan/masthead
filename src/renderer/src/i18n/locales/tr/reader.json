@@ -29,7 +29,8 @@
     "uiFont": "Arayüz yazı tipi"
   },
   "coverage": {
-    "label": "Diğer kaynaklarda"
+    "label": "Diğer kaynaklarda",
+    "all": "Hepsini karşılaştır"
   },
   "web": {
     "loading": "{{site}} yükleniyor…",

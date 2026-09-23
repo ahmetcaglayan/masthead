@@ -22,6 +22,7 @@ import { LocalPage } from '@/pages/LocalPage'
 import { SavedPage } from '@/pages/SavedPage'
 import { SearchPage } from '@/pages/SearchPage'
 import { SourcePage } from '@/pages/SourcePage'
+import { StoryPage } from '@/pages/StoryPage'
 import { useNews } from '@/stores/news'
 import { useSettings } from '@/stores/settings'
 import { useUi, type Route } from '@/stores/ui'
@@ -50,6 +51,8 @@ function RoutePage({ route }: { route: Route }): React.JSX.Element {
       return <SavedPage />
     case 'history':
       return <HistoryPage />
+    case 'story':
+      return <StoryPage id={route.id} />
     case 'sources':
       return <SourcesPage />
     case 'settings':

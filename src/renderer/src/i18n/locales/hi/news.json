@@ -5,7 +5,9 @@
   "meta": {
     "sources_one": "{{count}} स्रोत",
     "sources_other": "{{count}} स्रोत",
-    "updated": "{{time}} अपडेट"
+    "updated": "{{time}} अपडेट",
+    "compare_one": "{{count}} स्रोत की ख़बर देखें",
+    "compare_other": "{{count}} स्रोतों की ख़बर की तुलना करें"
   },
   "card": {
     "alsoReporting": "इन्होंने भी दी ख़बर"
@@ -232,5 +234,22 @@
     "clearTitle": "पढ़ने का इतिहास मिटाएँ?",
     "clearBody": "पढ़ी हुई ख़बरों की सूची हट जाएगी। सहेजी गई ख़बरें बनी रहेंगी। इसे वापस नहीं लाया जा सकता।",
     "clearConfirm": "इतिहास मिटाएँ"
+  },
+  "story": {
+    "kicker": "स्टोरी",
+    "description_one": "{{count}} स्रोत ने दी · सबसे पहले {{first}}",
+    "description_other": "{{count}} स्रोतों ने दी · सबसे पहले {{first}}",
+    "updated": "{{time}} अपडेट हुई",
+    "reports_one": "{{count}} स्रोत ने कैसे दी",
+    "reports_other": "{{count}} स्रोतों ने कैसे दी",
+    "order": "क्रम",
+    "orderFirst": "सबसे पहले वाले से",
+    "orderLatest": "सबसे नए से",
+    "first": "सबसे पहले",
+    "coverage": "किसने दी",
+    "outlets": "स्रोत",
+    "goneTitle": "यह स्टोरी अब सुर्ख़ियों में नहीं",
+    "goneBody": "यह ताज़ा ख़बरों से हट गई, या इसे देने वाले स्रोत बंद हैं।",
+    "toDigest": "डाइजेस्ट पर जाएँ"
   }
 }

@@ -9,6 +9,7 @@ export function routeKey(route: Route): string {
   switch (route.name) {
     case 'category':
     case 'source':
+    case 'story':
       return `${route.name}:${route.id}`
     default:
       return route.name

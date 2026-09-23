@@ -13,6 +13,13 @@ export function openArticle(article: Article, queue: readonly string[] = []): vo
   useUi.getState().openArticle(article, [...queue], getSettings().reader.defaultMode)
 }
 
+/** Show every outlet's report of a clustered story, leaving the reader if it is open. */
+export function openStory(clusterId: string): void {
+  const ui = useUi.getState()
+  if (ui.reader) ui.closeArticle()
+  ui.navigate({ name: 'story', id: clusterId })
+}
+
 /** Save or unsave an article, confirming with a toast. */
 export async function toggleSaved(article: Article, t: TFunction): Promise<void> {
   const wasSaved = useLibrary.getState().savedIds.has(article.id)

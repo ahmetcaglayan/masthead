@@ -29,7 +29,8 @@
     "uiFont": "Fonte da interface"
   },
   "coverage": {
-    "label": "Também publicado por"
+    "label": "Também publicado por",
+    "all": "Comparar todos"
   },
   "web": {
     "loading": "Carregando {{site}}…",

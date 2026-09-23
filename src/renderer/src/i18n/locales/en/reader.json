@@ -29,7 +29,8 @@
     "uiFont": "Interface font"
   },
   "coverage": {
-    "label": "Also covered by"
+    "label": "Also covered by",
+    "all": "Compare all"
   },
   "web": {
     "loading": "Loading {{site}}…",

@@ -10,6 +10,7 @@ import i18n, { useLanguage } from '@/i18n'
 import { fullDate, relativeTime } from '@/lib/time'
 import { cn } from '@/lib/cn'
 import { useSettings } from '@/stores/settings'
+import { openStory } from './actions'
 
 const MINUTE = 60_000
 /** A curated lead older than this shows when its story was last updated instead. */
@@ -58,28 +59,51 @@ export const RelativeTime = memo(function RelativeTime({
   )
 })
 
-/** A small "N sources" pill for stories several outlets carried. */
+/**
+ * A small "N sources" pill for stories several outlets carried. Given the story's cluster it
+ * is a button to the story page, raised above a card's stretched headline link.
+ */
 export function SourceCountBadge({
   count,
+  storyId,
   inverse = false,
   className
 }: {
   count: number
+  storyId?: string
   inverse?: boolean
   className?: string
 }): React.JSX.Element {
   const { t } = useTranslation('news')
-  return (
-    <span
-      className={cn(
-        'inline-flex h-5 shrink-0 items-center gap-1 rounded-full px-2 font-ui text-[11.5px] font-semibold whitespace-nowrap',
-        inverse ? 'bg-on-scrim/15 text-on-scrim backdrop-blur-sm' : 'bg-muted text-fg-muted',
-        className
-      )}
-    >
+  const classes = cn(
+    'inline-flex h-5 shrink-0 items-center gap-1 rounded-full px-2 font-ui text-[11.5px] font-semibold whitespace-nowrap',
+    inverse ? 'bg-on-scrim/15 text-on-scrim backdrop-blur-sm' : 'bg-muted text-fg-muted',
+    className
+  )
+  const content = (
+    <>
       <Layers size={12} strokeWidth={2} aria-hidden />
       {t('meta.sources', { count })}
-    </span>
+    </>
+  )
+  if (!storyId) return <span className={classes}>{content}</span>
+  return (
+    <button
+      type="button"
+      aria-label={t('meta.compare', { count })}
+      title={t('meta.compare', { count })}
+      onClick={(event) => {
+        event.stopPropagation()
+        openStory(storyId)
+      }}
+      className={cn(
+        classes,
+        'relative z-10 transition-colors duration-150',
+        inverse ? 'hover:bg-on-scrim/25' : 'hover:bg-accent-soft hover:text-accent'
+      )}
+    >
+      {content}
+    </button>
   )
 }
 
@@ -150,7 +174,12 @@ export function ArticleMeta({
           </>
         )}
         {sourceCount !== undefined && sourceCount > 1 && (
-          <SourceCountBadge count={sourceCount} inverse={inverse} className="ml-0.5" />
+          <SourceCountBadge
+            count={sourceCount}
+            storyId={article.clusterId}
+            inverse={inverse}
+            className="ml-0.5"
+          />
         )}
         {children}
       </div>
