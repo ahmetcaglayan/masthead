@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { TOPIC_CATEGORIES, type CategoryId } from '@shared/categories'
+import { hasLocalNews } from '@shared/countries'
 import { Tooltip } from '@/components/ui/Tooltip'
 import { useNewsView } from '@/hooks/useArticles'
 import { useNowSelect } from '@/hooks/useNow'
@@ -77,7 +78,9 @@ function NavItem({
           aria-label={name}
           onClick={() => useUi.getState().navigate(route)}
           className={cn(
-            'relative flex h-9 w-full items-center gap-3 rounded-xl px-[15px] text-left font-ui text-[13.5px] font-medium transition-colors duration-150 in-data-[density=compact]:h-8',
+            'relative flex h-9 w-full items-center rounded-xl text-left font-ui text-[13.5px] font-medium transition-colors duration-150 in-data-[density=compact]:h-8',
+            // Collapsed: no side padding, so the icon sits in the middle of its own pill.
+            collapsed ? 'justify-center px-0' : 'gap-3 px-[15px]',
             active ? 'bg-accent-soft text-accent' : 'text-fg-muted hover:bg-muted hover:text-fg'
           )}
         >
@@ -100,8 +103,9 @@ function NavItem({
           </span>
           <span
             className={cn(
-              'min-w-0 flex-1 truncate transition-opacity duration-150',
-              collapsed ? 'pointer-events-none opacity-0' : 'opacity-100'
+              'truncate transition-opacity duration-150',
+              // Collapsed: kept mounted for the fade, but it must not take width.
+              collapsed ? 'pointer-events-none w-0 flex-none opacity-0' : 'min-w-0 flex-1 opacity-100'
             )}
           >
             {label}
@@ -127,7 +131,7 @@ function SectionTitle({
   children: React.ReactNode
   collapsed: boolean
 }): React.JSX.Element {
-  if (collapsed) return <div aria-hidden className="mx-3 my-3 h-px bg-line" />
+  if (collapsed) return <div aria-hidden className="mx-2.5 my-3 h-px bg-line" />
   return (
     <h2 className="mt-5 mb-1.5 truncate px-[15px] font-ui text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
       {children}
@@ -177,8 +181,19 @@ export function Sidebar(): React.JSX.Element {
       transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
       className="flex h-full shrink-0 flex-col overflow-hidden border-r border-line bg-canvas"
     >
-      {/* The gutter is always reserved, so these items end where the fixed list below ends (pr-[22px]). */}
-      <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-3 pt-3 pb-4 [scrollbar-gutter:stable] [&::-webkit-scrollbar-thumb]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-line-strong">
+      {/*
+        Expanded: the gutter is always reserved, so these items end where the fixed list below ends
+        (pr-[22px]). Collapsed: a reserved gutter would push the whole icon rail off-centre by half its
+        width, so the scrollbar is hidden instead and the padding stays symmetric.
+      */}
+      <div
+        className={cn(
+          'min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-3 pt-3 pb-4',
+          collapsed
+            ? '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
+            : '[scrollbar-gutter:stable] [&::-webkit-scrollbar-thumb]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-line-strong'
+        )}
+      >
         <ul className="flex flex-col gap-0.5">
           <NavItem collapsed={collapsed} route={{ name: 'home' }} icon={House} label={t('nav.home')} />
           <NavItem collapsed={collapsed} route={{ name: 'digest' }} icon={Layers} label={t('nav.digest')} />
@@ -204,13 +219,16 @@ export function Sidebar(): React.JSX.Element {
             }
           />
           <NavItem collapsed={collapsed} route={{ name: 'foryou' }} icon={Sparkles} label={t('nav.forYou')} />
-          <NavItem
-            collapsed={collapsed}
-            route={{ name: 'local' }}
-            icon={MapPin}
-            label={province?.name ?? t('nav.chooseCity')}
-            title={`${t('nav.local')}: ${province?.name ?? t('nav.chooseCity')}`}
-          />
+          {/* Only countries whose pack ships provinces have local news to offer. */}
+          {hasLocalNews(country) && (
+            <NavItem
+              collapsed={collapsed}
+              route={{ name: 'local' }}
+              icon={MapPin}
+              label={province?.name ?? t('nav.chooseCity')}
+              title={`${t('nav.local')}: ${province?.name ?? t('nav.chooseCity')}`}
+            />
+          )}
         </ul>
 
         {topics.size > 0 && (
@@ -252,7 +270,13 @@ export function Sidebar(): React.JSX.Element {
         </ul>
       </div>
 
-      <ul className="flex flex-col gap-0.5 border-t border-line py-2.5 pr-[22px] pl-3">
+      <ul
+        className={cn(
+          'flex flex-col gap-0.5 border-t border-line py-2.5',
+          // Expanded: matches the scroll gutter above. Collapsed: symmetric, like the rail above.
+          collapsed ? 'px-3' : 'pr-[22px] pl-3'
+        )}
+      >
         <NavItem
           collapsed={collapsed}
           route={{ name: 'sources' }}
@@ -274,7 +298,10 @@ export function Sidebar(): React.JSX.Element {
               aria-label={collapsed ? t('nav.expand') : t('nav.collapse')}
               aria-expanded={!collapsed}
               onClick={toggle}
-              className="flex h-9 w-full items-center gap-3 rounded-xl px-[15px] text-left font-ui text-[13px] text-fg-subtle transition-colors duration-150 hover:bg-muted hover:text-fg in-data-[density=compact]:h-8"
+              className={cn(
+                'flex h-9 w-full items-center rounded-xl text-left font-ui text-[13px] text-fg-subtle transition-colors duration-150 hover:bg-muted hover:text-fg in-data-[density=compact]:h-8',
+                collapsed ? 'justify-center px-0' : 'gap-3 px-[15px]'
+              )}
             >
               {collapsed ? (
                 <PanelLeftOpen size={18} strokeWidth={1.75} aria-hidden className="shrink-0" />
@@ -284,7 +311,7 @@ export function Sidebar(): React.JSX.Element {
               <span
                 className={cn(
                   'truncate transition-opacity duration-150',
-                  collapsed ? 'opacity-0' : 'opacity-100'
+                  collapsed ? 'w-0 flex-none opacity-0' : 'opacity-100'
                 )}
               >
                 {t('nav.collapse')}

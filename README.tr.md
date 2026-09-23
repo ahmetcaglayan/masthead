@@ -6,8 +6,9 @@
 
 **Tüm haberler, tek sakin yerde.**
 
-Türkiye'nin önde gelen haber sitelerinin manşetlerini tek bir yerde toplayan, haberleri uygulamadan hiç
-çıkmadan okumanı sağlayan şık bir masaüstü haber uygulaması.
+Bir ülkenin önde gelen haber kaynaklarının manşetlerini tek bir yerde toplayan, haberleri reklamsız ve
+uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygulaması.
+**Türkiye · ABD · Hindistan · Birleşik Krallık · Almanya · Brezilya.**
 
 [![Sürüm](https://img.shields.io/github/v/release/ahmetcaglayan/masthead?style=flat-square&color=f4502f&label=s%C3%BCr%C3%BCm)](https://github.com/ahmetcaglayan/masthead/releases/latest)
 [![İndirme](https://img.shields.io/github/downloads/ahmetcaglayan/masthead/total?style=flat-square&color=f4502f&label=indirme)](https://github.com/ahmetcaglayan/masthead/releases)
@@ -25,16 +26,43 @@ Türkiye'nin önde gelen haber sitelerinin manşetlerini tek bir yerde toplayan,
 ## Neden Masthead?
 
 Gündemi takip etmek genelde onlarca sekme, çerez uyarıları, kendiliğinden açılan videolar ve pop-up'lar demek.
-Masthead 67 ulusal yayının (24'ü varsayılan olarak açık) ve 81 ilin tamamındaki yerel kaynakların haberlerini tek, sakin, dergi gibi bir ön sayfada toplar:
+Masthead **altı ülkeden 203 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
 
 - **Tıklamadan gündemi takip et.** Her kartta tam başlık, tam özet ve fotoğraf. **Gündem Özeti** aynı olayı veren
   kaynakları bir araya getirir; kimin ne dediğini tek bakışta görürsün.
-- **Olduğun yerde oku.** Habere tıkla, yayıncının kendi sayfası uygulamanın içinde büyük bir pencerede açılsın.
-  <kbd>Esc</kbd>'ye bas, geri dön. Daha sade bir görünüm için **Okuma modu**.
+- **Olduğun yerde, reklamsız oku.** Habere tıkla, yayıncının kendi sayfası uygulamanın içinde büyük bir
+  pencerede — reklamlar ve izleyiciler engellenmiş olarak — açılsın. <kbd>Esc</kbd>'ye bas, geri dön.
+  Daha sade bir görünüm için **Okuma modu**.
 - **Son dakika, manşet ve canlı akış.** Kayan son dakika bandı, en çok kaynağın verdiği haberlerden oluşan
   manşet ve dakika dakika "son haberler" sütunu.
-- **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, bölgeye ve 81 ile göre filtrele.
+- **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, konuya — Türkiye'de ayrıca
+  bölgeye ve 81 ile — göre filtrele.
 - **Gizlilik öncelikli.** Üyelik yok, izleme yok. Ayarların, kaydettiklerin ve geçmişin bilgisayarında kalır.
+
+### Reklamı değil, haberi oku
+
+Her haber Masthead'in içinde açılır ve gömülü tarayıcı **reklam ve izleyici engelleme** açıkken çalışır
+(EasyList tabanlı; Ayarlar → Okuma'dan kapatılabilir). Dikkatini dağıtan çerez bandı, kendiliğinden başlayan
+video, ikinci paragrafın üstüne düşen bülten penceresi yok — haber, yazıldığı hâliyle.
+
+Sayfa yine de yoruyorsa **Okuma modu** her şeyi metne indirger: başlık, imza ve gövde; senin seçtiğin okuma
+fontu ve boyutuyla, uygulamanın sıcak kâğıt ya da koyu mürekkep zemininde. Aynı haber; düzen yok, betik yok.
+Ayarlar → Okuma'dan Okuma modunu tüm haberler için varsayılan yapabilir, araç çubuğundan **Web** ile **Okuma**
+arasında istediğin an geçebilirsin. Haber sayfalarının indirme, açılır pencere ve izin istekleri reddedilir;
+gömülü tarayıcı her şeyden ayrı, kendi yalıtılmış oturumunda çalışır.
+
+### Bir haber, tüm kaynaklar
+
+Aynı olay iki kaynakta nadiren aynı anlatılır. Masthead farklı kaynakların aynı olay için yayımladığı haberleri
+kümeler; böylece haberi tek bir kaynaktan değil, etrafını dolaşarak okursun:
+
+- **Ön sayfada** manşet, o haberi kaç kaynağın verdiğini ("8 kaynak") ve altında diğer kaynakların kendi
+  başlıklarını gösterir.
+- **Gündem Özeti** sayfası bu fikrin tamamı: olay başına tek kart, en doyurucu özet üstte, altında her kaynağın
+  başlığı logosu ve yayımlama saatiyle — günün gündemi, hiç tıklamadan.
+- Açık haberin içinde **"Diğer kaynaklarda"** aynı olayın başka yerlerdeki hâlini listeler; bir kaynağın
+  versiyonundan diğerine tek tıkla geçer ya da <kbd>←</kbd> / <kbd>→</kbd> ile sırayla gezersin.
+- Herhangi bir akışı **En çok kaynak** sırasına alarak çok kaynağın verdiği haberleri öne çıkarabilirsin.
 
 ## Ekran görüntüleri
 
@@ -46,6 +74,20 @@ Masthead 67 ulusal yayının (24'ü varsayılan olarak açık) ve 81 ilin tamam�
 | **Okuma modu** — seçtiğin fontla sade metin | **Son Haberler** — dakika dakika zaman çizelgesi (Türkçe, koyu tema) |
 | ![İlk açılış](docs/images/onboarding.png) | ![Ayarlar](docs/images/settings.png) |
 | **İlk açılış** — birkaç kısa soru ve hazırsın | **Ayarlar** — tema, vurgu rengi, fontlar, kaynaklar |
+
+## Altı ülke, dört dil
+
+Arayüz dili ile haberlerin dili birbirinden bağımsız: istersen Brezilya gazetelerini Almanca arayüzle okursun.
+
+| | |
+| --- | --- |
+| ![ABD kaynaklarıyla Masthead ön sayfası](docs/images/us-home.png) | ![Birleşik Krallık kaynaklarıyla Masthead ön sayfası](docs/images/gb-home.png) |
+| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve Axios'a 15 kaynak | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Sky News, Independent, FT |
+| ![Almanca arayüz ve Alman kaynakları](docs/images/de-home.png) | ![Portekizce arayüzle Gündem Özeti](docs/images/br-digest.png) |
+| 🇩🇪 **Almanya** — tagesschau, Spiegel, Zeit, FAZ, SZ… arayüz de Almanca | 🇧🇷 **Brezilya** — Portekizce Gündem Özeti: tek kart, her kaynağın başlığı |
+| ![Hindistan kaynaklarıyla Son Haberler](docs/images/in-latest.png) | ![Almanca bir haberde Okuma modu](docs/images/de-reader.png) |
+| 🇮🇳 **Hindistan** — TOI, The Hindu, HT, NDTV ve dahası, dakika dakika | 📖 **Okuma modu** — haber ve başka hiçbir şey, kendi okuma fontunla |
+
 
 ## İndir
 
@@ -94,13 +136,25 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 🗂️ **Kaynaklar** | Her siteyi aç/kapat; akışların durumu bir bakışta |
 | 🔖 **Kitaplık** | Kaydedilen haberler ve okuma geçmişi, yerelde |
 | 🎨 **Kişiselleştir** | Açık / koyu / sistem tema, 5 vurgu rengi, 12 okuma fontu, yazı boyutu, sıkı görünüm |
-| 🌍 **Diller** | İngilizce ve Türkçe arayüz (yenileri geliyor); ülke seçimi yol haritasında |
+| 🌍 **Ülkeler** | Türkiye, ABD, Hindistan, Birleşik Krallık, Almanya ve Brezilya — Ayarlar'dan değiştir |
+| 💬 **Diller** | İngilizce, Türkçe, Almanca ve Portekizce arayüz; haberler kendi dilinde kalır |
 
 ## Kaynaklar
 
-Masthead; kamu yayıncısı, haber ajansları, ana akım gazeteler, bağımsız ve muhalif medya, uluslararası Türkçe
-yayınlar ile ekonomi, spor ve teknoloji sitelerinden dengeli seçilmiş bir kaynak listesi ve birçok il için yerel
-gazetelerle gelir. Tam liste ve kaynak ekleme için: [docs/SOURCES.md](docs/SOURCES.md).
+Masthead her ülke için bir **ülke paketi** ile gelir: kamu yayıncıları, haber ajansları, ana akım gazeteler,
+bağımsız medya ile ekonomi, spor ve teknoloji siteleri arasından dengeli seçilmiş bir liste.
+
+| Ülke | Kaynak | Akış |
+| --- | --- | --- |
+| 🇹🇷 Türkiye | 136 (67 ulusal + 81 ilin yerel gazeteleri) | 536 |
+| 🇺🇸 ABD | 15 | 46 |
+| 🇮🇳 Hindistan | 10 | 32 |
+| 🇬🇧 Birleşik Krallık | 10 | 37 |
+| 🇩🇪 Almanya | 15 | 46 |
+| 🇧🇷 Brezilya | 17 | 34 |
+
+Her akış yayına girmeden önce canlı sitelere karşı doğrulanır (`npm run verify:feeds`). Tam liste, ülke paketi
+yapısı ve yeni bir kaynak ya da ülke ekleme: [docs/SOURCES.md](docs/SOURCES.md).
 
 Masthead yalnızca yayıncıların herkese açık RSS akışlarında verdiği başlık, özet ve görselleri gösterir. Haberin
 tamamı her zaman yayıncının kendi sayfasında okunur.
@@ -119,6 +173,20 @@ npm run dist:win     # Windows kurulum ve portable exe → release/
 Electron, React, TypeScript, Tailwind CSS ve Vite ile yazıldı. Mimari ve yol haritası için
 [docs/PLAN.md](docs/PLAN.md), kaldığımız yer için [docs/PROGRESS.md](docs/PROGRESS.md), katkı için
 [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### HTTPS trafiğini inceleyen ağlarda
+
+Bazı kurum ağlarında bir vekil sunucu her HTTPS bağlantısını kurumun kendi kök sertifikasıyla yeniden imzalar.
+Tarayıcılar bu sertifikaya sistem deposu üzerinden güvenir, Node.js ise kendi deposunu kullanır — bu yüzden tüm
+akışlar `SELF_SIGNED_CERT_IN_CHAIN` ile düşer ve uygulama boş kalır. Kök sertifikayı bir PEM dosyasına kaydedip
+Node'a gösterin:
+
+```bash
+NODE_EXTRA_CA_CERTS=/yol/kok-ca.pem npm run dev:web
+```
+
+Aynı değişken `npm run dev` için de geçerlidir: haber sayfaları sistem deposunu kullanan gömülü tarayıcı
+görünümünde açılır, ama akışları Node çeker.
 
 ## Gizlilik
 

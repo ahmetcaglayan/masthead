@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Check, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { COUNTRY_OPTIONS, getCountryPack } from '@shared/countries'
+import { COUNTRY_OPTIONS, getCountryPack, hasLocalNews } from '@shared/countries'
 import type { UiLanguage } from '@shared/settings'
 import type { Article } from '@shared/types'
 import { SourceCountBadge } from '@/components/news/ArticleMeta'
@@ -36,14 +36,15 @@ type Step = 'language' | 'theme' | 'country' | 'interests' | 'city'
 const AVAILABLE = COUNTRY_OPTIONS.filter((o) => o.available)
 /** With a single country on offer there is nothing to decide: that step is left out. */
 const SINGLE_COUNTRY = AVAILABLE.length === 1
-const STEPS: readonly Step[] = SINGLE_COUNTRY
+const ALL_STEPS: readonly Step[] = SINGLE_COUNTRY
   ? ['language', 'theme', 'interests', 'city']
   : ['language', 'theme', 'country', 'interests', 'city']
-const FINISH = STEPS.length
 
 const LANGUAGES: readonly { value: UiLanguage; name: string; monogram: string }[] = [
   { value: 'en', name: 'English', monogram: 'EN' },
-  { value: 'tr', name: 'Türkçe', monogram: 'TR' }
+  { value: 'tr', name: 'Türkçe', monogram: 'TR' },
+  { value: 'de', name: 'Deutsch', monogram: 'DE' },
+  { value: 'pt', name: 'Português', monogram: 'PT' }
 ]
 
 function Monogram({ children }: { children: React.ReactNode }): React.JSX.Element {
@@ -183,6 +184,12 @@ export function Onboarding(): React.JSX.Element {
   const sections = useRef<(HTMLElement | null)[]>([])
   const newsStarted = useRef(false)
   const current = revealed - 1
+  // Countries without a province pack have no Local page, so they skip the city question.
+  const steps = useMemo(
+    () => (hasLocalNews(settings.country) ? ALL_STEPS : ALL_STEPS.filter((step) => step !== 'city')),
+    [settings.country]
+  )
+  const finish = steps.length
 
   // Bring each newly revealed question into view and move focus into it.
   useEffect(() => {
@@ -219,12 +226,12 @@ export function Onboarding(): React.JSX.Element {
 
   /** Answer question `index` and reveal the next one (answering an earlier question again reveals nothing new). */
   const confirm = (index: number): void => {
-    if (index === FINISH) {
+    if (index === finish) {
       startNews() // normally already running
       setLeaving(true)
       return
     }
-    if (STEPS[index] === 'country') startNews()
+    if (steps[index] === 'country') startNews()
     setRevealed((n) => Math.max(n, index + 2))
   }
 
@@ -251,7 +258,7 @@ export function Onboarding(): React.JSX.Element {
         // Enter on a button or option keeps its own meaning.
         if (e.target instanceof Element && e.target.closest('button, a, [role="option"]')) return
         e.preventDefault()
-        confirm(Math.min(current, FINISH))
+        confirm(Math.min(current, finish))
       }
     }
   ])
@@ -261,9 +268,9 @@ export function Onboarding(): React.JSX.Element {
   const onlyCountry = SINGLE_COUNTRY ? AVAILABLE[0].code : undefined
   const questionProps = (index: number) => ({
     index,
-    kicker: t(`${STEPS[index]}.kicker`),
-    title: t(`${STEPS[index]}.title`),
-    hint: t(`${STEPS[index]}.hint`),
+    kicker: t(`${steps[index]}.kicker`),
+    title: t(`${steps[index]}.title`),
+    hint: t(`${steps[index]}.hint`),
     answered: index < current,
     current: index === current,
     onContinue: () => confirm(index),
@@ -279,6 +286,7 @@ export function Onboarding(): React.JSX.Element {
         return (
           <ChoiceCards<UiLanguage>
             size="lg"
+            columns={2}
             aria-labelledby={labelledBy}
             value={settings.language}
             onChange={(language) => void update({ language })}
@@ -386,7 +394,7 @@ export function Onboarding(): React.JSX.Element {
       <Backdrop />
 
       <div className="drag absolute inset-x-0 top-0 z-20 flex h-(--titlebar-height) items-center justify-center bg-linear-to-b from-canvas to-transparent">
-        <StepDots current={current} total={STEPS.length} />
+        <StepDots current={current} total={steps.length} />
       </div>
 
       <div className="relative z-10 h-full overflow-y-auto">
@@ -401,7 +409,7 @@ export function Onboarding(): React.JSX.Element {
               {t('intro.headline')}
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-fg-muted text-pretty">
-              {t(SINGLE_COUNTRY ? 'intro.subtitle' : 'intro.subtitleWithCountry')}
+              {t(steps.length > 4 ? 'intro.subtitleWithCountry' : 'intro.subtitle')}
             </p>
             {onlyCountry && (
               <p className="mt-3 flex items-center gap-2 text-[13px] text-fg-subtle">
@@ -415,7 +423,7 @@ export function Onboarding(): React.JSX.Element {
           </motion.header>
 
           <div className="mt-16 flex flex-col gap-20">
-            {STEPS.map(
+            {steps.map(
               (step, index) =>
                 revealed > index && (
                   <Question
@@ -428,10 +436,10 @@ export function Onboarding(): React.JSX.Element {
                 )
             )}
 
-            {revealed > FINISH && (
+            {revealed > finish && (
               <motion.section
                 ref={(el) => {
-                  sections.current[FINISH] = el
+                  sections.current[finish] = el
                 }}
                 tabIndex={-1}
                 aria-label={t('finish.title')}
@@ -440,7 +448,7 @@ export function Onboarding(): React.JSX.Element {
                 transition={{ duration: 0.25, ease: 'easeOut' }}
                 className="scroll-my-24 outline-none"
               >
-                <FinishCard onStart={() => confirm(FINISH)} />
+                <FinishCard onStart={() => confirm(finish)} />
               </motion.section>
             )}
           </div>

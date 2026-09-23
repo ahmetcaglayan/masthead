@@ -6,6 +6,32 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-23
+
+Six countries, four interface languages.
+
+### Added
+
+- **Five more countries.** Country packs for the United States, India, the United Kingdom, Germany and Brazil —
+  67 national newsrooms and 195 feeds, all verified against the live sites — alongside the Turkey pack. Switch
+  country in Settings → Language & region; each country keeps its own cache, sources and reading history.
+- **German and Brazilian Portuguese interface**, next to English and Turkish. The interface language and the
+  language of the news are independent.
+- Breaking-news markers in the new languages ("BREAKING", "Eilmeldung", "URGENTE", "Plantão") are recognised in
+  headlines, and a headline's first letter is re-capitalised for the pack's own language.
+
+### Changed
+
+- `npm run verify:feeds` now checks every country pack; pass country codes (`-- de br`) to narrow it.
+- Countries without a province pack hide the Local page, the city question in the first-run setup and the city
+  row in Settings.
+
+### Fixed
+
+- The collapsed sidebar centred its icons in the rail but not in their own hover and active backgrounds, which
+  sat 5.5px to the left; the reserved scrollbar gutter is now dropped while collapsed.
+- A card's focus ring sat close enough to touch the headline and, at the rounded corners, a photo.
+
 ## [0.1.0] - 2026-09-23
 
 First public release.

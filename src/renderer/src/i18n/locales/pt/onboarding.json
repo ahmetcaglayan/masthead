@@ -1,0 +1,50 @@
+{
+  "intro": {
+    "headline": "Todas as notícias. Um só lugar tranquilo.",
+    "subtitle": "As redações do seu país em uma primeira página tranquila. Quatro perguntas rápidas e pronto.",
+    "subtitleWithCountry": "As redações do seu país em uma primeira página tranquila. Cinco perguntas rápidas e pronto.",
+    "country": "{{country}} · {{sources}} veículos · mais países em breve"
+  },
+  "progress": "Passo {{current}} de {{total}}",
+  "continue": "Continuar",
+  "orPress": "ou pressione <0/>",
+  "language": {
+    "kicker": "Idioma",
+    "title": "Qual idioma você prefere?",
+    "hint": "Isso define menus e botões. As notícias continuam no idioma original.",
+    "cardHint": "Menus e botões em português"
+  },
+  "theme": {
+    "kicker": "Aparência",
+    "title": "Claro ou escuro?",
+    "hint": "Aplicado na hora. Você pode trocar quando quiser na barra do topo."
+  },
+  "country": {
+    "kicker": "País",
+    "title": "De onde vêm as suas notícias?",
+    "hint": "Já começamos a reunir as manchetes enquanto você termina.",
+    "stats": "{{sources}} fontes · {{cities}} cidades",
+    "comingSoon": "Mais países em breve"
+  },
+  "interests": {
+    "kicker": "Interesses",
+    "title": "O que você gosta de acompanhar?",
+    "hint": "Escolha quantos quiser. Eles definem a sua página “Para você” e a ordem das seções no Início."
+  },
+  "city": {
+    "kicker": "Cidade",
+    "title": "Quer também notícias da sua cidade?",
+    "hint": "Opcional. Escolha uma cidade, ou uma região inteira, para a sua página Local.",
+    "skip": "Agora não",
+    "chosen": "Notícias locais de {{place}}"
+  },
+  "finish": {
+    "title": "Tudo pronto.",
+    "fetching": "Reunindo as primeiras manchetes · {{done}} de {{total}} feeds",
+    "ready_one": "{{count, number}} notícia esperando por você.",
+    "ready_other": "{{count, number}} notícias esperando por você.",
+    "soon": "Suas primeiras manchetes chegam num instante.",
+    "cta": "Abrir minha primeira página",
+    "later": "Você pode mudar tudo isso depois nos Ajustes."
+  }
+}

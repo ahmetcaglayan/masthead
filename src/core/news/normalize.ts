@@ -47,23 +47,29 @@ const DETAIL_MIN_EXTRA_CHARS = 200
 const FUTURE_TOLERANCE_MS = 10 * 60_000
 const MAX_DETAIL_IMAGES = 20
 
-/** Matched on trLower'd text, where a capital I becomes ı ("BREAKING" → "breakıng", "ACIL" → "acıl"). */
+/**
+ * Matched on trLower'd text, where a capital I becomes ı ("BREAKING" → "breakıng",
+ * "ACIL" → "acıl"). Covers the markers of every pack's language: Turkish, English,
+ * German ("Eilmeldung") and Portuguese ("URGENTE", "Plantão").
+ */
 const BREAKING_PREFIX =
-  /^\s*(?:[🔴🚨⚡❗‼]\s*)?(?:son ?dak[iı]ka(?: haber[iı]| haberler[iı])?|fla[şs](?: haber)?|ac[iı]l|break[iı]ng(?: news)?)(?:\s*[:|!•»›–—.…-]+\s*|\s+ı\s+)/u
+  /^\s*(?:[🔴🚨⚡❗‼]\s*)?(?:son ?dak[iı]ka(?: haber[iı]| haberler[iı])?|fla[şs](?: haber)?|ac[iı]l|break[iı]ng(?: news)?|e[iı]lmeldung|urgente|plant[aã]o)(?:\s*[:|!•»›–—.…-]+\s*|\s+ı\s+)/u
 
 /**
  * A headline without Sabah's trailing hashtags and without a "SON DAKİKA:" /
- * "Son dakika |" / "SONDAKİKA…" / "FLAŞ!" / "ACİL:" style prefix; `breaking`
- * reports whether one was there.
+ * "Son dakika |" / "SONDAKİKA…" / "FLAŞ!" / "ACİL:" / "BREAKING:" style prefix;
+ * `breaking` reports whether one was there. `locale` is the pack's locale, so the
+ * first letter of the remainder is re-capitalised the way that language expects
+ * (only Turkish turns `i` into `İ`).
  */
-export function cleanTitle(raw: string): { title: string; breaking: boolean } {
+export function cleanTitle(raw: string, locale = 'tr-TR'): { title: string; breaking: boolean } {
   const title = collapseWhitespace(stripTrailingHashtags(collapseWhitespace(raw)))
   const lower = trLower(title)
   const prefix = lower.length === title.length ? BREAKING_PREFIX.exec(lower) : null
   if (!prefix) return { title, breaking: false }
   const rest = title.slice(prefix[0].length).trim()
   if (!rest) return { title, breaking: true }
-  return { title: rest.charAt(0).toLocaleUpperCase('tr-TR') + rest.slice(1), breaking: true }
+  return { title: rest.charAt(0).toLocaleUpperCase(locale) + rest.slice(1), breaking: true }
 }
 
 /** URL path segments of the sections where papers publish official notices ("resmi ilanlar"). */
@@ -206,7 +212,7 @@ function textLength(paragraphs: string[]): number {
  */
 export function normalizeItem(raw: RawItem, ctx: NormalizeContext): NormalizedItem | null {
   const { source, feed, pack, now, baseUrl, geo } = ctx
-  const { title, breaking: titleBreaking } = cleanTitle(raw.title)
+  const { title, breaking: titleBreaking } = cleanTitle(raw.title, pack.locale)
   const url = canonicalUrl(raw.link, baseUrl)
   if (!title || !url || isJunkItem(title, url, source)) return null
   const id = articleId(url)

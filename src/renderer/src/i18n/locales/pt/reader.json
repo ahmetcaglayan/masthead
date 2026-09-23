@@ -1,0 +1,55 @@
+{
+  "mode": {
+    "label": "Exibição",
+    "web": "Web",
+    "reader": "Leitura"
+  },
+  "toolbar": {
+    "back": "Voltar",
+    "forward": "Avançar",
+    "reload": "Recarregar página",
+    "save": "Salvar",
+    "unsave": "Remover dos salvos",
+    "copyLink": "Copiar link",
+    "linkCopied": "Link copiado",
+    "copyFailed": "Não foi possível copiar o link",
+    "openInBrowser": "Abrir no navegador",
+    "previous": "Notícia anterior",
+    "next": "Próxima notícia",
+    "position": "Notícia {{current}} de {{total}}",
+    "close": "Fechar",
+    "textSettings": "Ajustes de texto"
+  },
+  "text": {
+    "size": "Tamanho do texto",
+    "smaller": "Texto menor",
+    "larger": "Texto maior",
+    "typeface": "Fonte",
+    "readingFont": "Fonte de leitura",
+    "uiFont": "Fonte da interface"
+  },
+  "coverage": {
+    "label": "Também publicado por"
+  },
+  "web": {
+    "loading": "Carregando {{site}}…",
+    "failedTitle": "A página não carregou",
+    "failedDescription": "Não foi possível acessar {{site}}. Verifique a conexão e tente de novo, ou leia a notícia no modo de leitura.",
+    "retry": "Tentar de novo",
+    "tryReader": "Tentar o modo de leitura",
+    "blockedTitle": "Este site não pode ser incorporado no navegador",
+    "blockedDescription": "{{site}} não permite ser exibido dentro de outra página. O aplicativo para desktop não tem esse limite.",
+    "blockedNotice": "Este site não pode ser incorporado no navegador — mostrando o modo de leitura",
+    "openOriginal": "Abrir original"
+  },
+  "reader": {
+    "minutes_one": "{{count}} min de leitura",
+    "minutes_other": "{{count}} min de leitura",
+    "failedTitle": "Não foi possível extrair a notícia",
+    "failedDescription": "Isto é o que {{source}} publicou no feed. A íntegra está na página do veículo.",
+    "retry": "Tentar de novo",
+    "showWeb": "Mostrar a página web",
+    "sourceLabel": "Fonte",
+    "viewOriginal": "Ver página original"
+  }
+}

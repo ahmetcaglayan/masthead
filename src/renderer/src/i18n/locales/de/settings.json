@@ -1,0 +1,240 @@
+{
+  "page": {
+    "title": "Einstellungen",
+    "kicker": "Vorlieben",
+    "description": "Machen Sie Masthead zu Ihrem. Änderungen werden sofort gespeichert.",
+    "sections": "Einstellungsbereiche"
+  },
+  "nav": {
+    "appearance": "Aussehen",
+    "typography": "Schrift",
+    "language": "Sprache & Region",
+    "interests": "Interessen",
+    "sources": "Quellen",
+    "reading": "Lesen",
+    "notifications": "Benachrichtigungen",
+    "updates": "Aktualisierung",
+    "data": "Daten & Über"
+  },
+  "appearance": {
+    "description": "Design, Farbe und der Aufbau Ihrer Titelseite.",
+    "theme": {
+      "label": "Design",
+      "description": "Warmes Papier bei Tag, tiefe Tinte bei Nacht — oder Ihr Gerät entscheidet.",
+      "lightHint": "Warmes Papier",
+      "darkHint": "Tiefe Tinte",
+      "systemHint": "Folgt Ihrem Gerät"
+    },
+    "accent": {
+      "label": "Akzentfarbe",
+      "description": "Für Hervorhebungen, Links und die aktuelle Seite.",
+      "ember": "Glut",
+      "ocean": "Ozean",
+      "forest": "Wald",
+      "violet": "Violett",
+      "gold": "Gold"
+    },
+    "density": {
+      "label": "Dichte",
+      "description": "Kompakt bringt mehr Meldungen auf den Bildschirm.",
+      "comfortable": "Bequem",
+      "compact": "Kompakt"
+    },
+    "cardStyle": {
+      "label": "Kartenstil",
+      "description": "Wie Meldungen in Listen und Abschnitten angeordnet sind.",
+      "magazine": "Magazin",
+      "magazineHint": "Große Bilder, ganze Zusammenfassungen",
+      "grid": "Raster",
+      "gridHint": "Mehr Meldungen auf einen Blick",
+      "list": "Liste",
+      "listHint": "Eine ruhige Spalte, Text zuerst"
+    },
+    "sidebar": {
+      "label": "Schmale Seitenleiste",
+      "description": "Nur Symbole in der Seitenleiste zeigen, damit die Meldungen mehr Platz haben."
+    }
+  },
+  "typography": {
+    "description": "Wählen Sie die Schriften und die Größe, die Ihren Augen am besten tun.",
+    "reset": "Schrift zurücksetzen",
+    "sans": "Serifenlos",
+    "serif": "Serif",
+    "default": "Standard",
+    "uiFont": {
+      "label": "Oberflächenschrift",
+      "description": "Menüs, Beschriftungen und Zusammenfassungen."
+    },
+    "headlineFont": {
+      "label": "Schlagzeilenschrift",
+      "description": "Schlagzeilen auf Karten und in der Topmeldung."
+    },
+    "readingFont": {
+      "label": "Leseschrift",
+      "description": "Artikeltext im Lesemodus."
+    },
+    "scale": {
+      "label": "Schriftgröße",
+      "description": "Skaliert den gesamten Text in der App."
+    },
+    "preview": {
+      "kicker": "Wirtschaft",
+      "headline": "Zentralbank hält die Zinsen, Inflation sinkt den dritten Monat in Folge",
+      "summary": "Der Preisdruck lasse schneller nach als erwartet, hieß es; Senkungen seien Anfang nächsten Jahres möglich, wenn der Trend anhält.",
+      "meta": "Redaktion · vor 5 Min.",
+      "readerLabel": "Lesemodus",
+      "body": "Die Entscheidung war erwartet worden. Analysten rechnen mit der ersten Senkung im Frühjahr; die Märkte blieben nach der Ankündigung ruhig.",
+      "faces": {
+        "ui": "Oberfläche",
+        "headline": "Schlagzeile",
+        "reading": "Lesen"
+      }
+    }
+  },
+  "locale": {
+    "description": "Die Sprache der Oberfläche und die Herkunft Ihrer Nachrichten.",
+    "language": {
+      "label": "Sprache der Oberfläche",
+      "description": "Die Nachrichten bleiben in ihrer ursprünglichen Sprache."
+    },
+    "country": {
+      "label": "Land",
+      "description": "Wessen Redaktionen Sie folgen. Sechs Länder sind dabei, weitere folgen.",
+      "soon": "Bald"
+    },
+    "city": {
+      "label": "Stadt oder Region",
+      "description": "Füllt Ihre Seite „Regional“ mit Nachrichten aus Ihrer Umgebung."
+    }
+  },
+  "interests": {
+    "description": "Die Themen, denen Sie folgen, prägen Ihre Seite „Für Sie“ und die Reihenfolge der Abschnitte auf der Startseite.",
+    "keepOne": "Mindestens ein Thema muss ausgewählt bleiben."
+  },
+  "sources": {
+    "description": "Schalten Sie jedes Medium ein oder aus. Ausgeschaltete Quellen werden nie abgerufen.",
+    "page": {
+      "title": "Quellen",
+      "description": "Wählen Sie die Medien für Ihre Titelseite. Ausgeschaltete Quellen werden nie abgerufen, und Ihre Auswahl wird gespeichert."
+    },
+    "search": "Quellen durchsuchen",
+    "summary": "{{on}} von {{count}} Quellen ein",
+    "delivering_one": "{{count}} liefert Meldungen",
+    "delivering_other": "{{count}} liefern Meldungen",
+    "cityOnly_one": "{{count}} regionales Medium wartet auf seine Stadt",
+    "cityOnly_other": "{{count}} regionale Medien warten auf ihre Stadt",
+    "notDelivering": "Liefern nichts ({{count}})",
+    "feeds_one": "{{count}} Feed",
+    "feeds_other": "{{count}} Feeds",
+    "failing_one": "{{count}} fehlerhaft",
+    "failing_other": "{{count}} fehlerhaft",
+    "enableAll": "Alle einschalten",
+    "disableAll": "Alle ausschalten",
+    "enableMatches": "Treffer einschalten",
+    "disableMatches": "Treffer ausschalten",
+    "restoreDefaults": "Standardquellen wiederherstellen",
+    "undo": "Rückgängig",
+    "toggle": "Nachrichten von {{name}} zeigen",
+    "groupToggle": "Alle Quellen in {{group}} umschalten",
+    "groupCount": "{{on}} von {{count}} ein",
+    "yourCity": "Ihre Stadt",
+    "allProvinces": "Alle {{count}} Provinzen",
+    "localNote": "Regionale Medien werden nur für die gewählte Stadt abgerufen.",
+    "stories_one": "{{formatted}} Meldung",
+    "stories_other": "{{formatted}} Meldungen",
+    "health": {
+      "ok_one": "Feed läuft · geprüft {{time}}",
+      "ok_other": "Alle {{count}} Feeds laufen · geprüft {{time}}",
+      "partial": "{{failing}} von {{count}} Feeds fehlerhaft · geprüft {{time}}",
+      "failing_one": "Feed antwortet nicht · versucht {{time}}",
+      "failing_other": "Keiner der {{count}} Feeds antwortet · versucht {{time}}",
+      "idle": "Noch nicht abgerufen",
+      "localIdle": "Wird abgerufen, sobald die Stadt gewählt ist"
+    },
+    "toast": {
+      "enabled_one": "{{count}} Quelle eingeschaltet",
+      "enabled_other": "{{count}} Quellen eingeschaltet",
+      "disabled_one": "{{count}} Quelle ausgeschaltet",
+      "disabled_other": "{{count}} Quellen ausgeschaltet",
+      "allOffHint": "Alle Quellen sind aus, Ihre Titelseite bleibt also leer.",
+      "restored": "Die Quellen stehen wieder auf Standard",
+      "groupOn": "{{group}}: alle eingeschaltet",
+      "groupOff": "{{group}}: alle ausgeschaltet"
+    }
+  },
+  "province": {
+    "search": "Städte suchen",
+    "label": "Städte",
+    "placeholder": "Stadt wählen",
+    "clear": "Auswahl aufheben",
+    "wholeRegion": "Ganze Region {{region}}",
+    "cities_one": "{{count}} Stadt",
+    "cities_other": "{{count}} Städte",
+    "noMatch": "Keine Stadt passt zu „{{query}}“"
+  },
+  "reading": {
+    "description": "Wie Meldungen sich öffnen, wenn Sie sie anklicken.",
+    "mode": {
+      "label": "Meldungen öffnen als",
+      "description": "„Webseite“ zeigt die Originalseite. Der Lesemodus zeigt nur den Text, in Ihrer Leseschrift.",
+      "web": "Webseite",
+      "reader": "Lesemodus"
+    },
+    "ads": {
+      "label": "Werbung und Tracker blockieren",
+      "description": "Hält den eingebauten Browser schnell und privat."
+    }
+  },
+  "desktopOnly": "In der Desktop-App verfügbar.",
+  "notifications": {
+    "description": "Bleiben Sie bei großen Meldungen auf dem Laufenden, ohne die App im Blick zu behalten.",
+    "breaking": {
+      "label": "Hinweise bei Eilmeldungen",
+      "description": "Eine Systembenachrichtigung, sobald eine Eilmeldung hereinkommt."
+    }
+  },
+  "updates": {
+    "description": "Wie oft Masthead alle Quellen nach neuen Meldungen fragt.",
+    "refreshing": "Feeds werden geladen · {{done}} von {{total}}",
+    "failed": "Aktualisierung gerade nicht möglich. Bitte versuchen Sie es erneut.",
+    "interval": {
+      "label": "Nach Nachrichten suchen alle",
+      "description": "Die Abfragen sind sparsam: unveränderte Feeds werden nicht erneut geladen.",
+      "minutes_one": "{{count}} Min.",
+      "minutes_other": "{{count}} Min."
+    },
+    "now": {
+      "label": "Letzte Prüfung",
+      "action": "Jetzt aktualisieren"
+    }
+  },
+  "data": {
+    "description": "Ihr Leseverlauf, ein frischer Start und ein wenig über Masthead.",
+    "history": {
+      "label": "Leseverlauf",
+      "description_zero": "Ihr Verlauf ist leer.",
+      "description_one": "{{count}} Meldung in Ihrem Verlauf, nur auf diesem Gerät gespeichert.",
+      "description_other": "{{count}} Meldungen in Ihrem Verlauf, nur auf diesem Gerät gespeichert.",
+      "action": "Verlauf löschen",
+      "done": "Leseverlauf gelöscht",
+      "confirmTitle": "Lese-Verlauf löschen?",
+      "confirmDescription_one": "{{count}} Meldung wird aus Ihrem Verlauf entfernt. Gespeicherte Meldungen bleiben.",
+      "confirmDescription_other": "{{count}} Meldungen werden aus Ihrem Verlauf entfernt. Gespeicherte Meldungen bleiben."
+    },
+    "reset": {
+      "label": "Alle Einstellungen zurücksetzen",
+      "description": "Alles geht auf die Standardwerte zurück und die Einführung läuft erneut. Gespeicherte Meldungen und der Verlauf bleiben.",
+      "action": "Einstellungen zurücksetzen",
+      "confirmTitle": "Alle Einstellungen zurücksetzen?",
+      "confirmDescription": "Design, Schriften, Quellen und Interessen gehen auf die Standardwerte zurück, und die Einführung startet erneut. Gespeicherte Meldungen und der Verlauf bleiben."
+    }
+  },
+  "about": {
+    "version": "Version {{version}}",
+    "runtime": "Electron {{electron}} · Chromium {{chrome}}",
+    "webMode": "Web-Modus",
+    "license": "MIT-Lizenz",
+    "github": "Quellcode auf GitHub",
+    "issue": "Problem melden"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "intro": {
     "headline": "Tüm haberler, tek sakin yerde.",
-    "subtitle": "Türkiye'nin önde gelen haber kaynakları tek ve sakin bir ön sayfada. Dört kısa soru ve hazırsınız.",
-    "subtitleWithCountry": "Türkiye'nin önde gelen haber kaynakları tek ve sakin bir ön sayfada. Beş kısa soru ve hazırsınız.",
+    "subtitle": "Ülkenizin önde gelen haber kaynakları tek ve sakin bir ön sayfada. Dört kısa soru ve hazırsınız.",
+    "subtitleWithCountry": "Ülkenizin önde gelen haber kaynakları tek ve sakin bir ön sayfada. Beş kısa soru ve hazırsınız.",
     "country": "{{country}} · {{sources}} kaynak · yeni ülkeler yakında"
   },
   "progress": "Adım {{current}}/{{total}}",
@@ -11,7 +11,7 @@
   "language": {
     "kicker": "Dil",
     "title": "Hangi dili tercih edersiniz?",
-    "hint": "Bu seçim menüleri ve düğmeleri belirler; haberler Türkçe kalır.",
+    "hint": "Bu seçim menüleri ve düğmeleri belirler; haberler kendi dilinde kalır.",
     "cardHint": "Menüler ve düğmeler Türkçe"
   },
   "theme": {

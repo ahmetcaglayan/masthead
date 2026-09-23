@@ -1,0 +1,55 @@
+{
+  "mode": {
+    "label": "Ansicht",
+    "web": "Web",
+    "reader": "Lesemodus"
+  },
+  "toolbar": {
+    "back": "Zurück",
+    "forward": "Vorwärts",
+    "reload": "Seite neu laden",
+    "save": "Speichern",
+    "unsave": "Aus Gespeicherten entfernen",
+    "copyLink": "Link kopieren",
+    "linkCopied": "Link kopiert",
+    "copyFailed": "Link konnte nicht kopiert werden",
+    "openInBrowser": "Im Browser öffnen",
+    "previous": "Vorheriger Artikel",
+    "next": "Nächster Artikel",
+    "position": "Meldung {{current}} von {{total}}",
+    "close": "Schließen",
+    "textSettings": "Texteinstellungen"
+  },
+  "text": {
+    "size": "Schriftgröße",
+    "smaller": "Kleinere Schrift",
+    "larger": "Größere Schrift",
+    "typeface": "Schriftart",
+    "readingFont": "Leseschrift",
+    "uiFont": "Oberflächenschrift"
+  },
+  "coverage": {
+    "label": "Auch berichtet von"
+  },
+  "web": {
+    "loading": "{{site}} wird geladen…",
+    "failedTitle": "Die Seite wurde nicht geladen",
+    "failedDescription": "{{site}} war nicht erreichbar. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut — oder lesen Sie den Artikel im Lesemodus.",
+    "retry": "Erneut versuchen",
+    "tryReader": "Lesemodus versuchen",
+    "blockedTitle": "Diese Seite lässt sich im Browser nicht einbetten",
+    "blockedDescription": "{{site}} erlaubt nicht, innerhalb einer anderen Seite angezeigt zu werden. In der Desktop-App gibt es diese Grenze nicht.",
+    "blockedNotice": "Diese Seite lässt sich im Browser nicht einbetten — es wird der Lesemodus gezeigt",
+    "openOriginal": "Original öffnen"
+  },
+  "reader": {
+    "minutes_one": "{{count}} Min. Lesezeit",
+    "minutes_other": "{{count}} Min. Lesezeit",
+    "failedTitle": "Der Artikel ließ sich nicht auslesen",
+    "failedDescription": "Das hat {{source}} im Feed mitgeschickt. Die ganze Meldung steht auf der Seite des Mediums.",
+    "retry": "Erneut versuchen",
+    "showWeb": "Webseite anzeigen",
+    "sourceLabel": "Quelle",
+    "viewOriginal": "Originalseite ansehen"
+  }
+}

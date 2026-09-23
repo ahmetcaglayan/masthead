@@ -6,8 +6,9 @@
 
 **All your news. One calm place.**
 
-A beautiful desktop news reader that brings together the headlines of every major Turkish news outlet —
-and lets you read them without ever leaving the app.
+A beautiful desktop news reader that brings the headlines of a country's major newsrooms together —
+and lets you read them, ad-free, without ever leaving the app.
+**Türkiye · United States · India · United Kingdom · Germany · Brazil.**
 
 [![Release](https://img.shields.io/github/v/release/ahmetcaglayan/masthead?style=flat-square&color=f4502f)](https://github.com/ahmetcaglayan/masthead/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/ahmetcaglayan/masthead/total?style=flat-square&color=f4502f)](https://github.com/ahmetcaglayan/masthead/releases)
@@ -25,17 +26,44 @@ and lets you read them without ever leaving the app.
 
 ## Why Masthead?
 
-Following the news in Turkey usually means a dozen browser tabs, cookie banners, autoplaying videos and pop-ups.
-Masthead gathers the stories of 67 national outlets (24 on by default) and local papers in all 81 provinces into one calm, magazine-like front page:
+Following the news usually means a dozen browser tabs, cookie banners, autoplaying videos and pop-ups.
+Masthead gathers **203 newsrooms across six countries** into one calm, magazine-like front page:
 
 - **Follow the agenda without clicking.** Full headlines, full summaries and photos on every card. The **Digest**
   groups the same story from different outlets, so you see who reported what at a glance.
-- **Read in place.** Click a story and the publisher's own page opens in a large dialog inside the app. Press
-  <kbd>Esc</kbd> and you're back. Prefer something quieter? Switch to **Reader mode**.
-- **Breaking news, front page and a live timeline.** A breaking-news ticker, a manşet (front-page) hero built from
+- **Read in place, without the ads.** Click a story and the publisher's own page opens in a large dialog inside
+  the app, with ads and trackers blocked. Press <kbd>Esc</kbd> and you're back. Prefer something quieter?
+  Switch to **Reader mode**.
+- **Breaking news, front page and a live timeline.** A breaking-news ticker, a front-page hero built from
   the stories most outlets are covering, and a minute-by-minute "latest" column.
-- **Your sources, your rules.** Turn any outlet on or off. Filter by time, source, region and all 81 provinces.
+- **Your sources, your rules.** Turn any outlet on or off. Filter by time, source, topic — and, in Türkiye,
+  by region and all 81 provinces.
 - **Private by design.** No account, no telemetry. Settings, saved stories and history stay on your computer.
+
+### Read the news, not the ads
+
+Every story opens inside Masthead, and the embedded browser runs with **ad and tracker blocking** switched on
+(EasyList-based, toggleable in Settings → Reading). No consent banners fighting for your attention, no
+autoplaying video, no newsletter pop-up over the second paragraph — the article, the way the newsroom wrote it.
+
+When a page still gets in the way, **Reader mode** strips it back to the text: headline, byline and body in your
+own reading font and size, on the app's warm paper or deep-ink background. Same story, no layout, no scripts.
+You can set Reader mode as the default for every story in Settings → Reading, and switch between **Web** and
+**Reader** in the toolbar at any time. Downloads, pop-ups and permission requests from news pages are refused,
+and the embedded browser runs in its own sandboxed session, separate from everything else.
+
+### One story, every outlet
+
+The same event is rarely told the same way twice. Masthead clusters the stories that different newsrooms publish
+about one event, so you can read around a story instead of through a single outlet:
+
+- On the **front page**, the top story shows how many outlets are covering it ("8 sources") with the other
+  newsrooms' own headlines underneath.
+- The **Digest** page is that idea end to end: one card per event, the fullest summary at the top, and every
+  other outlet's headline below it with its logo and the time it published — the whole day's agenda, no clicking.
+- Inside an open article, **"Also covered by"** lists the same event elsewhere, so you can jump from one
+  newsroom's version to another's in a click, or step through them with <kbd>←</kbd> / <kbd>→</kbd>.
+- Sort any feed by **Most covered** to put the stories many outlets are running first.
 
 ## Screenshots
 
@@ -47,6 +75,21 @@ Masthead gathers the stories of 67 national outlets (24 on by default) and local
 | **Reader mode** — clean text in your chosen font | **Latest** — a minute-by-minute timeline (Turkish UI, dark theme) |
 | ![First-run setup](docs/images/onboarding.png) | ![Settings](docs/images/settings.png) |
 | **First run** — a few quick questions and you're in | **Settings** — themes, accent colours, fonts, sources |
+
+## Six countries, four languages
+
+The interface language and the language of the news are independent: read Brazilian newspapers with a German
+interface if that is what you want.
+
+| | |
+| --- | --- |
+| ![Masthead's front page with United States sources](docs/images/us-home.png) | ![Masthead's front page with United Kingdom sources](docs/images/gb-home.png) |
+| 🇺🇸 **United States** — 15 newsrooms, from NPR and the NYT to Fox News and Axios | 🇬🇧 **United Kingdom** — BBC, Guardian, Sky News, the Independent, the FT |
+| ![Masthead in German with German sources](docs/images/de-home.png) | ![The Digest page in Portuguese with Brazilian sources](docs/images/br-digest.png) |
+| 🇩🇪 **Germany** — tagesschau, Spiegel, Zeit, FAZ, SZ… with the interface in German | 🇧🇷 **Brazil** — the Digest in Portuguese: one card, every outlet's headline |
+| ![The Latest timeline with Indian sources](docs/images/in-latest.png) | ![Reader mode on a German article](docs/images/de-reader.png) |
+| 🇮🇳 **India** — the Latest timeline across TOI, The Hindu, HT, NDTV and more | 📖 **Reader mode** — the article and nothing else, in your own reading font |
+
 
 ## Download
 
@@ -94,14 +137,26 @@ block most news sites from being embedded; the desktop app has no such limit).
 | 🗂️ **Sources** | Switch each outlet on or off; feed health at a glance |
 | 🔖 **Library** | Saved stories and reading history, stored locally |
 | 🎨 **Make it yours** | Light / dark / system, five accent colours, twelve reading fonts, text size, compact mode |
-| 🌍 **Languages** | English and Turkish interface (more to come); country selection is on the roadmap |
+| 🌍 **Countries** | Türkiye, the United States, India, the United Kingdom, Germany and Brazil — switch in Settings |
+| 💬 **Languages** | English, Türkçe, Deutsch and Português interface; the news stays in its own language |
 
 ## Sources
 
-Masthead ships with a curated, politically balanced set of Turkish outlets — public broadcaster, news agencies,
-mainstream papers, independent and opposition media, international Turkish-language services, plus business,
-sports and technology titles — and local newspapers for many provinces. See [docs/SOURCES.md](docs/SOURCES.md)
-for the full list and how to add one.
+Masthead ships a **country pack** per country: a curated, politically balanced set of outlets — public
+broadcasters, news agencies, mainstream papers, independent media, plus business, sports and technology titles.
+
+| Country | Sources | Feeds |
+| --- | --- | --- |
+| 🇹🇷 Türkiye | 136 (67 national + local papers in all 81 provinces) | 536 |
+| 🇺🇸 United States | 15 | 46 |
+| 🇮🇳 India | 10 | 32 |
+| 🇬🇧 United Kingdom | 10 | 37 |
+| 🇩🇪 Germany | 15 | 46 |
+| 🇧🇷 Brazil | 17 | 34 |
+
+Every feed is checked against the live sites before it ships (`npm run verify:feeds`). See
+[docs/SOURCES.md](docs/SOURCES.md) for the full list, the country-pack layout and how to add a source or a
+country of your own.
 
 Masthead only shows headlines, summaries and images that publishers provide in their public RSS feeds. Full
 articles are always read on the publisher's own page.
@@ -120,6 +175,20 @@ npm run dist:win     # build the Windows installer and portable exe into release
 Built with Electron, React, TypeScript, Tailwind CSS and Vite. The backend (`src/core`) is plain Node.js and
 runs both inside the desktop app and behind the web mode. Read [docs/PLAN.md](docs/PLAN.md) for the architecture
 and roadmap and [CONTRIBUTING.md](CONTRIBUTING.md) to get involved.
+
+### On a network that inspects HTTPS
+
+On some company networks a proxy re-signs every HTTPS connection with the organisation's own root certificate.
+Browsers accept it through the system trust store, but Node.js keeps its own — so every feed fails with
+`SELF_SIGNED_CERT_IN_CHAIN` and the app stays empty. Save that root certificate as a PEM file and point Node at
+it:
+
+```bash
+NODE_EXTRA_CA_CERTS=/path/to/root-ca.pem npm run dev:web
+```
+
+The same variable applies to `npm run dev`: articles render in an embedded browser view that uses the system
+store, but the feeds are fetched by Node.
 
 ## Privacy
 

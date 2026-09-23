@@ -1,7 +1,7 @@
 import { isCategoryId, type CategoryId } from './categories'
 import type { CountryCode, RegionId } from './types'
 
-export const UI_LANGUAGES = ['en', 'tr'] as const
+export const UI_LANGUAGES = ['en', 'tr', 'de', 'pt'] as const
 export type UiLanguage = (typeof UI_LANGUAGES)[number]
 
 export type ThemeMode = 'system' | 'light' | 'dark'
@@ -148,7 +148,7 @@ const pick = <T extends string>(value: unknown, allowed: readonly T[], fallback:
   typeof value === 'string' && (allowed as readonly string[]).includes(value) ? (value as T) : fallback
 
 const FONT_IDS = FONTS.map((f) => f.id)
-const COUNTRIES: readonly CountryCode[] = ['tr', 'us', 'gb', 'de', 'fr', 'es', 'it', 'nl', 'az']
+const COUNTRIES: readonly CountryCode[] = ['tr', 'us', 'in', 'gb', 'de', 'br', 'fr', 'es', 'it', 'nl', 'az']
 
 function obj(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value) ? (value as Record<string, unknown>) : {}

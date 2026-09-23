@@ -1,8 +1,8 @@
 {
   "intro": {
     "headline": "All your news. One calm place.",
-    "subtitle": "Every major Turkish newsroom on one quiet front page. Four quick questions and you're in.",
-    "subtitleWithCountry": "Every major Turkish newsroom on one quiet front page. Five quick questions and you're in.",
+    "subtitle": "The newsrooms of your country on one quiet front page. Four quick questions and you're in.",
+    "subtitleWithCountry": "The newsrooms of your country on one quiet front page. Five quick questions and you're in.",
     "country": "{{country}} · {{sources}} outlets · more countries soon"
   },
   "progress": "Step {{current}} of {{total}}",
@@ -11,7 +11,7 @@
   "language": {
     "kicker": "Language",
     "title": "Which language do you prefer?",
-    "hint": "This sets the menus and buttons. The news itself stays in Turkish.",
+    "hint": "This sets the menus and buttons. The news itself stays in its own language.",
     "cardHint": "Menus and buttons in English"
   },
   "theme": {

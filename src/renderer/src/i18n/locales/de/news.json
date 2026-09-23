@@ -1,0 +1,215 @@
+{
+  "kicker": {
+    "breaking": "Eilmeldung"
+  },
+  "meta": {
+    "sources_one": "{{count}} Quelle",
+    "sources_other": "{{count}} Quellen",
+    "updated": "aktualisiert {{time}}"
+  },
+  "card": {
+    "alsoReporting": "Berichten auch"
+  },
+  "summary": {
+    "continueHere": "Den Rest der Meldung hier lesen",
+    "loading": "Ganze Meldung wird geladen…",
+    "openFull": "Ganzen Artikel öffnen",
+    "noDetail": "Der Feed gibt zu dieser Meldung nicht mehr her — öffnen Sie den Artikel für den Rest."
+  },
+  "toast": {
+    "saved": "Für später gespeichert",
+    "unsaved": "Aus Gespeicherten entfernt"
+  },
+  "cluster": {
+    "coveredBy_one": "Von {{count}} Quelle berichtet",
+    "coveredBy_other": "Von {{count}} Quellen berichtet",
+    "otherHeadlines": "Was andere Medien schreiben",
+    "moreSources_one": "{{count}} weitere Quelle",
+    "moreSources_other": "{{count}} weitere Quellen"
+  },
+  "ticker": {
+    "label": "Eilmeldungen",
+    "pause": "Laufband anhalten",
+    "play": "Laufband fortsetzen",
+    "previous": "Vorherige Meldung",
+    "next": "Nächste Meldung",
+    "position": "{{current}}/{{total}}",
+    "all": "Alle Eilmeldungen ({{count}})"
+  },
+  "timeline": {
+    "showMore": "Mehr anzeigen"
+  },
+  "header": {
+    "stories_one": "{{formatted}} Meldung",
+    "stories_other": "{{formatted}} Meldungen"
+  },
+  "feed": {
+    "loadMore": "Mehr laden ({{shown}} von {{total}})",
+    "end": "Sie sind auf dem Laufenden."
+  },
+  "gate": {
+    "allOffTitle": "Alle Quellen sind ausgeschaltet",
+    "allOffBody": "Schalten Sie mindestens eine Quelle ein, dann erscheinen ihre Meldungen hier.",
+    "manageSources": "Quellen verwalten",
+    "offlineBody": "Es sind noch keine Meldungen gespeichert. Sobald Sie wieder online sind, holen wir die Nachrichten.",
+    "emptyTitle": "Noch keine Meldungen",
+    "emptyBody": "Die Feeds sind noch nicht da. Jetzt aktualisieren oder gleich noch einmal vorbeischauen."
+  },
+  "filters": {
+    "label": "Filter",
+    "timeRange": "Zeitraum",
+    "time": {
+      "1h": "1 Std.",
+      "6h": "6 Std.",
+      "24h": "24 Std.",
+      "3d": "3 Tage",
+      "all": "Alle"
+    },
+    "timeLong": {
+      "1h": "Letzte Stunde",
+      "6h": "Letzte 6 Stunden",
+      "24h": "Letzte 24 Stunden",
+      "3d": "Letzte 3 Tage"
+    },
+    "sources": "Quellen",
+    "sourcesCount_one": "{{count}} Quelle",
+    "sourcesCount_other": "{{count}} Quellen",
+    "searchSources": "Quelle finden…",
+    "allSources": "Alle Quellen",
+    "noSources": "Keine passende Quelle.",
+    "location": "Region / Provinz",
+    "sort": {
+      "latest": "Neueste",
+      "popular": "Am meisten berichtet"
+    },
+    "withImages": "Mit Bild",
+    "hideRead": "Gelesene ausblenden",
+    "results_one": "{{formatted}} Meldung",
+    "results_other": "{{formatted}} Meldungen",
+    "remove": "Filter entfernen: {{label}}",
+    "clearAll": "Filter zurücksetzen",
+    "filtered": "Gefiltert: {{filters}}",
+    "noMatchTitle": "Keine Meldung passt zu diesen Filtern",
+    "noMatchBody": "Versuchen Sie einen längeren Zeitraum oder entfernen Sie ein, zwei Filter."
+  },
+  "location": {
+    "search": "Provinz finden…",
+    "noMatch": "Keine Provinz dieses Namens.",
+    "anywhere": "Alle Regionen",
+    "showProvinces": "Provinzen in {{region}} anzeigen"
+  },
+  "home": {
+    "dateline_one": "{{stories}} Meldungen aus {{count}} Quelle",
+    "dateline_other": "{{stories}} Meldungen aus {{count}} Quellen",
+    "topStories": "Topmeldung",
+    "moreTopStories": "Weitere Topmeldungen",
+    "digestKicker": "Auf einen Blick",
+    "digestDescription": "Meldungen, über die mehrere Medien berichten — je eine Karte, wer was schreibt, nebeneinander.",
+    "digestAll": "Ganzen Überblick ansehen"
+  },
+  "digest": {
+    "title": "Überblick",
+    "kicker": "Auf einen Blick",
+    "description": "Jede Meldung, über die mehrere Medien berichten, auf einer Karte mit der Schlagzeile jedes Mediums — ganz ohne Klicken.",
+    "summary_one": "{{formatted}} Meldung aus {{sources}} Quellen",
+    "summary_other": "{{formatted}} Meldungen aus {{sources}} Quellen",
+    "emptyTitle": "Noch keine gemeinsamen Meldungen",
+    "emptyBody": "Meldungen, über die mehr als ein Medium berichtet, sammeln sich hier. Schauen Sie gleich noch einmal vorbei.",
+    "soloTitle": "Auf einer Titelseite",
+    "soloBody": "Meldungen, mit denen bisher nur ein Medium aufmacht.",
+    "more": "Mehr Meldungen anzeigen"
+  },
+  "latest": {
+    "title": "Neueste",
+    "kicker": "Live-Feed",
+    "description": "Jede Meldung Ihrer Quellen, Minute für Minute."
+  },
+  "breaking": {
+    "live": "Live",
+    "title": "Eilmeldungen",
+    "description": "Direkt aus den Eilmeldungs-Feeds Ihrer Quellen.",
+    "recent_one": "{{count}} neue in den letzten 2 Stunden",
+    "recent_other": "{{count}} neue in den letzten 2 Stunden",
+    "total_one": "{{formatted}} Eilmeldung insgesamt",
+    "total_other": "{{formatted}} Eilmeldungen insgesamt",
+    "emptyTitle": "Gerade keine Eilmeldungen",
+    "emptyBody": "Wenn etwas passiert, steht es zuerst hier."
+  },
+  "forYou": {
+    "title": "Für Sie",
+    "kicker": "Persönlich",
+    "description": "Meldungen, ausgewählt nach Ihren Interessen.",
+    "descriptionWithCity": "Meldungen, ausgewählt nach Ihren Interessen und für {{city}}.",
+    "interests": "Ihre Interessen",
+    "pickTitle": "Was möchten Sie verfolgen?",
+    "pickBody": "Wählen Sie ein paar Themen, dann folgt Ihr Feed ihnen. Sie können das jederzeit ändern.",
+    "emptyTitle": "Noch nichts für Sie",
+    "emptyBody": "Fügen Sie ein paar Themen hinzu oder schauen Sie gleich noch einmal vorbei."
+  },
+  "local": {
+    "title": "Regionales",
+    "kicker": "Regional",
+    "chooseBody": "Welcher Stadt möchten Sie folgen? Öffnen Sie eine Region und wählen Sie Ihre Provinz.",
+    "change": "Stadt wechseln",
+    "sources": "Regionale Quellen",
+    "description": "Alles über {{city}}, dazu die Medien vor Ort.",
+    "regionDescription": "Meldungen über die Provinzen Ihrer Region.",
+    "emptyTitle": "Noch keine Meldungen über {{place}}",
+    "emptyBody": "Die regionalen Feeds sind unterwegs — schauen Sie in ein paar Minuten noch einmal vorbei.",
+    "nearby": "Rund um die Region {{region}}",
+    "top": "Topmeldungen aus {{place}}"
+  },
+  "category": {
+    "kicker": "Thema",
+    "top": "Top-Meldungen: {{topic}}",
+    "emptyTitle": "Noch keine Meldungen zu {{topic}}",
+    "emptyBody": "Meldungen zu diesem Thema erscheinen hier, sobald sie eintreffen."
+  },
+  "source": {
+    "offBadge": "Aus",
+    "feeds_one": "{{count}} Feed",
+    "feeds_other": "{{count}} Feeds",
+    "on": "Ein",
+    "off": "Aus",
+    "unknownTitle": "Quelle nicht gefunden",
+    "unknownBody": "Diese Quelle gehört nicht zum gewählten Land.",
+    "disabledTitle": "{{name}} ist ausgeschaltet",
+    "disabledBody": "Schalten Sie die Quelle ein, dann erscheinen ihre Meldungen hier und in Ihren Feeds.",
+    "turnOn": "Einschalten",
+    "emptyTitle": "Noch keine Meldungen dieser Quelle",
+    "emptyBody": "Ihre Feeds werden bei der nächsten Aktualisierung geprüft."
+  },
+  "search": {
+    "title": "Suche",
+    "kicker": "Suchergebnisse",
+    "titleFor": "„{{query}}“",
+    "results_one": "{{formatted}} Treffer",
+    "results_other": "{{formatted}} Treffer",
+    "order": "Reihenfolge",
+    "relevance": "Beste Treffer",
+    "newest": "Neueste",
+    "startTitle": "Wonach suchen Sie?",
+    "startKicker": "Alle Quellen",
+    "startBody": "Gesucht wird in Schlagzeilen und Zusammenfassungen. Akzente sind optional — „istanbul“ findet „İstanbul“.",
+    "focus": "Suche starten",
+    "noResultsBody": "Versuchen Sie andere oder weniger Wörter. Ausdrücke in Anführungszeichen werden genau gesucht.",
+    "noResultsFiltered": "Vielleicht verbergen Ihre Filter einige Treffer."
+  },
+  "saved": {
+    "title": "Gespeichert",
+    "description": "Meldungen, die Sie sich für später zurückgelegt haben.",
+    "emptyTitle": "Noch nichts gespeichert",
+    "emptyBody": "Mit dem Lesezeichen an jeder Meldung landet sie hier."
+  },
+  "history": {
+    "title": "Verlauf",
+    "description": "Geöffnete Meldungen, die neuesten zuerst.",
+    "clear": "Verlauf löschen",
+    "readAt": "Gelesen um {{time}}",
+    "emptyTitle": "Noch kein Verlauf",
+    "emptyBody": "Meldungen, die Sie öffnen, stehen hier Tag für Tag.",
+    "clearTitle": "Lese-Verlauf löschen?",
+    "clearBody": "Die Liste der gelesenen Meldungen wird entfernt. Gespeicherte Meldungen bleiben. Das lässt sich nicht rückgängig machen.",
+    "clearConfirm": "Verlauf löschen"
+  }
+}

@@ -1,6 +1,6 @@
 import type { CategoryId } from './categories'
 
-export type CountryCode = 'tr' | 'us' | 'gb' | 'de' | 'fr' | 'es' | 'it' | 'nl' | 'az'
+export type CountryCode = 'tr' | 'us' | 'in' | 'gb' | 'de' | 'br' | 'fr' | 'es' | 'it' | 'nl' | 'az'
 
 /** Geographic region id inside a country pack (e.g. `marmara` for Turkey). */
 export type RegionId = string

@@ -1,7 +1,20 @@
-# Sources — Turkey pack
+# Sources
 
-Everything Masthead knows about Turkish news sources lives in one country pack, `src/shared/countries/tr/`.
-This document describes what is in it, why, and how to change it.
+Every country Masthead covers is one **country pack** under `src/shared/countries/<code>/`, registered in
+`countries/index.ts`. Six packs ship today:
+
+| Pack | Language | Sources | Feeds | On by default | Provinces |
+| --- | --- | --- | --- | --- | --- |
+| `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 |
+| `us` United States | English | 15 | 46 | 15 | — |
+| `in` India | English | 10 | 32 | 9 | — |
+| `gb` United Kingdom | English | 10 | 37 | 7 | — |
+| `de` Germany | German | 15 | 46 | 14 | — |
+| `br` Brazil | Portuguese | 17 | 34 | 13 | — |
+
+Most of this document describes the Turkey pack, which is the deepest one (and the only one with local news so
+far); [the other packs](#the-other-country-packs) are listed at the end. The rules below — one feed per
+category, no stale or empty feeds, a balanced default set — apply to every pack.
 
 - **Verified:** research passes with curl on **2026-09-22**, re-checked with `npm run verify:feeds -- --all`
   on **2026-09-23**, and twice more later that day during QA (536 feeds: no failures; the only stale feeds are
@@ -292,8 +305,9 @@ answers 500).
 ## Verifying feeds
 
 ```sh
-npm run verify:feeds            # default-enabled national sources + 3 city feeds per local source
-npm run verify:feeds -- --all   # every feed in the pack
+npm run verify:feeds            # default-enabled sources of every pack + 3 city feeds per local source
+npm run verify:feeds -- de br   # only those countries
+npm run verify:feeds -- --all   # every feed of every pack
 npm run verify:feeds -- sozcu   # every feed of the named sources
 ```
 
@@ -301,6 +315,48 @@ The script (`scripts/verify-feeds.ts`, plain Node 24) fetches with 8 requests in
 15-second timeout, retries a failure once, and prints status, item count, age of the newest item, charset and
 size per feed. A feed **fails** on a network error, a non-2xx status, a body that is not RSS/Atom, or no
 items; it is **stale** when its newest item is older than 3 days. The exit code is 1 when more than 10% fail.
+
+## The other country packs
+
+The five packs added on 2026-09-23 follow the Turkey pack's rules but carry national sources only: no local
+outlets, no province or district tables (`provinces: []`), so the app hides the Local page and the city
+question for them. Every feed below was checked against the live site on 2026-09-23; 185 of 186 feeds
+answered with fresh items (the one stale feed, CBS News health, was dropped).
+
+**Why these five:** the countries with the largest online-news audiences that Masthead can serve well today —
+the United States (322M internet users), India (806M, with a large English-language press), the United
+Kingdom, Germany (66% weekly online news use) and Brazil (183M, among the highest news engagement anywhere).
+Three of them need no new interface language; German and Brazilian Portuguese were added for the other two.
+
+| Pack | Sources |
+| --- | --- |
+| `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Politico, The Hill, Axios, CNBC, The Verge, Ars Technica, ESPN |
+| `in` | The Times of India, The Hindu, Hindustan Times, The Indian Express, NDTV, India Today, News18, Firstpost*, The Economic Times, Mint |
+| `gb` | BBC News, The Guardian, Sky News, The Independent, Evening Standard, Financial Times, The Economist, Daily Mail*, Daily Mirror*, Metro* |
+| `de` | tagesschau, ZDFheute, Deutsche Welle, Der Spiegel, Zeit Online, FAZ, Süddeutsche Zeitung, Welt, n-tv, Stern, Focus Online*, taz, Handelsblatt, heise online, kicker |
+| `br` | G1, Folha de S.Paulo, UOL, Estadão, CNN Brasil, Metrópoles*, Agência Brasil, BBC News Brasil, Poder360, CartaCapital*, Gazeta do Povo*, Veja, InfoMoney, Exame, Olhar Digital, Tecnoblog*, ge |
+
+\* off by default (popular press, or a second voice from the same corner), like the tabloids in the Turkey pack.
+
+Feeds that were checked and left out: the Associated Press and The Telegraph (403 for non-browser clients),
+USA Today, ITV News, Scroll.in, The Wire, Deccan Herald and the old Estadão RSS paths (no XML any more), and
+CNN, whose `rss.cnn.com` feeds stopped updating years ago.
+
+### Adding a country
+
+1. Create `src/shared/countries/<code>/sources.ts` with the `SourceDef` list and `<code>/index.ts` with the
+   `CountryPack` (`language`, `locale`, `timeZone`, `googleNews`, empty `regions`/`provinces`/`districts`
+   unless you have them).
+2. Add the code to `CountryCode` (`src/shared/types.ts`), to `COUNTRIES` in `src/shared/settings.ts`, and to
+   `PACKS` and `ORDER` in `countries/index.ts`.
+3. Add `common:country.<code>` and `common:category.national_<code>` to every locale, and flag artwork to
+   `CountryFlag.tsx`.
+4. Run `npm run verify:feeds <code>` and `npm test` (the pack tests in `tests/shared/countries.test.ts` check
+   ids, urls, categories and languages).
+
+If the interface should also speak the country's language, copy `src/renderer/src/i18n/locales/en` to a new
+folder, translate it, and add the code to `UI_LANGUAGES`, `LOCALES` in `i18n/index.ts`, `LANGUAGE_OPTIONS`
+and `LABEL` in `src/main/notifications.ts`.
 
 ## Future: Google News RSS
 

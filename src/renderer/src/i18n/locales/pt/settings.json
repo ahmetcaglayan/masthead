@@ -1,0 +1,240 @@
+{
+  "page": {
+    "title": "Ajustes",
+    "kicker": "Preferências",
+    "description": "Deixe o Masthead com a sua cara. As mudanças são salvas na hora.",
+    "sections": "Seções dos ajustes"
+  },
+  "nav": {
+    "appearance": "Aparência",
+    "typography": "Tipografia",
+    "language": "Idioma e região",
+    "interests": "Interesses",
+    "sources": "Fontes",
+    "reading": "Leitura",
+    "notifications": "Notificações",
+    "updates": "Atualizações",
+    "data": "Dados e sobre"
+  },
+  "appearance": {
+    "description": "Tema, cor e como a sua primeira página é montada.",
+    "theme": {
+      "label": "Tema",
+      "description": "Papel quente de dia, tinta profunda à noite — ou deixe o seu aparelho decidir.",
+      "lightHint": "Papel quente",
+      "darkHint": "Tinta profunda",
+      "systemHint": "Segue o seu aparelho"
+    },
+    "accent": {
+      "label": "Cor de destaque",
+      "description": "Usada em destaques, links e na página em que você está.",
+      "ember": "Brasa",
+      "ocean": "Oceano",
+      "forest": "Floresta",
+      "violet": "Violeta",
+      "gold": "Ouro"
+    },
+    "density": {
+      "label": "Densidade",
+      "description": "O modo compacto cabe mais notícias na tela.",
+      "comfortable": "Confortável",
+      "compact": "Compacto"
+    },
+    "cardStyle": {
+      "label": "Estilo das cartas",
+      "description": "Como as notícias aparecem em listas e seções.",
+      "magazine": "Revista",
+      "magazineHint": "Fotos grandes, resumos completos",
+      "grid": "Grade",
+      "gridHint": "Mais notícias de relance",
+      "list": "Lista",
+      "listHint": "Uma coluna calma, texto primeiro"
+    },
+    "sidebar": {
+      "label": "Barra lateral estreita",
+      "description": "Mostra só os ícones na barra lateral para dar mais espaço às notícias."
+    }
+  },
+  "typography": {
+    "description": "Escolha as fontes e o tamanho mais confortáveis para os seus olhos.",
+    "reset": "Redefinir tipografia",
+    "sans": "Sem serifa",
+    "serif": "Com serifa",
+    "default": "Padrão",
+    "uiFont": {
+      "label": "Fonte da interface",
+      "description": "Menus, rótulos e resumos das notícias."
+    },
+    "headlineFont": {
+      "label": "Fonte das manchetes",
+      "description": "Manchetes nas cartas e na notícia principal."
+    },
+    "readingFont": {
+      "label": "Fonte de leitura",
+      "description": "Texto das matérias no modo de leitura."
+    },
+    "scale": {
+      "label": "Tamanho do texto",
+      "description": "Ajusta todo o texto do aplicativo."
+    },
+    "preview": {
+      "kicker": "Economia",
+      "headline": "Banco central mantém os juros com a inflação em queda pelo terceiro mês",
+      "summary": "A autoridade monetária disse que a pressão sobre os preços cede mais rápido que o esperado e sinalizou cortes no início do ano que vem se a tendência continuar.",
+      "meta": "Redação · há 5 min",
+      "readerLabel": "Modo de leitura",
+      "body": "A decisão já era esperada. Analistas veem o primeiro corte na primavera, e os mercados ficaram calmos depois do anúncio.",
+      "faces": {
+        "ui": "Interface",
+        "headline": "Manchete",
+        "reading": "Leitura"
+      }
+    }
+  },
+  "locale": {
+    "description": "O idioma da interface e de onde vêm as suas notícias.",
+    "language": {
+      "label": "Idioma da interface",
+      "description": "As notícias continuam no idioma original."
+    },
+    "country": {
+      "label": "País",
+      "description": "De quais redações você acompanha as notícias. Seis países hoje; outros estão a caminho.",
+      "soon": "Em breve"
+    },
+    "city": {
+      "label": "Cidade ou região",
+      "description": "Enche a sua página Local com notícias de perto de você."
+    }
+  },
+  "interests": {
+    "description": "Os temas que você segue definem a sua página “Para você” e a ordem das seções no Início.",
+    "keepOne": "Deixe pelo menos um tema selecionado."
+  },
+  "sources": {
+    "description": "Ligue ou desligue qualquer veículo. Fontes desligadas nunca são consultadas.",
+    "page": {
+      "title": "Fontes",
+      "description": "Escolha os veículos que alimentam a sua primeira página. Fontes desligadas nunca são consultadas, e as suas escolhas ficam salvas."
+    },
+    "search": "Buscar fontes",
+    "summary": "{{on}} de {{count}} fontes ligadas",
+    "delivering_one": "{{count}} trazendo notícias",
+    "delivering_other": "{{count}} trazendo notícias",
+    "cityOnly_one": "{{count}} veículo local espera pela sua cidade",
+    "cityOnly_other": "{{count}} veículos locais esperam pelas suas cidades",
+    "notDelivering": "Sem notícias ({{count}})",
+    "feeds_one": "{{count}} feed",
+    "feeds_other": "{{count}} feeds",
+    "failing_one": "{{count}} com falha",
+    "failing_other": "{{count}} com falha",
+    "enableAll": "Ligar todas",
+    "disableAll": "Desligar todas",
+    "enableMatches": "Ligar os resultados",
+    "disableMatches": "Desligar os resultados",
+    "restoreDefaults": "Restaurar as fontes padrão",
+    "undo": "Desfazer",
+    "toggle": "Mostrar notícias de {{name}}",
+    "groupToggle": "Alternar todas as fontes de {{group}}",
+    "groupCount": "{{on}} de {{count}} ligadas",
+    "yourCity": "Sua cidade",
+    "allProvinces": "Todas as {{count}} províncias",
+    "localNote": "Os veículos locais só são consultados para a cidade escolhida.",
+    "stories_one": "{{formatted}} notícia",
+    "stories_other": "{{formatted}} notícias",
+    "health": {
+      "ok_one": "Feed funcionando · verificado {{time}}",
+      "ok_other": "Os {{count}} feeds funcionando · verificado {{time}}",
+      "partial": "{{failing}} de {{count}} feeds com falha · verificado {{time}}",
+      "failing_one": "Feed não responde · tentado {{time}}",
+      "failing_other": "Nenhum dos {{count}} feeds responde · tentado {{time}}",
+      "idle": "Ainda não consultado",
+      "localIdle": "Consultado quando a cidade for escolhida"
+    },
+    "toast": {
+      "enabled_one": "{{count}} fonte ligada",
+      "enabled_other": "{{count}} fontes ligadas",
+      "disabled_one": "{{count}} fonte desligada",
+      "disabled_other": "{{count}} fontes desligadas",
+      "allOffHint": "Todas as fontes estão desligadas, então a sua primeira página ficará vazia.",
+      "restored": "As fontes voltaram ao padrão",
+      "groupOn": "{{group}}: todas ligadas",
+      "groupOff": "{{group}}: todas desligadas"
+    }
+  },
+  "province": {
+    "search": "Buscar cidades",
+    "label": "Cidades",
+    "placeholder": "Escolher uma cidade",
+    "clear": "Limpar seleção",
+    "wholeRegion": "Toda a região {{region}}",
+    "cities_one": "{{count}} cidade",
+    "cities_other": "{{count}} cidades",
+    "noMatch": "Nenhuma cidade corresponde a “{{query}}”"
+  },
+  "reading": {
+    "description": "Como as notícias abrem quando você clica.",
+    "mode": {
+      "label": "Abrir notícias como",
+      "description": "A página web mostra o site original. O modo de leitura mostra só o texto, na sua fonte de leitura.",
+      "web": "Página web",
+      "reader": "Modo de leitura"
+    },
+    "ads": {
+      "label": "Bloquear anúncios e rastreadores",
+      "description": "Mantém o navegador interno rápido e privado."
+    }
+  },
+  "desktopOnly": "Disponível no aplicativo para desktop.",
+  "notifications": {
+    "description": "Fique por dentro das notícias grandes sem ficar de olho no aplicativo.",
+    "breaking": {
+      "label": "Alertas de última hora",
+      "description": "Receba uma notificação no desktop quando chegar uma notícia urgente."
+    }
+  },
+  "updates": {
+    "description": "Com que frequência o Masthead consulta todas as fontes.",
+    "refreshing": "Carregando feeds · {{done}} de {{total}}",
+    "failed": "Não deu para atualizar agora. Tente de novo.",
+    "interval": {
+      "label": "Buscar notícias a cada",
+      "description": "As consultas são leves: feeds sem mudanças não são baixados de novo.",
+      "minutes_one": "{{count}} min",
+      "minutes_other": "{{count}} min"
+    },
+    "now": {
+      "label": "Última consulta",
+      "action": "Atualizar agora"
+    }
+  },
+  "data": {
+    "description": "O seu histórico de leitura, um recomeço e um pouco sobre o Masthead.",
+    "history": {
+      "label": "Histórico de leitura",
+      "description_zero": "O seu histórico está vazio.",
+      "description_one": "{{count}} notícia no seu histórico, guardada só neste aparelho.",
+      "description_other": "{{count}} notícias no seu histórico, guardadas só neste aparelho.",
+      "action": "Limpar histórico",
+      "done": "Histórico de leitura limpo",
+      "confirmTitle": "Limpar o histórico de leitura?",
+      "confirmDescription_one": "{{count}} notícia será removida do histórico. As notícias salvas continuam.",
+      "confirmDescription_other": "{{count}} notícias serão removidas do histórico. As notícias salvas continuam."
+    },
+    "reset": {
+      "label": "Redefinir todos os ajustes",
+      "description": "Tudo volta ao padrão e a apresentação inicial roda de novo. Notícias salvas e histórico são mantidos.",
+      "action": "Redefinir ajustes",
+      "confirmTitle": "Redefinir todos os ajustes?",
+      "confirmDescription": "Tema, fontes, veículos e interesses voltam ao padrão, e a apresentação inicial começa de novo. Notícias salvas e histórico são mantidos."
+    }
+  },
+  "about": {
+    "version": "Versão {{version}}",
+    "runtime": "Electron {{electron}} · Chromium {{chrome}}",
+    "webMode": "Modo web",
+    "license": "Licença MIT",
+    "github": "Código no GitHub",
+    "issue": "Relatar um problema"
+  }
+}

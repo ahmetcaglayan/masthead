@@ -1,0 +1,215 @@
+{
+  "kicker": {
+    "breaking": "Urgente"
+  },
+  "meta": {
+    "sources_one": "{{count}} fonte",
+    "sources_other": "{{count}} fontes",
+    "updated": "atualizado {{time}}"
+  },
+  "card": {
+    "alsoReporting": "Também noticiaram"
+  },
+  "summary": {
+    "continueHere": "Leia o resto da notícia aqui",
+    "loading": "Carregando a notícia completa…",
+    "openFull": "Abrir a matéria completa",
+    "noDetail": "O feed não traz mais nada sobre esta notícia — abra a matéria para ler o resto."
+  },
+  "toast": {
+    "saved": "Salvo para depois",
+    "unsaved": "Removido dos salvos"
+  },
+  "cluster": {
+    "coveredBy_one": "Publicado por {{count}} fonte",
+    "coveredBy_other": "Publicado por {{count}} fontes",
+    "otherHeadlines": "O que os outros veículos disseram",
+    "moreSources_one": "mais {{count}} fonte",
+    "moreSources_other": "mais {{count}} fontes"
+  },
+  "ticker": {
+    "label": "Notícias urgentes",
+    "pause": "Pausar o letreiro",
+    "play": "Retomar o letreiro",
+    "previous": "Notícia anterior",
+    "next": "Próxima notícia",
+    "position": "{{current}}/{{total}}",
+    "all": "Todas as urgentes ({{count}})"
+  },
+  "timeline": {
+    "showMore": "Mostrar mais"
+  },
+  "header": {
+    "stories_one": "{{formatted}} notícia",
+    "stories_other": "{{formatted}} notícias"
+  },
+  "feed": {
+    "loadMore": "Carregar mais ({{shown}} de {{total}})",
+    "end": "Você está em dia."
+  },
+  "gate": {
+    "allOffTitle": "Todas as fontes estão desligadas",
+    "allOffBody": "Ligue pelo menos uma fonte e as notícias dela aparecem aqui.",
+    "manageSources": "Gerenciar fontes",
+    "offlineBody": "Ainda não há notícias salvas. Assim que a conexão voltar, buscamos tudo.",
+    "emptyTitle": "Ainda não há notícias",
+    "emptyBody": "Os feeds ainda não chegaram. Atualize agora ou volte daqui a pouco."
+  },
+  "filters": {
+    "label": "Filtros",
+    "timeRange": "Período",
+    "time": {
+      "1h": "1 h",
+      "6h": "6 h",
+      "24h": "24 h",
+      "3d": "3 d",
+      "all": "Tudo"
+    },
+    "timeLong": {
+      "1h": "Última hora",
+      "6h": "Últimas 6 horas",
+      "24h": "Últimas 24 horas",
+      "3d": "Últimos 3 dias"
+    },
+    "sources": "Fontes",
+    "sourcesCount_one": "{{count}} fonte",
+    "sourcesCount_other": "{{count}} fontes",
+    "searchSources": "Encontrar uma fonte…",
+    "allSources": "Todas as fontes",
+    "noSources": "Nenhuma fonte corresponde.",
+    "location": "Região / Província",
+    "sort": {
+      "latest": "Mais recentes",
+      "popular": "Mais publicadas"
+    },
+    "withImages": "Com imagem",
+    "hideRead": "Ocultar lidas",
+    "results_one": "{{formatted}} notícia",
+    "results_other": "{{formatted}} notícias",
+    "remove": "Remover filtro: {{label}}",
+    "clearAll": "Limpar filtros",
+    "filtered": "Filtrado: {{filters}}",
+    "noMatchTitle": "Nenhuma notícia corresponde a estes filtros",
+    "noMatchBody": "Tente um período maior ou remova um filtro ou dois."
+  },
+  "location": {
+    "search": "Encontrar uma província…",
+    "noMatch": "Nenhuma província com esse nome.",
+    "anywhere": "Todas as regiões",
+    "showProvinces": "Mostrar províncias em {{region}}"
+  },
+  "home": {
+    "dateline_one": "{{stories}} notícias de {{count}} fonte",
+    "dateline_other": "{{stories}} notícias de {{count}} fontes",
+    "topStories": "Manchete",
+    "moreTopStories": "Mais destaques",
+    "digestKicker": "De relance",
+    "digestDescription": "Notícias que vários veículos estão publicando, uma carta para cada — quem disse o quê, lado a lado.",
+    "digestAll": "Ver o resumo completo"
+  },
+  "digest": {
+    "title": "Resumo",
+    "kicker": "De relance",
+    "description": "Cada notícia publicada por vários veículos em uma só carta, com a manchete de cada um — sem precisar clicar.",
+    "summary_one": "{{formatted}} notícia de {{sources}} fontes",
+    "summary_other": "{{formatted}} notícias de {{sources}} fontes",
+    "emptyTitle": "Ainda não há notícias em comum",
+    "emptyBody": "As notícias publicadas por mais de um veículo se reúnem aqui. Volte daqui a pouco.",
+    "soloTitle": "Em uma primeira página",
+    "soloBody": "Notícias que só um veículo destacou até agora.",
+    "more": "Mostrar mais notícias"
+  },
+  "latest": {
+    "title": "Últimas",
+    "kicker": "Ao vivo",
+    "description": "Todas as notícias das suas fontes, minuto a minuto."
+  },
+  "breaking": {
+    "live": "Ao vivo",
+    "title": "Urgente",
+    "description": "Direto dos feeds de última hora das suas fontes.",
+    "recent_one": "{{count}} nova nas últimas 2 horas",
+    "recent_other": "{{count}} novas nas últimas 2 horas",
+    "total_one": "{{formatted}} notícia urgente no total",
+    "total_other": "{{formatted}} notícias urgentes no total",
+    "emptyTitle": "Nenhuma notícia urgente agora",
+    "emptyBody": "Quando algo acontecer, aparece aqui primeiro."
+  },
+  "forYou": {
+    "title": "Para você",
+    "kicker": "Pessoal",
+    "description": "Notícias escolhidas pelos seus interesses.",
+    "descriptionWithCity": "Notícias escolhidas pelos seus interesses e por {{city}}.",
+    "interests": "Seus interesses",
+    "pickTitle": "O que você quer acompanhar?",
+    "pickBody": "Escolha alguns temas e o seu feed passa a segui-los. Dá para mudar quando quiser.",
+    "emptyTitle": "Ainda nada para você",
+    "emptyBody": "Tente adicionar mais alguns temas, ou volte daqui a pouco."
+  },
+  "local": {
+    "title": "Notícias locais",
+    "kicker": "Local",
+    "chooseBody": "Qual cidade você quer acompanhar? Abra uma região e escolha a sua província.",
+    "change": "Trocar de cidade",
+    "sources": "Fontes locais",
+    "description": "Tudo sobre {{city}}, com os veículos de lá.",
+    "regionDescription": "Notícias sobre as províncias da sua região.",
+    "emptyTitle": "Ainda não há notícias sobre {{place}}",
+    "emptyBody": "Os feeds locais estão a caminho — volte em alguns minutos.",
+    "nearby": "Na região {{region}}",
+    "top": "Destaques de {{place}}"
+  },
+  "category": {
+    "kicker": "Tema",
+    "top": "Destaques de {{topic}}",
+    "emptyTitle": "Ainda não há notícias de {{topic}}",
+    "emptyBody": "As notícias deste tema aparecem aqui assim que chegarem."
+  },
+  "source": {
+    "offBadge": "Desligada",
+    "feeds_one": "{{count}} feed",
+    "feeds_other": "{{count}} feeds",
+    "on": "Ligada",
+    "off": "Desligada",
+    "unknownTitle": "Fonte não encontrada",
+    "unknownBody": "Esta fonte não é do país selecionado.",
+    "disabledTitle": "{{name}} está desligada",
+    "disabledBody": "Ligue para ver as notícias dela aqui e nos seus feeds.",
+    "turnOn": "Ligar",
+    "emptyTitle": "Ainda não há notícias desta fonte",
+    "emptyBody": "Os feeds dela serão consultados na próxima atualização."
+  },
+  "search": {
+    "title": "Busca",
+    "kicker": "Resultados da busca",
+    "titleFor": "“{{query}}”",
+    "results_one": "{{formatted}} resultado",
+    "results_other": "{{formatted}} resultados",
+    "order": "Ordem",
+    "relevance": "Mais relevantes",
+    "newest": "Mais recentes",
+    "startTitle": "O que você está procurando?",
+    "startKicker": "Todas as fontes",
+    "startBody": "A busca passa por manchetes e resumos. Os acentos são opcionais — “sao paulo” encontra “São Paulo”.",
+    "focus": "Começar a busca",
+    "noResultsBody": "Tente outras palavras, ou menos palavras. Expressões entre aspas são buscadas exatamente.",
+    "noResultsFiltered": "Os seus filtros podem estar escondendo alguns resultados."
+  },
+  "saved": {
+    "title": "Salvos",
+    "description": "Notícias que você guardou para depois.",
+    "emptyTitle": "Ainda não há nada salvo",
+    "emptyBody": "Use o marcador em qualquer notícia para guardá-la aqui."
+  },
+  "history": {
+    "title": "Histórico",
+    "description": "Notícias que você abriu, das mais recentes para as mais antigas.",
+    "clear": "Limpar histórico",
+    "readAt": "Lida às {{time}}",
+    "emptyTitle": "Ainda não há histórico",
+    "emptyBody": "As notícias que você abrir ficam listadas aqui, dia a dia.",
+    "clearTitle": "Limpar o histórico de leitura?",
+    "clearBody": "A lista de notícias lidas será removida. As notícias salvas continuam. Isso não pode ser desfeito.",
+    "clearConfirm": "Limpar histórico"
+  }
+}

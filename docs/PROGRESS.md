@@ -14,8 +14,12 @@
 - **Aktif faz:** Faz 1 — Temel (MVP) **tamamlandı**; v0.1.0 yayına hazır
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
   136 kaynak (67 ulusal + 81 ilin yerel kaynakları), 285 birim testi, `npm run selftest` 11/11, tasarım ve kod
-  incelemeleri yapıldı, Windows paketleri `release/0.1.0/` altında. Kod GitHub'da
+  incelemeleri yapıldı, Windows paketleri (Windows PC'de) `release/0.1.0/` altında. Kod GitHub'da
   (https://github.com/ahmetcaglayan/masthead). Kalan: v0.1.0 Release'i yayınlamak (sahibinin onayıyla).
+  Geliştirme artık macOS'ta da sürüyor: `npm install` + testler + typecheck + lint yeşil, tarayıcı modu
+  (`npm run dev:web`) çalışıyor. **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
+  **2026-09-23 akşamı:** Faz 4'ün ilk adımı yapıldı — uygulama artık 6 ülke (Türkiye, ABD, Hindistan,
+  Birleşik Krallık, Almanya, Brezilya) ve 4 arayüz dili (en, tr, de, pt) ile geliyor.
 
 ## Sıradaki adım
 
@@ -23,6 +27,7 @@
 2. `v0.1.0` etiketi → `.github/workflows/release.yml` Windows/macOS/Linux paketlerini taslak Release'e yükler;
    notları `CHANGELOG.md`'den kontrol edip yayınla. (Ya da `release/0.1.0/` altındaki Windows dosyalarını elle yükle.)
 3. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
+4. Yeni ülkeler için ekran görüntüleri/README görselleri ve (istenirse) Fransa · İspanya/Meksika paketleri.
 
 ---
 
@@ -99,6 +104,25 @@ Gereksinimler: Node.js 22.12+ (geliştirmede 24 kullanıldı), npm 10+. Windows'
 - [x] 2026-09-23 · Rutin haber listesi tek yerde: `src/shared/headlines.ts` (core + arayüz ortak); koyu tema
       pencere/okuyucu arka planları yeni sıcak tonlarla eşlendi
 
+### Faz 4 — Çoklu ülke (ilk adım)
+- [x] 2026-09-23 · Ülke seçimi verilerle yapıldı (internet kullanıcısı + çevrimiçi haber tüketimi):
+      **ABD, Hindistan, Birleşik Krallık, Almanya, Brezilya** — 3'ü mevcut İngilizce arayüzle çalışıyor,
+      Almanca ve Portekizce arayüz eklendi
+- [x] 2026-09-23 · 5 ülke paketi: 67 kaynak / 195 akış. Adaylar önce toplu doğrulandı (152 + 77 aday),
+      çalışmayan/eski olanlar (AP, USA Today, CNN, Telegraph, ITV, Scroll.in, The Wire, Deccan Herald,
+      eski Estadão yolları) elendi; ikonlar da HTTP ile doğrulandı
+- [x] 2026-09-23 · `npm run verify:feeds` tüm paketleri tarıyor (ülke kodu ile süzülebiliyor);
+      yeni paketlerde **186 akış → 185 ok, 0 hata** (tek eskimiş akış CBS health çıkarıldı)
+- [x] 2026-09-23 · Arayüz: 4 dil (en, tr, de, pt) — 5 namespace × 2 yeni dil tam çevrildi, anahtar eşliği
+      betikle doğrulandı; ülke bayrakları (US, GB, IN, DE, BR) SVG olarak çizildi; dil seçimi açılır menüye
+      dönüştü; ili olmayan ülkelerde Yerel sayfası, şehir sorusu ve şehir satırı gizleniyor
+- [x] 2026-09-23 · Çekirdek: son dakika işaretlerine "BREAKING/Eilmeldung/URGENTE/Plantão" eklendi, başlık
+      büyük harfe çevirme artık paketin diline göre (`cleanTitle(raw, locale)`)
+- [x] 2026-09-23 · `tests/shared/countries.test.ts` (32 test): benzersiz kimlik/URL, geçerli kategori,
+      https, manşet akışı, dil eşliği, il tutarlılığı
+- [x] 2026-09-23 · Tarayıcıda doğrulandı: Almanya 1.123 haber (14 kaynak) + tam Almanca arayüz,
+      Brezilya 1.012 haber (13 kaynak) + tam Portekizce arayüz
+
 ### Doğrulama
 - [x] 2026-09-23 · Ekran görüntüleriyle (EN/TR × açık/koyu, 56 PNG) 3 açılı tasarım incelemesi (görsel, haber UX,
       Türkçe/İngilizce metin) → 45 bulgu, hepsi uygulandı: ana sayfada manşet + canlı "Son Haberler" yan yana,
@@ -119,6 +143,14 @@ Gereksinimler: Node.js 22.12+ (geliştirmede 24 kullanıldı), npm 10+. Windows'
       modunda açılış hatası boş sayfa bırakmıyor (testler 270 → 285, self-test 11/11)
 - [x] 2026-09-23 · Kod incelemesi (güvenlik + core + uygulama; 3 bulucu, her bulguya 2 bağımsız doğrulayıcı):
       29 bulgu → 18 doğrulandı ve düzeltildi (yukarıdaki madde), 11 reddedildi
+- [x] 2026-09-23 · Arayüz düzeltmeleri (tarayıcı modunda ölçülerek): daraltılmış kenar çubuğunda ikonların
+      arka planı/hover kutusu 5,5 px sola kaymıştı (sağda ayrılan kayan çubuk payı + `px-[15px]`), ikon da
+      kutusunun sağına yaslanıyordu → daraltılmışken kayan çubuk payı kalktı, düğmeler `justify-center px-0`,
+      alt liste simetrik `px-3`, etiket `w-0` (kutu 12–59, ikon merkezi 35,5 = ray merkezi); ayrıcı çizgi
+      ortalandı. Kart odak halkası içeriğe değiyordu (kartların iç boşluğu yok) → `outline-offset` 4 → 7 px
+- [x] 2026-09-23 · macOS geliştirme ortamı: bağımlılıklar kuruldu, `npm test` 285/285, `npm run typecheck`
+      ve `npm run lint` temiz, `npm run dev:web` → http://localhost:5173 (Electron/exe bu bilgisayarda çalıştırılmaz;
+      masaüstü doğrulaması Windows PC'de ya da CI'da)
 - [x] 2026-09-23 · Manşet başlığı artık fotoğrafın altında (Türk sitelerinin görsellerine gömülü yazılarla
       çakışmasın); liste/zaman çizelgesinde görseli olmayan haberde boş logo kutusu yerine görsel alanı kalkıyor
 
@@ -157,6 +189,14 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 
 ## Bilinen sorunlar / notlar
 
+- **Kurumsal HTTPS denetimi (Mac):** Ağdaki vekil sunucu TLS'i kendi kök sertifikasıyla yeniden imzalıyor;
+  Node bu sertifikayı tanımadığı için tüm akışlar `SELF_SIGNED_CERT_IN_CHAIN` ile düşüyor ve uygulama boş kalıyor.
+  Çözüm: kök sertifika `~/.masthead/corporate-ca.pem` dosyasına çıkarıldı, sunucu
+  `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca.pem npm run dev:web` ile açılıyor (2.901 haber geldi).
+  Kalıcı hale getirmek için bu değişken kabuk profiline ya da `.claude/settings.local.json` içine eklenmeli
+  (README'ye iki dilde not düşüldü).
+- Sahibinin Mac'inde **uygulama/exe kurulmaz ve Electron çalıştırılmaz**; geliştirme yalnızca tarayıcı modundan
+  (`npm run dev:web`) takip edilir. `npm run dev`, `selftest`, `screenshots`, `dist:*` bu makinede kullanılmaz.
 - Windows PowerShell 5.1'in `Get-Content`/`Set-Content` komutları UTF-8 dosyalardaki Türkçe karakterleri bozar;
   dosya düzenlemede kullanılmamalı.
 - Sürümler imzasız: SmartScreen "Yine de çalıştır" ile geçilir; **Akıllı Uygulama Denetimi** açık PC'lerde

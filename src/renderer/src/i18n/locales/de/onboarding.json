@@ -1,0 +1,50 @@
+{
+  "intro": {
+    "headline": "Alle Nachrichten. Ein ruhiger Ort.",
+    "subtitle": "Die Redaktionen Ihres Landes auf einer ruhigen Titelseite. Vier kurze Fragen, dann geht es los.",
+    "subtitleWithCountry": "Die Redaktionen Ihres Landes auf einer ruhigen Titelseite. Fünf kurze Fragen, dann geht es los.",
+    "country": "{{country}} · {{sources}} Medien · weitere Länder folgen"
+  },
+  "progress": "Schritt {{current}} von {{total}}",
+  "continue": "Weiter",
+  "orPress": "oder <0/> drücken",
+  "language": {
+    "kicker": "Sprache",
+    "title": "Welche Sprache möchten Sie?",
+    "hint": "Das gilt für Menüs und Schaltflächen. Die Nachrichten bleiben in ihrer eigenen Sprache.",
+    "cardHint": "Menüs und Schaltflächen auf Deutsch"
+  },
+  "theme": {
+    "kicker": "Aussehen",
+    "title": "Hell oder dunkel?",
+    "hint": "Wird sofort übernommen. Sie können jederzeit in der Titelleiste wechseln."
+  },
+  "country": {
+    "kicker": "Land",
+    "title": "Woher kommen Ihre Nachrichten?",
+    "hint": "Wir sammeln schon die ersten Schlagzeilen, während Sie fertig werden.",
+    "stats": "{{sources}} Quellen · {{cities}} Städte",
+    "comingSoon": "Weitere Länder folgen bald"
+  },
+  "interests": {
+    "kicker": "Interessen",
+    "title": "Was verfolgen Sie gern?",
+    "hint": "Wählen Sie so viel Sie mögen. Das prägt Ihre Seite „Für Sie“ und die Reihenfolge auf der Startseite."
+  },
+  "city": {
+    "kicker": "Stadt",
+    "title": "Auch Nachrichten aus Ihrer Stadt?",
+    "hint": "Optional. Wählen Sie eine Stadt oder eine ganze Region für Ihre Seite „Regional“.",
+    "skip": "Später",
+    "chosen": "Regionales aus {{place}}"
+  },
+  "finish": {
+    "title": "Fertig.",
+    "fetching": "Die ersten Schlagzeilen kommen · {{done}} von {{total}} Feeds",
+    "ready_one": "{{count, number}} Meldung wartet auf Sie.",
+    "ready_other": "{{count, number}} Meldungen warten auf Sie.",
+    "soon": "Ihre ersten Schlagzeilen sind gleich da.",
+    "cta": "Meine Titelseite öffnen",
+    "later": "All das können Sie später in den Einstellungen ändern."
+  }
+}

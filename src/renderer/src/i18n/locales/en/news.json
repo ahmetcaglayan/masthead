@@ -190,7 +190,7 @@
     "newest": "Newest",
     "startTitle": "What are you looking for?",
     "startKicker": "All sources",
-    "startBody": "Search runs over headlines and summaries. Turkish letters are optional — “istanbul” finds “İstanbul”.",
+    "startBody": "Search runs over headlines and summaries. Accents are optional — “istanbul” finds “İstanbul”, “sao paulo” finds “São Paulo”.",
     "focus": "Start searching",
     "noResultsBody": "Try different or fewer words. Phrases in quotes are matched exactly.",
     "noResultsFiltered": "Your filters may be hiding some results."

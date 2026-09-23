@@ -5,7 +5,12 @@
 import type { Settings } from '../settings'
 import type { CountryCode, Province, SourceDef } from '../types'
 import type { CountryPack } from './types'
+import { br } from './br/index.ts'
+import { de } from './de/index.ts'
+import { gb } from './gb/index.ts'
+import { inPack } from './in/index.ts'
 import { tr } from './tr/index.ts'
+import { us } from './us/index.ts'
 
 export type { CountryPack, GoogleNewsEdition, RegionDef } from './types'
 
@@ -15,9 +20,9 @@ export interface CountryOption {
   available: boolean
 }
 
-const PACKS: Partial<Record<CountryCode, CountryPack>> = { tr }
+const PACKS: Partial<Record<CountryCode, CountryPack>> = { tr, us, in: inPack, gb, de, br }
 
-const ORDER: readonly CountryCode[] = ['tr', 'us', 'gb', 'de', 'fr', 'es', 'it', 'nl', 'az']
+const ORDER: readonly CountryCode[] = ['tr', 'us', 'in', 'gb', 'de', 'br', 'fr', 'es', 'it', 'nl', 'az']
 
 /** Countries offered in onboarding and settings, in display order. */
 export const COUNTRY_OPTIONS: readonly CountryOption[] = ORDER.map((code) => ({
@@ -27,6 +32,14 @@ export const COUNTRY_OPTIONS: readonly CountryOption[] = ORDER.map((code) => ({
 
 export function getCountryPack(code: CountryCode): CountryPack | undefined {
   return PACKS[code]
+}
+
+/**
+ * Whether the country's pack ships provinces. Countries without one have no
+ * Local page to offer, so the city question and the local navigation are left out.
+ */
+export function hasLocalNews(code: CountryCode): boolean {
+  return (PACKS[code]?.provinces.length ?? 0) > 0
 }
 
 /** All sources of a country, or an empty list when no pack is shipped. */

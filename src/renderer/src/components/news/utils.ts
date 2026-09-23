@@ -1,9 +1,13 @@
 import { useSyncExternalStore } from 'react'
 import { paragraphs } from '@/lib/format'
 
-/** A card's focus ring, following its stretched headline link (the only `<a>` in a card). */
+/**
+ * A card's focus ring, following its stretched headline link (the only `<a>` in a card).
+ * Cards have no padding of their own, so the ring keeps its distance from the text — and, at the
+ * rounded corners, from a photo that reaches the card's edge.
+ */
 export const CARD_FOCUS_RING =
-  'has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-accent'
+  'has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-[7px] has-[a:focus-visible]:outline-accent'
 
 /** Local start of the hour containing `ts`. */
 export function startOfHour(ts: number): number {

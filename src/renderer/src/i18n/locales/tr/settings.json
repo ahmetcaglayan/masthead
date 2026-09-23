@@ -99,7 +99,7 @@
     },
     "country": {
       "label": "Ülke",
-      "description": "Masthead şimdilik Türkiye'yi kapsıyor. Yeni ülkeler yolda.",
+      "description": "Hangi ülkenin haber kaynaklarını takip ettiğiniz. Şu an altı ülke kapsanıyor; yenileri yolda.",
       "soon": "Yakında"
     },
     "city": {

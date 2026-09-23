@@ -1,8 +1,9 @@
 /**
- * Checks the Turkey pack's feeds against the live sites.
+ * Checks the country packs' feeds against the live sites.
  *
- *   node scripts/verify-feeds.ts              default-enabled national sources + 3 feeds per local source
- *   node scripts/verify-feeds.ts --all        every feed in the pack
+ *   node scripts/verify-feeds.ts              default-enabled sources of every pack + 3 feeds per local source
+ *   node scripts/verify-feeds.ts de br        only those countries
+ *   node scripts/verify-feeds.ts --all        every feed of every pack
  *   node scripts/verify-feeds.ts sozcu dunya  every feed of the named sources
  *
  * Fetches with 8 requests in flight (2 per host) and a 15 s timeout. A feed fails
@@ -12,8 +13,8 @@
  *
  * Plain Node 24 (type stripping): no enums, namespaces or parameter properties.
  */
-import type { FeedDef, SourceDef } from '../src/shared/types'
-import { tr } from '../src/shared/countries/tr/index.ts'
+import type { CountryCode, FeedDef, SourceDef } from '../src/shared/types'
+import { COUNTRY_OPTIONS, getCountryPack } from '../src/shared/countries/index.ts'
 
 const CONCURRENCY = 8
 const PER_HOST = 2
@@ -26,6 +27,7 @@ const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36'
 
 interface Job {
+  country: CountryCode
   source: SourceDef
   feed: FeedDef
 }
@@ -41,22 +43,29 @@ interface Result extends Job {
   error?: string
 }
 
+const SHIPPED = COUNTRY_OPTIONS.filter((o) => o.available).map((o) => o.code)
+
 function selectJobs(args: string[]): Job[] {
   const all = args.includes('--all')
-  const ids = args.filter((a) => !a.startsWith('--'))
-  const unknown = ids.filter((id) => !tr.sources.some((s) => s.id === id))
-  if (unknown.length) throw new Error(`Unknown source id: ${unknown.join(', ')}`)
+  const named = args.filter((a) => !a.startsWith('--'))
+  const codes = named.filter((a) => SHIPPED.includes(a as CountryCode)) as CountryCode[]
+  const ids = named.filter((a) => !codes.includes(a as CountryCode))
+  const packs = (codes.length ? codes : SHIPPED).map((code) => getCountryPack(code)!)
+  const unknown = ids.filter((id) => !packs.some((pack) => pack.sources.some((s) => s.id === id)))
+  if (unknown.length) throw new Error(`Unknown country or source id: ${unknown.join(', ')}`)
 
   const jobs: Job[] = []
-  for (const source of tr.sources) {
-    let feeds = source.feeds
-    if (ids.length) {
-      if (!ids.includes(source.id)) continue
-    } else if (!all) {
-      if (source.defaultEnabled === false) continue
-      if (source.kind === 'local') feeds = sample(feeds, LOCAL_SAMPLES)
+  for (const pack of packs) {
+    for (const source of pack.sources) {
+      let feeds = source.feeds
+      if (ids.length) {
+        if (!ids.includes(source.id)) continue
+      } else if (!all) {
+        if (source.defaultEnabled === false) continue
+        if (source.kind === 'local') feeds = sample(feeds, LOCAL_SAMPLES)
+      }
+      for (const feed of feeds) jobs.push({ country: pack.code, source, feed })
     }
-    for (const feed of feeds) jobs.push({ source, feed })
   }
   return jobs
 }
@@ -213,6 +222,7 @@ function printTable(results: Result[]): void {
   const label = { ok: 'ok', stale: 'STALE', fail: 'FAIL' }
   const rows = results.map((r) => [
     label[r.status],
+    r.country,
     r.source.id,
     r.feed.province ? `${r.feed.category} ${r.feed.province}` : r.feed.category,
     r.status === 'fail' ? '-' : String(r.items),
@@ -222,9 +232,9 @@ function printTable(results: Result[]): void {
     `${(r.ms / 1000).toFixed(1)}s`,
     r.error ? `${r.error}  ${r.feed.url}` : r.feed.url
   ])
-  const header = ['', 'source', 'category', 'items', 'newest', 'charset', 'size', 'time', 'url']
+  const header = ['', 'cc', 'source', 'category', 'items', 'newest', 'charset', 'size', 'time', 'url']
   const widths = header.map((h, i) => Math.max(h.length, ...rows.map((row) => row[i].length)))
-  const numeric = new Set([3, 4, 6, 7])
+  const numeric = new Set([4, 5, 7, 8])
   const line = (cells: string[]): string =>
     cells
       .map((cell, i) => {
@@ -238,8 +248,11 @@ function printTable(results: Result[]): void {
 
 async function main(): Promise<void> {
   const jobs = selectJobs(process.argv.slice(2))
-  const sources = new Set(jobs.map((j) => j.source.id)).size
-  console.log(`Checking ${jobs.length} feeds from ${sources} sources (concurrency ${CONCURRENCY})…`)
+  const sources = new Set(jobs.map((j) => `${j.country}/${j.source.id}`)).size
+  const countries = new Set(jobs.map((j) => j.country)).size
+  console.log(
+    `Checking ${jobs.length} feeds from ${sources} sources in ${countries} countries (concurrency ${CONCURRENCY})…`
+  )
   const results = await runAll(jobs, (done) => {
     if (process.stdout.isTTY) process.stdout.write(`\r${done}/${jobs.length}`)
   })

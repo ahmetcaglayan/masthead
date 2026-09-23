@@ -1,7 +1,7 @@
 {
   "name": "masthead",
   "productName": "Masthead",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A beautiful desktop news aggregator. Headlines from every major source, read without ever leaving the app.",
   "main": "./out/main/index.js",
   "author": {

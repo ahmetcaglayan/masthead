@@ -1,6 +1,7 @@
 # Masthead — Ürün ve Teknik Plan
 
-> Durum: **Faz 1 tamamlandı — v0.1.0 yayına hazır** · Son güncelleme: 2026-09-23
+> Durum: **Faz 1 tamamlandı — v0.1.0 yayına hazır; Faz 4'ün ilk adımı (6 ülke, 4 dil) tamamlandı**
+> · Son güncelleme: 2026-09-23
 > Bu doküman projenin yol haritasıdır: ne yapıyoruz, nasıl yapıyoruz, hangi sırayla yapıyoruz.
 > Her faz bittiğinde ilgili kutucuklar işaretlenir.
 
@@ -11,8 +12,9 @@
 **Masthead**, Türkiye'nin (ileride seçilen ülkenin) önde gelen haber sitelerinden haberleri toplayıp tek,
 sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygulamasıdır.
 
-- **Toplar:** 136 kaynaktan (67 ulusal yayın + 81 ilin yerel kaynakları) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir,
-  aynı olayı veren haberleri kümeler ("5 kaynak bu haberi verdi").
+- **Toplar:** 6 ülkeden 203 kaynağın (Türkiye 136, ABD 15, Hindistan 10, Birleşik Krallık 10, Almanya 15,
+  Brezilya 17) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
+  haberleri kümeler ("5 kaynak bu haberi verdi").
 - **Sunar:** Modern bir haber sitesi düzeni — manşet alanı, son dakika bandı, kategori bölümleri,
   son haberler akışı.
 - **Uygulama dışına çıkarmaz:** Tıklanan haber, ortada açılan bir pencerede (dialog) sitenin kendi
@@ -21,7 +23,8 @@ sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygula
 - **Kaynak kontrolü sende:** Her haber sitesi listeden tek tıkla açılıp kapatılır; seçim kaydedilir.
 - **Tarayıcıda da çalışır:** `npm run dev:web` ile uygulamanın tamamı `localhost` üzerinden tarayıcıda açılır —
   exe kurulamayan bilgisayarlarda test ve geliştirme için.
-- **Çok dilli:** Arayüz dili İngilizce (varsayılan) ve Türkçe; yapı yeni dillere hazır.
+- **Çok dilli:** Arayüz dili İngilizce (varsayılan), Türkçe, Almanca ve Portekizce; içerik dili arayüz
+  dilinden bağımsız.
 
 ### Neden "Masthead"?
 
@@ -52,11 +55,13 @@ Logo, katlanmış bir ön sayfayı andıran yuvarlatılmış bir **M** ve altın
 
 Tek ekranda, **alt alta beliren kısa sorular** (her cevapta bir sonraki soru yumuşakça açılır):
 
-1. **Dil** — English / Türkçe (seçince arayüz anında değişir)
+1. **Dil** — English / Türkçe / Deutsch / Português (seçince arayüz anında değişir)
 2. **Tema** — Açık / Koyu / Sistem (mini önizlemeli kartlar, anında uygulanır)
-3. **Ülke** — Türkiye ✓ (diğer ülkeler "yakında" rozetiyle, pasif)
+3. **Ülke** — Türkiye, ABD, Hindistan, Birleşik Krallık, Almanya, Brezilya (paketi olmayanlar "yakında"
+   rozetiyle, pasif)
 4. **İlgi alanları** — kategori çipleri, çoklu seçim (Gündem, Dünya, Ekonomi, Spor, Teknoloji…)
-5. **Şehir (opsiyonel)** — aranabilir il listesi; "Yerel" sayfasını besler
+5. **Şehir (opsiyonel)** — aranabilir il listesi; "Yerel" sayfasını besler. Bu soru yalnızca il paketi olan
+   ülkelerde (şimdilik Türkiye) sorulur.
 
 → **"Başlayalım"** butonu. Seçimler `settings.json`'a yazılır ve haberler çekilmeye başlar
 (önbellek yoksa arka planda ilk yenileme onboarding sırasında başlar, kullanıcı bekletilmez).
@@ -115,7 +120,7 @@ Hedef: kullanıcı hiçbir habere tıklamadan da günün gündemini eksiksiz ö�
 | Kategori | Kenar çubuğundan; 16 konu kategorisi |
 | Zaman | Son 1 saat / 6 saat / 24 saat / 3 gün / tümü |
 | Kaynak | Çoklu seçim, kaynak ikonlarıyla; ayrıca kaynak bazlı sayfa |
-| Bölge / İl | 7 coğrafi bölge + 81 il (haber metninden otomatik etiketleme) |
+| Bölge / İl | 7 coğrafi bölge + 81 il (haber metninden otomatik etiketleme); il paketi olan ülkelerde |
 | Sıralama | En yeni / En çok kaynak (popüler) |
 | Görselli haberler | Yalnızca görseli olanlar |
 | Okunanları gizle | Okunan haberleri akıştan çıkar |
@@ -406,9 +411,13 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 - [ ] Hava durumu ve döviz/altın mini kartları (opsiyonel)
 
 ### Faz 4 — Çoklu ülke ve dil
-- [ ] Ülke paketi mimarisinin genelleştirilmesi + Google News yedeği
-- [ ] İlk paketler: ABD, Birleşik Krallık, Almanya, Azerbaycan…
-- [ ] Yeni arayüz dilleri (de, fr, es, ar — RTL desteğiyle)
+- [x] 2026-09-23 · Ülke paketi mimarisinin genelleştirilmesi (il paketi olmayan ülkeler, `hasLocalNews`,
+      ülke bazlı akış doğrulama, paket testleri)
+- [x] 2026-09-23 · İlk paketler: ABD, Hindistan, Birleşik Krallık, Almanya, Brezilya (67 kaynak, 195 akış)
+- [x] 2026-09-23 · Yeni arayüz dilleri: Almanca ve Portekizce (Brezilya)
+- [ ] Google News yedeği (paketi olmayan ülkeler için)
+- [ ] Sonraki paketler: Fransa, İspanya/Meksika, Azerbaycan…; yeni diller (fr, es, ar — RTL desteğiyle)
+- [ ] Ülke bazlı eyalet/bölge etiketleme (yerel haberler şimdilik yalnızca Türkiye'de)
 
 ### Faz 5 — Yayın
 - [x] electron-builder: Windows NSIS (x64 + arm64) + portable; macOS dmg ve Linux AppImage/deb yapılandırıldı (CI üretir)
