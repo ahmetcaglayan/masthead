@@ -17,7 +17,7 @@ e deixa você lê-las sem anúncios, sem sair do aplicativo.
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
 [**Site**](https://ahmetcaglayan.github.io/masthead/) ·
-[**Baixar 0.2.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**Baixar 0.3.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Changelog](CHANGELOG.md)
 
 [English](README.md) · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · **Português**

@@ -16,7 +16,7 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 [![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-2f2a24?style=flat-square)](LICENSE)
 
 [**Web sitesi**](https://ahmetcaglayan.github.io/masthead/) ·
-[**0.2.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**0.3.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Değişiklikler](CHANGELOG.md)
 
 [English](README.md) · **Türkçe** · [Deutsch](README.de.md) · [Português](README.pt.md)
