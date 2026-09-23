@@ -19,7 +19,7 @@
 
 ## Sıradaki adım
 
-1. Git deposu oluştur, ilk commit, `github.com/ahmetcaglayan/Masthead` deposuna push.
+1. GitHub'da boş `ahmetcaglayan/Masthead` deposunu aç (README/lisans ekleme), sonra `git push -u origin main`.
 2. `v0.1.0` etiketi → `.github/workflows/release.yml` Windows/macOS/Linux paketlerini taslak Release'e yükler;
    notları `CHANGELOG.md`'den kontrol edip yayınla. (Ya da `release/0.1.0/` altındaki Windows dosyalarını elle yükle.)
 3. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
@@ -129,7 +129,9 @@ Gereksinimler: Node.js 22.12+ (geliştirmede 24 kullanıldı), npm 10+. Windows'
       içeriğinin self-test'i 11/11 (bu PC'de Akıllı Uygulama Denetimi imzasız `Masthead.exe`'yi bazen engelliyor —
       aynı paket resmi Electron exe'siyle test edildi)
 - [x] 2026-09-23 · README ekran görüntüleri (`docs/images/`, 7 görsel) ve README'de arm64 + Akıllı Uygulama Denetimi notu
-- [ ] Git deposu + GitHub'a push + v0.1.0 etiketi + Release (sahibinin onayıyla)
+- [x] 2026-09-23 · Git deposu (`main`), ilk commit, `origin` = `https://github.com/ahmetcaglayan/Masthead.git`
+- [ ] GitHub'da boş `Masthead` deposunu aç → `git push -u origin main`
+- [ ] v0.1.0 etiketi + Release (sahibinin onayıyla)
 - [ ] (İsteğe bağlı) Kod imzalama: SignPath Foundation (açık kaynak için ücretsiz) veya Azure Trusted Signing —
       Akıllı Uygulama Denetimi engelini kaldırır
 
