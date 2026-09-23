@@ -17,7 +17,7 @@ and lets you read them, ad-free, without ever leaving the app.
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
 [**Website**](https://ahmetcaglayan.github.io/masthead/) ·
-[**Download 0.3.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**Download 0.4.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Changelog](CHANGELOG.md)
 
 **English** · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · [Português](README.pt.md)
@@ -113,7 +113,7 @@ Grab the latest version from the [Releases page](https://github.com/ahmetcaglaya
 | Windows (installer, ARM) | `Masthead-x.y.z-win-arm64.exe` |
 | Windows (portable, no install) | `Masthead-x.y.z-portable.exe` |
 | macOS (Apple Silicon / Intel) | `Masthead-x.y.z-arm64.dmg` / `Masthead-x.y.z-x64.dmg` |
-| Linux | `Masthead-x.y.z-linux-x86_64.AppImage` / `.deb` |
+| Linux | `Masthead-linux-x86_64.AppImage` / `.deb` |
 
 **Install once, then it keeps itself up to date.** The Windows installer and the Linux AppImage check for a new
 version every hour, download it in the background and ask you to restart; the portable exe, the macOS app and

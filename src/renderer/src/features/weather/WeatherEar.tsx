@@ -202,6 +202,10 @@ export function WeatherEar({ className }: { className?: string }): React.JSX.Ele
             href="https://open-meteo.com/"
             target="_blank"
             rel="noreferrer"
+            onClick={(event) => {
+              event.preventDefault()
+              void api.reader.openExternal('https://open-meteo.com/')
+            }}
             className="underline underline-offset-2 hover:text-fg"
           >
             Open-Meteo

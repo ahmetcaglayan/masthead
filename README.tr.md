@@ -16,7 +16,7 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 [![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-2f2a24?style=flat-square)](LICENSE)
 
 [**Web sitesi**](https://ahmetcaglayan.github.io/masthead/) ·
-[**0.3.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**0.4.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Değişiklikler](CHANGELOG.md)
 
 [English](README.md) · **Türkçe** · [Deutsch](README.de.md) · [Português](README.pt.md)
@@ -111,7 +111,7 @@ Son sürümü [Releases sayfasından](https://github.com/ahmetcaglayan/masthead/
 | Windows (kurulum, ARM) | `Masthead-x.y.z-win-arm64.exe` |
 | Windows (portable, kurulumsuz) | `Masthead-x.y.z-portable.exe` |
 | macOS (Apple Silicon / Intel) | `Masthead-x.y.z-arm64.dmg` / `Masthead-x.y.z-x64.dmg` |
-| Linux | `Masthead-x.y.z-linux-x86_64.AppImage` / `.deb` |
+| Linux | `Masthead-linux-x86_64.AppImage` / `.deb` |
 
 **Bir kez kur, gerisini kendisi halleder.** Windows kurulum sürümü ve Linux AppImage her saat yeni sürüm olup
 olmadığına bakar, arka planda indirir ve yeniden başlatmanı ister; taşınabilir exe, macOS uygulaması ve .deb yeni

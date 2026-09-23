@@ -45,8 +45,10 @@ export class Cache<T> {
     let promise = this.pending.get(key)
     if (!promise) {
       promise = load()
-        .then((value) => {
-          this.entries.set(key, { value, until: this.now() + (value === null ? FAILURE_TTL : this.ttl) })
+        .then((fresh) => {
+          // A failed refetch keeps serving the last good value (asked again after FAILURE_TTL).
+          const value = fresh ?? entry?.value ?? null
+          this.entries.set(key, { value, until: this.now() + (fresh === null ? FAILURE_TTL : this.ttl) })
           return value
         })
         .finally(() => this.pending.delete(key))

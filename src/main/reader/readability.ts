@@ -70,9 +70,12 @@ const EXTRACT_SCRIPT = String.raw`(() => {
   const lockedOut = (data, depth) => {
     if (depth > 5 || !data || typeof data !== 'object') return false
     if (Array.isArray(data)) return data.some((item) => lockedOut(item, depth + 1))
-    const free = data.isAccessibleForFree
-    if (free === false || (typeof free === 'string' && free.trim().toLowerCase() === 'false')) return true
-    return ['@graph', 'mainEntity', 'mainEntityOfPage', 'hasPart', 'isPartOf'].some((key) => lockedOut(data[key], depth + 1))
+    const raw = data.isAccessibleForFree
+    const free = typeof raw === 'boolean' ? raw
+      : typeof raw === 'string' && /^(true|false)$/i.test(raw.trim()) ? raw.trim().toLowerCase() === 'true'
+      : undefined
+    if (free !== undefined) return !free
+    return ['@graph', 'mainEntity', 'hasPart'].some((key) => lockedOut(data[key], depth + 1))
   }
   const tier = meta('article:content_tier').trim().toLowerCase()
   const paywalled = tier === 'locked' || tier === 'metered' ||

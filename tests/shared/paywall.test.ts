@@ -16,5 +16,15 @@ describe('jsonLdDeclaresPaywall', () => {
     expect(jsonLdDeclaresPaywall({ '@type': 'NewsArticle', isAccessibleForFree: true })).toBe(false)
     expect(jsonLdDeclaresPaywall({ '@type': 'NewsArticle', isAccessibleForFree: 'True' })).toBe(false)
     expect(jsonLdDeclaresPaywall([{ '@type': 'NewsArticle' }, null, 'text'])).toBe(false)
+    // A free article of a paid publication, or one that says it is free above a locked part.
+    expect(
+      jsonLdDeclaresPaywall({
+        '@type': 'NewsArticle',
+        isPartOf: { '@type': 'Periodical', isAccessibleForFree: false }
+      })
+    ).toBe(false)
+    expect(
+      jsonLdDeclaresPaywall({ isAccessibleForFree: true, hasPart: { isAccessibleForFree: false } })
+    ).toBe(false)
   })
 })

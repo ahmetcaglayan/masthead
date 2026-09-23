@@ -51,6 +51,10 @@ linux:
   target:
     - AppImage
     - deb
+appImage:
+  # No version in the name: the updater then replaces the file in place, so menu entries,
+  # docks and symlinks that point at it keep working after every update.
+  artifactName: ${productName}-${os}-${arch}.${ext}
 
 publish:
   provider: github

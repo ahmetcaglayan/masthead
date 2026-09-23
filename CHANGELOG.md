@@ -4,7 +4,9 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [0.4.0] - 2026-09-23
+
+Masthead keeps itself up to date, gets a Markets page, and For You learns from your reading.
 
 ### Added
 
@@ -55,6 +57,8 @@ All notable changes to this project are documented here. The format follows
 
 ### Changed
 
+- **The Linux AppImage is now `Masthead-linux-x86_64.AppImage`**, without a version in its name, so updates replace
+  the file in place and menu entries, docks and links to it keep working.
 - **Accessibility pass.** Every page, the reader, the command palette and the dialogs pass an automated WCAG AA
   check (axe) in the light and dark themes. Text in the accent colour uses a deeper shade of it where the accent
   itself was too light to read (all five accents); buttons filled with the accent are a touch deeper so their white
