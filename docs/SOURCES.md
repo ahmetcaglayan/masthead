@@ -7,7 +7,7 @@ Every country Masthead covers is one **country pack** under `src/shared/countrie
 | --- | --- | --- | --- | --- | --- |
 | `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 |
 | `us` United States | English | 18 | 49 | 17 | — |
-| `in` India | Hindi + English | 16 (6 Hindi) | 60 | 10 | — |
+| `in` India | Hindi + English | 16 (6 Hindi) | 60 | 6 | — |
 | `gb` United Kingdom | English | 10 | 37 | 7 | — |
 | `de` Germany | German | 15 | 46 | 14 | — |
 | `br` Brazil | Portuguese | 17 | 34 | 13 | — |

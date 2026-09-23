@@ -3,9 +3,9 @@ import type { SourceDef } from '../../types'
 /*
  * India — Hindi and English national sources. Someone who picks India reads the news
  * of India, and that news is written in Hindi as much as in English: the six Hindi
- * newsrooms are all on by default, beside four of the English nationals (the Times of
- * India, The Hindu, The Indian Express and NDTV). The other English papers ship off —
- * one tap on the Sources page brings them back — so the front page reads Hindi first. Every feed
+ * newsrooms are the default set, so a reader who picks India gets the news in Hindi.
+ * India's English nationals are here too — they are its own papers, not a foreign
+ * edition — but they ship off; one tap on the Sources page brings any of them back. Every feed
  * was checked on 2026-09-23 (re-check with `npm run verify:feeds in`).
  *
  * Not included: Dainik Jagran, Navbharat Times, Zee News Hindi, Patrika and The
@@ -112,6 +112,7 @@ export const sources: SourceDef[] = [
     color: '#CF2028',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [
       { url: 'https://timesofindia.indiatimes.com/rssfeedstopstories.cms', category: 'top', headline: true },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms', category: 'national' },
@@ -130,6 +131,7 @@ export const sources: SourceDef[] = [
     color: '#005B94',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [
       { url: 'https://www.thehindu.com/news/national/feeder/default.rss', category: 'national', headline: true },
       { url: 'https://www.thehindu.com/news/international/feeder/default.rss', category: 'world' },
@@ -170,6 +172,7 @@ export const sources: SourceDef[] = [
     color: '#D4202B',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [
       { url: 'https://indianexpress.com/feed/', category: 'top', headline: true },
       { url: 'https://indianexpress.com/section/india/feed/', category: 'national' },
@@ -191,6 +194,7 @@ export const sources: SourceDef[] = [
     color: '#E21B22',
     kind: 'mainstream',
     language: 'en',
+    defaultEnabled: false,
     feeds: [
       { url: 'https://feeds.feedburner.com/ndtvnews-top-stories', category: 'top', headline: true },
       { url: 'https://feeds.feedburner.com/ndtvnews-india-news', category: 'national' },
