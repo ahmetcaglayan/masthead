@@ -1,7 +1,8 @@
 import type { CountryPack } from '../types'
+import { districts, placeWords, provinces, regions } from './places.ts'
 import { sources } from './sources.ts'
 
-/** United Kingdom: English-language national sources. No province pack yet. */
+/** United Kingdom: national sources, 12 regions and nations, 51 BBC local-news areas. */
 export const gb: CountryPack = {
   code: 'gb',
   language: 'en',
@@ -9,8 +10,10 @@ export const gb: CountryPack = {
   timeZone: 'Europe/London',
   available: true,
   sources,
-  regions: [],
-  provinces: [],
-  districts: [],
+  regions,
+  provinces,
+  districts,
+  localUnit: 'area',
+  placeWords,
   googleNews: { hl: 'en-GB', gl: 'GB', ceid: 'GB:en' }
 }

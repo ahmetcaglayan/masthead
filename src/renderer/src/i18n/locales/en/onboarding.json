@@ -24,6 +24,9 @@
     "title": "Where is your news from?",
     "hint": "We'll start gathering headlines while you finish up.",
     "stats": "{{sources}} sources · {{cities}} cities",
+    "stats_state": "{{sources}} sources · {{cities}} states",
+    "stats_land": "{{sources}} sources · {{cities}} states",
+    "stats_area": "{{sources}} sources · {{cities}} areas",
     "comingSoon": "More countries coming soon"
   },
   "interests": {
@@ -33,8 +36,17 @@
   },
   "city": {
     "kicker": "City",
+    "kicker_state": "State",
+    "kicker_land": "State",
+    "kicker_area": "Area",
     "title": "Want news from your city too?",
+    "title_state": "Want news from your state too?",
+    "title_land": "Want news from your state too?",
+    "title_area": "Want news from your area too?",
     "hint": "Optional. Pick a city, or a whole region, for your Local page.",
+    "hint_state": "Optional. Pick a state, or a whole region, for your Local page.",
+    "hint_land": "Optional. Pick a state, or a whole region, for your Local page.",
+    "hint_area": "Optional. Pick an area, or a whole region, for your Local page.",
     "skip": "Skip for now",
     "chosen": "Local news from {{place}}"
   },

@@ -54,6 +54,14 @@ export function useCountryPack(): CountryPack | undefined {
   return useMemo(() => getCountryPack(country), [country])
 }
 
+/**
+ * The i18n context for the selected country's provinces: `state`, `land` or `area`, or
+ * undefined for Turkey's cities (the base strings). Pass it as `{ context }` to `t()`.
+ */
+export function useLocalUnit(): CountryPack['localUnit'] {
+  return useCountryPack()?.localUnit
+}
+
 /** The user's selected province, or undefined when none is chosen. */
 export function useSelectedProvince(): Province | undefined {
   const country = useSettings((s) => s.settings.country)

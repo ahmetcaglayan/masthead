@@ -24,6 +24,9 @@
     "title": "Woher kommen Ihre Nachrichten?",
     "hint": "Wir sammeln schon die ersten Schlagzeilen, während Sie fertig werden.",
     "stats": "{{sources}} Quellen · {{cities}} Städte",
+    "stats_state": "{{sources}} Quellen · {{cities}} Bundesstaaten",
+    "stats_land": "{{sources}} Quellen · {{cities}} Bundesländer",
+    "stats_area": "{{sources}} Quellen · {{cities}} Gebiete",
     "comingSoon": "Weitere Länder folgen bald"
   },
   "interests": {
@@ -33,8 +36,17 @@
   },
   "city": {
     "kicker": "Stadt",
+    "kicker_state": "Bundesstaat",
+    "kicker_land": "Bundesland",
+    "kicker_area": "Gebiet",
     "title": "Auch Nachrichten aus Ihrer Stadt?",
+    "title_state": "Auch Nachrichten aus Ihrem Bundesstaat?",
+    "title_land": "Auch Nachrichten aus Ihrem Bundesland?",
+    "title_area": "Auch Nachrichten aus Ihrem Gebiet?",
     "hint": "Optional. Wählen Sie eine Stadt oder eine ganze Region für Ihre Seite „Regional“.",
+    "hint_state": "Optional. Wählen Sie einen Bundesstaat oder eine ganze Region für Ihre Seite „Regional“.",
+    "hint_land": "Optional. Wählen Sie ein Bundesland oder eine ganze Region für Ihre Seite „Regional“.",
+    "hint_area": "Optional. Wählen Sie ein Gebiet oder eine ganze Region für Ihre Seite „Regional“.",
     "skip": "Später",
     "chosen": "Regionales aus {{place}}"
   },

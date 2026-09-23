@@ -4,7 +4,7 @@ import { Check, ChevronDown, Globe, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { Province } from '@shared/types'
 import { SearchInput } from '@/components/ui/SearchInput'
-import { useCountryPack } from '@/hooks/useSources'
+import { useCountryPack, useLocalUnit } from '@/hooks/useSources'
 import { foldText } from '@/lib/search'
 import { cn } from '@/lib/cn'
 
@@ -84,6 +84,7 @@ export function LocationPicker({
 }: LocationPickerProps): React.JSX.Element {
   const { t } = useTranslation('news')
   const pack = useCountryPack()
+  const context = useLocalUnit()
   const [query, setQuery] = useState('')
   const selectedRegion =
     value.regionId ?? pack?.provinces.find((p) => p.code === value.provinceCode)?.region ?? null
@@ -91,7 +92,7 @@ export function LocationPicker({
 
   const byRegion = useMemo(() => {
     const map = new Map<string, Province[]>()
-    for (const p of [...(pack?.provinces ?? [])].sort((a, b) => a.name.localeCompare(b.name, 'tr'))) {
+    for (const p of [...(pack?.provinces ?? [])].sort((a, b) => a.name.localeCompare(b.name, pack?.locale))) {
       const list = map.get(p.region)
       if (list) list.push(p)
       else map.set(p.region, [p])
@@ -109,7 +110,7 @@ export function LocationPicker({
       else if (names.some((n) => n.includes(q))) scored.push({ province, rank: 1 })
     }
     return scored
-      .sort((a, b) => a.rank - b.rank || a.province.name.localeCompare(b.province.name, 'tr'))
+      .sort((a, b) => a.rank - b.rank || a.province.name.localeCompare(b.province.name, pack?.locale))
       .map((s) => s.province)
   }, [query, pack])
 
@@ -123,8 +124,8 @@ export function LocationPicker({
         size="sm"
         value={query}
         onValueChange={setQuery}
-        placeholder={t('location.search')}
-        aria-label={t('location.search')}
+        placeholder={t('location.search', { context })}
+        aria-label={t('location.search', { context })}
         autoFocus={autoFocus}
       />
       {query.trim() ? (
@@ -141,7 +142,9 @@ export function LocationPicker({
             ))}
           </div>
         ) : (
-          <p className="px-2.5 py-3 font-ui text-[13px] text-fg-muted">{t('location.noMatch')}</p>
+          <p className="px-2.5 py-3 font-ui text-[13px] text-fg-muted">
+            {t('location.noMatch', { context })}
+          </p>
         )
       ) : (
         <ul className="flex flex-col">
@@ -196,7 +199,10 @@ export function LocationPicker({
                   </button>
                   <button
                     type="button"
-                    aria-label={t('location.showProvinces', { region: t(`common:region.${region.id}`) })}
+                    aria-label={t('location.showProvinces', {
+                      region: t(`common:region.${region.id}`),
+                      context
+                    })}
                     aria-expanded={expanded}
                     aria-controls={panelId}
                     onClick={() => setOpen(expanded ? null : region.id)}

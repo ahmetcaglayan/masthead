@@ -4,6 +4,7 @@ import { ChevronRight, CircleSlash, RotateCcw, SearchX, ToggleLeft, ToggleRight 
 import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import type { CategoryId } from '@shared/categories'
+import type { CountryPack } from '@shared/countries'
 import type { CountryCode, SourceDef, SourceKind } from '@shared/types'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
@@ -17,7 +18,13 @@ import { toast } from '@/components/ui/Toaster'
 import { Tooltip } from '@/components/ui/Tooltip'
 import { ProvincePicker } from '@/features/settings/ProvincePicker'
 import { foldSearch } from '@/features/settings/text'
-import { restoreSources, setSourcesEnabled, useCountryPack, useSources } from '@/hooks/useSources'
+import {
+  restoreSources,
+  setSourcesEnabled,
+  useCountryPack,
+  useLocalUnit,
+  useSources
+} from '@/hooks/useSources'
 import { useNowSelect } from '@/hooks/useNow'
 import { useProgressive } from '@/hooks/useProgressive'
 import { categoryLabel } from '@/lib/categories'
@@ -53,9 +60,14 @@ const HEALTH_DOT = {
 } as const
 
 /** Province codes a local source covers; `all` when it has a feed for every province. */
-function coverage(source: SourceDef, provinceCount: number): string[] | 'all' {
+function coverage(source: SourceDef, pack: CountryPack | undefined): string[] | 'all' {
   const codes = new Set(source.provinces ?? [])
-  for (const feed of source.feeds) if (feed.province) codes.add(feed.province)
+  for (const feed of source.feeds) {
+    if (feed.province) codes.add(feed.province)
+    else if (feed.region)
+      for (const code of pack?.regions.find((r) => r.id === feed.region)?.provinces ?? []) codes.add(code)
+  }
+  const provinceCount = pack?.provinces.length ?? 0
   return provinceCount > 0 && codes.size >= provinceCount ? 'all' : [...codes]
 }
 
@@ -98,10 +110,12 @@ function healthSummary(
   health: SourceHealth | undefined,
   lang: string,
   now: number,
-  local: boolean
+  local: boolean,
+  context: string | undefined
 ): string {
   const state = healthState(health)
-  if (!health || state === 'idle') return t(local ? 'sources.health.localIdle' : 'sources.health.idle')
+  if (!health || state === 'idle')
+    return local ? t('sources.health.localIdle', { context }) : t('sources.health.idle')
   const time = relativeTime(health.checkedAt, lang, now)
   const total = health.ok + health.failing
   if (state === 'ok') return t('sources.health.ok', { count: total, time })
@@ -131,10 +145,11 @@ const SourceRow = memo(function SourceRow({
   onToggle
 }: SourceRowProps): React.JSX.Element {
   const { t, i18n } = useTranslation('settings')
+  const context = useLocalUnit()
   const state = healthState(health)
   const local = source.kind === 'local'
   // "checked 5 min ago": follows the shared clock, re-rendering the row only when the text changes.
-  const summary = useNowSelect(60_000, (now) => healthSummary(t, health, i18n.language, now, local))
+  const summary = useNowSelect(60_000, (now) => healthSummary(t, health, i18n.language, now, local, context))
   const detail = state === 'partial' || state === 'failing' ? health?.lastError : undefined
 
   return (
@@ -159,7 +174,7 @@ const SourceRow = memo(function SourceRow({
           <span className="text-[13px] text-fg-subtle">{domain(source.homepage)}</span>
           {yourCity && (
             <Badge variant="accent" className="self-center">
-              {t('sources.yourCity')}
+              {t('sources.yourCity', { context })}
             </Badge>
           )}
         </div>
@@ -295,10 +310,11 @@ function SourceGroup({
 
 function LocalNote({ country }: { country: CountryCode }): React.JSX.Element {
   const { t } = useTranslation('settings')
+  const context = useLocalUnit()
   const location = useSettings((s) => s.settings.location)
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-      <span className="text-pretty">{t('sources.localNote')}</span>
+      <span className="text-pretty">{t('sources.localNote', { context })}</span>
       <ProvincePicker
         value={location}
         country={country}
@@ -339,12 +355,12 @@ export function SourcesList({ className }: SourcesListProps): React.JSX.Element 
   const meta = useMemo(() => {
     const map = new Map<string, { tags: string[]; search: string; covers: string[] | 'all' | null }>()
     for (const source of sources) {
-      const covers = source.kind === 'local' ? coverage(source, provinceCount) : null
+      const covers = source.kind === 'local' ? coverage(source, pack) : null
       const tags =
         covers === null
           ? feedCategories(source).map((id) => categoryLabel(t, id, country))
           : covers === 'all'
-            ? [t('sources.allProvinces', { count: provinceCount })]
+            ? [t('sources.allProvinces', { count: provinceCount, context: pack?.localUnit })]
             : covers.map((code) => provinceNames.get(code) ?? code)
       const search = foldSearch(
         [source.name, domain(source.homepage), t(`common:sourceKind.${source.kind}`), ...tags].join(' ')
@@ -352,7 +368,7 @@ export function SourcesList({ className }: SourcesListProps): React.JSX.Element 
       map.set(source.id, { tags, search, covers })
     }
     return map
-  }, [sources, t, country, provinceCount, provinceNames])
+  }, [sources, t, country, pack, provinceCount, provinceNames])
 
   // Switched on but nothing in the current news: "delivering" matches the front page's source count.
   // Local outlets that are only fetched for their own city are counted apart.
@@ -446,7 +462,7 @@ export function SourcesList({ className }: SourcesListProps): React.JSX.Element 
   const summary = [
     t('sources.summary', { on: enabled.length, count: sources.length }),
     stats.feeds.total > 0 && t('sources.delivering', { count: delivery.delivering }),
-    delivery.cityOnly > 0 && t('sources.cityOnly', { count: delivery.cityOnly }),
+    delivery.cityOnly > 0 && t('sources.cityOnly', { count: delivery.cityOnly, context: pack?.localUnit }),
     stats.feeds.total > 0 && t('sources.feeds', { count: stats.feeds.total }),
     stats.feeds.failing > 0 && t('sources.failing', { count: stats.feeds.failing })
   ]

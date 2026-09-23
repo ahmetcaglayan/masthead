@@ -23,17 +23,17 @@ interface Group {
   score: number
 }
 
-const collator = new Intl.Collator('tr')
 const NO_MATCH = Infinity
 
 /**
- * How well a province matches a folded query: 0 name or plate code starts with
- * it, 1 an alias does (`Antep`), 2 the name contains it, 3 an alias does.
+ * How well a province matches a folded query: 0 name or code starts with it (plate
+ * `34`, postal `TX`), 1 an alias does (`Antep`), 2 the name contains it, 3 an alias does.
  */
 function matchScore(province: Province, query: string): number {
   if (/^\d+$/.test(query)) {
     return province.code.startsWith(query) || Number(province.code) === Number(query) ? 0 : NO_MATCH
   }
+  if (foldSearch(province.code) === query) return 0
   const name = foldSearch(province.name)
   const aliases = province.aliases.map(foldSearch)
   if (name.startsWith(query)) return 0
@@ -50,10 +50,10 @@ function matchScore(province: Province, query: string): number {
 function useProvinceGroups(country: CountryCode, query: string): Group[] {
   const { t } = useTranslation('common')
   const pack = useMemo(() => getCountryPack(country), [country])
-  const sorted = useMemo(
-    () => [...(pack?.provinces ?? [])].sort((a, b) => collator.compare(a.name, b.name)),
-    [pack]
-  )
+  const sorted = useMemo(() => {
+    const collator = new Intl.Collator(pack?.locale)
+    return [...(pack?.provinces ?? [])].sort((a, b) => collator.compare(a.name, b.name))
+  }, [pack])
   return useMemo(() => {
     if (!pack) return []
     const q = foldSearch(query.trim())
@@ -130,6 +130,7 @@ export function ProvinceList({
   const { t } = useTranslation('settings')
   const settingsCountry = useSettings((s) => s.settings.country)
   const country = countryProp ?? settingsCountry
+  const context = getCountryPack(country)?.localUnit
   const [query, setQuery] = useState('')
   const [active, setActive] = useState<string | null>(null)
   const groups = useProvinceGroups(country, query)
@@ -186,8 +187,8 @@ export function ProvinceList({
             setQuery(next)
             setActive(null)
           }}
-          placeholder={t('province.search')}
-          aria-label={t('province.search')}
+          placeholder={t('province.search', { context })}
+          aria-label={t('province.search', { context })}
           autoFocus={autoFocus}
           role="combobox"
           aria-expanded
@@ -201,7 +202,7 @@ export function ProvinceList({
         ref={listRef}
         id={listId}
         role="listbox"
-        aria-label={t('province.label')}
+        aria-label={t('province.label', { context })}
         className={cn('relative min-h-0 overflow-y-auto overscroll-contain px-1.5 pb-1.5', listClassName)}
       >
         {groups.map((group) => (
@@ -243,7 +244,7 @@ export function ProvinceList({
                         {t('province.wholeRegion', { region: option.label })}
                       </span>
                       <span className="text-xs text-fg-subtle">
-                        {t('province.cities', { count: option.count })}
+                        {t('province.cities', { count: option.count, context })}
                       </span>
                     </>
                   )}
@@ -255,7 +256,7 @@ export function ProvinceList({
         ))}
         {groups.length === 0 && (
           <p className="px-4 py-10 text-center text-sm text-fg-muted">
-            {t('province.noMatch', { query: query.trim() })}
+            {t('province.noMatch', { query: query.trim(), context })}
           </p>
         )}
       </div>
@@ -309,7 +310,9 @@ export function ProvincePicker({
             className={cn('shrink-0', chosen ? 'text-accent' : 'text-fg-subtle')}
           />
           <span className={cn('min-w-0 flex-1 truncate text-left', !chosen && 'text-fg-muted')}>
-            {label ?? placeholder ?? t('province.placeholder')}
+            {label ??
+              placeholder ??
+              t('province.placeholder', { context: getCountryPack(country)?.localUnit })}
           </span>
           <ChevronsUpDown size={15} strokeWidth={1.75} aria-hidden className="shrink-0 text-fg-subtle" />
         </button>

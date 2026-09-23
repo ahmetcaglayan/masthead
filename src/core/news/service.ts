@@ -144,7 +144,8 @@ function enabledSources(pack: CountryPack | undefined, settings: Settings): Set<
 /**
  * Feeds to fetch: every feed of the enabled sources, plus city feeds for the
  * selected province only — or, with just a region selected, up to six city feeds
- * spread across that region's best-covered provinces.
+ * spread across that region's best-covered provinces. Region-wide local feeds come
+ * along whenever the chosen place lies in their region.
  */
 export function planFeeds(pack: CountryPack, settings: Settings): PlannedFeed[] {
   const enabled = enabledSources(pack, settings)
@@ -154,17 +155,22 @@ export function planFeeds(pack: CountryPack, settings: Settings): PlannedFeed[] 
     : regionId
       ? (pack.regions.find((region) => region.id === regionId)?.provinces ?? [])
       : []
+  const activeRegion =
+    regionId ?? (provinceCode ? pack.provinces.find((p) => p.code === provinceCode)?.region : undefined)
   const regular: PlannedFeed[] = []
+  const regionWide: PlannedFeed[] = []
   const local = new Map<string, PlannedFeed[]>(localCodes.map((code) => [code, []]))
   for (const source of pack.sources) {
     if (!enabled.has(source.id)) continue
     for (const feed of source.feeds) {
       const planned = { key: feedKey(source, feed), source, feed }
-      if (!feed.province) regular.push(planned)
-      else local.get(feed.province)?.push(planned)
+      if (feed.province) local.get(feed.province)?.push(planned)
+      else if (feed.region) {
+        if (feed.region === activeRegion) regionWide.push(planned)
+      } else regular.push(planned)
     }
   }
-  if (provinceCode) return [...regular, ...(local.get(provinceCode) ?? [])]
+  if (provinceCode) return [...regular, ...regionWide, ...(local.get(provinceCode) ?? [])]
 
   const groups = [...local.values()].filter((group) => group.length > 0).sort((a, b) => b.length - a.length)
   const picked: PlannedFeed[] = []
@@ -173,7 +179,7 @@ export function planFeeds(pack: CountryPack, settings: Settings): PlannedFeed[] 
       if (group[round] && picked.length < MAX_REGION_FEEDS) picked.push(group[round])
     }
   }
-  return [...regular, ...picked]
+  return [...regular, ...regionWide, ...picked]
 }
 
 /** Run at most `concurrency` tasks at a time. */
@@ -598,9 +604,7 @@ export const createNewsService: CreateNewsService = (options) => {
     const language = pack?.language ?? 'tr'
     return {
       acceptLanguage:
-        language === 'en'
-          ? `${locale},en;q=0.9`
-          : `${locale},${language};q=0.9,en-US;q=0.8,en;q=0.7`,
+        language === 'en' ? `${locale},en;q=0.9` : `${locale},${language};q=0.9,en-US;q=0.8,en;q=0.7`,
       // Turkish CMSs that label windows-1254 as iso-8859-1 are the exception; elsewhere it means 1252.
       legacyCharset: language === 'tr' ? 'windows-1254' : 'windows-1252'
     }

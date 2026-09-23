@@ -3,10 +3,11 @@
  *
  * Names match whole words only, starting with a capital: "İzmir'de" and "Ankara’nın"
  * count (apostrophe + suffix), "Trabzonspor", "Samsunlu" and lowercase "ordu" do not.
- * Names that are also common words or surnames (`ambiguous` in the pack: Ordu, Tokat,
- * Aydın, Van, Batman…) additionally need the apostrophe form or an administrative
- * word after them ("Aydın Valiliği", "Van Büyükşehir"). Districts map to their
- * province; every province adds its region.
+ * Scripts without capitals (Hindi) match any whole word. Names that are also common
+ * words or surnames (`ambiguous` in the pack: Ordu, Tokat, Aydın, Van, Washington,
+ * Sussex…) additionally need the apostrophe form or a place word after them ("Aydın
+ * Valiliği", "Van Büyükşehir", "Washington state"). Districts map to their province;
+ * every province adds its region.
  */
 import type { CountryPack } from '../../shared/countries/types'
 import type { RegionId } from '../../shared/types'
@@ -30,7 +31,7 @@ interface RegionName {
   sea?: boolean
 }
 
-/** How news copy names each region id (Turkey's seven geographic regions). */
+/** How news copy names Turkey's seven geographic regions; other packs name theirs on `RegionDef.names`. */
 const REGION_NAMES: Record<RegionId, RegionName[]> = {
   marmara: [{ name: 'Marmara' }],
   // Ege is also a common first name.
@@ -112,7 +113,8 @@ const FOREIGN = new Set(
 )
 
 const WORD = /[\p{L}\p{M}\p{N}]+/gu
-const CAPITALISED = /\p{Lu}[\p{L}\p{M}\p{N}]*/gu
+/** A word that can start a name: a capital, or a letter of a script without case (Devanagari). */
+const CAPITALISED = /[\p{Lu}\p{Lo}][\p{L}\p{M}\p{N}]*/gu
 /** The next word of a multi-word name, after a space, dot or hyphen ("İç Anadolu", "K.Maraş"). */
 const NEXT_NAME_WORD = /[\s.-]{1,2}([\p{L}\p{M}\p{N}]+)/uy
 const NEXT_WORD = /\s+([\p{L}\p{M}\p{N}]+)/uy
@@ -134,6 +136,10 @@ export function createGeoTagger(pack: CountryPack): GeoTagger {
   const index = new Map<string, Entry[]>()
   const taken = new Set<string>()
   const regionOfProvince = new Map(pack.provinces.map((p) => [p.code, p.region]))
+  const placeWords = new Set([...PLACE_CONTEXT, ...(pack.placeWords ?? []).map(key)])
+  // In Turkish only proper nouns take an apostrophe suffix ("Ordu'da", never "ordu'da"); an
+  // English possessive says nothing ("Washington's allies" is the federal government).
+  const suffixMarksName = pack.language === 'tr'
 
   const add = (name: string, entry: Omit<Entry, 'words'>): void => {
     const nameWords = words(name)
@@ -151,6 +157,9 @@ export function createGeoTagger(pack: CountryPack): GeoTagger {
     for (const { name, ambiguous, sea } of names) {
       add(name, { region: id, ambiguous: ambiguous === true, sea: sea === true })
     }
+  }
+  for (const region of pack.regions) {
+    for (const name of region.names ?? []) add(name, { region: region.id, ambiguous: false })
   }
   for (const province of pack.provinces) {
     for (const name of [province.name, ...province.aliases]) {
@@ -180,11 +189,13 @@ export function createGeoTagger(pack: CountryPack): GeoTagger {
       end = NEXT_NAME_WORD.lastIndex
     }
     if (!entry.ambiguous) return end
-    APOSTROPHE_SUFFIX.lastIndex = end
-    if (APOSTROPHE_SUFFIX.test(text)) return end
+    if (suffixMarksName) {
+      APOSTROPHE_SUFFIX.lastIndex = end
+      if (APOSTROPHE_SUFFIX.test(text)) return end
+    }
     NEXT_WORD.lastIndex = end
     const context = NEXT_WORD.exec(text)
-    return context && PLACE_CONTEXT.has(key(context[1])) ? end : -1
+    return context && placeWords.has(key(context[1])) ? end : -1
   }
 
   function tag(text: string): GeoTags {

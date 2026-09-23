@@ -17,7 +17,7 @@ import {
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { TOPIC_CATEGORIES, type CategoryId } from '@shared/categories'
-import { hasLocalNews } from '@shared/countries'
+import { getCountryPack, hasLocalNews } from '@shared/countries'
 import { Tooltip } from '@/components/ui/Tooltip'
 import { useNewsView } from '@/hooks/useArticles'
 import { useNowSelect } from '@/hooks/useNow'
@@ -225,8 +225,8 @@ export function Sidebar(): React.JSX.Element {
               collapsed={collapsed}
               route={{ name: 'local' }}
               icon={MapPin}
-              label={province?.name ?? t('nav.chooseCity')}
-              title={`${t('nav.local')}: ${province?.name ?? t('nav.chooseCity')}`}
+              label={province?.name ?? t('nav.chooseCity', { context: getCountryPack(country)?.localUnit })}
+              title={`${t('nav.local')}: ${province?.name ?? t('nav.chooseCity', { context: getCountryPack(country)?.localUnit })}`}
             />
           )}
         </ul>

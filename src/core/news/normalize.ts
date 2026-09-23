@@ -246,7 +246,7 @@ export function normalizeItem(raw: RawItem, ctx: NormalizeContext): NormalizedIt
   const categories = new Set<CategoryId>([feed.category])
   if (feed.breaking || titleBreaking) categories.add('breaking')
   if (feed.headline) categories.add('top')
-  if (feed.province) categories.add('local')
+  if (feed.province || feed.region) categories.add('local')
   for (const label of raw.categories) {
     for (const category of categoriesFromLabel(label, pack.language)) categories.add(category)
   }
@@ -262,6 +262,7 @@ export function normalizeItem(raw: RawItem, ctx: NormalizeContext): NormalizedIt
     const region = geo.regionOf(feed.province)
     if (region) regions.add(region)
   }
+  if (feed.region) regions.add(feed.region)
 
   const article: Article = {
     id,

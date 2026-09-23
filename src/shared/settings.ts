@@ -1,4 +1,5 @@
 import { isCategoryId, type CategoryId } from './categories'
+import { getCountryPack } from './countries/index'
 import type { CountryCode, RegionId } from './types'
 
 export const UI_LANGUAGES = ['en', 'tr', 'de', 'pt', 'hi'] as const
@@ -156,6 +157,19 @@ function obj(value: unknown): Record<string, unknown> {
 }
 
 /**
+ * The location, if it belongs to the country: a province or region another country's pack
+ * left behind (Erzurum after a switch to India) would show an empty Local page.
+ */
+function placeIn(country: CountryCode, location: Settings['location']): Settings['location'] {
+  const pack = getCountryPack(country)
+  const { provinceCode, regionId } = location
+  const known =
+    (provinceCode === null || pack?.provinces.some((p) => p.code === provinceCode) === true) &&
+    (regionId === null || pack?.regions.some((r) => r.id === regionId) === true)
+  return known ? location : { provinceCode: null, regionId: null }
+}
+
+/**
  * Merge an untrusted patch (from disk or the renderer) into a base settings
  * object, dropping anything that does not validate. Always returns a complete,
  * valid Settings object.
@@ -237,5 +251,6 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
     }
   }
 
+  next.location = placeIn(next.country, next.location)
   return next
 }

@@ -17,7 +17,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { SourceLogo } from '@/components/ui/SourceLogo'
 import { useNewsView } from '@/hooks/useArticles'
 import { useNow } from '@/hooks/useNow'
-import { useSelectedProvince, useSources } from '@/hooks/useSources'
+import { useLocalUnit, useSelectedProvince, useSources } from '@/hooks/useSources'
 import { storyFor, storyKey, topStories } from '@/lib/curation'
 import { activeFilterCount } from '@/lib/filter'
 import { onePerStory, storySources } from '@/lib/story'
@@ -37,13 +37,14 @@ const saveLocation = (location: LocationValue): void => void useSettings.getStat
 /** First visit: choose a province (regions open into their provinces). */
 function ChooseCity(): React.JSX.Element {
   const { t } = useTranslation('news')
+  const context = useLocalUnit()
   return (
     <>
       <PageHeader
         kicker={t('local.kicker')}
         icon={MapPin}
         title={t('local.title')}
-        description={t('local.chooseBody')}
+        description={t('local.chooseBody', { context })}
       />
       <div className="max-w-2xl rounded-panel border border-line bg-surface p-5 shadow-soft sm:p-6">
         <LocationPicker
@@ -60,12 +61,13 @@ function ChooseCity(): React.JSX.Element {
 
 function ChangeCity(): React.JSX.Element {
   const { t } = useTranslation('news')
+  const context = useLocalUnit()
   const location = useSettings((s) => s.settings.location)
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline" size="sm" icon={MapPinned}>
-          {t('local.change')}
+          {t('local.change', { context })}
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-[22rem] p-3">
@@ -108,6 +110,7 @@ function LocalNews(): React.JSX.Element {
   const { t } = useTranslation('news')
   const regionSetting = useSettings((s) => s.settings.location.regionId)
   const province = useSelectedProvince()
+  const unit = useLocalUnit()
   const regionId = province?.region ?? regionSetting
   const regionName = regionId ? t(`common:region.${regionId}`) : ''
   const { sources } = useSources()
@@ -160,7 +163,9 @@ function LocalNews(): React.JSX.Element {
         icon={MapPin}
         title={province?.name ?? regionName}
         description={
-          province ? t('local.description', { city: province.name }) : t('local.regionDescription')
+          province
+            ? t('local.description', { city: province.name })
+            : t('local.regionDescription', { context: unit })
         }
         count={local.length}
         showUpdated

@@ -24,6 +24,9 @@
     "title": "De onde vêm as suas notícias?",
     "hint": "Já começamos a reunir as manchetes enquanto você termina.",
     "stats": "{{sources}} fontes · {{cities}} cidades",
+    "stats_state": "{{sources}} fontes · {{cities}} estados",
+    "stats_land": "{{sources}} fontes · {{cities}} estados",
+    "stats_area": "{{sources}} fontes · {{cities}} áreas",
     "comingSoon": "Mais países em breve"
   },
   "interests": {
@@ -33,8 +36,17 @@
   },
   "city": {
     "kicker": "Cidade",
+    "kicker_state": "Estado",
+    "kicker_land": "Estado",
+    "kicker_area": "Área",
     "title": "Quer também notícias da sua cidade?",
+    "title_state": "Quer também notícias do seu estado?",
+    "title_land": "Quer também notícias do seu estado?",
+    "title_area": "Quer também notícias da sua área?",
     "hint": "Opcional. Escolha uma cidade, ou uma região inteira, para a sua página Local.",
+    "hint_state": "Opcional. Escolha um estado, ou uma região inteira, para a sua página Local.",
+    "hint_land": "Opcional. Escolha um estado, ou uma região inteira, para a sua página Local.",
+    "hint_area": "Opcional. Escolha uma área, ou uma região inteira, para a sua página Local.",
     "skip": "Agora não",
     "chosen": "Notícias locais de {{place}}"
   },

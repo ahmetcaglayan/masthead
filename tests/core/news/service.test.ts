@@ -482,6 +482,42 @@ describe('news service', () => {
     expect(planFeeds(regionPack, DEFAULT_SETTINGS)).toEqual([])
   })
 
+  it('takes region-wide local feeds for any place in their region, and only then', () => {
+    const nationPack: CountryPack = {
+      ...testPack,
+      regions: [
+        { id: 'scotland', provinces: ['glasgow', 'edinburgh'] },
+        { id: 'wales', provinces: ['cardiff'] }
+      ],
+      provinces: [
+        { code: 'glasgow', name: 'Glasgow', slug: 'glasgow', region: 'scotland', aliases: [] },
+        { code: 'edinburgh', name: 'Edinburgh', slug: 'edinburgh', region: 'scotland', aliases: [] },
+        { code: 'cardiff', name: 'Cardiff', slug: 'cardiff', region: 'wales', aliases: [] }
+      ],
+      sources: [
+        source('herald', [
+          { url: 'https://herald.test/rss', category: 'local' as const, region: 'scotland' }
+        ]),
+        source('glasgow-live', [
+          { url: 'https://glw.test/rss', category: 'local' as const, province: 'glasgow' }
+        ])
+      ]
+    }
+    const urls = (location: { provinceCode: string | null; regionId: string | null }): string[] =>
+      planFeeds(nationPack, { ...DEFAULT_SETTINGS, location }).map((p) => p.feed.url)
+    expect(urls({ provinceCode: 'edinburgh', regionId: 'scotland' })).toEqual(['https://herald.test/rss'])
+    expect(urls({ provinceCode: 'glasgow', regionId: 'scotland' })).toEqual([
+      'https://herald.test/rss',
+      'https://glw.test/rss'
+    ])
+    expect(urls({ provinceCode: null, regionId: 'scotland' })).toEqual([
+      'https://herald.test/rss',
+      'https://glw.test/rss'
+    ])
+    expect(urls({ provinceCode: 'cardiff', regionId: 'wales' })).toEqual([])
+    expect(urls({ provinceCode: null, regionId: null })).toEqual([])
+  })
+
   it('shares one in-flight refresh between concurrent callers', async () => {
     const h = harness()
     await h.service.start()

@@ -47,31 +47,61 @@ describe('country packs', () => {
   )
 
   it.each(packs.map((pack) => [pack.code, pack] as const))(
-    '%s: every source speaks one of the pack languages, and the locale starts with the main one',
+    '%s: every source writes in the pack language, and the locale starts with it',
     (_code, pack) => {
       expect(pack.locale.startsWith(pack.language)).toBe(true)
-      const spoken = new Set(pack.languages ?? [pack.language])
-      expect(spoken.has(pack.language)).toBe(true)
-      const foreign = pack.sources.filter((s) => !spoken.has(s.language))
+      const foreign = pack.sources.filter((s) => s.language !== pack.language)
       expect(foreign.map((s) => s.id)).toEqual([])
     }
   )
 
-  it('gives every country a source in its own main language', () => {
-    for (const pack of packs) {
-      const own = pack.sources.filter((s) => s.language === pack.language && s.defaultEnabled !== false)
-      expect(own.length, `${pack.code} has no default-on source in ${pack.language}`).toBeGreaterThanOrEqual(3)
+  it.each(packs.map((pack) => [pack.code, pack] as const))(
+    '%s: covers the main topics with at least two default-on sources each',
+    (_code, pack) => {
+      const topics = ['world', 'economy', 'sports', 'technology', 'health', 'entertainment', 'lifestyle']
+      for (const topic of topics) {
+        const covering = pack.sources.filter(
+          (s) =>
+            s.defaultEnabled !== false &&
+            s.feeds.some(
+              (f) =>
+                !f.province &&
+                (f.category === topic ||
+                  (topic === 'entertainment' && f.category === 'culture') ||
+                  (topic === 'lifestyle' && f.category === 'travel'))
+            )
+        )
+        expect(covering.length, `${pack.code}: ${topic}`).toBeGreaterThanOrEqual(2)
+      }
     }
-  })
+  )
+
+  it.each(packs.map((pack) => [pack.code, pack] as const))(
+    '%s: ships local news: every province sits in one region and most have a local feed',
+    (_code, pack) => {
+      expect(pack.provinces.length).toBeGreaterThan(0)
+      const codes = pack.provinces.map((p) => p.code)
+      expect(new Set(codes).size).toBe(codes.length)
+      const inRegions = pack.regions.flatMap((r) => r.provinces)
+      expect([...inRegions].sort()).toEqual([...codes].sort())
+      const withFeed = new Set(
+        pack.sources.flatMap((s) => s.feeds.flatMap((f) => (f.province ? [f.province] : [])))
+      )
+      // India's south and northeast have no Hindi desk; every other pack covers every province.
+      expect(withFeed.size / codes.length).toBeGreaterThanOrEqual(pack.code === 'in' ? 0.4 : 1)
+    }
+  )
 
   it('only claims local news where the pack ships provinces', () => {
     for (const pack of packs) {
       expect(hasLocalNews(pack.code)).toBe(pack.provinces.length > 0)
       // A province feed only makes sense when that province exists in the pack.
       const codes = new Set(pack.provinces.map((p) => p.code))
+      const regionIds = new Set(pack.regions.map((r) => r.id))
       for (const source of pack.sources)
         for (const feed of source.feeds)
           if (feed.province) expect(codes.has(feed.province), `${source.id}: ${feed.province}`).toBe(true)
+          else if (feed.region) expect(regionIds.has(feed.region), `${source.id}: ${feed.region}`).toBe(true)
     }
   })
 })

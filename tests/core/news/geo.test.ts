@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { createGeoTagger } from '../../../src/core/news/geo'
+import { getCountryPack } from '../../../src/shared/countries/index'
+import type { CountryPack } from '../../../src/shared/countries/types'
 import { testPack } from './helpers'
 
 const geo = createGeoTagger(testPack)
@@ -97,5 +99,50 @@ describe('createGeoTagger', () => {
     // A guard against an order-of-magnitude regression, not a benchmark: shared CI runners
     // measured 20.5 ms for work that takes ~6 ms on a developer machine.
     expect(best).toBeLessThan(60)
+  })
+})
+
+describe('createGeoTagger in other countries', () => {
+  const tagger = (code: 'in' | 'us' | 'gb' | 'de' | 'br') =>
+    createGeoTagger(getCountryPack(code) as CountryPack)
+
+  it('matches Hindi names, which have no capitals, and their cities', () => {
+    const india = tagger('in')
+    expect(india.tag('उत्तर प्रदेश में बारिश से तबाही').provinces).toEqual(['UP'])
+    expect(india.tag('लखनऊ में बैठक, पटना से लौटे मंत्री').provinces).toEqual(['UP', 'BR'])
+    expect(india.tag('जम्मू-कश्मीर के श्रीनगर में बर्फबारी')).toEqual({
+      provinces: ['JK'],
+      regions: ['north']
+    })
+    expect(india.tag('Bihar News: चुनाव की तैयारी').provinces).toEqual(['BR'])
+  })
+
+  it('reads "Washington" as the state only when a place word follows', () => {
+    const us = tagger('us')
+    expect(us.tag("Washington weighs new sanctions; Washington's allies wait").provinces).toEqual([])
+    expect(us.tag('Washington state wildfire spreads').provinces).toEqual(['WA'])
+    expect(us.tag('Storm hits Georgia and South Carolina').provinces).toEqual(['SC'])
+    expect(us.tag('Georgia Gov. signs the bill').provinces).toEqual(['GA'])
+    expect(us.tag('Flooding in Kansas City and St. Louis').provinces).toEqual(['MO'])
+    expect(us.tag('New York and New Jersey brace for the storm').provinces).toEqual(['NY', 'NJ'])
+  })
+
+  it('tags UK nations as regions and keeps royal titles out of the counties', () => {
+    const gb = tagger('gb')
+    expect(gb.tag('Scotland votes on the budget')).toEqual({ provinces: [], regions: ['scotland'] })
+    expect(gb.tag('Duke of Sussex visits Canada').provinces).toEqual([])
+    expect(gb.tag('Sussex Police appeal for witnesses').provinces).toEqual(['sussex'])
+    expect(gb.tag('Flooding in Leeds and Cardiff').provinces).toEqual(['west-yorkshire', 'south-east-wales'])
+    expect(gb.tag('New York marathon').provinces).toEqual([])
+  })
+
+  it('reads German genitives and Brazilian state names', () => {
+    expect(tagger('de').tag('Bayerns Ministerpräsident besucht Leipzig').provinces).toEqual(['BY', 'SN'])
+    expect(tagger('de').tag('Sachsen-Anhalt und Niedersachsen').provinces).toEqual(['ST', 'NI'])
+    expect(tagger('br').tag('Chuva em Mato Grosso do Sul e no Rio Grande do Sul').provinces).toEqual([
+      'MS',
+      'RS'
+    ])
+    expect(tagger('br').tag('Para o governo, a medida em Belo Horizonte').provinces).toEqual(['MG'])
   })
 })

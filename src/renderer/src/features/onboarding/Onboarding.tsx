@@ -64,7 +64,10 @@ function Headline({ article }: { article: Article }): React.JSX.Element {
         {clock(article.publishedAt, i18n.language)}
       </time>
       <SourceLogo source={source} size="xs" className="mt-0.5" />
-      <span lang={source?.language ?? 'tr'} className="headline min-w-0 text-[14.5px] leading-snug font-medium text-pretty text-fg">
+      <span
+        lang={source?.language ?? 'tr'}
+        className="headline min-w-0 text-[14.5px] leading-snug font-medium text-pretty text-fg"
+      >
         {tameCaps(article.title)}
       </span>
     </li>
@@ -272,9 +275,9 @@ export function Onboarding(): React.JSX.Element {
   const onlyCountry = SINGLE_COUNTRY ? AVAILABLE[0].code : undefined
   const questionProps = (index: number) => ({
     index,
-    kicker: t(`${steps[index]}.kicker`),
-    title: t(`${steps[index]}.title`),
-    hint: t(`${steps[index]}.hint`),
+    kicker: t(`${steps[index]}.kicker`, { context: pack?.localUnit }),
+    title: t(`${steps[index]}.title`, { context: pack?.localUnit }),
+    hint: t(`${steps[index]}.hint`, { context: pack?.localUnit }),
     answered: index < current,
     current: index === current,
     onContinue: () => confirm(index),
@@ -334,7 +337,8 @@ export function Onboarding(): React.JSX.Element {
                 ),
                 description: t('country.stats', {
                   sources: getCountryPack(o.code)?.sources.length ?? 0,
-                  cities: getCountryPack(o.code)?.provinces.length ?? 0
+                  cities: getCountryPack(o.code)?.provinces.length ?? 0,
+                  context: getCountryPack(o.code)?.localUnit
                 })
               }))}
             />

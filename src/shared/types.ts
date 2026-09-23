@@ -36,6 +36,11 @@ export interface FeedDef {
    * province matches, so 81 city feeds don't all refresh every cycle.
    */
   province?: string
+  /**
+   * Region-wide local feed (a Scottish or Welsh national paper): fetched when the user's
+   * province lies in that region, or the region itself is selected.
+   */
+  region?: RegionId
 }
 
 export interface SourceDef {
@@ -57,7 +62,7 @@ export interface SourceDef {
 }
 
 export interface Province {
-  /** Plate code for Turkey (`34`), ISO-3166-2 suffix elsewhere. */
+  /** Plate code for Turkey (`34`), the ISO 3166-2 suffix for states (`CA`, `BY`, `SP`, `UP`), a short slug for UK areas. */
   code: string
   name: string
   slug: string

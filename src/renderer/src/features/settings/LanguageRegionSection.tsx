@@ -1,6 +1,6 @@
 import { ChevronsUpDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { COUNTRY_OPTIONS, hasLocalNews } from '@shared/countries'
+import { COUNTRY_OPTIONS, getCountryPack, hasLocalNews } from '@shared/countries'
 import type { UiLanguage } from '@shared/settings'
 import type { CountryCode } from '@shared/types'
 import { Badge } from '@/components/ui/Badge'
@@ -115,9 +115,7 @@ export function LanguageRegionSection(): React.JSX.Element {
         <SettingRow
           label={t('locale.language.label')}
           description={t('locale.language.description')}
-          control={
-            <LanguageSelect value={language} onChange={(next) => void update({ language: next })} />
-          }
+          control={<LanguageSelect value={language} onChange={(next) => void update({ language: next })} />}
         />
         <SettingRow
           label={t('locale.country.label')}
@@ -136,7 +134,7 @@ export function LanguageRegionSection(): React.JSX.Element {
         {/* Countries without a province pack have no Local page to fill. */}
         {hasLocalNews(country) && (
           <SettingRow
-            label={t('locale.city.label')}
+            label={t('locale.city.label', { context: getCountryPack(country)?.localUnit })}
             description={t('locale.city.description')}
             control={
               <ProvincePicker

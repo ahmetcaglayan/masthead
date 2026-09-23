@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpDown, Check, ChevronDown, EyeOff, Image, ListFilter, MapPin, Rss, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { getProvince, hasLocalNews } from '@shared/countries'
+import { getCountryPack, getProvince, hasLocalNews } from '@shared/countries'
 import { TIME_RANGES, type TimeRange } from '@shared/settings'
 import type { SourceDef } from '@shared/types'
 import { Button } from '@/components/ui/Button'
@@ -97,6 +97,7 @@ function SourcePicker({
   counts: ReadonlyMap<string, number>
 }): React.JSX.Element {
   const { t } = useTranslation('news')
+  const locale = useSettings((s) => getCountryPack(s.settings.country)?.locale)
   const [query, setQuery] = useState('')
   const q = foldText(query.trim())
   const listed = useMemo(
@@ -104,8 +105,8 @@ function SourcePicker({
       sources
         .filter((s) => (counts.get(s.id) ?? 0) > 0 || selected.includes(s.id))
         .filter((s) => !q || foldText(s.name).includes(q))
-        .sort((a, b) => a.name.localeCompare(b.name, 'tr')),
-    [sources, counts, selected, q]
+        .sort((a, b) => a.name.localeCompare(b.name, locale)),
+    [sources, counts, selected, q, locale]
   )
   const toggle = (id: string): void =>
     setFilters({ sourceIds: selected.includes(id) ? selected.filter((s) => s !== id) : [...selected, id] })
@@ -402,7 +403,7 @@ export function FilterBar({ hide = [], count, className }: FilterBarProps): Reac
                 iconRight={ChevronDown}
                 className={triggerClass(Boolean(locationLabel))}
               >
-                {locationLabel ?? t('filters.location')}
+                {locationLabel ?? t('filters.location', { context: getCountryPack(country)?.localUnit })}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[22rem] p-3">

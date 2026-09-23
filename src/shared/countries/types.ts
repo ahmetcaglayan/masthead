@@ -4,6 +4,8 @@ export interface RegionDef {
   id: RegionId
   /** Province codes in this region. */
   provinces: string[]
+  /** How news copy names the region ("Scotland", "Yorkshire"); stories naming it are tagged with it. */
+  names?: string[]
 }
 
 export interface GoogleNewsEdition {
@@ -18,13 +20,11 @@ export interface GoogleNewsEdition {
  */
 export interface CountryPack {
   code: CountryCode
-  /** Main content language of the pack's sources (BCP-47). */
-  language: string
   /**
-   * Every content language the pack's sources publish in, when it is more than one
-   * (India reads Hindi and English). Defaults to `[language]`.
+   * Content language of the pack's sources (BCP-47). Every source publishes in it: a
+   * country's front page is written by its own newsrooms, in its own language.
    */
-  languages?: readonly string[]
+  language: string
   /** Locale used for case-folding and date parsing of content (e.g. `tr-TR`). */
   locale: string
   /** IANA time zone feeds without an offset are assumed to be in. */
@@ -35,5 +35,15 @@ export interface CountryPack {
   regions: RegionDef[]
   provinces: Province[]
   districts: District[]
+  /**
+   * What the UI calls a province when it is not a city: a `state` in the US, Brazil and
+   * India, a `land` (Bundesland) in Germany, an `area` (a county or city region) in the UK.
+   */
+  localUnit?: 'state' | 'land' | 'area'
+  /**
+   * Words that, right after a place name that is also an ordinary word, make it a place
+   * ("Washington state", "Georgia Governor"). Turkish ones are built into the geo tagger.
+   */
+  placeWords?: readonly string[]
   googleNews?: GoogleNewsEdition
 }
