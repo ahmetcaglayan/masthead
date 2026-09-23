@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel xmlns:atom="http://www.w3.org/2005/Atom">
+    <title>Anadolu Ajansı Güncel Haberler</title>
+    <link>https://www.aa.com.tr/</link>
+    <description>Türkiye'den ve Dünya'dan Güncel Haberler</description>
+    <language>tr</language>
+    <image>
+      <url>https://www.aa.com.tr/images/meta-photo.png</url>
+      <title>Anadolu Ajansı Güncel Haberler</title>
+      <link>https://www.aa.com.tr/</link>
+    </image>
+    <item>
+      <guid isPermaLink="false">4065340</guid>
+      <link>https://www.aa.com.tr/tr/gundem/turkiye-diger-mikta-ulkeleri-ile-insani-yardim-alanindaki-yanlis-ve-zararli-soylemleri-kinadi/4065340</link>
+      <title>Türkiye, diğer MIKTA ülkeleri ile insani yardım alanındaki yanlış ve zararlı söylemleri kınadı</title>
+      <description>Türkiye, diğer MIKTA üyeleri ile birlikte insani yardım kuruluşlarını ve personelini yanlış şekilde tasvir eden ya da insani yardım faaliyetlerini engelleyen yanlış ve zararlı söylemlerin oluşturulmasını, koordine edilmesini ve yayılmasını kınadı.</description>
+      <pubDate>Tue, 22 Sep 2026 22:26:50 +0300</pubDate>
+      <image>https://cdnuploads.aa.com.tr/uploads/Contents/2026/09/22/thumbs_b_c_c4a451c5d2406d4ad3bff6a65ed8a20f.jpg</image>
+    </item>
+    <item>
+      <guid isPermaLink="false">4065342</guid>
+      <link>https://www.aa.com.tr/tr/gundem/sermaye-piyasasinda-gerceklestirilen-islemlere-iliskin-sorusturmalar-suruyor/4065342</link>
+      <title>Sermaye piyasasında gerçekleştirilen işlemlere ilişkin soruşturmalar sürüyor</title>
+      <description>İstanbul Cumhuriyet Başsavcılığınca sermaye piyasasında gerçekleştirilen işlemlere ilişkin yürütülen soruşturmalar kapsamında, gözaltındaki şüphelilere ilişkin adli işlemler ile zanlıların yakalanmasına yönelik çalışmalar devam ediyor.</description>
+      <pubDate>Tue, 22 Sep 2026 22:27:25 +0300</pubDate>
+      <image>https://cdnuploads.aa.com.tr/uploads/Contents/2026/09/22/thumbs_b_c_66e078c7ce5e8eca2f568076adc1d203.jpg</image>
+    </item>
+    <item>
+      <guid isPermaLink="false">4065331</guid>
+      <link>https://www.aa.com.tr/tr/dunya/israilden-bati-seriada-filistinlilere-ait-533-donum-arazideki-zeytin-agaclarini-sokme-karari/4065331</link>
+      <title>İsrail'den Batı Şeria'da Filistinlilere ait 533 dönüm arazideki zeytin ağaçlarını sökme kararı</title>
+      <description>
+ İsrail'in, "güvenlik önlemleri" bahanesiyle işgal altındaki Batı Şeria'da Filistinlilere ait toplam 533,5 dönümlük arazideki zeytin ağaçlarını sökme yönünde askeri kararlar çıkardığı bildirildi.</description>
+      <pubDate>Tue, 22 Sep 2026 22:14:08 +0300</pubDate>
+      <image>https://cdnuploads.aa.com.tr/uploads/Contents/2026/09/22/thumbs_b_c_aee12eac10c7d0a9852d617d705999db.jpg</image>
+    </item>
+    <item>
+      <guid isPermaLink="false">4065319</guid>
+      <link>https://www.aa.com.tr/tr/spor/basketbolda-erkekler-cumhurbaskanligi-kupasini-fenerbahce-tarfin-kazandi/4065319</link>
+      <title>Basketbolda Erkekler Cumhurbaşkanlığı Kupası'nı Fenerbahçe Tarfin kazandı</title>
+      <description>Basketbolda Erkekler Cumhurbaşkanlığı Kupası'nı Beşiktaş'ı 72-59 yenen Fenerbahçe Tarfin kazandı.</description>
+      <pubDate>Tue, 22 Sep 2026 22:05:06 +0300</pubDate>
+      <image>https://cdnuploads.aa.com.tr/uploads/Contents/2026/09/22/thumbs_b_c_d6db34a944431e6e35c0259f6de025b2.jpg</image>
+    </item>
+  </channel>
+</rss>

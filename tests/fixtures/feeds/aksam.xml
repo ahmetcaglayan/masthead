@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:fn="http://www.w3.org/2004/10/xpath-functions"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:y="http://www.yahoo.com/y-namespace"> 
+<channel> 
+<title>aksam.COM.TR</title> 
+<link>http://www.aksam.com.tr</link> 
+<description>aksam.COM.TR</description> 
+<language>tr</language> 
+<copyright>Copyright &amp;copy; 2012, aksam.COM.TR</copyright> 
+<category>News</category> 
+<lastBuildDate>Tue, 22 Sep 2026 22:46:35 +0300</lastBuildDate> 
+<ttl>1</ttl> 
+<image> 
+	<title>aksam.COM.TR</title> 
+	<link>http://www.aksam.com.tr</link> 
+	<url>http://m.aksam.com.tr/assets/img/aksam-apple-touch-icon.png</url> 
+	<width>257</width> 
+	<height>90</height> 
+</image> 
+
+
+	<item> 
+		<title>Sermaye piyasas&#305;nda &quot;Tera&quot; operasyonu: &#220;st d&#252;zey y&#246;neticilere tutuklama talebi</title> 
+		<description>&#304;stanbul'da sermaye piyasas&#305;nda ger&#231;ekle&#351;tirilen i&#351;lemlere ili&#351;kin y&#252;r&#252;t&#252;len soru&#351;turmalar kapsam&#305;nda d&#252;zenlenen operasyonda g&#246;zalt&#305;na al&#305;nan 5 &#351;&#252;pheli, tutuklama talebiyle sulh ceza hakimli&#287;ine sevk edildi. </description>
+
+	<pubDate>Tue, 22 Sep 2026 22:45:00 +0300</pubDate> 
+	<image>https://img3.aksam.com.tr/imgsdisk/2026/09/22/sermaye-piyasasinda-tera--114_2.jpg</image> 
+	<media:content url="https://img3.aksam.com.tr/imgsdisk/2026/09/22/sermaye-piyasasinda-tera--114_2.jpg" type="image/jpeg" medium="image" /> 
+	<media:thumbnail url="https://img3.aksam.com.tr/imgsdisk/2026/09/22/sermaye-piyasasinda-tera--114_2.jpg" /> 
+	<enclosure url="https://img3.aksam.com.tr/imgsdisk2026/09/22/sermaye-piyasasinda-tera--114_2.jpg" length="50000" type="image/jpeg" /> 
+	<link>https://www.aksam.com.tr/guncel/sermaye-piyasasinda-tera-operasyonu-ust-duzey-yoneticilere-tutuklama-talebi/haber-1700519</link> 
+	<guid>https://www.aksam.com.tr/guncel/sermaye-piyasasinda-tera-operasyonu-ust-duzey-yoneticilere-tutuklama-talebi/haber-1700519</guid> 
+	
+	</item>
+
+	<item> 
+		<title>Fenerbah&#231;e Tarfin kupas&#305;na kavu&#351;tu! Co&#351;kulu kutlama</title> 
+		<description>Fenerbah&#231;e Tarfin, Cumhurba&#351;kanl&#305;&#287;&#305; Kupas&#305;'n&#305; ald&#305;. Gen&#231;lik ve Spor Bakan&#305; Osman A&#351;k&#305;n Bak ile TBF Ba&#351;kan&#305; Hidayet T&#252;rko&#287;lu, kupay&#305; kaptan Melih Mahmuto&#287;lu'na verdi. </description>
+
+	<pubDate>Tue, 22 Sep 2026 22:40:00 +0300</pubDate> 
+	<image>https://img3.aksam.com.tr/imgsdisk/2026/09/22/fenerbahce-tarfin-kupasin-212_2.jpg</image> 
+	<media:content url="https://img3.aksam.com.tr/imgsdisk/2026/09/22/fenerbahce-tarfin-kupasin-212_2.jpg" type="image/jpeg" medium="image" /> 
+	<media:thumbnail url="https://img3.aksam.com.tr/imgsdisk/2026/09/22/fenerbahce-tarfin-kupasin-212_2.jpg" /> 
+	<enclosure url="https://img3.aksam.com.tr/imgsdisk2026/09/22/fenerbahce-tarfin-kupasin-212_2.jpg" length="50000" type="image/jpeg" /> 
+	<link>https://www.aksam.com.tr/spor/fenerbahce-tarfin-kupasina-kavustu-coskulu-kutlama/haber-1700518</link> 
+	<guid>https://www.aksam.com.tr/spor/fenerbahce-tarfin-kupasina-kavustu-coskulu-kutlama/haber-1700518</guid> 
+	
+	</item>
+
+	<item> 
+		<title>ABD'de &#304;ran Sava&#351; Zirvesi... Trump: Erdo&#287;an &#231;ok iyi bir dostum </title> 
+		<description>Ba&#351;kan Erdo&#287;an ve ABD Ba&#351;kan&#305; Trump K&#246;rfez liderleri ile b&#246;lgedeki krizi g&#246;r&#252;&#351;t&#252;. &#304;ran Sava&#351; Zirvesi'nde a&#231;&#305;klamalarda bulunan ABD Ba&#351;kan&#305; Trump, &quot;Erdo&#287;an &#231;ok iyi bir dostum&quot; dedi. </description>
+
+	<pubDate>Tue, 22 Sep 2026 22:37:00 +0300</pubDate> 
+	<image>https://img3.aksam.com.tr/imgsdisk/2026/09/22/abdde-iran-savas-zirvesi--864_2.jpg</image> 
+	<media:content url="https://img3.aksam.com.tr/imgsdisk/2026/09/22/abdde-iran-savas-zirvesi--864_2.jpg" type="image/jpeg" medium="image" /> 
+	<media:thumbnail url="https://img3.aksam.com.tr/imgsdisk/2026/09/22/abdde-iran-savas-zirvesi--864_2.jpg" /> 
+	<enclosure url="https://img3.aksam.com.tr/imgsdisk2026/09/22/abdde-iran-savas-zirvesi--864_2.jpg" length="50000" type="image/jpeg" /> 
+	<link>https://www.aksam.com.tr/guncel/abdde-iran-savas-zirvesi-trump-erdogan-cok-iyi-bir-dostum/haber-1700517</link> 
+	<guid>https://www.aksam.com.tr/guncel/abdde-iran-savas-zirvesi-trump-erdogan-cok-iyi-bir-dostum/haber-1700517</guid> 
+	
+	</item>
+
+</channel> 
+</rss>

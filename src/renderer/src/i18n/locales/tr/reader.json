@@ -1,0 +1,55 @@
+{
+  "mode": {
+    "label": "Görünüm",
+    "web": "Web",
+    "reader": "Okuma modu"
+  },
+  "toolbar": {
+    "back": "Geri",
+    "forward": "İleri",
+    "reload": "Sayfayı yenile",
+    "save": "Kaydet",
+    "unsave": "Kaydedilenlerden çıkar",
+    "copyLink": "Bağlantıyı kopyala",
+    "linkCopied": "Bağlantı kopyalandı",
+    "copyFailed": "Bağlantı kopyalanamadı",
+    "openInBrowser": "Tarayıcıda aç",
+    "previous": "Önceki haber",
+    "next": "Sonraki haber",
+    "position": "{{total}} haberden {{current}}.",
+    "close": "Kapat",
+    "textSettings": "Yazı ayarları"
+  },
+  "text": {
+    "size": "Yazı boyutu",
+    "smaller": "Yazıyı küçült",
+    "larger": "Yazıyı büyüt",
+    "typeface": "Yazı tipi",
+    "readingFont": "Okuma yazı tipi",
+    "uiFont": "Arayüz yazı tipi"
+  },
+  "coverage": {
+    "label": "Diğer kaynaklarda"
+  },
+  "web": {
+    "loading": "{{site}} yükleniyor…",
+    "failedTitle": "Sayfa yüklenemedi",
+    "failedDescription": "{{site}} sitesine ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin ya da haberi Okuma modunda açın.",
+    "retry": "Tekrar dene",
+    "tryReader": "Okuma modunu dene",
+    "blockedTitle": "Bu site tarayıcıda gömülü gösterilemiyor",
+    "blockedDescription": "{{site}} başka bir sayfanın içinde gösterilmeye izin vermiyor. Masaüstü uygulamasında böyle bir kısıtlama yok.",
+    "blockedNotice": "Bu site tarayıcıda gömülü gösterilemiyor — Okuma modu gösteriliyor",
+    "openOriginal": "Orijinalini aç"
+  },
+  "reader": {
+    "minutes_one": "{{count}} dk'lık okuma",
+    "minutes_other": "{{count}} dk'lık okuma",
+    "failedTitle": "Makale çıkarılamadı",
+    "failedDescription": "{{source}} akışında paylaşılan metni gösteriyoruz. Haberin tamamı yayıncının sayfasında.",
+    "retry": "Tekrar dene",
+    "showWeb": "Web sayfasını göster",
+    "sourceLabel": "Kaynak",
+    "viewOriginal": "Orijinal sayfayı gör"
+  }
+}

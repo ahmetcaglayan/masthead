@@ -1,0 +1,150 @@
+{
+  "app": {
+    "name": "Masthead",
+    "tagline": "Every headline, one calm front page."
+  },
+  "nav": {
+    "main": "Main navigation",
+    "home": "Home",
+    "digest": "Digest",
+    "latest": "Latest",
+    "breaking": "Breaking",
+    "forYou": "For You",
+    "local": "Local",
+    "chooseCity": "Choose city",
+    "topics": "Topics",
+    "library": "Library",
+    "saved": "Saved",
+    "history": "History",
+    "sources": "Sources",
+    "settings": "Settings",
+    "search": "Search",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "breakingCount_one": "{{count}} new in the last 2 hours",
+    "breakingCount_other": "{{count}} new in the last 2 hours"
+  },
+  "category": {
+    "top": "Top Stories",
+    "breaking": "Breaking",
+    "general": "Agenda",
+    "national": "National",
+    "national_tr": "Türkiye",
+    "world": "World",
+    "politics": "Politics",
+    "economy": "Economy",
+    "sports": "Sports",
+    "technology": "Technology",
+    "science": "Science",
+    "health": "Health",
+    "culture": "Arts & Culture",
+    "entertainment": "Entertainment",
+    "lifestyle": "Lifestyle",
+    "education": "Education",
+    "automotive": "Automotive",
+    "travel": "Travel",
+    "environment": "Environment",
+    "local": "Local",
+    "opinion": "Opinion"
+  },
+  "region": {
+    "marmara": "Marmara",
+    "aegean": "Aegean",
+    "mediterranean": "Mediterranean",
+    "central-anatolia": "Central Anatolia",
+    "black-sea": "Black Sea",
+    "eastern-anatolia": "Eastern Anatolia",
+    "southeastern-anatolia": "Southeastern Anatolia"
+  },
+  "country": {
+    "tr": "Türkiye",
+    "us": "United States",
+    "gb": "United Kingdom",
+    "de": "Germany",
+    "fr": "France",
+    "es": "Spain",
+    "it": "Italy",
+    "nl": "Netherlands",
+    "az": "Azerbaijan"
+  },
+  "sourceKind": {
+    "mainstream": "Mainstream",
+    "public": "Public broadcaster",
+    "agency": "News agency",
+    "independent": "Independent",
+    "international": "International",
+    "business": "Business",
+    "sports": "Sports",
+    "technology": "Technology",
+    "local": "Local",
+    "aggregator": "Aggregator"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "actions": {
+    "save": "Save",
+    "saved": "Saved",
+    "unsave": "Remove from saved",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "openInBrowser": "Open in browser",
+    "refresh": "Refresh",
+    "refreshing": "Refreshing…",
+    "close": "Close",
+    "back": "Back",
+    "retry": "Try again",
+    "seeAll": "See all",
+    "readMore": "Full summary",
+    "showLess": "Show less",
+    "clear": "Clear",
+    "search": "Search",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "done": "Done",
+    "open": "Open",
+    "scrollToTop": "Back to top"
+  },
+  "states": {
+    "loading": "Loading…",
+    "empty": "Nothing here yet",
+    "offline": "You're offline",
+    "offlineHint": "Showing the stories we already have. We'll catch up once you're back online.",
+    "error": "Something went wrong",
+    "errorHint": "Please try again in a moment.",
+    "noResults": "No results",
+    "noResultsFor": "Nothing matches “{{query}}”"
+  },
+  "titlebar": {
+    "searchPlaceholder": "Search the news",
+    "updated": "Updated {{time}}",
+    "updatedJustNow": "Updated just now",
+    "neverUpdated": "Not updated yet",
+    "refreshProgress": "Refreshing feeds ({{done}}/{{total}})",
+    "themeTooltip": "Theme: {{mode}}",
+    "webBadge": "Web",
+    "webBadgeHint": "Running in the browser preview"
+  },
+  "time": {
+    "now": "just now",
+    "minutesAgo": "{{count}} min ago",
+    "hoursAgo": "{{count}} hr ago",
+    "yesterdayAt": "yesterday {{time}}",
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "a11y": {
+    "notifications": "Notifications",
+    "sourceLogo": "{{name}} logo"
+  },
+  "stub": {
+    "title": "Coming together",
+    "description": "This page is being built."
+  },
+  "newStories_one": "{{count}} new story",
+  "newStories_other": "{{count}} new stories"
+}

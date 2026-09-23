@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+  <title>Latest News From Euronews | Euronews RSS</title>
+  <link>https://tr.euronews.com</link>
+  <language>tr</language>
+  <description>Latest news from Euronews</description>
+  <copyright>Euronews 2026</copyright>
+  <lastBuildDate>Tue, 22 Sep 2026 21:30:43 +0200</lastBuildDate>
+  <pubDate>Tue, 22 Sep 2026 21:30:43 +0200</pubDate>
+  <ttl>30</ttl>
+  <atom:link href="https://tr.euronews.com/rss" rel="self" type="application/rss+xml"/>
+  <image>
+   <url>https://static.euronews.com/website/images/euronews_flatblue.png</url>
+   <title>Latest News From Euronews | Euronews RSS</title>
+   <link>https://tr.euronews.com</link>
+  </image>
+  <item>
+   <title>Jorge Palma (1950-2026): Asla ölmeyecek şarkıları ve mirası</title>
+   <link>https://tr.euronews.com/kultur/2026/09/22/jorge-palma-1950-2026-asla-olmeyecek-sarkilari-ve-mirasi</link>
+   <guid>https://tr.euronews.com/kultur/2026/09/22/jorge-palma-1950-2026-asla-olmeyecek-sarkilari-ve-mirasi</guid>
+   <pubDate>Tue, 22 Sep 2026 21:06:09 +0200</pubDate>
+   <description>Bu salı Portekiz güne daha hüzünlü uyandı: 76 yaşındaki Jorge Palma kalp ve solunum durması sonucu hayatını kaybetti. Sanatçı gitti ama geride bıraktığı sayısız şarkı yaşamaya devam edecek. Euronews, Herman José’den António Zambujo’ya herkesin favorisini sordu.</description>
+  </item>
+  <item>
+   <title>Antik Roma kenti Pula, çağdaş ışık sanatıyla yeniden ışıldıyor</title>
+   <link>https://tr.euronews.com/video/2026/09/22/antik-roma-kenti-pula-cagdas-isik-sanatiyla-yeniden-isildiyor</link>
+   <guid>https://tr.euronews.com/video/2026/09/22/antik-roma-kenti-pula-cagdas-isik-sanatiyla-yeniden-isildiyor</guid>
+   <pubDate>Tue, 22 Sep 2026 21:01:07 +0200</pubDate>
+   <description>2000 yıllık bir Roma kenti, çağdaş ışık enstalasyonlarıyla geceleyin büyüleyici bir açık hava sanat galerisine dönüşüyor.</description>
+  </item>
+  <item>
+   <title>Trump BM'de İran'ı &quot;yok etmekle&quot; tehdit etti, ardından ilk doğrudan temasları doğruladı</title>
+   <link>https://tr.euronews.com/2026/09/22/trump-bmde-irani-yok-etmekle-tehdit-etti-ardindan-ilk-dogrudan-temaslari-dogruladi</link>
+   <guid>https://tr.euronews.com/2026/09/22/trump-bmde-irani-yok-etmekle-tehdit-etti-ardindan-ilk-dogrudan-temaslari-dogruladi</guid>
+   <pubDate>Tue, 22 Sep 2026 20:51:51 +0200</pubDate>
+   <description>Trump BM Genel Kurulunda, İran İslam Cumhuriyeti’ni ‘yok etmeli miyiz, yoksa yeniden inşa için anlaşma mı teklif etmeliyim’ diye sorup, ABD ve İran yetkililerinin kenarda görüştüğünü söyledi; İran heyetinin çoğu salonu terk etti.</description>
+  </item>
+ </channel>
+</rss>

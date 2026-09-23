@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Tüm Haberler</title>
+    <link>https://tr.investing.com</link>
+    <item>
+      <enclosure url="https://content-media.investing.com/news/Microsoft_2_M_1440048702.jpg" length="19829" type="image/jpeg"/>
+      <title>Meta CEO’su Zuckerberg Trump-Xi akşam yemeğine katılacak</title>
+      <pubDate>2026-09-22 19:26:56</pubDate>
+      <author>Investing.com</author>
+      <link>https://tr.investing.com/news/stock-market-news/meta-ceosu-zuckerberg-trumpxi-aksam-yemegine-katlacak-93CH-4074919</link>
+    </item>
+    <item>
+      <enclosure url="https://content-media.investing.com/news/LYNXMPEM3917D_1200_L.jpg" length="138748" type="image/jpeg"/>
+      <title>Dynatrace hissesi 57,23 dolarda 52 haftalık zirve yaptı</title>
+      <pubDate>2026-09-22 19:26:46</pubDate>
+      <author>Investing.com</author>
+      <link>https://tr.investing.com/news/company-news/dynatrace-hissesi-5723-dolarda-52-haftalk-zirve-yapt-93CH-4074918</link>
+    </item>
+    <item>
+      <enclosure url="https://content-media.investing.com/news/LYNXMPEC0409P_M.jpg" length="14821" type="image/jpeg"/>
+      <title>Abenojar Tungsten, Londra’da halka arz planlıyor</title>
+      <pubDate>2026-09-22 19:22:19</pubDate>
+      <author>Investing.com</author>
+      <link>https://tr.investing.com/news/stock-market-news/abenojar-tungsten-londrada-halka-arz-planlyor-93CH-4074916</link>
+    </item>
+  </channel>
+</rss>

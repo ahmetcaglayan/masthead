@@ -1,0 +1,240 @@
+{
+  "page": {
+    "title": "Ayarlar",
+    "kicker": "Tercihler",
+    "description": "Masthead'i kendinize göre ayarlayın. Değişiklikler anında kaydedilir.",
+    "sections": "Ayar bölümleri"
+  },
+  "nav": {
+    "appearance": "Görünüm",
+    "typography": "Tipografi",
+    "language": "Dil ve bölge",
+    "interests": "İlgi alanları",
+    "sources": "Kaynaklar",
+    "reading": "Okuma",
+    "notifications": "Bildirimler",
+    "updates": "Güncellemeler",
+    "data": "Veriler ve uygulama"
+  },
+  "appearance": {
+    "description": "Tema, renk ve ön sayfanızın düzeni.",
+    "theme": {
+      "label": "Tema",
+      "description": "Gündüz sıcak kâğıt, gece derin mürekkep; isterseniz cihazınıza bırakın.",
+      "lightHint": "Sıcak kâğıt",
+      "darkHint": "Derin mürekkep",
+      "systemHint": "Cihazınıza uyar"
+    },
+    "accent": {
+      "label": "Vurgu rengi",
+      "description": "Vurgularda, bağlantılarda ve bulunduğunuz sayfada kullanılır.",
+      "ember": "Kor",
+      "ocean": "Okyanus",
+      "forest": "Orman",
+      "violet": "Menekşe",
+      "gold": "Altın"
+    },
+    "density": {
+      "label": "Yoğunluk",
+      "description": "Sıkı görünüm ekrana daha çok haber sığdırır.",
+      "comfortable": "Rahat",
+      "compact": "Sıkı"
+    },
+    "cardStyle": {
+      "label": "Kart stili",
+      "description": "Haberlerin listelerde ve bölümlerde nasıl dizileceği.",
+      "magazine": "Dergi",
+      "magazineHint": "Büyük görseller, tam özetler",
+      "grid": "Izgara",
+      "gridHint": "Bir bakışta daha çok haber",
+      "list": "Liste",
+      "listHint": "Sade, metin öncelikli bir sütun"
+    },
+    "sidebar": {
+      "label": "Dar kenar çubuğu",
+      "description": "Haberlere daha çok yer açmak için kenar çubuğunda yalnızca simgeleri göster."
+    }
+  },
+  "typography": {
+    "description": "Gözünüzü en az yoran yazı tiplerini ve boyutu seçin.",
+    "reset": "Tipografiyi sıfırla",
+    "sans": "Tırnaksız",
+    "serif": "Tırnaklı",
+    "default": "Varsayılan",
+    "uiFont": {
+      "label": "Arayüz yazı tipi",
+      "description": "Menüler, etiketler ve haber özetleri."
+    },
+    "headlineFont": {
+      "label": "Başlık yazı tipi",
+      "description": "Kartlardaki ve manşetteki başlıklar."
+    },
+    "readingFont": {
+      "label": "Okuma yazı tipi",
+      "description": "Okuma modundaki haber metni."
+    },
+    "scale": {
+      "label": "Yazı boyutu",
+      "description": "Uygulamadaki bütün yazıları büyütür ya da küçültür."
+    },
+    "preview": {
+      "kicker": "Ekonomi",
+      "headline": "Merkez Bankası faizi sabit tuttu, enflasyon üçüncü ayında da geriledi",
+      "summary": "Para Politikası Kurulu, fiyat baskılarının beklenenden hızlı gevşediğini açıkladı; eğilim sürerse indirimlerin gelecek yılın başında başlayabileceğinin sinyalini verdi.",
+      "meta": "Haber Masası · 5 dk önce",
+      "readerLabel": "Okuma modu",
+      "body": "Karar piyasalarda büyük ölçüde bekleniyordu. Analistler ilk indirimin ilkbaharda geleceğini öngörüyor; açıklamanın ardından piyasalar sakin seyretti.",
+      "faces": {
+        "ui": "Arayüz",
+        "headline": "Başlık",
+        "reading": "Okuma"
+      }
+    }
+  },
+  "locale": {
+    "description": "Arayüz dili ve haberlerin nereden geldiği.",
+    "language": {
+      "label": "Arayüz dili",
+      "description": "Haberler kendi dillerinde kalır."
+    },
+    "country": {
+      "label": "Ülke",
+      "description": "Masthead şimdilik Türkiye'yi kapsıyor. Yeni ülkeler yolda.",
+      "soon": "Yakında"
+    },
+    "city": {
+      "label": "Şehir veya bölge",
+      "description": "Yerel sayfanızı çevrenizdeki haberlerle doldurur."
+    }
+  },
+  "interests": {
+    "description": "Takip ettiğiniz konular Size Özel sayfanızı ve Ana Sayfa'daki bölümlerin sırasını belirler.",
+    "keepOne": "En az bir konu seçili kalmalı."
+  },
+  "sources": {
+    "description": "Her haber sitesini tek tek açıp kapatın. Kapattığınız kaynaklar hiç çekilmez.",
+    "page": {
+      "title": "Kaynaklar",
+      "description": "Ön sayfanızı besleyen haber sitelerini seçin. Kapattığınız kaynaklar hiç çekilmez, seçimleriniz kaydedilir."
+    },
+    "search": "Kaynaklarda ara",
+    "summary": "{{count}} kaynaktan {{on}} tanesi açık",
+    "delivering_one": "{{count}} kaynaktan haber geliyor",
+    "delivering_other": "{{count}} kaynaktan haber geliyor",
+    "cityOnly_one": "{{count}} yerel kaynak kendi şehri seçilince çekilir",
+    "cityOnly_other": "{{count}} yerel kaynak kendi şehri seçilince çekilir",
+    "notDelivering": "Haber gelmeyenler ({{count}})",
+    "feeds_one": "{{count}} akış",
+    "feeds_other": "{{count}} akış",
+    "failing_one": "{{count}} hatalı",
+    "failing_other": "{{count}} hatalı",
+    "enableAll": "Tümünü aç",
+    "disableAll": "Tümünü kapat",
+    "enableMatches": "Sonuçları aç",
+    "disableMatches": "Sonuçları kapat",
+    "restoreDefaults": "Varsayılan kaynaklara dön",
+    "undo": "Geri al",
+    "toggle": "{{name}} haberlerini göster",
+    "groupToggle": "{{group}} grubundaki tüm kaynaklar",
+    "groupCount": "{{on}}/{{count}} açık",
+    "yourCity": "Şehriniz",
+    "allProvinces": "{{count}} şehrin tamamı",
+    "localNote": "Yerel kaynaklar yalnızca seçtiğiniz şehir için çekilir.",
+    "stories_one": "{{formatted}} haber",
+    "stories_other": "{{formatted}} haber",
+    "health": {
+      "ok_one": "Akış çalışıyor · {{time}} kontrol edildi",
+      "ok_other": "{{count}} akışın hepsi çalışıyor · {{time}} kontrol edildi",
+      "partial": "{{count}} akıştan {{failing}} tanesi hata veriyor · {{time}} kontrol edildi",
+      "failing_one": "Akış yanıt vermiyor · {{time}} denendi",
+      "failing_other": "{{count}} akışın hiçbiri yanıt vermiyor · {{time}} denendi",
+      "idle": "Henüz çekilmedi",
+      "localIdle": "Şehri seçildiğinde çekilir"
+    },
+    "toast": {
+      "enabled_one": "{{count}} kaynak açıldı",
+      "enabled_other": "{{count}} kaynak açıldı",
+      "disabled_one": "{{count}} kaynak kapatıldı",
+      "disabled_other": "{{count}} kaynak kapatıldı",
+      "allOffHint": "Bütün kaynaklar kapalı; ön sayfanız boş kalacak.",
+      "restored": "Kaynaklar varsayılana döndü",
+      "groupOn": "{{group}}: tümü açıldı",
+      "groupOff": "{{group}}: tümü kapatıldı"
+    }
+  },
+  "province": {
+    "search": "Şehir ara",
+    "label": "Şehirler",
+    "placeholder": "Şehir seçin",
+    "clear": "Seçimi temizle",
+    "wholeRegion": "Tüm {{region}} Bölgesi",
+    "cities_one": "{{count}} şehir",
+    "cities_other": "{{count}} şehir",
+    "noMatch": "“{{query}}” ile eşleşen şehir yok"
+  },
+  "reading": {
+    "description": "Haberlere tıkladığınızda nasıl açılacakları.",
+    "mode": {
+      "label": "Haberler nasıl açılsın",
+      "description": "Web sayfası sitenin kendisini gösterir. Okuma modu yalnızca metni, okuma yazı tipinizle gösterir.",
+      "web": "Web sayfası",
+      "reader": "Okuma modu"
+    },
+    "ads": {
+      "label": "Reklamları ve izleyicileri engelle",
+      "description": "Yerleşik tarayıcıyı hızlı ve gizli tutar."
+    }
+  },
+  "desktopOnly": "Masaüstü uygulamasında kullanılabilir.",
+  "notifications": {
+    "description": "Uygulamaya göz atmadan büyük gelişmelerden haberdar olun.",
+    "breaking": {
+      "label": "Son dakika bildirimleri",
+      "description": "Son dakika haberi düştüğünde masaüstü bildirimi alın."
+    }
+  },
+  "updates": {
+    "description": "Masthead'in bütün kaynakları ne sıklıkla kontrol edeceği.",
+    "refreshing": "Akışlar yenileniyor · {{done}}/{{total}}",
+    "failed": "Şu anda yenilenemedi. Lütfen tekrar deneyin.",
+    "interval": {
+      "label": "Yeni haberleri kontrol et",
+      "description": "Kontroller hafiftir: değişmeyen akışlar yeniden indirilmez.",
+      "minutes_one": "{{count}} dk",
+      "minutes_other": "{{count}} dk"
+    },
+    "now": {
+      "label": "Son kontrol",
+      "action": "Şimdi yenile"
+    }
+  },
+  "data": {
+    "description": "Okuma geçmişiniz, sıfırdan başlama ve Masthead hakkında birkaç bilgi.",
+    "history": {
+      "label": "Okuma geçmişi",
+      "description_zero": "Geçmişiniz henüz boş.",
+      "description_one": "Geçmişinizde {{count}} haber var; yalnızca bu cihazda saklanır.",
+      "description_other": "Geçmişinizde {{count}} haber var; yalnızca bu cihazda saklanır.",
+      "action": "Geçmişi temizle",
+      "done": "Okuma geçmişi temizlendi",
+      "confirmTitle": "Okuma geçmişiniz temizlensin mi?",
+      "confirmDescription_one": "{{count}} haber geçmişinizden silinecek. Kaydettiğiniz haberler yerinde kalır.",
+      "confirmDescription_other": "{{count}} haber geçmişinizden silinecek. Kaydettiğiniz haberler yerinde kalır."
+    },
+    "reset": {
+      "label": "Tüm ayarları sıfırla",
+      "description": "Her şey varsayılana döner ve karşılama turu yeniden başlar. Kaydettiğiniz haberler ve geçmişiniz korunur.",
+      "action": "Ayarları sıfırla",
+      "confirmTitle": "Tüm ayarlar sıfırlansın mı?",
+      "confirmDescription": "Temanız, yazı tipleriniz, kaynaklarınız ve ilgi alanlarınız varsayılana döner; karşılama turu yeniden başlar. Kaydettiğiniz haberler ve geçmişiniz korunur."
+    }
+  },
+  "about": {
+    "version": "Sürüm {{version}}",
+    "runtime": "Electron {{electron}} · Chromium {{chrome}}",
+    "webMode": "Web modu",
+    "license": "MIT Lisansı",
+    "github": "GitHub'da kaynak kodu",
+    "issue": "Sorun bildir"
+  }
+}

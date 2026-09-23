@@ -1,0 +1,206 @@
+/*
+ * Reader-mode article body: sanitised publisher markup, typeset with the
+ * design tokens. Sizes are in em so the text-size control scales everything.
+ */
+
+.reader-prose {
+  line-height: 1.8;
+  color: var(--fg);
+  overflow-wrap: break-word;
+}
+
+.reader-prose > * + * {
+  margin-top: 1.15em;
+}
+
+.reader-prose :where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-headline-stack);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: var(--fg);
+}
+
+.reader-prose > :where(h1, h2, h3, h4, h5, h6) {
+  margin-top: 1.9em;
+}
+
+.reader-prose :where(h1, h2) {
+  font-size: 1.45em;
+}
+
+.reader-prose h3 {
+  font-size: 1.22em;
+}
+
+.reader-prose :where(h4, h5, h6) {
+  font-size: 1.05em;
+}
+
+.reader-prose :where(h1, h2, h3, h4, h5, h6) + * {
+  margin-top: 0.6em;
+}
+
+.reader-prose a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  transition:
+    color 150ms ease-out,
+    text-decoration-color 150ms ease-out;
+}
+
+.reader-prose a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.reader-prose :where(strong, b) {
+  font-weight: 650;
+}
+
+.reader-prose blockquote {
+  margin-inline: 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border-left: 3px solid var(--accent);
+  font-family: var(--font-headline-stack);
+  font-size: 1.12em;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.reader-prose blockquote > * + * {
+  margin-top: 0.6em;
+}
+
+.reader-prose :where(ul, ol) {
+  padding-left: 1.35em;
+}
+
+.reader-prose ul {
+  list-style: disc;
+}
+
+.reader-prose ol {
+  list-style: decimal;
+}
+
+.reader-prose li + li {
+  margin-top: 0.45em;
+}
+
+.reader-prose li::marker {
+  color: var(--fg-subtle);
+}
+
+.reader-prose dt {
+  font-weight: 650;
+}
+
+.reader-prose dd {
+  margin-left: 1.35em;
+}
+
+.reader-prose figure {
+  margin-inline: 0;
+}
+
+.reader-prose > :where(figure, picture, img) {
+  margin-block: 2em;
+}
+
+.reader-prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: var(--radius-card);
+  background: var(--muted);
+}
+
+.reader-prose figcaption {
+  margin-top: 0.7em;
+  font-family: var(--font-ui-stack);
+  font-size: 0.78em;
+  line-height: 1.5;
+  color: var(--fg-subtle);
+}
+
+.reader-prose hr {
+  width: 28%;
+  height: 1px;
+  margin: 2.6em auto;
+  border: 0;
+  background: var(--line-strong);
+}
+
+.reader-prose table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-family: var(--font-ui-stack);
+  font-size: 0.82em;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.reader-prose :where(th, td) {
+  padding: 0.55em 0.8em;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.reader-prose th {
+  font-weight: 600;
+  color: var(--fg);
+  border-bottom-color: var(--line-strong);
+}
+
+.reader-prose caption {
+  padding-bottom: 0.6em;
+  color: var(--fg-subtle);
+  text-align: left;
+}
+
+.reader-prose :where(code, pre) {
+  font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.86em;
+}
+
+.reader-prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 5px;
+  background: var(--muted);
+}
+
+.reader-prose pre {
+  overflow-x: auto;
+  padding: 1em 1.2em;
+  border-radius: 12px;
+  background: var(--muted);
+  line-height: 1.6;
+}
+
+.reader-prose pre code {
+  padding: 0;
+  background: none;
+}
+
+.reader-prose mark {
+  padding: 0 0.15em;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: inherit;
+}
+
+.reader-prose small {
+  font-size: 0.85em;
+}

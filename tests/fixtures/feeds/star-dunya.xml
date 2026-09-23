@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:fn="http://www.w3.org/2004/10/xpath-functions"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:y="http://www.yahoo.com/y-namespace"> 
+<channel> 
+<title>STAR.COM.TR</title> 
+<link>https://www.star.com.tr</link> 
+<description>STAR.COM.TR</description> 
+<language>tr</language> 
+<copyright>Copyright &amp;copy; 2012, STAR.COM.TR</copyright> 
+<category>News</category> 
+<lastBuildDate>Tue, 22 Sep 2026 22:48:03 +0300</lastBuildDate> 
+<ttl>1</ttl> 
+<image> 
+	<title>STAR.COM.TR</title> 
+	<link>https://www.star.com.tr</link> 
+	<url>https://m.star.com.tr/assets/img/star-apple-touch-icon.png</url> 
+	<width>257</width> 
+	<height>90</height> 
+</image> 
+
+<item> 
+	
+		<title>ABD Başkanı Trump: Erdoğan çok iyi bir dostum</title> 
+	
+
+	<titleLong><![CDATA[ABD Başkanı Trump: Erdoğan çetin birisi ve dostum]]></titleLong> 
+
+	<description>ABD Başkanı Donald Trump açıklamalarda bulundu. Trump, Cumhurbaşkanı Erdoğan hakkında &quot;Çok çetin biri ve dostum&quot; ifadelerini kullandı. </description>
+
+	<pubDate>Tue, 22 Sep 2026 22:39:00 +0300</pubDate> 
+	<image>https://imgs.star.com.tr/imgsdisk/2026/09/22/abd-baskani-trump-erdogan-919.jpg</image> 
+	<media:content url="https://imgs.star.com.tr/imgsdisk/2026/09/22/abd-baskani-trump-erdogan-919.jpg" type="image/jpeg" medium="image" /> 
+	<media:thumbnail url="https://imgs.star.com.tr/imgsdisk/2026/09/22/canli-abd-baskani-donald--350_2.jpg" /> 
+	<enclosure url="https://imgs.star.com.tr/imgsdisk/2026/09/22/canli-abd-baskani-donald--350_2.jpg" length="50000" type="image/jpeg" /> 
+	<link>https://www.star.com.tr/dunya/abd-baskani-trump-erdogan-cok-iyi-bir-dostum-haber-2041925/</link> 
+	<guid>https://www.star.com.tr/dunya/abd-baskani-trump-erdogan-cok-iyi-bir-dostum-haber-2041925/</guid> 
+</item>
+<item> 
+	
+		<title>Bashan Öncülerine mensup 14 İsrailli sınırı aşarak Suriye'nin güneyine hareket etti</title> 
+	
+
+	<titleLong><![CDATA[Bashan Öncülerine mensup 14 işgalci sınırı aşarak Suriye'nin güneyine hareket etti]]></titleLong> 
+
+	<description>Filistin topraklarını gasbeden ve Suriye'nin güneyinde toprak gasbı ve yasa dışı yerleşim talep eden Bashan Öncülerine mensup 14 İsraillinin Suriye'ye sızdığı belirtildi. </description>
+
+	<pubDate>Tue, 22 Sep 2026 22:24:00 +0300</pubDate> 
+	<image>https://imgs.star.com.tr/imgsdisk/2026/09/22/bashan-onculerine-mensup--460.jpg</image> 
+	<media:content url="https://imgs.star.com.tr/imgsdisk/2026/09/22/bashan-onculerine-mensup--460.jpg" type="image/jpeg" medium="image" /> 
+	<media:thumbnail url="https://imgs.star.com.tr/imgsdisk/2026/09/22/bashan-onculerine-mensup--460_2.jpg" /> 
+	<enclosure url="https://imgs.star.com.tr/imgsdisk/2026/09/22/bashan-onculerine-mensup--460_2.jpg" length="50000" type="image/jpeg" /> 
+	<link>https://www.star.com.tr/dunya/bashan-onculerine-mensup-14-israilli-siniri-asarak-suriyenin-guneyine-hareket-etti-haber-2041923/</link> 
+	<guid>https://www.star.com.tr/dunya/bashan-onculerine-mensup-14-israilli-siniri-asarak-suriyenin-guneyine-hareket-etti-haber-2041923/</guid> 
+</item>
+<item> 
+	
+		<title>BM'deki konuşma büyük beğeni topladı! Cumhurbaşkanı Erdoğan, Filistin'in sesi oldu</title> 
+	
+
+	<titleLong><![CDATA[BM'deki konuşma büyük beğeni topladı! Cumhurbaşkanı Erdoğan, Filistin'in sesi oldu]]></titleLong> 
+
+	<description>Filistin'in Birleşmiş Milletler (BM) Daimi Temsilciliği, Cumhurbaşkanı Recep Tayyip Erdoğan'ın İsrail'in Gazze Şeridi'ndeki soykırımına &quot;Karşımızda öldürmeye doyamayan soykırımcı bir zihniyet var.&quot; ifadeleriyle karşı çıktığı BM 81. Genel Kurulu'ndaki konuşmasını paylaştı. </description>
+
+	<pubDate>Tue, 22 Sep 2026 22:11:00 +0300</pubDate> 
+	<image>https://imgs.star.com.tr/imgsdisk/2026/09/22/bmdeki-konusma-buyuk-bege-226.jpg</image> 
+	<media:content url="https://imgs.star.com.tr/imgsdisk/2026/09/22/bmdeki-konusma-buyuk-bege-226.jpg" type="image/jpeg" medium="image" /> 
+	<media:thumbnail url="https://imgs.star.com.tr/imgsdisk/2026/09/22/bmdeki-konusma-buyuk-bege-226_2.jpg" /> 
+	<enclosure url="https://imgs.star.com.tr/imgsdisk/2026/09/22/bmdeki-konusma-buyuk-bege-226_2.jpg" length="50000" type="image/jpeg" /> 
+	<link>https://www.star.com.tr/dunya/bmdeki-konusma-buyuk-begeni-topladi-cumhurbaskani-erdogan-filistinin-sesi-oldu-haber-2041921/</link> 
+	<guid>https://www.star.com.tr/dunya/bmdeki-konusma-buyuk-begeni-topladi-cumhurbaskani-erdogan-filistinin-sesi-oldu-haber-2041921/</guid> 
+</item>
+</channel> 
+</rss>

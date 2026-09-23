@@ -1,0 +1,240 @@
+{
+  "page": {
+    "title": "Settings",
+    "kicker": "Preferences",
+    "description": "Make Masthead yours. Changes are saved as you go.",
+    "sections": "Settings sections"
+  },
+  "nav": {
+    "appearance": "Appearance",
+    "typography": "Typography",
+    "language": "Language & region",
+    "interests": "Interests",
+    "sources": "Sources",
+    "reading": "Reading",
+    "notifications": "Notifications",
+    "updates": "Updates",
+    "data": "Data & About"
+  },
+  "appearance": {
+    "description": "Theme, colour and how your front page is laid out.",
+    "theme": {
+      "label": "Theme",
+      "description": "Warm paper by day, deep ink by night, or let your device decide.",
+      "lightHint": "Warm paper",
+      "darkHint": "Deep ink",
+      "systemHint": "Follows your device"
+    },
+    "accent": {
+      "label": "Accent colour",
+      "description": "Used for highlights, links and the page you're on.",
+      "ember": "Ember",
+      "ocean": "Ocean",
+      "forest": "Forest",
+      "violet": "Violet",
+      "gold": "Gold"
+    },
+    "density": {
+      "label": "Density",
+      "description": "Compact fits more stories on the screen.",
+      "comfortable": "Comfortable",
+      "compact": "Compact"
+    },
+    "cardStyle": {
+      "label": "Card style",
+      "description": "How stories are laid out in lists and sections.",
+      "magazine": "Magazine",
+      "magazineHint": "Big pictures, full summaries",
+      "grid": "Grid",
+      "gridHint": "More stories at a glance",
+      "list": "List",
+      "listHint": "A calm, text-first column"
+    },
+    "sidebar": {
+      "label": "Compact sidebar",
+      "description": "Show only icons in the sidebar to give stories more room."
+    }
+  },
+  "typography": {
+    "description": "Pick the typefaces and size that are easiest on your eyes.",
+    "reset": "Reset typography",
+    "sans": "Sans-serif",
+    "serif": "Serif",
+    "default": "Default",
+    "uiFont": {
+      "label": "Interface font",
+      "description": "Menus, labels and story summaries."
+    },
+    "headlineFont": {
+      "label": "Headline font",
+      "description": "Headlines on cards and the top story."
+    },
+    "readingFont": {
+      "label": "Reading font",
+      "description": "Article text in Reader mode."
+    },
+    "scale": {
+      "label": "Text size",
+      "description": "Scales all the text in the app."
+    },
+    "preview": {
+      "kicker": "Economy",
+      "headline": "Central bank holds rates steady as inflation cools for a third month",
+      "summary": "Policymakers said price pressures were easing faster than expected and signalled that cuts could begin early next year if the trend holds.",
+      "meta": "Newsdesk · 5 min ago",
+      "readerLabel": "Reader mode",
+      "body": "The decision was widely expected. Analysts now see the first cut coming in spring, and markets stayed calm after the announcement.",
+      "faces": {
+        "ui": "Interface",
+        "headline": "Headline",
+        "reading": "Reading"
+      }
+    }
+  },
+  "locale": {
+    "description": "The interface language and where your news comes from.",
+    "language": {
+      "label": "Interface language",
+      "description": "The news itself stays in its original language."
+    },
+    "country": {
+      "label": "Country",
+      "description": "Masthead covers Türkiye for now. More countries are on the way.",
+      "soon": "Soon"
+    },
+    "city": {
+      "label": "City or region",
+      "description": "Fills your Local page with news from around you."
+    }
+  },
+  "interests": {
+    "description": "The topics you follow shape your For You page and the order of sections on Home.",
+    "keepOne": "Keep at least one topic selected."
+  },
+  "sources": {
+    "description": "Switch any outlet on or off. Switched-off sources are never fetched.",
+    "page": {
+      "title": "Sources",
+      "description": "Choose the outlets that feed your front page. Switched-off sources are never fetched, and your choices are saved."
+    },
+    "search": "Search sources",
+    "summary": "{{on}} of {{count}} sources on",
+    "delivering_one": "{{count}} delivering stories",
+    "delivering_other": "{{count}} delivering stories",
+    "cityOnly_one": "{{count}} local outlet waits for its city",
+    "cityOnly_other": "{{count}} local outlets wait for their city",
+    "notDelivering": "Not delivering ({{count}})",
+    "feeds_one": "{{count}} feed",
+    "feeds_other": "{{count}} feeds",
+    "failing_one": "{{count}} failing",
+    "failing_other": "{{count}} failing",
+    "enableAll": "Enable all",
+    "disableAll": "Disable all",
+    "enableMatches": "Enable matches",
+    "disableMatches": "Disable matches",
+    "restoreDefaults": "Restore default sources",
+    "undo": "Undo",
+    "toggle": "Show news from {{name}}",
+    "groupToggle": "Switch every source in {{group}}",
+    "groupCount": "{{on}} of {{count}} on",
+    "yourCity": "Your city",
+    "allProvinces": "All {{count}} provinces",
+    "localNote": "Local outlets are fetched only for your selected city.",
+    "stories_one": "{{formatted}} story",
+    "stories_other": "{{formatted}} stories",
+    "health": {
+      "ok_one": "Feed working · checked {{time}}",
+      "ok_other": "All {{count}} feeds working · checked {{time}}",
+      "partial": "{{failing}} of {{count}} feeds failing · checked {{time}}",
+      "failing_one": "Feed not responding · tried {{time}}",
+      "failing_other": "None of its {{count}} feeds responding · tried {{time}}",
+      "idle": "Not fetched yet",
+      "localIdle": "Fetched when its city is selected"
+    },
+    "toast": {
+      "enabled_one": "{{count}} source switched on",
+      "enabled_other": "{{count}} sources switched on",
+      "disabled_one": "{{count}} source switched off",
+      "disabled_other": "{{count}} sources switched off",
+      "allOffHint": "Every source is off, so your front page will be empty.",
+      "restored": "Sources are back to their defaults",
+      "groupOn": "{{group}}: all switched on",
+      "groupOff": "{{group}}: all switched off"
+    }
+  },
+  "province": {
+    "search": "Search cities",
+    "label": "Cities",
+    "placeholder": "Choose a city",
+    "clear": "Clear selection",
+    "wholeRegion": "Entire {{region}} region",
+    "cities_one": "{{count}} city",
+    "cities_other": "{{count}} cities",
+    "noMatch": "No city matches “{{query}}”"
+  },
+  "reading": {
+    "description": "How stories open when you click them.",
+    "mode": {
+      "label": "Open stories as",
+      "description": "Web page shows the original site. Reader mode shows just the text, in your reading font.",
+      "web": "Web page",
+      "reader": "Reader mode"
+    },
+    "ads": {
+      "label": "Block ads and trackers",
+      "description": "Keeps the built-in browser fast and private."
+    }
+  },
+  "desktopOnly": "Available in the desktop app.",
+  "notifications": {
+    "description": "Stay on top of big stories without keeping an eye on the app.",
+    "breaking": {
+      "label": "Breaking news alerts",
+      "description": "Get a desktop notification when a breaking story comes in."
+    }
+  },
+  "updates": {
+    "description": "How often Masthead checks every source for new stories.",
+    "refreshing": "Refreshing feeds · {{done}} of {{total}}",
+    "failed": "Couldn't refresh right now. Please try again.",
+    "interval": {
+      "label": "Check for news every",
+      "description": "Checks are light: feeds that haven't changed aren't downloaded again.",
+      "minutes_one": "{{count}} min",
+      "minutes_other": "{{count}} min"
+    },
+    "now": {
+      "label": "Latest check",
+      "action": "Refresh now"
+    }
+  },
+  "data": {
+    "description": "Your reading history, a fresh start, and a little about Masthead.",
+    "history": {
+      "label": "Reading history",
+      "description_zero": "Your history is empty.",
+      "description_one": "{{count}} story in your history, stored only on this device.",
+      "description_other": "{{count}} stories in your history, stored only on this device.",
+      "action": "Clear history",
+      "done": "Reading history cleared",
+      "confirmTitle": "Clear your reading history?",
+      "confirmDescription_one": "{{count}} story will be removed from your history. Saved stories stay.",
+      "confirmDescription_other": "{{count}} stories will be removed from your history. Saved stories stay."
+    },
+    "reset": {
+      "label": "Reset all settings",
+      "description": "Everything goes back to the defaults and the welcome tour runs again. Saved stories and history are kept.",
+      "action": "Reset settings",
+      "confirmTitle": "Reset all settings?",
+      "confirmDescription": "Your theme, fonts, sources and interests go back to the defaults, and the welcome tour starts again. Saved stories and history are kept."
+    }
+  },
+  "about": {
+    "version": "Version {{version}}",
+    "runtime": "Electron {{electron}} · Chromium {{chrome}}",
+    "webMode": "Web mode",
+    "license": "MIT License",
+    "github": "Source on GitHub",
+    "issue": "Report a problem"
+  }
+}

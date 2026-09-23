@@ -1,0 +1,50 @@
+{
+  "intro": {
+    "headline": "All your news. One calm place.",
+    "subtitle": "Every major Turkish newsroom on one quiet front page. Four quick questions and you're in.",
+    "subtitleWithCountry": "Every major Turkish newsroom on one quiet front page. Five quick questions and you're in.",
+    "country": "{{country}} · {{sources}} outlets · more countries soon"
+  },
+  "progress": "Step {{current}} of {{total}}",
+  "continue": "Continue",
+  "orPress": "or press <0/>",
+  "language": {
+    "kicker": "Language",
+    "title": "Which language do you prefer?",
+    "hint": "This sets the menus and buttons. The news itself stays in Turkish.",
+    "cardHint": "Menus and buttons in English"
+  },
+  "theme": {
+    "kicker": "Look",
+    "title": "Light or dark?",
+    "hint": "Applied right away. You can switch any time from the title bar."
+  },
+  "country": {
+    "kicker": "Country",
+    "title": "Where is your news from?",
+    "hint": "We'll start gathering headlines while you finish up.",
+    "stats": "{{sources}} sources · {{cities}} cities",
+    "comingSoon": "More countries coming soon"
+  },
+  "interests": {
+    "kicker": "Interests",
+    "title": "What do you like to follow?",
+    "hint": "Pick as many as you like. They shape your For You page and the order of sections on Home."
+  },
+  "city": {
+    "kicker": "City",
+    "title": "Want news from your city too?",
+    "hint": "Optional. Pick a city, or a whole region, for your Local page.",
+    "skip": "Skip for now",
+    "chosen": "Local news from {{place}}"
+  },
+  "finish": {
+    "title": "You're all set.",
+    "fetching": "Gathering the first headlines · {{done}} of {{total}} feeds",
+    "ready_one": "{{count, number}} story is waiting for you.",
+    "ready_other": "{{count, number}} stories are waiting for you.",
+    "soon": "Your first headlines will arrive in a moment.",
+    "cta": "Open my front page",
+    "later": "You can change all of this later in Settings."
+  }
+}

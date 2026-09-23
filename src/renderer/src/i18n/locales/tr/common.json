@@ -1,0 +1,150 @@
+{
+  "app": {
+    "name": "Masthead",
+    "tagline": "Tüm manşetler, tek ve sakin bir ön sayfada."
+  },
+  "nav": {
+    "main": "Ana gezinme",
+    "home": "Ana Sayfa",
+    "digest": "Gündem Özeti",
+    "latest": "Son Haberler",
+    "breaking": "Son Dakika",
+    "forYou": "Size Özel",
+    "local": "Yerel",
+    "chooseCity": "Şehir seç",
+    "topics": "Konular",
+    "library": "Kitaplık",
+    "saved": "Kaydedilenler",
+    "history": "Geçmiş",
+    "sources": "Kaynaklar",
+    "settings": "Ayarlar",
+    "search": "Arama",
+    "collapse": "Kenar çubuğunu daralt",
+    "expand": "Kenar çubuğunu genişlet",
+    "breakingCount_one": "Son 2 saatte {{count}} yeni gelişme",
+    "breakingCount_other": "Son 2 saatte {{count}} yeni gelişme"
+  },
+  "category": {
+    "top": "Manşet",
+    "breaking": "Son Dakika",
+    "general": "Gündem",
+    "national": "Yurt İçi",
+    "national_tr": "Türkiye",
+    "world": "Dünya",
+    "politics": "Politika",
+    "economy": "Ekonomi",
+    "sports": "Spor",
+    "technology": "Teknoloji",
+    "science": "Bilim",
+    "health": "Sağlık",
+    "culture": "Kültür-Sanat",
+    "entertainment": "Magazin",
+    "lifestyle": "Yaşam",
+    "education": "Eğitim",
+    "automotive": "Otomobil",
+    "travel": "Seyahat",
+    "environment": "Çevre",
+    "local": "Yerel",
+    "opinion": "Yazarlar"
+  },
+  "region": {
+    "marmara": "Marmara",
+    "aegean": "Ege",
+    "mediterranean": "Akdeniz",
+    "central-anatolia": "İç Anadolu",
+    "black-sea": "Karadeniz",
+    "eastern-anatolia": "Doğu Anadolu",
+    "southeastern-anatolia": "Güneydoğu Anadolu"
+  },
+  "country": {
+    "tr": "Türkiye",
+    "us": "Amerika Birleşik Devletleri",
+    "gb": "Birleşik Krallık",
+    "de": "Almanya",
+    "fr": "Fransa",
+    "es": "İspanya",
+    "it": "İtalya",
+    "nl": "Hollanda",
+    "az": "Azerbaycan"
+  },
+  "sourceKind": {
+    "mainstream": "Ana akım",
+    "public": "Kamu yayıncısı",
+    "agency": "Haber ajansı",
+    "independent": "Bağımsız",
+    "international": "Uluslararası",
+    "business": "Ekonomi",
+    "sports": "Spor",
+    "technology": "Teknoloji",
+    "local": "Yerel",
+    "aggregator": "Haber toplayıcı"
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem"
+  },
+  "actions": {
+    "save": "Kaydet",
+    "saved": "Kaydedildi",
+    "unsave": "Kaydedilenlerden çıkar",
+    "share": "Paylaş",
+    "copyLink": "Bağlantıyı kopyala",
+    "linkCopied": "Bağlantı kopyalandı",
+    "openInBrowser": "Tarayıcıda aç",
+    "refresh": "Yenile",
+    "refreshing": "Yenileniyor…",
+    "close": "Kapat",
+    "back": "Geri",
+    "retry": "Tekrar dene",
+    "seeAll": "Tümünü gör",
+    "readMore": "Özetin tamamı",
+    "showLess": "Daha az göster",
+    "clear": "Temizle",
+    "search": "Ara",
+    "cancel": "Vazgeç",
+    "confirm": "Onayla",
+    "done": "Tamam",
+    "open": "Aç",
+    "scrollToTop": "Başa dön"
+  },
+  "states": {
+    "loading": "Yükleniyor…",
+    "empty": "Burada henüz bir şey yok",
+    "offline": "İnternet bağlantısı yok",
+    "offlineHint": "Elimizdeki haberleri gösteriyoruz; bağlantı gelince kaldığımız yerden devam edeceğiz.",
+    "error": "Bir şeyler ters gitti",
+    "errorHint": "Lütfen birazdan tekrar deneyin.",
+    "noResults": "Sonuç bulunamadı",
+    "noResultsFor": "“{{query}}” ile eşleşen haber yok"
+  },
+  "titlebar": {
+    "searchPlaceholder": "Haberlerde ara",
+    "updated": "{{time}} güncellendi",
+    "updatedJustNow": "Az önce güncellendi",
+    "neverUpdated": "Henüz güncellenmedi",
+    "refreshProgress": "Akışlar yenileniyor ({{done}}/{{total}})",
+    "themeTooltip": "Tema: {{mode}}",
+    "webBadge": "Web",
+    "webBadgeHint": "Tarayıcı önizlemesinde çalışıyor"
+  },
+  "time": {
+    "now": "az önce",
+    "minutesAgo": "{{count}} dk önce",
+    "hoursAgo": "{{count}} saat önce",
+    "yesterdayAt": "dün {{time}}",
+    "today": "Bugün",
+    "yesterday": "Dün"
+  },
+  "a11y": {
+    "notifications": "Bildirimler",
+    "sourceLogo": "{{name}} logosu"
+  },
+  "stub": {
+    "title": "Hazırlanıyor",
+    "description": "Bu sayfa yapım aşamasında."
+  },
+  "newStories_one": "{{count}} yeni haber",
+  "newStories_other": "{{count}} yeni haber"
+}

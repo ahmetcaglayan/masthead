@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/modules/syndication/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dwsyn="http://rss.dw.com/syndication/dwsyn/">
+ <channel rdf:about="https://rss.dw.com/syndication/feeds/rss-tur-all.1495.rdf">
+  <description>Turkish Homepage</description>
+  <link>https://www.dw.com/s-655?maca=tur-rss-tur-all-1495-rdf</link>
+  <title>DW-WORLD´s Turkish Homepage</title>
+  <sy:updatePeriod>hourly</sy:updatePeriod>
+  <sy:updateFequency>4</sy:updateFequency>
+  <sy:updateBase>2002-05-01T00:00:00Z</sy:updateBase>
+  <dc:date>2026-09-22T19:42:17Z</dc:date>
+  <image rdf:resource="https://rss.dw.com/images/DW-L-RGB_whitebg.png"/>
+  <items>
+   <rdf:Seq>
+    <rdf:li rdf:resource="https://www.dw.com/tr/erdoğan-bm-de-konuştu-filistin-devletinin-sesi-olacağız/a-79379215?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/antisemitizm-tartışmaları-elif-eralp-başbakan-olabilecek-mi/a-79377672?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/trump-bm-de-konuştu-yapay-zekaya-süper-zeka-diyelim/a-79378555?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/fonlarda-tasfiye-yatırımcının-parasını-kim-ödeyecek/a-79376765?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/cindy-crawford-un-oğlu-presley-gerber-hayatını-kaybetti/a-79351554?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/yeni-parti-nin-ismi-ile-ilgili-son-karar-aym-de/a-79373931?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/afd-cdu-ile-arayı-daha-da-açtı-fark-yüzde-10-a-çıktı/a-79373759?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/fiji-de-aids-nedeniyle-olağanüstü-hâl-ilan-edildi/a-79372233?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/berlin-de-elif-eralp-in-sol-partisine-remmo-klanı-tepkisi/a-79370848?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/amerikan-medyasından-trump-a-basın-özgürlüğü-boykotu/a-79369952?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/unesco-273-milyon-çocuk-ve-genç-eğitimden-mahrum/a-79370438?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/manisa-turgutlu-da-okula-silahlı-saldırı-11-yaralı/a-79365202?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/fransa-ve-ingiltere-den-suudi-arabistan-a-askeri-destek/a-79365488?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/lgbti-aileleri-ailem-güvende-operasyonlarının-neresinde/a-79360030?maca=tur-rss-tur-all-1495-rdf"/>
+    <rdf:li rdf:resource="https://www.dw.com/tr/berlin-de-10-türkiye-kökenli-milletvekili-seçildi/a-79362639?maca=tur-rss-tur-all-1495-rdf"/>
+   </rdf:Seq>
+  </items>
+ </channel>
+ <image rdf:about="https://rss.dw.com/images/DW-L-RGB_whitebg.png">
+  <url>https://rss.dw.com/images/DW-L-RGB_whitebg.png</url>
+  <link>https://www.dw.com/s-655?maca=tur-rss-tur-all-1495-rdf</link>
+  <title>DW</title>
+  <description>News, Analysis and Service from Germany and Europe - in 30 Languages</description>
+ </image>
+ <item rdf:about="https://www.dw.com/tr/erdoğan-bm-de-konuştu-filistin-devletinin-sesi-olacağız/a-79379215?maca=tur-rss-tur-all-1495-rdf">
+  <title>Erdoğan BM&apos;de konuştu: Filistin devletinin sesi olacağız</title>
+  <link>https://www.dw.com/tr/erdoğan-bm-de-konuştu-filistin-devletinin-sesi-olacağız/a-79379215?maca=tur-rss-tur-all-1495-rdf</link>
+  <description>Türkiye&apos;nin Filistin&apos;in sesi olmayı sürdüreceğini söyleyen Erdoğan, dünyayı Filistin ve Kuzey Kıbrıs&apos;ı tanımaya davet etti.</description>
+  <dc:date>2026-09-22T16:41:00Z</dc:date>
+  <dc:subject>GÜNDEM</dc:subject>
+  <dc:language>tr</dc:language>
+  <dwsyn:contentID>79379215</dwsyn:contentID>
+ </item>
+ <item rdf:about="https://www.dw.com/tr/antisemitizm-tartışmaları-elif-eralp-başbakan-olabilecek-mi/a-79377672?maca=tur-rss-tur-all-1495-rdf">
+  <title>Antisemitizm tartışmaları: Elif Eralp başbakan olabilecek mi?</title>
+  <link>https://www.dw.com/tr/antisemitizm-tartışmaları-elif-eralp-başbakan-olabilecek-mi/a-79377672?maca=tur-rss-tur-all-1495-rdf</link>
+  <description>Berlin&apos;de Sol Parti&apos;nin adayı Elif Eralp&apos;in zaferi, Türkiye kökenli seçmenler arasında yankı uyandırdı. Ancak Eralp&apos;in başbakanlığı partisine yönelik antisemitizm eleştirileri sebebiyle tehlikeye girebilir.</description>
+  <dc:date>2026-09-22T15:38:00Z</dc:date>
+  <dc:subject>GÜNDEM</dc:subject>
+  <dc:language>tr</dc:language>
+  <dwsyn:contentID>79377672</dwsyn:contentID>
+ </item>
+ <item rdf:about="https://www.dw.com/tr/trump-bm-de-konuştu-yapay-zekaya-süper-zeka-diyelim/a-79378555?maca=tur-rss-tur-all-1495-rdf">
+  <title>Trump BM&apos;de konuştu: Yapay zekaya süper zeka diyelim</title>
+  <link>https://www.dw.com/tr/trump-bm-de-konuştu-yapay-zekaya-süper-zeka-diyelim/a-79378555?maca=tur-rss-tur-all-1495-rdf</link>
+  <description>ABD Başkanı Donald Trump, Birleşmiş Milletler Genel Kurulu&apos;ndaki konuşmasında yapay zeka, İran savaşı, Gazze ve Latin Amerika&apos;ya ilişkin mesajlar verdi.</description>
+  <dc:date>2026-09-22T15:37:00Z</dc:date>
+  <dc:subject>GÜNDEM</dc:subject>
+  <dc:language>tr</dc:language>
+  <dwsyn:contentID>79378555</dwsyn:contentID>
+ </item>
+</rdf:RDF>

@@ -1,0 +1,350 @@
+@import 'tailwindcss';
+
+/*
+ * Masthead design tokens.
+ * Colours are semantic CSS variables switched by [data-theme] and [data-accent]
+ * on <html>; Tailwind utilities (bg-canvas, text-fg-muted, border-line, …) map
+ * onto them via @theme inline below. Never hard-code colours in components.
+ */
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root {
+  color-scheme: light;
+
+  /* surfaces — warm paper */
+  --canvas: #f6f4ef;
+  --surface: #ffffff;
+  --muted: #efece5;
+  --subtle: #e7e3da;
+  --glass: rgb(246 244 239 / 0.78);
+
+  /* text — ink */
+  --fg: #1b1915;
+  --fg-muted: #5c574d;
+  /* small metadata: ≈4.9:1 on canvas, 4.6:1 on muted (WCAG AA) */
+  --fg-subtle: #6f695d;
+
+  /* lines */
+  --line: rgb(40 34 24 / 0.09);
+  --line-strong: rgb(40 34 24 / 0.16);
+
+  /* accent (overridden per data-accent) */
+  --accent: #e5462b;
+  --accent-hover: #cf3a20;
+  --accent-soft: rgb(229 70 43 / 0.1);
+  --on-accent: #ffffff;
+
+  /* status — breaking is a deep crimson, kept well apart from the ember accent */
+  --breaking: #c8102e;
+  --breaking-soft: rgb(200 16 46 / 0.09);
+  --on-breaking: #ffffff;
+  --live: #16a34a;
+  --warning: #c2710c;
+  /* search-match highlighter */
+  --mark: #f6e3a6;
+  /* the tile behind source favicons */
+  --logo-tile: #ffffff;
+
+  --overlay: rgb(24 20 14 / 0.42);
+  /* copy set on photos (hero): the same dark wash and light ink in both themes */
+  --scrim: rgb(14 11 7 / 0.88);
+  --on-scrim: #fbf9f5;
+  --skeleton: #ebe7df;
+  --skeleton-shine: #f6f3ed;
+
+  --shadow-sm: 0 1px 2px rgb(40 30 15 / 0.06), 0 1px 1px rgb(40 30 15 / 0.04);
+  --shadow-md: 0 4px 14px -4px rgb(40 30 15 / 0.12), 0 2px 4px -2px rgb(40 30 15 / 0.06);
+  --shadow-lg: 0 24px 60px -18px rgb(30 20 5 / 0.28), 0 10px 24px -12px rgb(30 20 5 / 0.14);
+
+  /* typography — set at runtime from settings */
+  --font-ui-stack: 'Inter Variable', system-ui, sans-serif;
+  --font-headline-stack: 'Newsreader Variable', Georgia, serif;
+  --font-reading-stack: 'Literata Variable', Georgia, serif;
+  --font-scale: 1;
+
+  --titlebar-height: 44px;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* surfaces — deep ink, warm like the paper theme */
+  --canvas: #13120f;
+  --surface: #1b1a17;
+  --muted: #23211d;
+  --subtle: #2d2b26;
+  --glass: rgb(19 18 15 / 0.78);
+
+  /* text — softened so long reading does not glare (≈14.5:1, 7.6:1, 5.3:1 on canvas) */
+  --fg: #e6e2d9;
+  --fg-muted: #aba596;
+  --fg-subtle: #8a867e;
+
+  --line: rgb(255 245 230 / 0.07);
+  --line-strong: rgb(255 245 230 / 0.13);
+
+  --accent: #ff6a4a;
+  --accent-hover: #ff8468;
+  --accent-soft: rgb(255 106 74 / 0.14);
+  --on-accent: #1a0d08;
+
+  --breaking: #ff4d5e;
+  --breaking-soft: rgb(255 77 94 / 0.14);
+  --on-breaking: #1c0306;
+  --live: #3ccf7a;
+  --warning: #f0a53a;
+  --mark: rgb(240 165 58 / 0.24);
+  /* dimmed so favicons are not the brightest thing next to the text */
+  --logo-tile: color-mix(in oklab, var(--fg) 80%, var(--canvas));
+
+  --overlay: rgb(0 0 0 / 0.62);
+  --skeleton: #221f1b;
+  --skeleton-shine: #2c2924;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 6px 18px -6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 30px 70px -20px rgb(0 0 0 / 0.75), 0 12px 28px -14px rgb(0 0 0 / 0.5);
+}
+
+[data-accent='ocean'] {
+  --accent: #2463eb;
+  --accent-hover: #1d4fd0;
+  --accent-soft: rgb(36 99 235 / 0.1);
+  --on-accent: #ffffff;
+}
+[data-theme='dark'][data-accent='ocean'] {
+  --accent: #6b9bff;
+  --accent-hover: #8db2ff;
+  --accent-soft: rgb(107 155 255 / 0.15);
+  --on-accent: #06122b;
+}
+[data-accent='forest'] {
+  --accent: #178a4c;
+  --accent-hover: #117440;
+  --accent-soft: rgb(23 138 76 / 0.1);
+  --on-accent: #ffffff;
+}
+[data-theme='dark'][data-accent='forest'] {
+  --accent: #45c486;
+  --accent-hover: #66d49e;
+  --accent-soft: rgb(69 196 134 / 0.15);
+  --on-accent: #04170d;
+}
+[data-accent='violet'] {
+  --accent: #7440e0;
+  --accent-hover: #6232c8;
+  --accent-soft: rgb(116 64 224 / 0.1);
+  --on-accent: #ffffff;
+}
+[data-theme='dark'][data-accent='violet'] {
+  --accent: #a98bff;
+  --accent-hover: #bda6ff;
+  --accent-soft: rgb(169 139 255 / 0.16);
+  --on-accent: #140a2e;
+}
+[data-accent='gold'] {
+  --accent: #b0700c;
+  --accent-hover: #955e08;
+  --accent-soft: rgb(176 112 12 / 0.11);
+  --on-accent: #ffffff;
+}
+[data-theme='dark'][data-accent='gold'] {
+  --accent: #eab44f;
+  --accent-hover: #f2c670;
+  --accent-soft: rgb(234 180 79 / 0.16);
+  --on-accent: #1f1502;
+}
+/* Ember is the :root default; restated so a nested [data-accent='ember'] (accent swatches) resolves too. */
+[data-accent='ember'] {
+  --accent: #e5462b;
+  --accent-hover: #cf3a20;
+  --accent-soft: rgb(229 70 43 / 0.1);
+  --on-accent: #ffffff;
+}
+[data-theme='dark'][data-accent='ember'] {
+  --accent: #ff6a4a;
+  --accent-hover: #ff8468;
+  --accent-soft: rgb(255 106 74 / 0.14);
+  --on-accent: #1a0d08;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-glass: var(--glass);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-breaking: var(--breaking);
+  --color-breaking-soft: var(--breaking-soft);
+  --color-on-breaking: var(--on-breaking);
+  --color-mark: var(--mark);
+  --color-logo-tile: var(--logo-tile);
+  --color-live: var(--live);
+  --color-warning: var(--warning);
+  --color-overlay: var(--overlay);
+  --color-scrim: var(--scrim);
+  --color-on-scrim: var(--on-scrim);
+
+  --font-ui: var(--font-ui-stack);
+  --font-headline: var(--font-headline-stack);
+  --font-reading: var(--font-reading-stack);
+
+  --shadow-soft: var(--shadow-sm);
+  --shadow-card: var(--shadow-md);
+  --shadow-float: var(--shadow-lg);
+}
+
+@theme {
+  --radius-card: 14px;
+  --radius-panel: 20px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-ticker: ticker var(--ticker-duration, 60s) linear infinite;
+  --animate-pulse-dot: pulse-dot 1.8s ease-out infinite;
+  --animate-page-in: page-in 160ms ease-out both;
+
+  @keyframes page-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -400px 0;
+    }
+    100% {
+      background-position: 400px 0;
+    }
+  }
+  @keyframes ticker {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--breaking) 55%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 7px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+}
+
+@layer base {
+  html {
+    font-size: calc(16px * var(--font-scale));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--fg);
+    font-family: var(--font-ui-stack);
+    font-feature-settings: 'cv11', 'ss01';
+    overflow: hidden;
+    user-select: none;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  button {
+    cursor: default;
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
+
+  /* thin, theme-aware scrollbars */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-subtle);
+    background-clip: content-box;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .drag {
+    -webkit-app-region: drag;
+  }
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+  .selectable {
+    user-select: text;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, var(--skeleton) 0%, var(--skeleton-shine) 50%, var(--skeleton) 100%);
+    background-size: 800px 100%;
+    animation: var(--animate-shimmer);
+  }
+  .headline {
+    font-family: var(--font-headline-stack);
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "mode": {
+    "label": "View",
+    "web": "Web",
+    "reader": "Reader"
+  },
+  "toolbar": {
+    "back": "Back",
+    "forward": "Forward",
+    "reload": "Reload page",
+    "save": "Save",
+    "unsave": "Remove from saved",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "copyFailed": "Couldn't copy the link",
+    "openInBrowser": "Open in browser",
+    "previous": "Previous article",
+    "next": "Next article",
+    "position": "Story {{current}} of {{total}}",
+    "close": "Close",
+    "textSettings": "Text settings"
+  },
+  "text": {
+    "size": "Text size",
+    "smaller": "Smaller text",
+    "larger": "Larger text",
+    "typeface": "Typeface",
+    "readingFont": "Reading font",
+    "uiFont": "Interface font"
+  },
+  "coverage": {
+    "label": "Also covered by"
+  },
+  "web": {
+    "loading": "Loading {{site}}…",
+    "failedTitle": "The page didn't load",
+    "failedDescription": "{{site}} couldn't be reached. Check your connection and try again, or read the article in Reader mode.",
+    "retry": "Try again",
+    "tryReader": "Try Reader mode",
+    "blockedTitle": "This site can't be embedded in the browser",
+    "blockedDescription": "{{site}} doesn't allow itself to be shown inside another page. The desktop app has no such limit.",
+    "blockedNotice": "This site can't be embedded in the browser — showing Reader view",
+    "openOriginal": "Open original"
+  },
+  "reader": {
+    "minutes_one": "{{count}} min read",
+    "minutes_other": "{{count}} min read",
+    "failedTitle": "Couldn't extract the article",
+    "failedDescription": "Here's what {{source}} shared in its feed. The full story is on the publisher's page.",
+    "retry": "Try again",
+    "showWeb": "Show web page",
+    "sourceLabel": "Source",
+    "viewOriginal": "View original page"
+  }
+}

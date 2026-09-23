@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+*.png binary
+*.ico binary
+*.icns binary
+*.woff2 binary
+*.bin binary
+
+# Real feed and page samples: keep them byte-for-byte (line endings, legacy charsets).
+tests/fixtures/** -text
+tests/core/backend/fixtures/** -text

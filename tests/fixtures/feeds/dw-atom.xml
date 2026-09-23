@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:georss="http://www.georss.org/georss" xml:lang="tr">
+ <id>http://rss.dw.com/atom/rss-tur-all</id>
+ <title><![CDATA[DW-WORLD´s Turkish Homepage]]></title>
+ <subtitle><![CDATA[Turkish Homepage]]></subtitle>
+ <updated>2026-09-22T19:48:49Z</updated>
+ <author>
+  <name>DW</name>
+  <email>info@dw.com</email>
+  <uri>https://www.dw.com</uri>
+ </author>
+ <link rel="self" href="http://rss.dw.com/atom/rss-tur-all"/>
+ <link rel="related" href="https://www.dw.com/s-655?maca=tur-rss-tur-all-1495-xml-atom"/>
+ <icon>https://rss.dw.com/images/dw_icon.png</icon>
+ <logo>https://rss.dw.com/images/DW-L-RGB_whitebg.png</logo>
+ <rights>2026 DW</rights>
+ <entry>
+  <id>tag:dw.com,2026:79379215</id>
+  <title><![CDATA[Erdoğan BM'de konuştu: Filistin devletinin sesi olacağız]]></title>
+  <updated>2026-09-22T16:41:00Z</updated>
+  <published>2026-09-22T16:41:00Z</published>
+  <rights>2026 DW</rights>
+  <link rel="alternate" hreflang="tr" href="https://www.dw.com/tr/erdoğan-bm-de-konuştu-filistin-devletinin-sesi-olacağız/a-79379215?maca=tur-rss-tur-all-1495-xml-atom"/>
+  <summary><![CDATA[Türkiye'nin Filistin'in sesi olmayı sürdüreceğini söyleyen Erdoğan, dünyayı Filistin ve Kuzey Kıbrıs'ı tanımaya davet etti.]]></summary>
+  <category term="GÜNDEM"/>
+ </entry>
+ <entry>
+  <id>tag:dw.com,2026:79377672</id>
+  <title><![CDATA[Antisemitizm tartışmaları: Elif Eralp başbakan olabilecek mi?]]></title>
+  <updated>2026-09-22T15:38:00Z</updated>
+  <published>2026-09-22T15:38:00Z</published>
+  <rights>2026 DW</rights>
+  <link rel="alternate" hreflang="tr" href="https://www.dw.com/tr/antisemitizm-tartışmaları-elif-eralp-başbakan-olabilecek-mi/a-79377672?maca=tur-rss-tur-all-1495-xml-atom"/>
+  <summary><![CDATA[Berlin'de Sol Parti'nin adayı Elif Eralp'in zaferi, Türkiye kökenli seçmenler arasında yankı uyandırdı. Ancak Eralp'in başbakanlığı partisine yönelik antisemitizm eleştirileri sebebiyle tehlikeye girebilir.]]></summary>
+  <category term="GÜNDEM"/>
+ </entry>
+ <entry>
+  <id>tag:dw.com,2026:79378555</id>
+  <title><![CDATA[Trump BM'de konuştu: Yapay zekaya süper zeka diyelim]]></title>
+  <updated>2026-09-22T15:37:00Z</updated>
+  <published>2026-09-22T15:37:00Z</published>
+  <rights>2026 DW</rights>
+  <link rel="alternate" hreflang="tr" href="https://www.dw.com/tr/trump-bm-de-konuştu-yapay-zekaya-süper-zeka-diyelim/a-79378555?maca=tur-rss-tur-all-1495-xml-atom"/>
+  <summary><![CDATA[ABD Başkanı Donald Trump, Birleşmiş Milletler Genel Kurulu'ndaki konuşmasında yapay zeka, İran savaşı, Gazze ve Latin Amerika'ya ilişkin mesajlar verdi.]]></summary>
+  <category term="GÜNDEM"/>
+ </entry>
+</feed>

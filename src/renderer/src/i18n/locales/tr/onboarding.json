@@ -1,0 +1,50 @@
+{
+  "intro": {
+    "headline": "Tüm haberler, tek sakin yerde.",
+    "subtitle": "Türkiye'nin önde gelen haber kaynakları tek ve sakin bir ön sayfada. Dört kısa soru ve hazırsınız.",
+    "subtitleWithCountry": "Türkiye'nin önde gelen haber kaynakları tek ve sakin bir ön sayfada. Beş kısa soru ve hazırsınız.",
+    "country": "{{country}} · {{sources}} kaynak · yeni ülkeler yakında"
+  },
+  "progress": "Adım {{current}}/{{total}}",
+  "continue": "Devam",
+  "orPress": "ya da <0/> tuşuna basın",
+  "language": {
+    "kicker": "Dil",
+    "title": "Hangi dili tercih edersiniz?",
+    "hint": "Bu seçim menüleri ve düğmeleri belirler; haberler Türkçe kalır.",
+    "cardHint": "Menüler ve düğmeler Türkçe"
+  },
+  "theme": {
+    "kicker": "Görünüm",
+    "title": "Açık mı, koyu mu?",
+    "hint": "Hemen uygulanır. Dilediğiniz zaman başlık çubuğundan değiştirebilirsiniz."
+  },
+  "country": {
+    "kicker": "Ülke",
+    "title": "Haberler nereden gelsin?",
+    "hint": "Siz kurulumu bitirirken ilk manşetleri toplamaya başlıyoruz.",
+    "stats": "{{sources}} kaynak · {{cities}} şehir",
+    "comingSoon": "Yeni ülkeler yakında"
+  },
+  "interests": {
+    "kicker": "İlgi alanları",
+    "title": "Neleri takip etmek istersiniz?",
+    "hint": "İstediğiniz kadar seçin. Seçimleriniz Size Özel sayfanızı ve Ana Sayfa'daki bölümlerin sırasını belirler."
+  },
+  "city": {
+    "kicker": "Şehir",
+    "title": "Şehrinizden haberler de ister misiniz?",
+    "hint": "İsteğe bağlı. Yerel sayfanız için bir şehir ya da bütün bir bölge seçin.",
+    "skip": "Şimdilik geç",
+    "chosen": "{{place}} için yerel haberler"
+  },
+  "finish": {
+    "title": "Her şey hazır.",
+    "fetching": "İlk manşetler toplanıyor · {{done}}/{{total}} akış",
+    "ready_one": "{{count, number}} haber sizi bekliyor.",
+    "ready_other": "{{count, number}} haber sizi bekliyor.",
+    "soon": "İlk manşetler birazdan gelecek.",
+    "cta": "Ön sayfamı aç",
+    "later": "Bunların hepsini daha sonra Ayarlar'dan değiştirebilirsiniz."
+  }
+}

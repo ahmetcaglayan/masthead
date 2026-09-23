@@ -1,0 +1,215 @@
+{
+  "kicker": {
+    "breaking": "Breaking"
+  },
+  "meta": {
+    "sources_one": "{{count}} source",
+    "sources_other": "{{count}} sources",
+    "updated": "updated {{time}}"
+  },
+  "card": {
+    "alsoReporting": "Also reporting"
+  },
+  "summary": {
+    "continueHere": "Read the rest of the story here",
+    "loading": "Loading the full story…",
+    "openFull": "Open full article",
+    "noDetail": "The feed has nothing more on this story — open the article for the rest."
+  },
+  "toast": {
+    "saved": "Saved for later",
+    "unsaved": "Removed from saved"
+  },
+  "cluster": {
+    "coveredBy_one": "Covered by {{count}} source",
+    "coveredBy_other": "Covered by {{count}} sources",
+    "otherHeadlines": "What other outlets said",
+    "moreSources_one": "{{count}} more source",
+    "moreSources_other": "{{count}} more sources"
+  },
+  "ticker": {
+    "label": "Breaking news",
+    "pause": "Pause the ticker",
+    "play": "Resume the ticker",
+    "previous": "Previous story",
+    "next": "Next story",
+    "position": "{{current}}/{{total}}",
+    "all": "All breaking ({{count}})"
+  },
+  "timeline": {
+    "showMore": "Show more"
+  },
+  "header": {
+    "stories_one": "{{formatted}} story",
+    "stories_other": "{{formatted}} stories"
+  },
+  "feed": {
+    "loadMore": "Load more ({{shown}} of {{total}})",
+    "end": "You're all caught up."
+  },
+  "gate": {
+    "allOffTitle": "All sources are switched off",
+    "allOffBody": "Turn on at least one source and its stories will appear here.",
+    "manageSources": "Manage sources",
+    "offlineBody": "There are no saved stories yet. We'll fetch the news as soon as you're back online.",
+    "emptyTitle": "No stories yet",
+    "emptyBody": "The feeds haven't arrived yet. Refresh now, or check back in a moment."
+  },
+  "filters": {
+    "label": "Filters",
+    "timeRange": "Time range",
+    "time": {
+      "1h": "1h",
+      "6h": "6h",
+      "24h": "24h",
+      "3d": "3d",
+      "all": "All"
+    },
+    "timeLong": {
+      "1h": "Last hour",
+      "6h": "Last 6 hours",
+      "24h": "Last 24 hours",
+      "3d": "Last 3 days"
+    },
+    "sources": "Sources",
+    "sourcesCount_one": "{{count}} source",
+    "sourcesCount_other": "{{count}} sources",
+    "searchSources": "Find a source…",
+    "allSources": "All sources",
+    "noSources": "No matching sources.",
+    "location": "Region / Province",
+    "sort": {
+      "latest": "Newest",
+      "popular": "Most covered"
+    },
+    "withImages": "With images",
+    "hideRead": "Hide read",
+    "results_one": "{{formatted}} story",
+    "results_other": "{{formatted}} stories",
+    "remove": "Remove filter: {{label}}",
+    "clearAll": "Clear filters",
+    "filtered": "Filtered: {{filters}}",
+    "noMatchTitle": "No stories match these filters",
+    "noMatchBody": "Try a longer time range or remove a filter or two."
+  },
+  "location": {
+    "search": "Find a province…",
+    "noMatch": "No province by that name.",
+    "anywhere": "All regions",
+    "showProvinces": "Show provinces in {{region}}"
+  },
+  "home": {
+    "dateline_one": "{{stories}} stories from {{count}} source",
+    "dateline_other": "{{stories}} stories from {{count}} sources",
+    "topStories": "Top story",
+    "moreTopStories": "More top stories",
+    "digestKicker": "At a glance",
+    "digestDescription": "Stories several outlets are covering, one card each — who said what, side by side.",
+    "digestAll": "See the full digest"
+  },
+  "digest": {
+    "title": "Digest",
+    "kicker": "At a glance",
+    "description": "Every story several outlets are covering, in one card with each outlet's own headline — no clicking needed.",
+    "summary_one": "{{formatted}} story from {{sources}} sources",
+    "summary_other": "{{formatted}} stories from {{sources}} sources",
+    "emptyTitle": "No shared stories yet",
+    "emptyBody": "Stories covered by more than one outlet will gather here. Check back shortly.",
+    "soloTitle": "On one front page",
+    "soloBody": "Stories only one outlet has led with so far.",
+    "more": "Show more stories"
+  },
+  "latest": {
+    "title": "Latest",
+    "kicker": "Live feed",
+    "description": "Every story from your sources, minute by minute."
+  },
+  "breaking": {
+    "live": "Live",
+    "title": "Breaking",
+    "description": "Straight from your sources' breaking-news feeds.",
+    "recent_one": "{{count}} new in the last 2 hours",
+    "recent_other": "{{count}} new in the last 2 hours",
+    "total_one": "{{formatted}} breaking story in all",
+    "total_other": "{{formatted}} breaking stories in all",
+    "emptyTitle": "No breaking news right now",
+    "emptyBody": "When something breaks, it will show up here first."
+  },
+  "forYou": {
+    "title": "For You",
+    "kicker": "Personal",
+    "description": "Stories picked for your interests.",
+    "descriptionWithCity": "Stories picked for your interests and for {{city}}.",
+    "interests": "Your interests",
+    "pickTitle": "What do you want to follow?",
+    "pickBody": "Pick a few topics and your feed will follow them. You can change them any time.",
+    "emptyTitle": "Nothing for you just yet",
+    "emptyBody": "Try adding a few more topics, or check back shortly."
+  },
+  "local": {
+    "title": "Local News",
+    "kicker": "Local",
+    "chooseBody": "Which city do you want to follow? Open a region and pick your province.",
+    "change": "Change city",
+    "sources": "Local sources",
+    "description": "Everything about {{city}}, plus its local outlets.",
+    "regionDescription": "Stories about the provinces in your region.",
+    "emptyTitle": "No stories about {{place}} yet",
+    "emptyBody": "Local feeds are on their way — check back in a few minutes.",
+    "nearby": "Around the {{region}} region",
+    "top": "Top stories in {{place}}"
+  },
+  "category": {
+    "kicker": "Topic",
+    "top": "Top {{topic}} stories",
+    "emptyTitle": "No {{topic}} stories yet",
+    "emptyBody": "Stories on this topic will show up here as they arrive."
+  },
+  "source": {
+    "offBadge": "Off",
+    "feeds_one": "{{count}} feed",
+    "feeds_other": "{{count}} feeds",
+    "on": "On",
+    "off": "Off",
+    "unknownTitle": "Source not found",
+    "unknownBody": "This source isn't one of the selected country's sources.",
+    "disabledTitle": "{{name}} is switched off",
+    "disabledBody": "Turn it on to see its stories here and across your feeds.",
+    "turnOn": "Turn on",
+    "emptyTitle": "No stories from this source yet",
+    "emptyBody": "Its feeds will be checked on the next refresh."
+  },
+  "search": {
+    "title": "Search",
+    "kicker": "Search results",
+    "titleFor": "“{{query}}”",
+    "results_one": "{{formatted}} result",
+    "results_other": "{{formatted}} results",
+    "order": "Order",
+    "relevance": "Most relevant",
+    "newest": "Newest",
+    "startTitle": "What are you looking for?",
+    "startKicker": "All sources",
+    "startBody": "Search runs over headlines and summaries. Turkish letters are optional — “istanbul” finds “İstanbul”.",
+    "focus": "Start searching",
+    "noResultsBody": "Try different or fewer words. Phrases in quotes are matched exactly.",
+    "noResultsFiltered": "Your filters may be hiding some results."
+  },
+  "saved": {
+    "title": "Saved",
+    "description": "Stories you set aside for later.",
+    "emptyTitle": "Nothing saved yet",
+    "emptyBody": "Use the bookmark on any story to keep it here."
+  },
+  "history": {
+    "title": "History",
+    "description": "Stories you've opened, most recent first.",
+    "clear": "Clear history",
+    "readAt": "Read at {{time}}",
+    "emptyTitle": "No history yet",
+    "emptyBody": "Stories you open will be listed here, day by day.",
+    "clearTitle": "Clear your reading history?",
+    "clearBody": "The list of stories you've read will be removed. Saved stories stay. This can't be undone.",
+    "clearConfirm": "Clear history"
+  }
+}

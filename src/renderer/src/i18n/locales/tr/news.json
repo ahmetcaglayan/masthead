@@ -1,0 +1,215 @@
+{
+  "kicker": {
+    "breaking": "Son Dakika"
+  },
+  "meta": {
+    "sources_one": "{{count}} kaynak",
+    "sources_other": "{{count}} kaynak",
+    "updated": "{{time}} güncellendi"
+  },
+  "card": {
+    "alsoReporting": "Diğer kaynaklar"
+  },
+  "summary": {
+    "continueHere": "Haberin devamını burada okuyun",
+    "loading": "Haberin devamı yükleniyor…",
+    "openFull": "Haberin tamamını aç",
+    "noDetail": "Akışta bu haberin devamı yok; tamamı için haberi açabilirsiniz."
+  },
+  "toast": {
+    "saved": "Sonra okumak için kaydedildi",
+    "unsaved": "Kaydedilenlerden çıkarıldı"
+  },
+  "cluster": {
+    "coveredBy_one": "Bu haberi {{count}} kaynak verdi",
+    "coveredBy_other": "Bu haberi {{count}} kaynak verdi",
+    "otherHeadlines": "Diğer kaynaklar ne dedi?",
+    "moreSources_one": "{{count}} kaynak daha",
+    "moreSources_other": "{{count}} kaynak daha"
+  },
+  "ticker": {
+    "label": "Son dakika haberleri",
+    "pause": "Bandı durdur",
+    "play": "Bandı sürdür",
+    "previous": "Önceki haber",
+    "next": "Sonraki haber",
+    "position": "{{current}}/{{total}}",
+    "all": "Tüm son dakika ({{count}})"
+  },
+  "timeline": {
+    "showMore": "Daha fazla göster"
+  },
+  "header": {
+    "stories_one": "{{formatted}} haber",
+    "stories_other": "{{formatted}} haber"
+  },
+  "feed": {
+    "loadMore": "Daha fazla haber yükle ({{shown}}/{{total}})",
+    "end": "Şimdilik bu kadar; gündemi yakaladınız."
+  },
+  "gate": {
+    "allOffTitle": "Tüm kaynaklar kapalı",
+    "allOffBody": "Haberlerin burada görünmesi için en az bir kaynağı açın.",
+    "manageSources": "Kaynakları yönet",
+    "offlineBody": "Henüz kayıtlı haber yok. Bağlantı gelir gelmez haberleri getireceğiz.",
+    "emptyTitle": "Henüz haber yok",
+    "emptyBody": "Haber akışları henüz gelmedi. Şimdi yenileyebilir ya da birazdan tekrar bakabilirsiniz."
+  },
+  "filters": {
+    "label": "Filtreler",
+    "timeRange": "Zaman aralığı",
+    "time": {
+      "1h": "1 saat",
+      "6h": "6 saat",
+      "24h": "24 saat",
+      "3d": "3 gün",
+      "all": "Tümü"
+    },
+    "timeLong": {
+      "1h": "Son 1 saat",
+      "6h": "Son 6 saat",
+      "24h": "Son 24 saat",
+      "3d": "Son 3 gün"
+    },
+    "sources": "Kaynaklar",
+    "sourcesCount_one": "{{count}} kaynak",
+    "sourcesCount_other": "{{count}} kaynak",
+    "searchSources": "Kaynak ara…",
+    "allSources": "Tüm kaynaklar",
+    "noSources": "Eşleşen kaynak yok.",
+    "location": "Bölge / Şehir",
+    "sort": {
+      "latest": "En yeni",
+      "popular": "En çok kaynak"
+    },
+    "withImages": "Görselli",
+    "hideRead": "Okunanları gizle",
+    "results_one": "{{formatted}} haber",
+    "results_other": "{{formatted}} haber",
+    "remove": "Filtreyi kaldır: {{label}}",
+    "clearAll": "Filtreleri temizle",
+    "filtered": "Filtre: {{filters}}",
+    "noMatchTitle": "Filtrelere uyan haber yok",
+    "noMatchBody": "Zaman aralığını genişletmeyi ya da birkaç filtreyi kaldırmayı deneyin."
+  },
+  "location": {
+    "search": "Şehir ara…",
+    "noMatch": "Bu adla bir şehir bulunamadı.",
+    "anywhere": "Tüm bölgeler",
+    "showProvinces": "{{region}} bölgesindeki şehirleri göster"
+  },
+  "home": {
+    "dateline_one": "{{count}} kaynaktan {{stories}} haber",
+    "dateline_other": "{{count}} kaynaktan {{stories}} haber",
+    "topStories": "Manşet",
+    "moreTopStories": "Diğer manşetler",
+    "digestKicker": "Tek bakışta",
+    "digestDescription": "Aynı haberi veren kaynaklar tek kartta: kim ne dedi, yan yana.",
+    "digestAll": "Tüm özeti gör"
+  },
+  "digest": {
+    "title": "Gündem Özeti",
+    "kicker": "Tek bakışta",
+    "description": "Birden çok kaynağın verdiği haberler, her kaynağın kendi başlığıyla tek kartta. Tıklamanıza gerek yok.",
+    "summary_one": "{{sources}} kaynaktan {{formatted}} ortak haber",
+    "summary_other": "{{sources}} kaynaktan {{formatted}} ortak haber",
+    "emptyTitle": "Henüz ortak gündem oluşmadı",
+    "emptyBody": "Birden fazla kaynağın verdiği haberler burada toplanacak. Birazdan tekrar bakın.",
+    "soloTitle": "Tek manşette",
+    "soloBody": "Şimdilik yalnızca bir kaynağın manşete taşıdığı haberler.",
+    "more": "Daha fazla haber göster"
+  },
+  "latest": {
+    "title": "Son Haberler",
+    "kicker": "Canlı akış",
+    "description": "Kaynaklarınızdaki tüm haberler, dakika dakika."
+  },
+  "breaking": {
+    "live": "Canlı",
+    "title": "Son Dakika",
+    "description": "Kaynaklarınızın son dakika akışlarından gelen haberler.",
+    "recent_one": "Son 2 saatte {{count}} yeni gelişme",
+    "recent_other": "Son 2 saatte {{count}} yeni gelişme",
+    "total_one": "Toplam {{formatted}} son dakika haberi",
+    "total_other": "Toplam {{formatted}} son dakika haberi",
+    "emptyTitle": "Şu an son dakika haberi yok",
+    "emptyBody": "Yeni bir gelişme olduğunda ilk burada görünecek."
+  },
+  "forYou": {
+    "title": "Size Özel",
+    "kicker": "Kişisel",
+    "description": "İlgi alanlarınıza göre seçilen haberler.",
+    "descriptionWithCity": "İlgi alanlarınıza ve {{city}} gündemine göre seçilen haberler.",
+    "interests": "İlgi alanlarınız",
+    "pickTitle": "Neleri takip etmek istersiniz?",
+    "pickBody": "Birkaç konu seçin, akışınız ona göre şekillensin. İstediğiniz zaman değiştirebilirsiniz.",
+    "emptyTitle": "Şimdilik size uygun haber yok",
+    "emptyBody": "Birkaç konu daha eklemeyi deneyin ya da birazdan tekrar bakın."
+  },
+  "local": {
+    "title": "Yerel Haberler",
+    "kicker": "Yerel",
+    "chooseBody": "Hangi şehrin haberlerini takip etmek istersiniz? Bir bölgeyi açıp şehrinizi seçin.",
+    "change": "Şehri değiştir",
+    "sources": "Yerel kaynaklar",
+    "description": "{{city}} ile ilgili tüm haberler ve şehrin yerel kaynakları.",
+    "regionDescription": "Bölgenizdeki şehirlerle ilgili haberler.",
+    "emptyTitle": "{{place}} için henüz haber yok",
+    "emptyBody": "Yerel akışlar yolda; birkaç dakika sonra tekrar bakın.",
+    "nearby": "{{region}} bölgesinden",
+    "top": "{{place}} manşeti"
+  },
+  "category": {
+    "kicker": "Konu",
+    "top": "{{topic}} manşeti",
+    "emptyTitle": "{{topic}} başlığında henüz haber yok",
+    "emptyBody": "Bu konudaki haberler geldikçe burada görünecek."
+  },
+  "source": {
+    "offBadge": "Kapalı",
+    "feeds_one": "{{count}} akış",
+    "feeds_other": "{{count}} akış",
+    "on": "Açık",
+    "off": "Kapalı",
+    "unknownTitle": "Kaynak bulunamadı",
+    "unknownBody": "Bu kaynak seçili ülkenin kaynakları arasında yok.",
+    "disabledTitle": "{{name}} kapalı",
+    "disabledBody": "Açtığınızda bu kaynağın haberleri hem burada hem de akışlarınızda görünür.",
+    "turnOn": "Kaynağı aç",
+    "emptyTitle": "Bu kaynaktan henüz haber yok",
+    "emptyBody": "Akışları bir sonraki yenilemede kontrol edilecek."
+  },
+  "search": {
+    "title": "Arama",
+    "kicker": "Arama sonuçları",
+    "titleFor": "“{{query}}”",
+    "results_one": "{{formatted}} sonuç",
+    "results_other": "{{formatted}} sonuç",
+    "order": "Sıralama",
+    "relevance": "En alakalı",
+    "newest": "En yeni",
+    "startTitle": "Ne aramak istersiniz?",
+    "startKicker": "Tüm kaynaklar",
+    "startBody": "Başlık ve özetlerde arar. Türkçe karakter şart değil: “ogretmen” yazsanız da “öğretmen”i bulur.",
+    "focus": "Aramaya başla",
+    "noResultsBody": "Farklı ya da daha az kelimeyle deneyin. Tırnak içindeki ifadeler birebir aranır.",
+    "noResultsFiltered": "Filtreler bazı sonuçları gizliyor olabilir."
+  },
+  "saved": {
+    "title": "Kaydedilenler",
+    "description": "Sonra okumak için ayırdığınız haberler.",
+    "emptyTitle": "Henüz kaydedilen haber yok",
+    "emptyBody": "Bir haberi buraya eklemek için üzerindeki yer imi simgesine basın."
+  },
+  "history": {
+    "title": "Geçmiş",
+    "description": "Açtığınız haberler, en yenisi en üstte.",
+    "clear": "Geçmişi temizle",
+    "readAt": "{{time}} itibarıyla okundu",
+    "emptyTitle": "Geçmiş boş",
+    "emptyBody": "Açtığınız haberler burada gün gün listelenir.",
+    "clearTitle": "Okuma geçmişi temizlensin mi?",
+    "clearBody": "Okuduğunuz haberlerin listesi silinir; kaydettikleriniz yerinde kalır. Bu işlem geri alınamaz.",
+    "clearConfirm": "Geçmişi temizle"
+  }
+}

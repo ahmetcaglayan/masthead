@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1254"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Türkiye Gazetesi - Dünya</title>
+    <description>Türkiye Gazetesi</description>
+    <link>https://www.turkiyegazetesi.com.tr/dunya</link>
+    <language>tr-tr</language>
+    <lastBuildDate>2026-09-22T22:08:24+03:00</lastBuildDate>
+    <generator>Türkiye Gazetesi</generator>
+    <managingEditor>editor@turkiyegazetesi.com.tr (Türkiye Gazetesi)</managingEditor>
+    <webMaster>hostmaster@turkiyegazetesi.com.tr (Türkiye Gazetesi)</webMaster>
+    <copyright>Türkiye Gazetesi</copyright>
+    <atom:link href="https://www.turkiyegazetesi.com.tr/rss/dunya" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Türkiye Gazetesi - Dünya</title>
+      <url>https://s.turkiyegazetesi.com.tr/s/i/logo.svg</url>
+      <link>https://www.turkiyegazetesi.com.tr/dunya</link>
+    </image>
+    <item>
+      <title><![CDATA[Trump duyurmuştu! Grönland anlaşması resmen imzalandı]]></title>
+      <link><![CDATA[https://www.turkiyegazetesi.com.tr/dunya/trump-duyurmustu-gronland-anlasmasi-resmen-imzalandi-1817821]]></link>
+      <media:content width="1280" height="720" url="https://i.turkiyegazetesi.com.tr/images/2026/9/22/trump-duyurmustu-gronland-anlasmasi-resmen-imzalandi-1817821_20260922221024.jpg" />
+      <description><![CDATA[ABD Başkanı Donald Trump, Danimarka Başbakanı Frederiksen ve Grönland Başbakanı Nielsen, ABD'nin Grönland'daki güvenlik kontrollerini sağlamasına ilişkin anlaşmayı New York'ta imzaladı. Liderler, anlaşmanın ABD, Danimarka, Grönland ve NATO açısından önemine vurgu yaptı.]]></description>
+      <category>Dünya</category>
+      <guid isPermaLink="true">https://www.turkiyegazetesi.com.tr/dunya/trump-duyurmustu-gronland-anlasmasi-resmen-imzalandi-1817821</guid>
+      <pubDate>Sal, 22 Eyl 2026 22:08:24 +0300</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Türkiye ve 3 ülkeden Husilere sert tepki! Saldırıları kınadılar]]></title>
+      <link><![CDATA[https://www.turkiyegazetesi.com.tr/dunya/turkiye-ve-3-ulkeden-husilere-sert-tepki-saldirilari-kinadilar-1817817]]></link>
+      <media:content width="1280" height="720" url="https://i.turkiyegazetesi.com.tr/images/2026/9/22/turkiye-ve-3-ulkeden-husilere-sert-tepki-saldirilari-kinadilar-1817817_20260922215812.jpg" />
+      <description><![CDATA[Türkiye, Mısır, Pakistan ve Suudi Arabistan, Yemen'deki Husilerin Suudi Arabistan'a yönelik tüm saldırılarını şiddetle kınadı. Dört ülke, Suudi Arabistan'ın egemenliği, toprak bütünlüğü ve güvenliğine yönelik desteklerini yinelerken, bölgede kalıcı barış ve istikrar için diyalog ve diplomasinin önemine vurgu yaptı.]]></description>
+      <category>Dünya</category>
+      <guid isPermaLink="true">https://www.turkiyegazetesi.com.tr/dunya/turkiye-ve-3-ulkeden-husilere-sert-tepki-saldirilari-kinadilar-1817817</guid>
+      <pubDate>Sal, 22 Eyl 2026 21:56:12 +0300</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Fransa'dan Netanyahu'ya 5'inci kez izin! Tepkiler çığ gibi]]></title>
+      <link><![CDATA[https://www.turkiyegazetesi.com.tr/dunya/fransadan-netanyahuya-5inci-kez-izin-tepkiler-cig-gibi-1817814]]></link>
+      <media:content width="1280" height="720" url="https://i.turkiyegazetesi.com.tr/images/2026/9/22/fransadan-netanyahuya-5inci-kez-izin-tepkiler-cig-gibi-1817814_20260922213411.jpg" />
+      <description><![CDATA[Fransa'nın, hakkında UCM tarafından tutuklama emri bulunan İsrail Başbakanı Binyamin Netanyahu'yu taşıyan uçağın Fransız hava sahasından geçmesine izin vermesi ülkede tepkilere neden oldu. Fransız siyasetçiler, kararın ardından hükümeti eleştirirken, Fransa'nın bu izni 5. kez verdiği belirtildi.]]></description>
+      <category>Dünya</category>
+      <guid isPermaLink="true">https://www.turkiyegazetesi.com.tr/dunya/fransadan-netanyahuya-5inci-kez-izin-tepkiler-cig-gibi-1817814</guid>
+      <pubDate>Sal, 22 Eyl 2026 21:32:11 +0300</pubDate>
+    </item>
+  </channel>
+</rss>

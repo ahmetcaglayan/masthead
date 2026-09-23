@@ -1,0 +1,87 @@
+/*
+ * Enter/exit motion for Radix floating layers (menus, popovers, tooltips) and
+ * dialogs. Radix keeps closing content mounted until its exit animation ends.
+ * prefers-reduced-motion is handled globally in globals.css.
+ */
+
+@keyframes mh-float-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--mh-float-x, 0), var(--mh-float-y, 0)) scale(0.97);
+  }
+}
+
+@keyframes mh-float-out {
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes mh-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes mh-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Dialogs are centred with the `translate` property, so these only add a small offset via `transform`. */
+@keyframes mh-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+}
+
+@keyframes mh-dialog-out {
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+}
+
+.mh-float {
+  transform-origin: var(
+    --radix-dropdown-menu-content-transform-origin,
+    var(--radix-popover-content-transform-origin, var(--radix-tooltip-content-transform-origin, center))
+  );
+}
+.mh-float[data-side='bottom'] {
+  --mh-float-y: -4px;
+}
+.mh-float[data-side='top'] {
+  --mh-float-y: 4px;
+}
+.mh-float[data-side='right'] {
+  --mh-float-x: -4px;
+}
+.mh-float[data-side='left'] {
+  --mh-float-x: 4px;
+}
+.mh-float[data-state='open'],
+.mh-float[data-state='delayed-open'],
+.mh-float[data-state='instant-open'] {
+  animation: mh-float-in 170ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mh-float[data-state='closed'] {
+  animation: mh-float-out 110ms ease-in forwards;
+}
+
+.mh-overlay[data-state='open'] {
+  animation: mh-fade-in 200ms ease-out;
+}
+.mh-overlay[data-state='closed'] {
+  animation: mh-fade-out 140ms ease-in forwards;
+}
+
+.mh-dialog[data-state='open'] {
+  animation: mh-dialog-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mh-dialog[data-state='closed'] {
+  animation: mh-dialog-out 140ms ease-in forwards;
+}

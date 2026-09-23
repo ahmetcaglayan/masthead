@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Dünya Gazetesi</title>
+        <description>Dünya Gazetesi rss servisi</description>
+        <link>https://www.dunya.com</link>
+        <pubDate>Tue, 22 Sep 2026 22:38:00 +0300</pubDate>
+        <lastBuildDate>Tue, 22 Sep 2026 22:38:30 +0300</lastBuildDate>
+        <language>tr-TR</language>
+        <ttl>5</ttl>
+        <category>Newspaper</category>
+        <generator>Dünya Gazetesi</generator>
+        <image>
+            <link>https://www.dunya.com</link>
+            <url>https://img.dunya.com/assets/web/images/header-logo_red@2x.png</url>
+            <title>Dünya Gazetesi rss servisi</title>
+        </image>
+                    <item>
+                <title>İspanya, İsrail&#039;in katılımı nedeniyle Eurovision&#039;u boykot etmeye hazırlanıyor</title>
+                <link>https://www.dunya.com/dunya/ispanya-israilin-katilimi-nedeniyle-eurovisionu-boykot-etmeye-hazirlaniyor-haberi-841057</link>
+                <guid isPermaLink="true">https://www.dunya.com/dunya/ispanya-israilin-katilimi-nedeniyle-eurovisionu-boykot-etmeye-hazirlaniyor-haberi-841057</guid>
+                <pubDate>Tue, 22 Sep 2026 22:38:00 +0300</pubDate>
+                                <enclosure url="https://image.dunya.com/rcman/Cw1280h720q95gc/storage/files/images/2025/09/16/eurovision-uvmi-cover-6pyb_cover.jpg" length="50000" type="image/jpeg"/>
+                <description><img style="border: navy 1px solid;" src="https://image.dunya.com/rcman/Cw160h90q95gc/storage/files/images/2025/09/16/eurovision-uvmi-cover-6pyb_cover.jpg" width="160" height="90" border="0" align="right" /><![CDATA[İspanya devlet televizyonu RTVE Başkanı Jose Pablo Lopez, İsrail&#039;in katılımı nedeniyle ülkesinin 2027 Eurovision Şarkı Yarışması&#039;na katılmaması yönünde yönetim kuruluna teklif sunacağını açıkladı.]]></description>
+                            </item>
+                    <item>
+                <title>Trump: ABD&#039;li yetkililer İran heyetiyle yaklaşık 3 saat görüştü</title>
+                <link>https://www.dunya.com/dunya/trump-abdli-yetkililer-iran-heyetiyle-yaklasik-3-saat-gorustu-haberi-841056</link>
+                <guid isPermaLink="true">https://www.dunya.com/dunya/trump-abdli-yetkililer-iran-heyetiyle-yaklasik-3-saat-gorustu-haberi-841056</guid>
+                <pubDate>Tue, 22 Sep 2026 22:10:00 +0300</pubDate>
+                                <enclosure url="https://image.dunya.com/rcman/Cw1280h720q95gc/storage/files/images/2026/09/13/trumpfed-2gj5_cover.jpg" length="50000" type="image/jpeg"/>
+                <description><img style="border: navy 1px solid;" src="https://image.dunya.com/rcman/Cw160h90q95gc/storage/files/images/2026/09/13/trumpfed-2gj5_cover.jpg" width="160" height="90" border="0" align="right" /><![CDATA[ABD Başkanı Donald Trump, ABD&#039;li yetkililerin New York&#039;ta İran heyeti temsilcileriyle yaklaşık üç saat süren bir görüşme gerçekleştirdiğini ve görüşmenin &quot;çok iyi geçtiğini&quot; açıkladı.]]></description>
+                            </item>
+                    <item>
+                <title>Trump, Ukrayna Devlet Başkanı Zelenskiy ile bir araya geldi</title>
+                <link>https://www.dunya.com/dunya/trump-ukrayna-devlet-baskani-zelenskiy-ile-bir-araya-geldi-haberi-841055</link>
+                <guid isPermaLink="true">https://www.dunya.com/dunya/trump-ukrayna-devlet-baskani-zelenskiy-ile-bir-araya-geldi-haberi-841055</guid>
+                <pubDate>Tue, 22 Sep 2026 22:09:00 +0300</pubDate>
+                                <enclosure url="https://image.dunya.com/rcman/Cw1280h720q95gc/storage/files/images/2026/09/22/tr-ysa5_cover.jpg" length="50000" type="image/jpeg"/>
+                <description><img style="border: navy 1px solid;" src="https://image.dunya.com/rcman/Cw160h90q95gc/storage/files/images/2026/09/22/tr-ysa5_cover.jpg" width="160" height="90" border="0" align="right" /><![CDATA[Ukrayna Devlet Başkanı Volodimir Zelenskiy ile New York&#039;ta bir araya gelen ABD Başkanı Donald Trump, Rusya-Ukrayna savaşının bir an önce sona ermesi gerektiğini belirterek, &quot;Bence iki ülke bir anlaşma yapacak.&quot; dedi.]]></description>
+                            </item>
+            </channel>
+</rss>
