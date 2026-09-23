@@ -137,7 +137,8 @@ export const DEFAULT_SETTINGS: Settings = {
   layout: { density: 'comfortable', cardStyle: 'magazine', sidebarCollapsed: false },
   sources: { disabled: [], enabled: [] },
   refresh: { intervalMinutes: 10 },
-  reader: { defaultMode: 'web', blockAds: true },
+  // Reader mode by default: the article as text, with the publisher's page one click away.
+  reader: { defaultMode: 'reader', blockAds: true },
   notifications: { breaking: true }
 }
 

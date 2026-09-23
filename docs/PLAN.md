@@ -148,7 +148,7 @@ Hedef: kullanıcı hiçbir habere tıklamadan da günün gündemini eksiksiz ö�
   "tümünü aç/kapat"), kaynak sağlık durumu (son çekim, hata). Aynı liste kenar çubuğundaki
   **Kaynaklar** sayfasında da var. Seçim `settings.sources.disabled` olarak kaydedilir; kapatılan
   kaynağın akışları hiç çekilmez.
-- **Okuma:** Varsayılan açılış modu (Web / Okuma modu), reklam engelleme
+- **Okuma:** Varsayılan açılış modu (Okuma modu varsayılan; Web'e geçilebilir), reklam engelleme
 - **Bildirimler:** Son dakika masaüstü bildirimleri
 - **Yenileme:** 5 / 10 / 15 / 30 / 60 dk
 - **Hakkında:** Sürüm, lisans, GitHub bağlantısı, verileri sıfırla

@@ -23,6 +23,8 @@ Six countries, four interface languages.
 
 ### Changed
 
+- **Stories now open in Reader mode by default** — the article as text, in your own reading font, with the
+  publisher's page one click away in the same dialog. Settings → Reading switches it back to Web.
 - `npm run verify:feeds` now checks every country pack; pass country codes (`-- de br`) to narrow it.
 - Countries without a province pack hide the Local page, the location filter, the city question in the
   first-run setup and the city row in Settings.

@@ -31,9 +31,9 @@ Masthead gathers **206 newsrooms across six countries** into one calm, magazine-
 
 - **Follow the agenda without clicking.** Full headlines, full summaries and photos on every card. The **Digest**
   groups the same story from different outlets, so you see who reported what at a glance.
-- **Read in place, without the ads.** Click a story and the publisher's own page opens in a large dialog inside
-  the app, with ads and trackers blocked. Press <kbd>Esc</kbd> and you're back. Prefer something quieter?
-  Switch to **Reader mode**.
+- **Read in place, without the ads.** Click a story and it opens in a large dialog inside the app — in
+  **Reader mode** by default: the article as text, in your own reading font. The publisher's page is one
+  click away in the same dialog, with ads and trackers blocked. Press <kbd>Esc</kbd> and you're back.
 - **Breaking news, front page and a live timeline.** A breaking-news ticker, a front-page hero built from
   the stories most outlets are covering, and a minute-by-minute "latest" column.
 - **Your sources, your rules.** Turn any outlet on or off. Filter by time range, source, sort order and
@@ -48,10 +48,9 @@ autoplaying video, no newsletter pop-up over the second paragraph — the articl
 Ad blocking belongs to the desktop app: in the browser version an article is shown in a frame or in Reader mode,
 and only the publisher's own page can block anything.
 
-When a page still gets in the way, **Reader mode** strips it back to the text: headline, byline and body in your
-own reading font and size, on the app's warm paper or deep-ink background. Same story, no layout, no scripts.
-You can set Reader mode as the default for every story in Settings → Reading, and switch between **Web** and
-**Reader** in the toolbar at any time. Downloads, pop-ups and permission requests from news pages are refused,
+**Reader mode is what a story opens in**: headline, byline and body in your own reading font and size, on the
+app's warm paper or deep-ink background. Same story, no layout, no scripts. Switch to **Web** in the toolbar
+whenever you want the publisher's own page — or make Web the default again in Settings → Reading. Downloads, pop-ups and permission requests from news pages are refused,
 and the embedded browser runs in its own sandboxed session, separate from everything else.
 
 ### One story, every outlet

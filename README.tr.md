@@ -30,9 +30,9 @@ Masthead **altı ülkeden 206 haber kaynağını** tek, sakin, dergi gibi bir ö
 
 - **Tıklamadan gündemi takip et.** Her kartta tam başlık, tam özet ve fotoğraf. **Gündem Özeti** aynı olayı veren
   kaynakları bir araya getirir; kimin ne dediğini tek bakışta görürsün.
-- **Olduğun yerde, reklamsız oku.** Habere tıkla, yayıncının kendi sayfası uygulamanın içinde büyük bir
-  pencerede — reklamlar ve izleyiciler engellenmiş olarak — açılsın. <kbd>Esc</kbd>'ye bas, geri dön.
-  Daha sade bir görünüm için **Okuma modu**.
+- **Olduğun yerde, reklamsız oku.** Habere tıkla, uygulamanın içinde büyük bir pencerede — varsayılan olarak
+  **Okuma modunda**, yani sade metin hâliyle — açılsın. Yayıncının kendi sayfası aynı pencerede bir tık
+  uzakta, reklamlar ve izleyiciler engellenmiş olarak. <kbd>Esc</kbd>'ye bas, geri dön.
 - **Son dakika, manşet ve canlı akış.** Kayan son dakika bandı, en çok kaynağın verdiği haberlerden oluşan
   manşet ve dakika dakika "son haberler" sütunu.
 - **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, sıralamaya ve görsele —
@@ -46,10 +46,10 @@ Her haber Masthead'in içinde açılır ve gömülü tarayıcı **reklam ve izle
 video, ikinci paragrafın üstüne düşen bülten penceresi yok — haber, yazıldığı hâliyle. Reklam engelleme
 masaüstü uygulamaya özgüdür; tarayıcı sürümünde haber çerçeve içinde ya da Okuma modunda açılır.
 
-Sayfa yine de yoruyorsa **Okuma modu** her şeyi metne indirger: başlık, imza ve gövde; senin seçtiğin okuma
-fontu ve boyutuyla, uygulamanın sıcak kâğıt ya da koyu mürekkep zemininde. Aynı haber; düzen yok, betik yok.
-Ayarlar → Okuma'dan Okuma modunu tüm haberler için varsayılan yapabilir, araç çubuğundan **Web** ile **Okuma**
-arasında istediğin an geçebilirsin. Haber sayfalarının indirme, açılır pencere ve izin istekleri reddedilir;
+**Haberler varsayılan olarak Okuma modunda açılır**: başlık, imza ve gövde; senin seçtiğin okuma fontu ve
+boyutuyla, uygulamanın sıcak kâğıt ya da koyu mürekkep zemininde. Aynı haber; düzen yok, betik yok. Yayıncının
+kendi sayfasını görmek istediğinde araç çubuğundan **Web**'e geç — ya da Ayarlar → Okuma'dan Web'i yeniden
+varsayılan yap. Haber sayfalarının indirme, açılır pencere ve izin istekleri reddedilir;
 gömülü tarayıcı her şeyden ayrı, kendi yalıtılmış oturumunda çalışır.
 
 ### Bir haber, tüm kaynaklar
