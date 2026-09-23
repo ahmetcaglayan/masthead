@@ -145,6 +145,10 @@ export interface Settings {
     /** Stories mentioning any of these words are hidden everywhere (see `createMuteMatcher`). */
     keywords: string[]
   }
+  personalization: {
+    /** Let "For you" learn from the reading history (worked out on the device, never sent anywhere). */
+    useHistory: boolean
+  }
   window?: {
     width: number
     height: number
@@ -171,7 +175,8 @@ export const DEFAULT_SETTINGS: Settings = {
   reader: { defaultMode: 'reader', blockAds: true },
   notifications: { breaking: true },
   appUpdates: { auto: true },
-  muted: { keywords: [] }
+  muted: { keywords: [] },
+  personalization: { useHistory: true }
 }
 
 type DeepPartial<T> = {
@@ -218,6 +223,7 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
   const notifications = obj(p.notifications)
   const appUpdates = obj(p.appUpdates)
   const muted = obj(p.muted)
+  const personalization = obj(p.personalization)
   const win = obj(p.window)
 
   const scale =
@@ -280,6 +286,12 @@ export function mergeSettings(base: Settings, patch: unknown): Settings {
     },
     muted: {
       keywords: Array.isArray(muted.keywords) ? cleanMutedKeywords(muted.keywords) : base.muted.keywords
+    },
+    personalization: {
+      useHistory:
+        typeof personalization.useHistory === 'boolean'
+          ? personalization.useHistory
+          : base.personalization.useHistory
     },
     window: base.window
   }

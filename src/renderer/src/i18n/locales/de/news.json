@@ -158,7 +158,25 @@
     "pickTitle": "Was möchten Sie verfolgen?",
     "pickBody": "Wählen Sie ein paar Themen, dann folgt Ihr Feed ihnen. Sie können das jederzeit ändern.",
     "emptyTitle": "Noch nichts für Sie",
-    "emptyBody": "Fügen Sie ein paar Themen hinzu oder schauen Sie gleich noch einmal vorbei."
+    "emptyBody": "Fügen Sie ein paar Themen hinzu oder schauen Sie gleich noch einmal vorbei.",
+    "reason": {
+      "reads": "Wie Ihre Lektüre: {{word}}",
+      "local": "Lokal: {{place}}",
+      "interest": "Ihr Interesse",
+      "interestIn": "Ihr Interesse: {{topic}}",
+      "habit": "Ein Thema, das Sie oft lesen",
+      "habitIn": "Oft gelesen: {{topic}}",
+      "popular": "Breit berichtet"
+    },
+    "history": {
+      "title": "Aus Ihrer Lektüre",
+      "use": "Leseverlauf nutzen",
+      "body": "Was in den Meldungen, die Sie zuletzt gelesen haben, hervorsticht. Wird nur auf diesem Gerät berechnet und nirgendwohin gesendet.",
+      "learning": "Lesen Sie ein paar Meldungen, dann lernt Ihr Feed auch daraus (bisher {{count}} von {{min}}). Wird nur auf diesem Gerät berechnet.",
+      "nothing": "In Ihrer Lektüre sticht noch nichts hervor: Der Feed folgt Ihren Interessen und Ihrem Ort.",
+      "off": "Aus: Der Feed folgt nur Ihren Interessen und Ihrem Ort.",
+      "search": "Nach „{{word}}“ suchen"
+    }
   },
   "local": {
     "title": "Regionales",

@@ -27,7 +27,27 @@ export interface ArticleKickerProps {
   breakingOnly?: boolean
   /** Show the topic even for breaking news (e.g. on the Breaking page, where every story is). */
   hideBreaking?: boolean
+  /** A short note after the label, in ordinary type (e.g. why "For you" picked the story). */
+  note?: string
   className?: string
+}
+
+/** The label with a quiet note after it; the note alone when there is no label. */
+function withNote(label: React.JSX.Element | null, note: string | undefined): React.JSX.Element | null {
+  if (!note) return label
+  return (
+    <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+      {label}
+      <span className="font-ui text-[12px] leading-5 text-fg-subtle">
+        {label && (
+          <span aria-hidden className="mr-2">
+            ·
+          </span>
+        )}
+        {note}
+      </span>
+    </span>
+  )
 }
 
 /** Small uppercase label above a headline: a solid "BREAKING" tag, or the topic in the accent colour. */
@@ -36,6 +56,7 @@ export function ArticleKicker({
   inverse = false,
   breakingOnly = false,
   hideBreaking = false,
+  note,
   className
 }: ArticleKickerProps): React.JSX.Element | null {
   const { t } = useTranslation('news')
@@ -45,23 +66,25 @@ export function ArticleKicker({
   const fresh = useNowSelect(60_000, (now) => breaking && now - article.publishedAt < BREAKING_FRESH)
 
   if (breaking) {
-    return (
+    return withNote(
       <span className={cn(KICKER, BREAKING_TAG, className)}>
         {fresh && <span aria-hidden className="size-1.5 rounded-full bg-on-breaking" />}
         {t('kicker.breaking')}
-      </span>
+      </span>,
+      note
     )
   }
 
   const category = breakingOnly ? undefined : primaryCategory(article)
-  if (!category) return null
-  return (
+  if (!category) return withNote(null, note)
+  return withNote(
     <span
       // "Türkiye" is a Turkish name: upper-case it with Turkish rules (TÜRKİYE) in any UI language.
       lang={category === 'national' && country === 'tr' ? 'tr' : undefined}
       className={cn(KICKER, inverse ? 'text-on-scrim/85' : 'text-accent', className)}
     >
       {categoryLabel(t, category, country)}
-    </span>
+    </span>,
+    note
   )
 }

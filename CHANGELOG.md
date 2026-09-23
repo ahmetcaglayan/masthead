@@ -25,6 +25,13 @@ All notable changes to this project are documented here. The format follows
   matching story, a page, a topic or a source, or refresh, switch the theme, fold the sidebar. On any list of
   stories, J and K move between them, O or Enter opens one, S saves it, R refreshes, / jumps to search, and ? shows
   every shortcut.
+- **For You learns from your reading.** Besides your interests and your city, For You now brings in stories like
+  the ones you have been reading: the names and subjects your reads keep returning to far more than the news at
+  large does ("Galatasaray", "Mansur Yavaş", "yapay zeka"), and topics you read well beyond your interests. Every
+  card says why it is there ("Like what you read: Galatasaray", "Local: Erzurum", "Your interest: Economy"), the
+  page lists what it learned, one subject never fills the page, and one outlet never takes more than two slots in
+  a row. Stories you already read, in any outlet's report, sink to the end. It is worked out on your device only;
+  turn it off on the page or in Settings → Interests.
 
 ## [0.3.0] - 2026-09-23
 

@@ -158,7 +158,25 @@
     "pickTitle": "What do you want to follow?",
     "pickBody": "Pick a few topics and your feed will follow them. You can change them any time.",
     "emptyTitle": "Nothing for you just yet",
-    "emptyBody": "Try adding a few more topics, or check back shortly."
+    "emptyBody": "Try adding a few more topics, or check back shortly.",
+    "reason": {
+      "reads": "Like what you read: {{word}}",
+      "local": "Local: {{place}}",
+      "interest": "Your interest",
+      "interestIn": "Your interest: {{topic}}",
+      "habit": "A topic you read often",
+      "habitIn": "You often read: {{topic}}",
+      "popular": "Widely covered"
+    },
+    "history": {
+      "title": "From your reading",
+      "use": "Use my reading history",
+      "body": "What stands out in the stories you have read lately. Worked out on this device only and never sent anywhere.",
+      "learning": "Read a few stories and your feed will learn from them too ({{count}} of {{min}} so far). Worked out on this device only.",
+      "nothing": "Nothing stands out in your reading yet: the feed follows your interests and location.",
+      "off": "Off: the feed follows only your interests and location.",
+      "search": "Search for “{{word}}”"
+    }
   },
   "local": {
     "title": "Local News",

@@ -158,7 +158,25 @@
     "pickTitle": "Neleri takip etmek istersiniz?",
     "pickBody": "Birkaç konu seçin, akışınız ona göre şekillensin. İstediğiniz zaman değiştirebilirsiniz.",
     "emptyTitle": "Şimdilik size uygun haber yok",
-    "emptyBody": "Birkaç konu daha eklemeyi deneyin ya da birazdan tekrar bakın."
+    "emptyBody": "Birkaç konu daha eklemeyi deneyin ya da birazdan tekrar bakın.",
+    "reason": {
+      "reads": "Okuduklarınıza benzer: {{word}}",
+      "local": "Yerel: {{place}}",
+      "interest": "İlgi alanınız",
+      "interestIn": "İlgi alanınız: {{topic}}",
+      "habit": "Sık okuduğunuz konu",
+      "habitIn": "Sık okuduğunuz: {{topic}}",
+      "popular": "Çok kaynak veriyor"
+    },
+    "history": {
+      "title": "Okuduklarınızdan",
+      "use": "Okuma geçmişimi kullan",
+      "body": "Son okuduğunuz haberlerde öne çıkanlar. Yalnızca bu cihazda hesaplanır, hiçbir yere gönderilmez.",
+      "learning": "Birkaç haber okuyunca akışınız okuduklarınıza göre de şekillenecek (şimdilik {{count}}/{{min}}). Yalnızca bu cihazda hesaplanır.",
+      "nothing": "Okuduklarınızda henüz öne çıkan bir konu yok: akış ilgi alanlarınıza ve konumunuza göre seçiliyor.",
+      "off": "Kapalı: akış yalnızca ilgi alanlarınıza ve konumunuza göre seçiliyor.",
+      "search": "“{{word}}” için ara"
+    }
   },
   "local": {
     "title": "Yerel Haberler",

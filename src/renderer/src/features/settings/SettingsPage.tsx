@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useId, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   Bell,
@@ -17,6 +17,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { Page } from '@/components/layout/Page'
 import { SectionHeader } from '@/components/ui/SectionHeader'
+import { Switch } from '@/components/ui/Switch'
 import { SourcesList } from '@/features/sources/SourcesList'
 import { useMainScroll } from '@/hooks/useMainScroll'
 import { useProgressive } from '@/hooks/useProgressive'
@@ -29,7 +30,7 @@ import { LanguageRegionSection } from './LanguageRegionSection'
 import { MutedSection } from './MutedSection'
 import { NotificationsSection, ReadingSection, UpdatesSection } from './ReadingSections'
 import { SETTINGS_SECTIONS, sectionElementId, type SettingsSectionId } from './sections'
-import { SettingsCard, SettingsSection } from './SettingsLayout'
+import { SettingRow, SettingsCard, SettingsSection } from './SettingsLayout'
 import { TypographySection } from './TypographySection'
 
 const ICONS: Record<SettingsSectionId, LucideIcon> = {
@@ -159,13 +160,31 @@ function SectionNav({
 function InterestsSection(): React.JSX.Element {
   const { t } = useTranslation('settings')
   const interests = useSettings((s) => s.settings.interests)
+  const historyOn = useSettings((s) => s.settings.personalization.useHistory)
+  const historyId = useId()
   return (
     <SettingsSection id="interests" title={t('nav.interests')} description={t('interests.description')}>
-      <SettingsCard className="px-6 py-5 in-data-[density=compact]:px-5 in-data-[density=compact]:py-4">
-        <InterestPicker
-          value={interests}
-          onChange={(next) => void useSettings.getState().update({ interests: next })}
-          aria-label={t('nav.interests')}
+      <SettingsCard>
+        <div className="px-6 py-5 in-data-[density=compact]:px-5 in-data-[density=compact]:py-4">
+          <InterestPicker
+            value={interests}
+            onChange={(next) => void useSettings.getState().update({ interests: next })}
+            aria-label={t('nav.interests')}
+          />
+        </div>
+        <SettingRow
+          label={t('interests.history')}
+          description={t('interests.historyHint')}
+          htmlFor={historyId}
+          control={
+            <Switch
+              id={historyId}
+              checked={historyOn}
+              onCheckedChange={(on) =>
+                void useSettings.getState().update({ personalization: { useHistory: on } })
+              }
+            />
+          }
         />
       </SettingsCard>
     </SettingsSection>

@@ -14,7 +14,6 @@ const HERO_MAX_AGE = 12 * HOUR
 const BREAKING_WINDOW = 2 * HOUR
 const SECTION_WINDOW = 48 * HOUR
 const DIGEST_MAX_AGE = 36 * HOUR
-const FOR_YOU_WINDOW = 48 * HOUR
 
 const SECONDARY_COUNT = 3
 const LATEST_COUNT = 30
@@ -205,10 +204,14 @@ function titleInfo(title: string): TitleInfo {
   return info
 }
 
+/** A headline's significant words, folded and cut to 5 letters (see `titleInfo`). */
+export const headlineStems = (title: string): ReadonlySet<string> => titleInfo(title).stems
+
 /** Reports this similar (Jaccard of headline stems) to the lead or an earlier pick add nothing new. */
 const NEAR_COPY = 0.7
 
-function jaccard(a: ReadonlySet<string>, b: ReadonlySet<string>): number {
+/** Shared stems over all stems of two headlines: 1 for the same words, 0 for none in common. */
+export function jaccard(a: ReadonlySet<string>, b: ReadonlySet<string>): number {
   if (a.size === 0 && b.size === 0) return 1
   let shared = 0
   for (const stem of a) if (b.has(stem)) shared++
@@ -494,57 +497,4 @@ export function topStories(articles: readonly Article[], now: number, limit = 5)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map((s) => s.article)
-}
-
-export interface ForYouContext {
-  now: number
-  readIds: ReadonlySet<string>
-  clustersById: ReadonlyMap<string, StoryCluster>
-}
-
-/**
- * A personal mix of the last two days: stories in the user's interests (earlier
- * interests weigh more), about their province or region, or widely covered;
- * boosted by coverage, fading with a 10-hour half-life. One report per story;
- * already-read stories sink to the end. `articles` must be newest first.
- */
-export function rankForYou(
-  articles: readonly Article[],
-  settings: Pick<Settings, 'interests' | 'location'>,
-  ctx: ForYouContext
-): Article[] {
-  const { interests } = settings
-  const weights = new Map(interests.map((c, i) => [c, 1 + (interests.length - i) / interests.length]))
-  const { provinceCode, regionId } = settings.location
-  const seen = new Set<string>()
-  const scored: { article: Article; score: number; read: boolean }[] = []
-
-  for (const article of articles) {
-    const age = Math.max(0, ctx.now - article.publishedAt)
-    if (age > FOR_YOU_WINDOW) break
-    const key = storyKey(article)
-    if (seen.has(key)) continue
-    let interest = 0
-    for (const c of article.categories) interest = Math.max(interest, weights.get(c) ?? 0)
-    const local =
-      provinceCode && article.provinces.includes(provinceCode)
-        ? 1.5
-        : regionId && article.regions.includes(regionId)
-          ? 0.75
-          : 0
-    const cluster = article.clusterId ? ctx.clustersById.get(article.clusterId) : undefined
-    const sources = cluster ? cluster.sourceIds.length : 1
-    if (interest === 0 && local === 0 && sources < 3) continue
-    seen.add(key)
-    const base =
-      interest +
-      local +
-      Math.log2(1 + sources) * 0.8 +
-      (article.isHeadline ? 0.5 : 0) +
-      (isBreakingNews(article) ? 0.4 : 0)
-    scored.push({ article, score: base * 0.5 ** (age / (10 * HOUR)), read: ctx.readIds.has(article.id) })
-  }
-
-  scored.sort((a, b) => Number(a.read) - Number(b.read) || b.score - a.score)
-  return scored.map((s) => s.article)
 }

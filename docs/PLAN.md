@@ -398,17 +398,17 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 - [x] Logo ve uygulama ikonları
 
 ### Faz 2 — Okuma deneyimi ve cila
-- [ ] Komut paleti (Ctrl+K) ve klavye kısayolları (J/K gezinme, R yenile, S kaydet)
+- [x] 2026-09-23 · Komut paleti (Ctrl+K) ve klavye kısayolları (J/K gezinme, R yenile, S kaydet)
 - [x] Son dakika masaüstü bildirimleri (Faz 1 içinde yapıldı)
 - [x] `og:image` zenginleştirme iyileştirmeleri, görsel önbelleği (Faz 1 içinde yapıldı)
-- [ ] Kümelenmiş hikâye sayfası ("Bu haberi veren kaynaklar")
-- [ ] Anahtar kelime susturma
+- [x] 2026-09-23 · Kümelenmiş hikâye sayfası ("Bu haberi veren kaynaklar")
+- [x] 2026-09-23 · Anahtar kelime susturma
 - [x] Kaynak sağlık ekranı (Kaynaklar sayfasında akış durumu)
 - [ ] Erişilebilirlik turu (klavye, ekran okuyucu, kontrast)
 
 ### Faz 3 — Yerel ve kişisel
 - [x] Yerel kaynaklar (33 ilde yerel gazete) ve 81 il için il bazlı akışlar (Faz 1 içinde yapıldı)
-- [ ] "Sana özel" sıralaması (ilgi alanı + okuma geçmişi, tamamen yerel)
+- [x] 2026-09-23 · "Sana özel" sıralaması (ilgi alanı + okuma geçmişi, tamamen yerel; her kartta gerekçe)
 - [ ] Hava durumu ve döviz/altın mini kartları (opsiyonel)
 
 ### Faz 4 — Çoklu ülke ve dil

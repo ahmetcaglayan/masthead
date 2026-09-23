@@ -88,6 +88,8 @@ export interface ArticleCardProps {
   dimRead?: boolean
   /** Show the province the story is about. */
   showProvince?: boolean
+  /** A short note beside the topic label, by article id (why "For you" picked the story). */
+  notes?: ReadonlyMap<string, string>
   className?: string
 }
 
@@ -120,6 +122,7 @@ export const ArticleCard = memo(function ArticleCard({
   hideBreaking = false,
   dimRead = true,
   showProvince = false,
+  notes,
   className
 }: ArticleCardProps): React.JSX.Element {
   const read = useLibrary((s) => dimRead && s.readIds.has(article.id))
@@ -140,7 +143,14 @@ export const ArticleCard = memo(function ArticleCard({
     maxSentences,
     maxChars: budget || undefined
   }
-  const kicker = <ArticleKicker article={article} breakingOnly={breakingOnly} hideBreaking={hideBreaking} />
+  const kicker = (
+    <ArticleKicker
+      article={article}
+      breakingOnly={breakingOnly}
+      hideBreaking={hideBreaking}
+      note={notes?.get(article.id)}
+    />
+  )
   const meta = (
     <ArticleMeta
       article={article}
@@ -173,7 +183,7 @@ export const ArticleCard = memo(function ArticleCard({
             />
             <CardActions article={article} className="absolute top-4 right-4 z-20" />
           </div>
-          <ArticleKicker article={article} breakingOnly={breakingOnly} hideBreaking={hideBreaking} />
+          {kicker}
           <CardTitle
             {...title}
             as="h2"

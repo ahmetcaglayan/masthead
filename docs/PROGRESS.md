@@ -11,10 +11,11 @@
 ## Son durum
 
 - **Tarih:** 2026-09-23
-- **Aktif faz:** Faz 1 + Faz 4 (6 ülke, tam paketler: ulusal + yerel) tamamlandı; **v0.3.0 yayında**
-  (2026-09-23; depo public, site yayında).
+- **Aktif faz:** Faz 1 + Faz 4 tamamlandı; **v0.3.0 yayında** (2026-09-23). Şimdi Faz 2 ve 3 bitiriliyor
+  (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel" bitti; hava/döviz kartları ve
+  erişilebilirlik turu kaldı). Otomatik güncelleme v0.4.0 ile gelecek.
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
-  **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 342 birim testi yeşil.** Her ülkenin
+  **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 371 birim testi yeşil.** Her ülkenin
   kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
   Kod GitHub'da (https://github.com/ahmetcaglayan/masthead). Geliştirme macOS'ta sürüyor:
   **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
@@ -74,12 +75,38 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   değil, haberlerle birlikte kayıyor; "N yeni haber" düğmesi çubuğun ekrandaki gerçek alt kenarının 24 px altında
   duruyor (`--sticky-bar-bottom`, FilterBar kaydırmada günceller; requestAnimationFrame yok — gizli pencerede durur).
 
+- [x] 2026-09-23 · **Kelime susturma:** Ayarlar → Susturulan kelimeler; eşleşen haberler her sayfadan ve son
+  dakika bildirimlerinden kalkar (`src/shared/mute.ts`, ana süreçte de kullanılır). Büyük/küçük harf, Türkçe
+  karakter ve aksan fark etmez; 4+ harfli kelimeler çekimli hallerini de gizler ("deprem" → "depremde").
+- [x] 2026-09-23 · **Hikâye sayfası:** birden çok kaynağın verdiği her haberin kendi sayfası (`StoryPage`,
+  `lib/storyView.ts`): baş haber, her kaynağın başlığı/özeti ve ilk veriş saati ("İlk veren"), sıralama (ilk
+  verene / en yeniye göre), kaynak türlerine göre dağılım. Kartlardaki "N kaynak" rozeti, Gündem Özeti ve
+  okuyucudaki "Hepsini karşılaştır" buraya götürür.
+- [x] 2026-09-23 · **Komut paleti ve kısayollar:** Ctrl/⌘+K (haber ara, habere/sayfaya/konuya/kaynağa atla,
+  yenile, tema, kenar çubuğu); listelerde J/K gezinme, O/Enter aç, S kaydet, R yenile, / arama, ? kısayol listesi
+  (`features/palette/`, `lib/feedNav.ts`).
+- [x] 2026-09-23 · **"Size Özel" okuma geçmişinden öğreniyor** (Faz 3): `lib/forYou.ts` —
+  `buildReadingProfile` son 60 günün okumalarından (14 gün yarı ömür, en çok 300) cihazda bir profil çıkarır:
+  okumaları önce habere göre tekilleştirir (aynı küme ya da Jaccard ≥ 0.5), sonra başlık köklerinden
+  okumalarda haberlere göre anlamlı derecede sık geçenleri seçer (Dunning log-likelihood G² ≥ 10.83, en az 2
+  farklı haber) — dil başına durak kelime listesi gerekmez; hep birlikte geçen kelimeler tek terim olur
+  ("Mansur Yavaş", çok kelimeli terim en az iki kelimesiyle eşleşir). İlgi alanı dışında çok okunan konular da
+  profile girer. `rankForYou` artık gerekçe döndürür; her kartta "Okuduklarınıza benzer: Galatasaray",
+  "Yerel: Erzurum", "İlgi alanınız: Ekonomi", "Sık okuduğunuz: Spor", "Çok kaynak veriyor" notu
+  (`ArticleCard.notes` → `ArticleKicker.note`). Aynı terimin sonraki haberleri azalan artı puan alır (×0.7),
+  bir kaynaktan art arda en çok 2 haber, herhangi bir raporu okunmuş hikâye sona iner. Sayfada "Okuduklarınızdan"
+  paneli (öğrenilen kelimeler → tıklayınca arama) ve anahtar; Ayarlar → İlgi alanları'nda "Okuduklarımdan öğren"
+  (`settings.personalization.useHistory`, varsayılan açık). 9 yeni test (371 toplam).
+
 **Sıradaki somut adımlar:**
-1. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
-2. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
+1. Faz 3: hava durumu ve döviz/altın mini kartları (isteğe bağlı, varsayılan kapalı; Open-Meteo, Frankfurter,
+   gold-api) → Faz 2: erişilebilirlik turu (axe, klavye, kontrast, "içeriğe atla").
+2. Okuma modu ödeme duvarına saygı (`isAccessibleForFree: false` → "Bu haber abonelere özel" + yayıncı sayfası);
+   site/README'ye yayıncılar için "kaynağınızın çıkarılmasını istiyorsanız" notu.
+3. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
+4. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
    ekran görüntüleri; News18 Hindi / Bhaskar ikonları (şu an harf monogramı görünüyor).
-3. Faz 2 (komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik).
-4. Sonraki sürümde de: taslağı Releases listesindeki kalemden aç (`/releases/edit/<tag>` ikinci boş sürüm
+5. Sonraki sürümde de: taslağı Releases listesindeki kalemden aç (`/releases/edit/<tag>` ikinci boş sürüm
    açar); listedeki "Assets" sayısı yayından hemen sonra yanlış (2) görünebilir —
    `releases/expanded_assets/<tag>` ile doğrula.
 
@@ -94,7 +121,8 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 ## Sıradaki adım
 
 1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅
-2. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
+2. Faz 2 ve 3'ü bitir (bkz. PLAN.md): ~~komut paleti, kısayollar, hikâye sayfası, kelime susturma~~ ✅,
+   ~~Size Özel okuma geçmişi~~ ✅; kalan: hava/döviz kartları, erişilebilirlik turu. Ardından v0.4.0.
 3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
 4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; sonraki ülke paketleri
    (Fransa, İspanya/Meksika).
@@ -271,6 +299,8 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-23 | ABD'de yerel akış olarak Gray `/category/news/` ve Hearst `/local-news-rss` | Ana akışları ağın diğer eyaletlerdeki haberlerini karıştırıyor |
 | 2026-09-23 | Ulus geneli yerel gazeteler için `FeedDef.region` (İskoçya, Galler) | The Herald / STV gibi yayınlar tek bir bölgeye ait değil |
 | 2026-09-23 | Geo etiketlemede kesme işareti kuralı yalnızca Türkçe | İngilizce iyelik ("Washington's allies") yer adı olduğunu göstermez |
+| 2026-09-23 | "Size Özel" profili cihazda, okuma geçmişinden; kelimeler haber akışına karşı G² testiyle seçilir | Sunucu/hesap yok, gizlilik; oran eşiği az okumada "istedi", "yola" gibi genel kelimeleri alıyordu, anlamlılık testi dil bağımsız ayıklıyor |
+| 2026-09-23 | Okuma profili için okumalar önce habere göre tekilleştirilir | Aynı haberin üç raporunu okumak "operasyon" kelimesine ilgi demek değil |
 
 ## Bilinen sorunlar / notlar
 

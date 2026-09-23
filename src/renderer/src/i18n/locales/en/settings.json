@@ -113,7 +113,9 @@
   },
   "interests": {
     "description": "The topics you follow shape your For You page and the order of sections on Home.",
-    "keepOne": "Keep at least one topic selected."
+    "keepOne": "Keep at least one topic selected.",
+    "history": "Learn from my reading",
+    "historyHint": "For You also picks stories like the ones you read. Worked out from your history on this device only and never sent anywhere."
   },
   "sources": {
     "description": "Switch any outlet on or off. Switched-off sources are never fetched.",

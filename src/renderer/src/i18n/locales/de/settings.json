@@ -113,7 +113,9 @@
   },
   "interests": {
     "description": "Die Themen, denen Sie folgen, prägen Ihre Seite „Für Sie“ und die Reihenfolge der Abschnitte auf der Startseite.",
-    "keepOne": "Mindestens ein Thema muss ausgewählt bleiben."
+    "keepOne": "Mindestens ein Thema muss ausgewählt bleiben.",
+    "history": "Aus meiner Lektüre lernen",
+    "historyHint": "„Für Sie“ wählt auch Meldungen wie die, die Sie lesen. Wird nur auf diesem Gerät aus Ihrem Verlauf berechnet und nirgendwohin gesendet."
   },
   "sources": {
     "description": "Schalten Sie jedes Medium ein oder aus. Ausgeschaltete Quellen werden nie abgerufen.",

@@ -24,7 +24,7 @@ export type FeedLayout = CardStyle | 'timeline'
 /** Card options passed through to every card of the feed. */
 type CardOptions = Pick<
   ArticleCardProps,
-  'highlight' | 'breakingOnly' | 'hideBreaking' | 'dimRead' | 'showProvince'
+  'highlight' | 'breakingOnly' | 'hideBreaking' | 'dimRead' | 'showProvince' | 'notes'
 >
 
 interface Group {

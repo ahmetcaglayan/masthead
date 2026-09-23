@@ -158,7 +158,25 @@
     "pickTitle": "O que você quer acompanhar?",
     "pickBody": "Escolha alguns temas e o seu feed passa a segui-los. Dá para mudar quando quiser.",
     "emptyTitle": "Ainda nada para você",
-    "emptyBody": "Tente adicionar mais alguns temas, ou volte daqui a pouco."
+    "emptyBody": "Tente adicionar mais alguns temas, ou volte daqui a pouco.",
+    "reason": {
+      "reads": "Parecido com o que você lê: {{word}}",
+      "local": "Local: {{place}}",
+      "interest": "Seu interesse",
+      "interestIn": "Seu interesse: {{topic}}",
+      "habit": "Um tema que você lê muito",
+      "habitIn": "Você lê muito: {{topic}}",
+      "popular": "Muitos veículos cobrem"
+    },
+    "history": {
+      "title": "Do que você lê",
+      "use": "Usar meu histórico de leitura",
+      "body": "O que se destaca nas notícias que você leu recentemente. Calculado só neste dispositivo e nunca enviado a lugar nenhum.",
+      "learning": "Leia algumas notícias e o seu feed também vai aprender com elas (até agora {{count}} de {{min}}). Calculado só neste dispositivo.",
+      "nothing": "Nada se destaca na sua leitura ainda: o feed segue seus interesses e sua localização.",
+      "off": "Desligado: o feed segue só seus interesses e sua localização.",
+      "search": "Buscar “{{word}}”"
+    }
   },
   "local": {
     "title": "Notícias locais",

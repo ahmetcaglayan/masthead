@@ -113,7 +113,9 @@
   },
   "interests": {
     "description": "Takip ettiğiniz konular Size Özel sayfanızı ve Ana Sayfa'daki bölümlerin sırasını belirler.",
-    "keepOne": "En az bir konu seçili kalmalı."
+    "keepOne": "En az bir konu seçili kalmalı.",
+    "history": "Okuduklarımdan öğren",
+    "historyHint": "Size Özel, okuduğunuz haberlere benzeyenleri de seçer. Geçmişinizden yalnızca bu cihazda hesaplanır, hiçbir yere gönderilmez."
   },
   "sources": {
     "description": "Her haber sitesini tek tek açıp kapatın. Kapattığınız kaynaklar hiç çekilmez.",

@@ -113,7 +113,9 @@
   },
   "interests": {
     "description": "Os temas que você segue definem a sua página “Para você” e a ordem das seções no Início.",
-    "keepOne": "Deixe pelo menos um tema selecionado."
+    "keepOne": "Deixe pelo menos um tema selecionado.",
+    "history": "Aprender com o que eu leio",
+    "historyHint": "“Para você” também escolhe notícias parecidas com as que você lê. Calculado a partir do seu histórico só neste dispositivo e nunca enviado a lugar nenhum."
   },
   "sources": {
     "description": "Ligue ou desligue qualquer veículo. Fontes desligadas nunca são consultadas.",
