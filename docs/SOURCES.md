@@ -3,18 +3,21 @@
 Every country Masthead covers is one **country pack** under `src/shared/countries/<code>/`, registered in
 `countries/index.ts`. Six packs ship today:
 
-| Pack | Language | Sources | Feeds | On by default | Provinces |
+| Pack | Language | Sources | Feeds | On by default | Local news |
 | --- | --- | --- | --- | --- | --- |
-| `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 |
-| `us` United States | English | 18 | 49 | 17 | — |
-| `in` India | Hindi + English | 16 (6 Hindi) | 60 | 6 | — |
-| `gb` United Kingdom | English | 10 | 37 | 7 | — |
-| `de` Germany | German | 15 | 46 | 14 | — |
-| `br` Brazil | Portuguese | 17 | 34 | 13 | — |
+| `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 provinces in 7 regions |
+| `us` United States | English | 176 | 240 | 174 | 50 states and D.C. in 4 regions |
+| `in` India | Hindi | 19 | 108 | 18 | 36 states and union territories in 6 zones |
+| `gb` United Kingdom | English | 68 | 161 | 63 | 51 areas in 12 regions and nations |
+| `de` Germany | German | 75 | 157 | 73 | 16 Länder in 4 regions |
+| `br` Brazil | Portuguese | 58 | 130 | 54 | 27 states in 5 regions |
 
-Most of this document describes the Turkey pack, which is the deepest one (and the only one with local news so
-far); [the other packs](#the-other-country-packs) are listed at the end. The rules below — one feed per
-category, no stale or empty feeds, a balanced default set — apply to every pack.
+**Every source writes in its pack's language** (`tests/shared/countries.test.ts` enforces it): a country's front
+page is written by its own newsrooms. India's English-language papers were removed on 2026-09-23 for that reason.
+
+Most of this document describes the Turkey pack, which is the deepest one; [the other packs](#the-other-country-packs)
+are described at the end. The rules below — one feed per category, no stale or empty feeds, a balanced default
+set — apply to every pack.
 
 - **Verified:** research passes with curl on **2026-09-22**, re-checked with `npm run verify:feeds -- --all`
   on **2026-09-23**, and twice more later that day during QA (536 feeds: no failures; the only stale feeds are
@@ -35,7 +38,7 @@ category, no stale or empty feeds, a balanced default set — apply to every pac
 | `tr/index.ts`        | The `CountryPack` (`tr-TR`, `Europe/Istanbul`, Google News edition `hl=tr&gl=TR&ceid=TR:tr`)                                    |
 | `countries/index.ts` | Registry: `COUNTRY_OPTIONS`, `getCountryPack`, `listSources`, `getSource`, `getProvince`, `isSourceEnabled`, `setSourceEnabled` |
 
-In total, the Turkey pack: **136 sources, 536 feeds** (all six packs together: 212 sources, 762 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
+In total, the Turkey pack: **136 sources, 536 feeds** (all six packs together: 532 sources, 1,332 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
 `black-sea`, `eastern-anatolia`, `southeastern-anatolia`.
 
 ### Categories
@@ -318,40 +321,74 @@ items; it is **stale** when its newest item is older than 3 days. The exit code 
 
 ## The other country packs
 
-The five packs added on 2026-09-23 follow the Turkey pack's rules but carry national sources only: no local
-outlets, no province or district tables (`provinces: []`), so the app hides the Local page, the location
-filter and the city question for them. Every feed below was checked against the live site on 2026-09-23 and
-answered with fresh items; the ones that came back stale, empty or bot-blocked were dropped before shipping
-(among them CBS News health and the Times of India technology feed).
+The five packs added on 2026-09-23 follow the Turkey pack's rules. On the same day they grew from national
+sources only to full packs: more newsrooms in every topic (each pack has at least two default-on sources for
+world, economy, sport, technology, health, entertainment and lifestyle news) and local news for every state,
+Land or area. Every feed was checked against the live site (`npm run verify:feeds -- us in gb de br --all`:
+799 feeds, 796 fresh); the stale, empty and bot-blocked ones were dropped before shipping.
 
 **Why these five:** the countries with the largest online-news audiences that Masthead can serve well today —
-the United States (322M internet users), India (806M, with a large English-language press), the United
-Kingdom, Germany (66% weekly online news use) and Brazil (183M, among the highest news engagement anywhere).
-Three of them need no new interface language; German and Brazilian Portuguese were added for the other two.
+the United States (322M internet users), India (806M; its Hindi press is the largest), the United Kingdom,
+Germany (66% weekly online news use) and Brazil (183M, among the highest news engagement anywhere).
+
+### National sources
 
 | Pack | Sources |
 | --- | --- |
-| `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Washington Examiner, National Review, New York Post*, Politico, The Hill, Axios, CNBC, The Verge, Ars Technica, ESPN |
-| `in` | **Hindi:** अमर उजाला, दैनिक भास्कर, NDTV इंडिया, News18 हिंदी, आज तक, BBC News हिंदी · **English:** The Times of India, The Hindu, Hindustan Times, The Indian Express, NDTV, India Today, News18, Firstpost*, The Economic Times, Mint |
-| `gb` | BBC News, The Guardian, Sky News, The Independent, Evening Standard, Financial Times, The Economist, Daily Mail*, Daily Mirror*, Metro* |
-| `de` | tagesschau, ZDFheute, Deutsche Welle, Der Spiegel, Zeit Online, FAZ, Süddeutsche Zeitung, Welt, n-tv, Stern, Focus Online*, taz, Handelsblatt, heise online, kicker |
-| `br` | G1, Folha de S.Paulo, UOL, Estadão, CNN Brasil, Metrópoles*, Agência Brasil, BBC News Brasil, Poder360, CartaCapital*, Gazeta do Povo*, Veja, InfoMoney, Exame, Olhar Digital, Tecnoblog*, ge |
+| `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Washington Examiner, National Review, New York Post*, The Washington Times, The Dispatch, The Free Press, Reason, The Daily Wire*, Politico, The Hill, Axios, The Wall Street Journal, Los Angeles Times, The Christian Science Monitor, ProPublica, Semafor, The Atlantic, Vox, TIME, Newsweek, CNBC, MarketWatch, The Verge, Ars Technica, WIRED, TechCrunch, Engadget, Scientific American, Science News, STAT, KFF Health News, The Hechinger Report, Inside Higher Ed, Car and Driver, Electrek, Condé Nast Traveler, Inside Climate News, Grist, Variety, The Hollywood Reporter, Rolling Stone, ESPN, CBS Sports, Yahoo Sports |
+| `in` | अमर उजाला, दैनिक भास्कर, दैनिक जागरण, प्रभात खबर, आज तक, NDTV इंडिया, News18 हिंदी, TV9 भारतवर्ष, इंडिया टीवी, ABP न्यूज़, वेबदुनिया, द वायर हिंदी, सत्य हिंदी, ऑपइंडिया*, BBC News हिंदी |
+| `gb` | BBC News, The Guardian, The Telegraph, The i Paper, Sky News, GB News, Channel 4 News, The Independent, Evening Standard, Financial Times, The Economist, New Statesman, The Conversation UK, City A.M., This is Money, The Register, TechRadar, Pulse, Carbon Brief, Autocar, Auto Express, Sky Sports, NME, Radio Times, Daily Mail*, Daily Mirror*, Metro*, The Sun*, Daily Express* |
+| `de` | tagesschau, ZDFheute, Deutsche Welle, Deutschlandfunk, Sportschau, Der Spiegel, Zeit Online, FAZ, Süddeutsche Zeitung, Welt, n-tv, Stern, Der Tagesspiegel, RedaktionsNetzwerk Deutschland, t-online, Cicero, Bild*, Focus Online*, taz, Handelsblatt, WirtschaftsWoche, manager magazin, Capital, heise online, Golem.de, t3n, ComputerBase, netzpolitik.org, Spektrum der Wissenschaft, Deutsches Ärzteblatt, News4teachers, Utopia, reisereporter, Auto Bild, DWDL.de, Filmstarts, Rolling Stone, Musikexpress, kicker |
+| `br` | G1, Folha de S.Paulo, O Globo, UOL, Estadão, CNN Brasil, Jovem Pan, IstoÉ, Veja, Revista Oeste, Intercept Brasil, Agência Pública, Nexo Jornal, piauí, Metrópoles*, Agência Brasil, BBC News Brasil, Poder360, CartaCapital*, Gazeta do Povo*, InfoMoney, Exame, Valor Econômico, Época Negócios, Seu Dinheiro, Money Times, Olhar Digital, Canaltech, Tecnoblog*, Superinteressante, Veja Saúde, Porvir, ((o))eco, Um Só Planeta, Autoesporte, Quatro Rodas, Viagem e Turismo, ge, Placar, Trivela, Notícias da TV, Rolling Stone Brasil |
 
-\* off by default (popular press, or a second voice from the same corner), like the tabloids in the Turkey pack.
+\* off by default (popular press, or a partisan second voice from the same corner), like the tabloids in the
+Turkey pack. Newsrooms outside the country are left out even when they write its language (NZZ for Germany).
 
-Feeds that were checked and left out: the Associated Press and The Telegraph (403 for non-browser clients),
-USA Today, ITV News, Scroll.in, The Wire, Deccan Herald and the old Estadão RSS paths (no XML any more), and
-CNN, whose `rss.cnn.com` feeds stopped updating years ago.
+### Local news
+
+Each pack has a `places.ts` (provinces, regions derived from them with `regionsOf`, and the cities news copy
+names on their own as `districts`) and a `local.ts`. Local feeds carry `province`, or `region` for an outlet of a
+whole nation, and are only fetched for the user's chosen place, exactly like Turkey's city feeds.
+
+| Pack | Places | Local sources |
+| --- | --- | --- |
+| `us` | 50 states + D.C. (postal codes), 4 Census regions | 124 newsrooms, two or three per state: Gray TV stations (`/arc/outboundfeeds/rss/category/news/`), Hearst stations (`/local-news-rss`), Nexstar stations, metro papers (Philadelphia Inquirer, Tampa Bay Times, Seattle Times, Star Tribune…), public radio and nonprofits (CalMatters, CT Mirror, Mississippi Today, VTDigger…) |
+| `in` | 28 states + 8 UTs (ISO codes), 6 zones; Hindi names with English aliases | The state pages of अमर उजाला (15 states), दैनिक भास्कर (13), News18 हिंदी (14) and प्रभात खबर (4): 17 states in all. The south and most of the northeast have no Hindi desk; their Local page is filled by the national stories that name them. |
+| `gb` | 51 BBC local-news areas (slugs), 9 English regions + Scotland, Wales, Northern Ireland | `bbc-local`: a feed for every area, plus the BBC Scotland and BBC Wales feeds for their whole nation; 38 regional papers (Manchester Evening News, Liverpool Echo, Yorkshire Post…; The Herald, The Scotsman, STV News, Daily Record, WalesOnline and Nation.Cymru nation-wide) |
+| `de` | 16 Länder (ISO codes), North/East/South/West | `tagesschau-regional`: tagesschau's page for every Land; the ARD broadcasters with a feed (NDR, WDR, MDR, rbb, hr, SWR) and regional papers (Merkur, Augsburger Allgemeine, Tagesspiegel Berlin, Hamburger Abendblatt, WAZ, LVZ…) |
+| `br` | 26 states + DF (UF codes), 5 IBGE regions | `g1-regional`: g1's page for every state; 15 regional papers (NSC Total, A Tarde, A Gazeta, Campo Grande News, Extra…) |
+
+The UI calls a pack's places by its `localUnit`: `state` (US, Brazil, India), `land` (Germany: "Bundesland"), `area`
+(UK); Turkey's are cities. Strings with a unit have `_state`, `_land` and `_area` variants in every locale, picked
+through i18next's `context`.
+
+Geo tagging works the same way in every pack: names match as whole capitalised words — or any whole word in
+scripts without capitals, like Hindi. Names that are also common words (Washington, Georgia, Sussex, Berkshire)
+are `ambiguous` and need a place word after them from the pack's `placeWords` ("Washington state", "Sussex
+Police"); the Turkish apostrophe rule ("Ordu'da") only applies to Turkish.
+
+### Left out
+
+The Associated Press (403 for non-browser clients), USA Today and Gannett's local papers (no feeds any more),
+CNN (`rss.cnn.com` stopped years ago), the States Newsroom sites (Cloudflare challenge), Lee Enterprises papers
+(rate-limited), the Texas Tribune feed (days behind); ITV News (no feed), The Spectator (404), the Telegraph's
+section feeds (stale), KentOnline (410); Navbharat Times, Live Hindustan, Zee News (no dates, blocks non-browser
+clients), Jansatta, ABP's section feeds and Dainik Jagran's topic feeds (stale), Gadgets 360 Hindi (a 1,000-item
+feed); BR24, Radio Bremen and SR (no public feed), the Stuttgarter Zeitung, Kölner Stadt-Anzeiger, Weser-Kurier
+and other regional papers answering 403/404/410, Sport1 (403); R7, Terra, Band, SBT, CNN Brasil's section feeds,
+Brasil de Fato, GZH, O Tempo, Estado de Minas, O Povo, Jornal do Commercio and O Liberal (no working feed), and
+Correio (stale since 2023).
 
 ### Adding a country
 
-1. Create `src/shared/countries/<code>/sources.ts` with the `SourceDef` list and `<code>/index.ts` with the
-   `CountryPack` (`language`, `locale`, `timeZone`, `googleNews`, empty `regions`/`provinces`/`districts`
-   unless you have them).
+1. Create `src/shared/countries/<code>/sources.ts` with the `SourceDef` list, `<code>/places.ts` with the
+   provinces, regions and districts (and `placeWords` for ambiguous names), `<code>/local.ts` with the local
+   outlets (the builders in `countries/build.ts` help), and `<code>/index.ts` with the `CountryPack`
+   (`language`, `locale`, `timeZone`, `localUnit`, `googleNews`). Every source must write in `language`.
 2. Add the code to `CountryCode` (`src/shared/types.ts`), to `COUNTRIES` in `src/shared/settings.ts`, and to
    `PACKS` and `ORDER` in `countries/index.ts`.
-3. Add `common:country.<code>` and `common:category.national_<code>` to every locale, and flag artwork to
-   `src/renderer/src/features/settings/CountryFlag.tsx`.
+3. Add `common:country.<code>`, `common:category.national_<code>` and a `common:region.<id>` for each new
+   region id to every locale, and flag artwork to `src/renderer/src/features/settings/CountryFlag.tsx`.
 4. Run `npm run verify:feeds <code>` and `npm test` (the pack tests in `tests/shared/countries.test.ts` check
    ids, urls, categories and languages).
 

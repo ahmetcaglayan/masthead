@@ -8,14 +8,36 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
-- **India reads Hindi.** Six Hindi newsrooms — अमर उजाला, दैनिक भास्कर, NDTV इंडिया, News18 हिंदी, आज तक and
-  BBC News हिंदी, 23 feeds — join the India pack, and the front page leads with them: they ship on beside four
-  English nationals, while the other English papers ship off, one tap away on the Sources page.
+- **Local news in every country.** Pick your state in the United States, Brazil or India, your Bundesland in
+  Germany or your area in the United Kingdom, as you already could pick your city in Türkiye: the Local page
+  fills with that place's papers and broadcasters and every national story that names it. 50 US states and
+  D.C. with 124 local newsrooms; BBC local news for 51 UK areas plus 38 regional papers; tagesschau's regional
+  pages, the ARD broadcasters and regional papers for all 16 Länder; g1 for all 27 Brazilian states plus 15
+  regional papers; the state pages of four Hindi dailies for 17 Indian states.
+- **Many more national newsrooms**, so every topic has several voices in the country's own language:
+  52 national sources in the US (the Wall Street Journal, the LA Times, ProPublica, The Atlantic, The Dispatch,
+  Reason, STAT, Variety…), 29 in the UK (the Telegraph, the i, GB News, Channel 4 News, New Statesman…),
+  39 in Germany (Deutschlandfunk, Sportschau, Tagesspiegel, RND, t-online, WirtschaftsWoche, Golem…), 42 in
+  Brazil (O Globo, Jovem Pan, Valor, Intercept Brasil, Agência Pública, Nexo…) and 15 Hindi newsrooms in India.
+  Six countries now ship **532 sources and 1,332 feeds**, every one checked against the live site.
+- **India reads Hindi.** अमर उजाला, दैनिक भास्कर, दैनिक जागरण, प्रभात खबर, आज तक, NDTV इंडिया, News18 हिंदी,
+  TV9 भारतवर्ष, इंडिया टीवी, ABP न्यूज़, वेबदुनिया, द वायर हिंदी, सत्य हिंदी and BBC News हिंदी.
 - **हिन्दी is the fifth interface language**, next to English, Türkçe, Deutsch and Português.
-- A country pack can now declare several content languages (`CountryPack.languages`), and a test holds every
-  country to at least three default-on sources in its own main language.
+- Place names are recognised in Hindi (which has no capital letters), US state names that are also other things
+  ("Washington", "Georgia") only count with a place word after them, and a UK nation, a German region or a
+  Brazilian region named in a story tags it for that region.
 - Hindi section words (desh, duniya, khel, manoranjan, vyapar…) are recognised in feed labels and URLs.
 - German and Brazilian Portuguese READMEs, and a link to the website from every README.
+
+### Changed
+
+- **Every source writes in its country's language.** India's English-language papers (the Times of India, the
+  Hindu, Hindustan Times…) are no longer part of the India pack; a country's front page is written by its own
+  newsrooms, in its own language. The multi-language `CountryPack.languages` field is gone.
+- The words for places follow the country: city in Türkiye, state in the US, Brazil and India, Bundesland in
+  Germany, area in the UK — in all five interface languages.
+- A saved city or region that does not belong to the selected country is dropped instead of showing an empty
+  Local page.
 
 ## [0.2.0] - 2026-09-23
 

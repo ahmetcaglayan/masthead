@@ -1,6 +1,6 @@
 # Masthead — Ürün ve Teknik Plan
 
-> Durum: **Faz 1 tamamlandı — v0.1.0 yayına hazır; Faz 4'ün ilk adımı (6 ülke, 4 dil) tamamlandı**
+> Durum: **Faz 1 tamamlandı — v0.2.0 yayında; Faz 4: 6 ülke tam paketle (ulusal + yerel), 5 arayüz dili**
 > · Son güncelleme: 2026-09-23
 > Bu doküman projenin yol haritasıdır: ne yapıyoruz, nasıl yapıyoruz, hangi sırayla yapıyoruz.
 > Her faz bittiğinde ilgili kutucuklar işaretlenir.
@@ -12,8 +12,8 @@
 **Masthead**, Türkiye'nin (ileride seçilen ülkenin) önde gelen haber sitelerinden haberleri toplayıp tek,
 sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygulamasıdır.
 
-- **Toplar:** 6 ülkeden 212 kaynağın (Türkiye 136, ABD 18, Hindistan 16, Birleşik Krallık 10, Almanya 15,
-  Brezilya 17) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
+- **Toplar:** 6 ülkeden 532 kaynağın (Türkiye 136, ABD 176, Hindistan 19, Birleşik Krallık 68, Almanya 75,
+  Brezilya 58; her ülkede yalnızca o ülkenin dilinde) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
   haberleri kümeler ("5 kaynak bu haberi verdi").
 - **Sunar:** Modern bir haber sitesi düzeni — manşet alanı, son dakika bandı, kategori bölümleri,
   son haberler akışı.
@@ -121,7 +121,7 @@ Hedef: kullanıcı hiçbir habere tıklamadan da günün gündemini eksiksiz ö�
 | Kategori | Kenar çubuğundan; 16 konu kategorisi |
 | Zaman | Son 1 saat / 6 saat / 24 saat / 3 gün / tümü |
 | Kaynak | Çoklu seçim, kaynak ikonlarıyla; ayrıca kaynak bazlı sayfa |
-| Bölge / İl | 7 coğrafi bölge + 81 il (haber metninden otomatik etiketleme); il paketi olan ülkelerde |
+| Bölge / İl | Her ülkede bölge + il/eyalet/Land/yöre (TR 7+81, ABD 4+51, IN 6+36, UK 12+51, DE 4+16, BR 5+27; haber metninden otomatik etiketleme) |
 | Sıralama | En yeni / En çok kaynak (popüler) |
 | Görselli haberler | Yalnızca görseli olanlar |
 | Okunanları gizle | Okunan haberleri akıştan çıkar |
@@ -416,9 +416,12 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
       ülke bazlı akış doğrulama, paket testleri)
 - [x] 2026-09-23 · İlk paketler: ABD, Hindistan, Birleşik Krallık, Almanya, Brezilya (67 kaynak, 195 akış)
 - [x] 2026-09-23 · Yeni arayüz dilleri: Almanca ve Portekizce (Brezilya)
+- [x] 2026-09-23 · Hintçe arayüz (5. dil); her ülkenin kaynakları yalnızca kendi dilinde
+- [x] 2026-09-23 · Paketler genişletildi: 532 kaynak / 1.332 akış (ABD 52, UK 29, DE 39, BR 42, IN 15 ulusal)
 - [ ] Google News yedeği (paketi olmayan ülkeler için)
 - [ ] Sonraki paketler: Fransa, İspanya/Meksika, Azerbaycan…; yeni diller (fr, es, ar — RTL desteğiyle)
-- [ ] Ülke bazlı eyalet/bölge etiketleme (yerel haberler şimdilik yalnızca Türkiye'de)
+- [x] 2026-09-23 · Ülke bazlı eyalet/bölge etiketleme ve yerel haber: ABD, Hindistan, Birleşik Krallık,
+      Almanya, Brezilya (`places.ts` + `local.ts`, `FeedDef.region`, `localUnit`, Hintçe geo etiketleme)
 
 ### Faz 5 — Yayın
 - [x] electron-builder: Windows NSIS (x64 + arm64) + portable; macOS dmg ve Linux AppImage/deb yapılandırıldı (CI üretir)

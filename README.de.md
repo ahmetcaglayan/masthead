@@ -31,7 +31,8 @@ und in der Sie sie werbefrei lesen, ohne die App je zu verlassen.
 ## Warum Masthead?
 
 Nachrichten zu verfolgen heißt meist: ein Dutzend Browser-Tabs, Cookie-Banner, automatisch startende Videos und
-Pop-ups. Masthead führt **212 Redaktionen aus sechs Ländern** auf einer ruhigen, magazinartigen Titelseite zusammen:
+Pop-ups. Masthead führt **532 Redaktionen aus sechs Ländern** — die Presse jedes Landes, in seiner eigenen Sprache —
+auf einer ruhigen, magazinartigen Titelseite zusammen:
 
 - **Dem Tagesgeschehen folgen, ohne zu klicken.** Auf jeder Karte die ganze Schlagzeile, eine Zusammenfassung und
   ein Foto — die Topmeldung bringt ihre Zusammenfassung vollständig, bei den übrigen steht am Ende
@@ -45,7 +46,10 @@ Pop-ups. Masthead führt **212 Redaktionen aus sechs Ländern** auf einer ruhige
   Aufmacher aus den Meldungen entsteht, über die die meisten Medien berichten, und die Spalte „Neueste“,
   Minute für Minute.
 - **Ihre Quellen, Ihre Regeln.** Schalten Sie jedes Medium ein oder aus. Filtern Sie nach Zeitraum, Quelle,
-  Reihenfolge und Bild — in der Türkei außerdem nach Region und allen 81 Provinzen.
+  Reihenfolge und Bild — und nach Region und Stadt, Bundesland oder Gebiet.
+- **Regionales überall.** Wählen Sie Ihre Stadt in der Türkei, Ihren Bundesstaat in den USA, Brasilien oder Indien,
+  Ihr Bundesland oder Ihr Gebiet im Vereinigten Königreich: Die Medien vor Ort kommen dazu, samt jeder
+  überregionalen Meldung, die den Ort nennt.
 - **Von Grund auf privat.** Kein Konto, keine Telemetrie. Einstellungen, gespeicherte Meldungen und der
   Leseverlauf bleiben auf Ihrem Rechner.
 
@@ -94,17 +98,19 @@ statt nur durch ein einziges Medium hindurch:
 
 ## Sechs Länder, fünf Sprachen
 
-Die Sprache der Oberfläche und die Sprache der Nachrichten sind unabhängig voneinander: Lesen Sie brasilianische
-Zeitungen mit deutscher Oberfläche, wenn Ihnen das lieber ist.
+Jedes Land wird über seine eigenen Redaktionen gelesen, in seiner eigenen Sprache, bis hinunter zum Lokalen: eine
+Stadt in der Türkei, ein Bundesstaat in den USA, Brasilien oder Indien, ein Bundesland in Deutschland, ein Gebiet im
+Vereinigten Königreich. Die Sprache der Oberfläche ist davon unabhängig: Lesen Sie brasilianische Zeitungen mit
+deutscher Oberfläche, wenn Ihnen das lieber ist.
 
 | | |
 | --- | --- |
 | ![Masthead-Titelseite mit Quellen aus den Vereinigten Staaten](docs/images/us-home.png) | ![Masthead-Titelseite mit Quellen aus dem Vereinigten Königreich](docs/images/gb-home.png) |
-| 🇺🇸 **Vereinigte Staaten** — 18 Redaktionen, von NPR und der NYT bis Fox News und National Review | 🇬🇧 **Vereinigtes Königreich** — BBC, Guardian, Sky News, der Independent, die FT |
+| 🇺🇸 **Vereinigte Staaten** — 52 überregionale Redaktionen, von NPR und der NYT bis Fox News und dem WSJ, dazu Lokales für jeden Bundesstaat | 🇬🇧 **Vereinigtes Königreich** — BBC, Guardian, Telegraph, Sky News, die FT… und BBC-Lokalnachrichten für 51 Gebiete |
 | ![Masthead auf Deutsch mit deutschen Quellen](docs/images/de-home.png) | ![Die Seite „Überblick“ auf Portugiesisch mit brasilianischen Quellen](docs/images/br-digest.png) |
 | 🇩🇪 **Deutschland** — tagesschau, Spiegel, Zeit, FAZ, SZ… mit der Oberfläche auf Deutsch | 🇧🇷 **Brasilien** — der Überblick auf Portugiesisch: eine Karte, die Schlagzeile jedes Mediums |
-| ![Die Zeitleiste „Neueste“ mit indischen Quellen](docs/images/in-latest.png) | ![Lesemodus bei einem deutschen Artikel](docs/images/de-reader.png) |
-| 🇮🇳 **Indien** — die Zeitleiste „Neueste“ quer durch TOI, The Hindu, HT, NDTV und weitere | 📖 **Lesemodus** — der Artikel und sonst nichts, in Ihrer eigenen Leseschrift |
+| ![Die Seite „Regional“ für Rajasthan, auf Hindi, mit Nachrichten aus dem Bundesstaat](docs/images/in-local.png) | ![Lesemodus bei einem deutschen Artikel](docs/images/de-reader.png) |
+| 🇮🇳 **Indien** — die Hindi-Presse (अमर उजाला, दैनिक भास्कर, आज तक, TV9 भारतवर्ष…) und die Seite „Regional“ für Ihren Bundesstaat | 📖 **Lesemodus** — der Artikel und sonst nichts, in Ihrer eigenen Leseschrift |
 
 
 ## Download
@@ -150,9 +156,9 @@ Grenze nicht).
 | 📰 **Titelseite** | Ein Aufmacher, weitere Schlagzeilen, Abschnitte zu Ihren Interessen, die laufende Zeitleiste „Neueste“ |
 | ⚡ **Eilmeldungen** | Laufband, eigene Seite, auf Wunsch Desktop-Benachrichtigungen |
 | 🧭 **Überblick** | Meldungen über Medien hinweg gebündelt, mit der Schlagzeile jedes einzelnen — das Tagesgeschehen in einem Rutsch |
-| 🔎 **Filter & Suche** | Zeitraum, Quellen, Sortierung nach „Am meisten berichtet“, nur mit Bild, Gelesene ausblenden — dazu 7 Regionen / 81 Provinzen in der Türkei; akzentunabhängige Suche |
+| 🔎 **Filter & Suche** | Zeitraum, Quellen, Sortierung nach „Am meisten berichtet“, nur mit Bild, Gelesene ausblenden — dazu Regionen und Städte, Bundesländer oder Gebiete in jedem Land; akzentunabhängige Suche |
 | 📖 **Lesen in der App** | Seite des Mediums im Dialogfenster (<kbd>Esc</kbd> zum Schließen), Lesemodus, Werbung und Tracker blockieren |
-| 📍 **Regionale Nachrichten** | Türkei: Stadt wählen — Zeitungen vor Ort und Meldungen mit Provinzbezug |
+| 📍 **Regionale Nachrichten** | 81 türkische Provinzen, 50 US-Bundesstaaten und D.C., 36 indische Bundesstaaten, 16 Bundesländer, 27 brasilianische Bundesstaaten, 51 britische Gebiete — Medien vor Ort und Meldungen, die den Ort nennen |
 | 🗂️ **Quellen** | Jedes Medium ein- oder ausschalten; Zustand der Feeds auf einen Blick |
 | 🔖 **Bibliothek** | Gespeicherte Meldungen und Leseverlauf, lokal abgelegt |
 | 🎨 **Machen Sie es zu Ihrem** | Hell / dunkel / System, fünf Akzentfarben, zwölf Leseschriften, Schriftgröße, kompakte Ansicht |
@@ -163,16 +169,17 @@ Grenze nicht).
 
 Masthead bringt für jedes Land ein **Länderpaket** mit: eine kuratierte, politisch ausgewogene Auswahl an Medien —
 öffentlich-rechtliche Sender, Nachrichtenagenturen, Tagespresse, unabhängige Medien sowie Titel aus Wirtschaft,
-Sport und Technik.
+Sport, Technik, Gesundheit, Reise und Kultur — und die Regionalpresse des Landes. Jedes Medium schreibt in der
+Sprache des Landes: Indien liest seine Hindi-Presse, Deutschland seine deutschen Redaktionen.
 
 | Land | Quellen | Feeds |
 | --- | --- | --- |
 | 🇹🇷 Türkei | 136 (67 national + regional: Stadt-Feeds für alle 81 Provinzen, Zeitungen in 33 davon) | 536 |
-| 🇺🇸 Vereinigte Staaten | 18 | 49 |
-| 🇮🇳 Indien | 16 (6 auf Hindi + 10 auf Englisch) | 60 |
-| 🇬🇧 Vereinigtes Königreich | 10 | 37 |
-| 🇩🇪 Deutschland | 15 | 46 |
-| 🇧🇷 Brasilien | 17 | 34 |
+| 🇺🇸 Vereinigte Staaten | 176 (52 überregional + 124 Lokalredaktionen, zwei bis drei in jedem Bundesstaat und D.C.) | 240 |
+| 🇮🇳 Indien | 19, alle auf Hindi (15 überregional + die Bundesstaats-Seiten von vier Zeitungen, 17 Bundesstaaten) | 108 |
+| 🇬🇧 Vereinigtes Königreich | 68 (29 überregional + BBC-Lokalnachrichten für 51 Gebiete und 38 Regionalzeitungen) | 161 |
+| 🇩🇪 Deutschland | 75 (39 überregional + Regionales für alle 16 Bundesländer) | 157 |
+| 🇧🇷 Brasilien | 58 (42 überregional + g1 für alle 27 Bundesstaaten und 15 Regionalzeitungen) | 130 |
 
 Jeder Feed wird vor der Auslieferung an den echten Seiten überprüft (`npm run verify:feeds`). Die
 vollständige Liste, den Aufbau der Länderpakete und die Anleitung, eine eigene Quelle oder ein eigenes Land

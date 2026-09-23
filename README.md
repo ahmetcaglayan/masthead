@@ -31,7 +31,8 @@ and lets you read them, ad-free, without ever leaving the app.
 ## Why Masthead?
 
 Following the news usually means a dozen browser tabs, cookie banners, autoplaying videos and pop-ups.
-Masthead gathers **212 newsrooms across six countries** into one calm, magazine-like front page:
+Masthead gathers **532 newsrooms across six countries** — each country's own press, in its own language — into one
+calm, magazine-like front page:
 
 - **Follow the agenda without clicking.** Full headlines, a summary and a photo on every card — the lead story
   carries its summary in full, the rest end with “Full summary”. The **Digest**
@@ -42,7 +43,10 @@ Masthead gathers **212 newsrooms across six countries** into one calm, magazine-
 - **Breaking news, front page and a live timeline.** A breaking-news ticker, a front-page hero built from
   the stories most outlets are covering, and a minute-by-minute "latest" column.
 - **Your sources, your rules.** Turn any outlet on or off. Filter by time range, source, sort order and
-  pictures — and, in Türkiye, by region and all 81 provinces.
+  pictures — and by region and city, state or area.
+- **Local news everywhere.** Pick your city in Türkiye, your state in the US, Brazil or India, your Bundesland
+  in Germany or your area in the UK: its local papers and broadcasters join in, with every national story that
+  names it.
 - **Private by design.** No account, no telemetry. Settings, saved stories and history stay on your computer.
 
 ### Read the news, not the ads
@@ -85,17 +89,18 @@ about one event, so you can read around a story instead of through a single outl
 
 ## Six countries, five languages
 
-The interface language and the language of the news are independent: read Brazilian newspapers with a German
-interface if that is what you want.
+Each country is read through its own newsrooms, in its own language, down to local news: a city in Türkiye, a
+state in the US, Brazil or India, a Bundesland in Germany, an area in the UK. The interface language is
+independent of it: read Brazilian newspapers with a German interface if that is what you want.
 
 | | |
 | --- | --- |
 | ![Masthead's front page with United States sources](docs/images/us-home.png) | ![Masthead's front page with United Kingdom sources](docs/images/gb-home.png) |
-| 🇺🇸 **United States** — 18 newsrooms, from NPR and the NYT to Fox News and National Review | 🇬🇧 **United Kingdom** — BBC, Guardian, Sky News, the Independent, the FT |
+| 🇺🇸 **United States** — 52 national newsrooms, from NPR and the NYT to Fox News and the WSJ, and local news for every state | 🇬🇧 **United Kingdom** — BBC, Guardian, Telegraph, Sky News, the FT… and BBC local news for 51 areas |
 | ![Masthead in German with German sources](docs/images/de-home.png) | ![The Digest page in Portuguese with Brazilian sources](docs/images/br-digest.png) |
 | 🇩🇪 **Germany** — tagesschau, Spiegel, Zeit, FAZ, SZ… with the interface in German | 🇧🇷 **Brazil** — the Digest in Portuguese: one card, every outlet's headline |
-| ![The Latest timeline with Indian sources](docs/images/in-latest.png) | ![Reader mode on a German article](docs/images/de-reader.png) |
-| 🇮🇳 **India** — Hindi newsrooms (अमर उजाला, दैनिक भास्कर, आज तक, NDTV इंडिया) beside the English press | 📖 **Reader mode** — the article and nothing else, in your own reading font |
+| ![The Local page for Rajasthan, in Hindi, with Hindi state news](docs/images/in-local.png) | ![Reader mode on a German article](docs/images/de-reader.png) |
+| 🇮🇳 **India** — the Hindi press (अमर उजाला, दैनिक भास्कर, आज तक, TV9 भारतवर्ष…) and the Local page for your state | 📖 **Reader mode** — the article and nothing else, in your own reading font |
 
 
 ## Download
@@ -138,9 +143,9 @@ block most news sites from being embedded; the desktop app has no such limit).
 | 📰 **Front page** | A front-page hero, secondary headlines, sections for your interests, a live "latest" timeline |
 | ⚡ **Breaking news** | Scrolling ticker, dedicated page, optional desktop notifications |
 | 🧭 **Digest** | Stories grouped across outlets with every outlet's headline — the day's agenda in one scroll |
-| 🔎 **Filters & search** | Time range, sources, most-covered sort, images only, hide read — plus 7 regions / 81 provinces in Türkiye; accent-insensitive search |
+| 🔎 **Filters & search** | Time range, sources, most-covered sort, images only, hide read — plus regions and cities, states or areas in every country; accent-insensitive search |
 | 📖 **In-app reading** | Publisher's page in a dialog (<kbd>Esc</kbd> to close), Reader mode, ad & tracker blocking |
-| 📍 **Local news** | Türkiye: pick your city for local papers and province-tagged stories |
+| 📍 **Local news** | 81 Turkish cities, 50 US states and D.C., 36 Indian states, 16 German Länder, 27 Brazilian states, 51 UK areas — local papers, broadcasters and the stories that name your place |
 | 🗂️ **Sources** | Switch each outlet on or off; feed health at a glance |
 | 🔖 **Library** | Saved stories and reading history, stored locally |
 | 🎨 **Make it yours** | Light / dark / system, five accent colours, twelve reading fonts, text size, compact mode |
@@ -150,16 +155,18 @@ block most news sites from being embedded; the desktop app has no such limit).
 ## Sources
 
 Masthead ships a **country pack** per country: a curated, politically balanced set of outlets — public
-broadcasters, news agencies, mainstream papers, independent media, plus business, sports and technology titles.
+broadcasters, news agencies, mainstream papers, independent media, plus business, sports, technology, health,
+travel and culture titles — and the country's local press. Every outlet writes in the country's own language:
+India reads its Hindi press, Germany its German newsrooms.
 
 | Country | Sources | Feeds |
 | --- | --- | --- |
 | 🇹🇷 Türkiye | 136 (67 national + local: city feeds for all 81 provinces, papers in 33 of them) | 536 |
-| 🇺🇸 United States | 18 | 49 |
-| 🇮🇳 India | 16 (6 Hindi + 10 English) | 60 |
-| 🇬🇧 United Kingdom | 10 | 37 |
-| 🇩🇪 Germany | 15 | 46 |
-| 🇧🇷 Brazil | 17 | 34 |
+| 🇺🇸 United States | 176 (52 national + 124 local newsrooms, two or three in every state and D.C.) | 240 |
+| 🇮🇳 India | 19, all in Hindi (15 national + the state pages of four dailies, 17 states) | 108 |
+| 🇬🇧 United Kingdom | 68 (29 national + BBC local news for 51 areas and 38 regional papers) | 161 |
+| 🇩🇪 Germany | 75 (39 national + regional news for all 16 Länder) | 157 |
+| 🇧🇷 Brazil | 58 (42 national + g1 for all 27 states and 15 regional papers) | 130 |
 
 Every feed is checked against the live sites before it ships (`npm run verify:feeds`). See
 [docs/SOURCES.md](docs/SOURCES.md) for the full list, the country-pack layout and how to add a source or a

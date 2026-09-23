@@ -30,7 +30,8 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 ## Neden Masthead?
 
 Gündemi takip etmek genelde onlarca sekme, çerez uyarıları, kendiliğinden açılan videolar ve pop-up'lar demek.
-Masthead **altı ülkeden 212 haber kaynağını** tek, sakin, dergi gibi bir ön sayfada toplar:
+Masthead **altı ülkeden 532 haber kaynağını** — her ülkenin kendi basınını, kendi dilinde — tek, sakin, dergi gibi
+bir ön sayfada toplar:
 
 - **Tıklamadan gündemi takip et.** Her kartta tam başlık, özet ve fotoğraf; manşetin özeti tam, diğerlerinde
   “Özetin tamamı” ile açılır. **Gündem Özeti** aynı olayı veren
@@ -40,8 +41,10 @@ Masthead **altı ülkeden 212 haber kaynağını** tek, sakin, dergi gibi bir ö
   uzakta, reklamlar ve izleyiciler engellenmiş olarak. <kbd>Esc</kbd>'ye bas, geri dön.
 - **Son dakika, manşet ve canlı akış.** Kayan son dakika bandı, en çok kaynağın verdiği haberlerden oluşan
   manşet ve dakika dakika "son haberler" sütunu.
-- **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, sıralamaya ve görsele —
-  Türkiye'de ayrıca bölgeye ve 81 ile — göre filtrele.
+- **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, sıralamaya, görsele, bölgeye
+  ve şehre, eyalete ya da yöreye göre filtrele.
+- **Her ülkede yerel haber.** Türkiye'de şehrini, ABD, Brezilya ve Hindistan'da eyaletini, Almanya'da Bundesland'ını,
+  Birleşik Krallık'ta yöreni seç: oranın yerel gazeteleri ve yayıncıları ile orayı anan ulusal haberler gelir.
 - **Gizlilik öncelikli.** Üyelik yok, izleme yok. Ayarların, kaydettiklerin ve geçmişin bilgisayarında kalır.
 
 ### Reklamı değil, haberi oku
@@ -84,16 +87,18 @@ kümeler; böylece haberi tek bir kaynaktan değil, etrafını dolaşarak okursu
 
 ## Altı ülke, beş dil
 
-Arayüz dili ile haberlerin dili birbirinden bağımsız: istersen Brezilya gazetelerini Almanca arayüzle okursun.
+Her ülke kendi haber kaynaklarından, kendi dilinde okunur; yerel habere kadar: Türkiye'de şehir, ABD, Brezilya ve
+Hindistan'da eyalet, Almanya'da Bundesland, Birleşik Krallık'ta yöre. Arayüz dili bundan bağımsız: istersen
+Brezilya gazetelerini Almanca arayüzle okursun.
 
 | | |
 | --- | --- |
 | ![ABD kaynaklarıyla Masthead ön sayfası](docs/images/us-home.png) | ![Birleşik Krallık kaynaklarıyla Masthead ön sayfası](docs/images/gb-home.png) |
-| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve National Review'a 18 kaynak | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Sky News, Independent, FT |
+| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve WSJ'e 52 ulusal kaynak, her eyalet için yerel haber | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Telegraph, Sky News, FT… ve 51 yöre için BBC yerel haberleri |
 | ![Almanca arayüz ve Alman kaynakları](docs/images/de-home.png) | ![Portekizce arayüzle Gündem Özeti](docs/images/br-digest.png) |
 | 🇩🇪 **Almanya** — tagesschau, Spiegel, Zeit, FAZ, SZ… arayüz de Almanca | 🇧🇷 **Brezilya** — Portekizce Gündem Özeti: tek kart, her kaynağın başlığı |
-| ![Hindistan kaynaklarıyla Son Haberler](docs/images/in-latest.png) | ![Almanca bir haberde Okuma modu](docs/images/de-reader.png) |
-| 🇮🇳 **Hindistan** — TOI, The Hindu, HT, NDTV ve dahası, dakika dakika | 📖 **Okuma modu** — haber ve başka hiçbir şey, kendi okuma fontunla |
+| ![Rajasthan için Yerel sayfa, Hintçe arayüz ve Hintçe eyalet haberleri](docs/images/in-local.png) | ![Almanca bir haberde Okuma modu](docs/images/de-reader.png) |
+| 🇮🇳 **Hindistan** — Hintçe basın (अमर उजाला, दैनिक भास्कर, आज तक, TV9 भारतवर्ष…) ve eyaletinin Yerel sayfası | 📖 **Okuma modu** — haber ve başka hiçbir şey, kendi okuma fontunla |
 
 
 ## İndir
@@ -137,9 +142,9 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 📰 **Ön sayfa** | Manşet, ikincil manşetler, ilgi alanı bölümleri, canlı "son haberler" akışı |
 | ⚡ **Son dakika** | Kayan bant, ayrı sayfa, isteğe bağlı masaüstü bildirimleri |
 | 🧭 **Gündem Özeti** | Kaynaklar arası gruplanmış haberler ve her kaynağın başlığı — günün gündemi tek kaydırmada |
-| 🔎 **Filtre ve arama** | Zaman, kaynak, en çok kaynak sıralaması, görselli, okunanları gizle — Türkiye'de ayrıca 7 bölge / 81 il; aksana duyarsız arama |
+| 🔎 **Filtre ve arama** | Zaman, kaynak, en çok kaynak sıralaması, görselli, okunanları gizle — her ülkede bölge ve şehir/eyalet/yöre; aksana duyarsız arama |
 | 📖 **Uygulama içi okuma** | Yayıncının sayfası pencerede (<kbd>Esc</kbd> ile kapat), Okuma modu, reklam ve izleyici engelleme |
-| 📍 **Yerel haberler** | Türkiye: şehrini seç; yerel gazeteler ve ilinle ilgili haberler |
+| 📍 **Yerel haberler** | Türkiye'de 81 il, ABD'de 50 eyalet ve D.C., Hindistan'da 36 eyalet, Almanya'da 16 Bundesland, Brezilya'da 27 eyalet, Birleşik Krallık'ta 51 yöre — yerel gazeteler, yayıncılar ve orayı anan haberler |
 | 🗂️ **Kaynaklar** | Her siteyi aç/kapat; akışların durumu bir bakışta |
 | 🔖 **Kitaplık** | Kaydedilen haberler ve okuma geçmişi, yerelde |
 | 🎨 **Kişiselleştir** | Açık / koyu / sistem tema, 5 vurgu rengi, 12 okuma fontu, yazı boyutu, sıkı görünüm |
@@ -149,16 +154,18 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 ## Kaynaklar
 
 Masthead her ülke için bir **ülke paketi** ile gelir: kamu yayıncıları, haber ajansları, ana akım gazeteler,
-bağımsız medya ile ekonomi, spor ve teknoloji siteleri arasından dengeli seçilmiş bir liste.
+bağımsız medya ile ekonomi, spor, teknoloji, sağlık, gezi ve kültür siteleri arasından dengeli seçilmiş bir liste —
+ve o ülkenin yerel basını. Her kaynak ülkenin kendi dilinde yayın yapar: Hindistan'ı Hintçe basından, Almanya'yı
+Alman yayın kuruluşlarından okursun.
 
 | Ülke | Kaynak | Akış |
 | --- | --- | --- |
 | 🇹🇷 Türkiye | 136 (67 ulusal + yerel: 81 ilin akışı, 33 ilde yerel gazete) | 536 |
-| 🇺🇸 ABD | 18 | 49 |
-| 🇮🇳 Hindistan | 16 (6 Hintçe + 10 İngilizce) | 60 |
-| 🇬🇧 Birleşik Krallık | 10 | 37 |
-| 🇩🇪 Almanya | 15 | 46 |
-| 🇧🇷 Brezilya | 17 | 34 |
+| 🇺🇸 ABD | 176 (52 ulusal + her eyalette ve D.C.'de iki-üç tane olmak üzere 124 yerel kaynak) | 240 |
+| 🇮🇳 Hindistan | 19, hepsi Hintçe (15 ulusal + dört gazetenin eyalet sayfaları, 17 eyalet) | 108 |
+| 🇬🇧 Birleşik Krallık | 68 (29 ulusal + 51 yöre için BBC yerel haberleri ve 38 bölge gazetesi) | 161 |
+| 🇩🇪 Almanya | 75 (39 ulusal + 16 Bundesland'ın hepsi için bölgesel haber) | 157 |
+| 🇧🇷 Brezilya | 58 (42 ulusal + 27 eyaletin hepsi için g1 ve 15 bölge gazetesi) | 130 |
 
 Her akış yayına girmeden önce canlı sitelere karşı doğrulanır (`npm run verify:feeds`). Tam liste, ülke paketi
 yapısı ve yeni bir kaynak ya da ülke ekleme: [docs/SOURCES.md](docs/SOURCES.md).

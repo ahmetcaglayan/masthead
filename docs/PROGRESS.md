@@ -11,54 +11,63 @@
 ## Son durum
 
 - **Tarih:** 2026-09-23
-- **Aktif faz:** Faz 1 + Faz 4'ün ilk adımı tamamlandı; **v0.2.0 yayında** (depo public, site yayında)
+- **Aktif faz:** Faz 1 + Faz 4 (6 ülke, tam paketler: ulusal + yerel) tamamlandı; **v0.2.0 yayında**
+  (depo public, site yayında). Sıradaki sürüm v0.3.0 (Hintçe + yerel haberler + genişleyen kaynaklar).
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
-  206 kaynak (6 ülke), 317 birim testi, `npm run selftest` 11/11 (v0.1.0'da), tasarım ve kod
-  incelemeleri yapıldı, Windows paketleri (Windows PC'de) `release/0.1.0/` altında. Kod GitHub'da
-  (https://github.com/ahmetcaglayan/masthead). Kalan: v0.1.0 Release'i yayınlamak (sahibinin onayıyla).
-  Geliştirme artık macOS'ta da sürüyor: `npm install` + testler + typecheck + lint yeşil, tarayıcı modu
-  (`npm run dev:web`) çalışıyor. **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
-  **2026-09-23 akşamı:** Faz 4'ün ilk adımı yapıldı — uygulama artık 6 ülke (Türkiye, ABD, Hindistan,
-  Birleşik Krallık, Almanya, Brezilya) ve 4 arayüz dili (en, tr, de, pt) ile geliyor.
+  **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 342 birim testi yeşil.** Her ülkenin
+  kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
+  Kod GitHub'da (https://github.com/ahmetcaglayan/masthead). Geliştirme macOS'ta sürüyor:
+  **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
 
 ## Devralma notu (2026-09-23, oturum sonu)
 
-**Yapılan son iş:** Hindistan paketine Hintçe kaynaklar + arayüze Hintçe dili.
+**Yapılan son iş:** Diğer 5 ülkenin paketleri Türkiye paketi derinliğine çıkarıldı — kendi dilinde çok daha
+fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kaynaklar kaldırıldı.
 
-- `src/shared/countries/in/sources.ts` — 6 Hintçe kaynak eklendi (अमर उजाला, दैनिक भास्कर, NDTV इंडिया,
-  News18 हिंदी, आज तक, BBC News हिंदी; 23 akış) + mevcut 10 İngilizce kaynak. **59/59 akış doğrulandı.**
-- `in/index.ts`: `language: 'hi'`, `languages: ['hi','en']`, `locale: 'hi-IN'`; `CountryPack.languages` alanı
-  eklendi (`countries/types.ts`), paket testi buna göre güncellendi + yeni test: her ülkenin kendi ana
-  dilinde en az 3 varsayılan açık kaynağı olmalı (hepsi geçiyor — Hindistan dışında sorun yoktu).
-- `src/core/news/categories.ts`: Hintçe bölüm kelimeleri (desh, duniya, khel, manoranjan, vyapar…).
-- Arayüz: `UI_LANGUAGES`'e `hi`, `LOCALES`'e `hi-IN`, ayarlar/onboarding dil listelerine हिन्दी,
-  `notifications.ts` LABEL'a `ब्रेकिंग`.
-- `src/renderer/src/i18n/locales/hi/` — 5 namespace yazıldı; **iki denetçi (anahtar eşliği + ana dil
-  akıcılığı) çalışıyordu**, oturum bitmeden sonuçları gelmemiş olabilir.
-- [x] 2026-09-23 · **Hintçe akıcılık denetimi bitti** — 5 dosyada ~35 düzeltme: ürün terimleri tek tipe
-  indirildi (front page = "पहला पन्ना", outlet = "मीडिया", interests = "रुचि", section = "सेक्शन",
-  "Try again" = "फिर कोशिश करें"), nukta yazımı tüm dosyalarda tutarlı, dilbilgisi hataları
-  (`फ़ीड आ रहे हैं` → `आ रही हैं`, `आप ऑनलाइन आते ही` → `आपके ऑनलाइन लौटते ही`, yarım cümleler),
-  Sanskritçe kaçışlar günlük gazete diline çekildi (`मुखपृष्ठ`, `दृश्य`, `अन्य`, `दिखावट`) ve taşan
-  etiketler kısaltıldı. Anahtar + placeholder eşliği betikle yeniden doğrulandı (5/5 namespace tam).
+- **Hindistan:** İngilizce gazetelerin hepsi paketten çıktı (sahibinin isteği: "kendi dilinde haber yapmayan
+  kaynakları o ülkeden kaldır"). 15 Hintçe ulusal kaynak (+ Dainik Jagran, Prabhat Khabar, TV9 Bharatvarsh,
+  India TV, ABP, Webdunia, The Wire Hindi, Satya Hindi, OpIndia (kapalı)) + 36 eyalet/UT, 6 bölge; Amar Ujala,
+  Bhaskar, News18 Hindi ve Prabhat Khabar'ın eyalet sayfaları (17 eyalet). `CountryPack.languages` alanı
+  silindi; test artık her kaynağın paket dilinde olmasını şart koşuyor.
+  Not: kullanıcının `.masthead-web/settings.json` içindeki 10 İngilizce kaynak kimliği (enabled listesi)
+  artık hiçbir kaynağa karşılık gelmiyor; zararsız, bırakıldı.
+- **ABD:** 52 ulusal (+ WSJ, LA Times, ProPublica, Atlantic, Dispatch, Free Press, Reason, STAT, Variety…) +
+  50 eyalet ve D.C. (4 bölge) için 124 yerel kaynak (Gray/Hearst/Nexstar TV'leri, şehir gazeteleri, kamu
+  radyoları). **İngiltere:** 29 ulusal (+ Telegraph, i, GB News, Channel 4…) + 51 BBC yerel bölgesi
+  (12 bölge/ülke) + 38 bölge gazetesi. **Almanya:** 39 ulusal (+ Deutschlandfunk, Sportschau, Tagesspiegel…)
+  + 16 Land için tagesschau regional, ARD yayıncıları, bölge gazeteleri. **Brezilya:** 42 ulusal (+ O Globo,
+  Jovem Pan, Valor, Intercept, Pública, Nexo…) + 27 eyalet için g1 + 15 bölge gazetesi.
+- Yeni altyapı: `countries/build.ts` (regionsOf, provinceFeeds, localOutlet), her ülkede `places.ts` +
+  `local.ts`; `FeedDef.region` (İskoçya/Galler geneli gazeteler — o bölgeden bir yer seçilince çekilir);
+  `RegionDef.names` (hikâyede "Scotland" geçerse bölgeye etiketlenir); `CountryPack.localUnit`
+  (`state`/`land`/`area`) + `placeWords`; geo etiketleyici büyük harfi olmayan yazılarda (Hintçe) da
+  çalışıyor; kesme işareti kuralı yalnızca Türkçe için.
+- Arayüz: "şehir/il" metinlerinin `_state`, `_land`, `_area` varyantları 5 dilde (i18next `context`);
+  yeni bölge adları 5 dilde; il/eyalet sıralaması ülkenin yerel ayarıyla; başka ülkeye ait kayıtlı konum
+  ayarlarda otomatik temizleniyor (`placeIn`, `settings.ts`).
+- Doğrulama: `verify:feeds -- us in gb de br --all` → 799 akış, 796 ok (3 sorunlu akış çıkarıldı / düzeltildi);
+  tarayıcıda Hindistan (1.553 haber, 14 kaynak; Uttar Pradesh yerel 233 haber), UK/Manchester, Almanya/Bayern,
+  ABD/Teksas, Brezilya/São Paulo denendi; Almanca "Bundesland wählen" metinleri doğrulandı.
+- Dokümanlar: 4 README, site, SOURCES.md, CHANGELOG güncellendi; yeni ekran görüntüsü `docs/images/in-local.png`
+  (eski `in-latest.png` silindi).
 
 **Sıradaki somut adımlar:**
-1. `npm test && npm run typecheck && npm run lint` (hi locale anahtar eşliği için
-   `tests/renderer/...` yok; parity'yi denetçi betiği yaptı — gerekirse elle karşılaştır).
-2. Tarayıcıda doğrula: Ayarlar → ülke **Hindistan**, dil **हिन्दी** → Hintçe haberler + Hintçe arayüz.
-3. Commit + push; ardından `v0.3.0` etiketi (Release iş akışı paketleri üretir, taslağı yayına al).
+1. `v0.3.0` etiketi (Release iş akışı paketleri üretir, taslağı yayına al).
    **Dikkat:** electron-builder taslağı GitHub'da "untagged-..." URL'siyle görünür; `/releases/edit/<tag>`
    adresine gidersen **ikinci, boş bir sürüm** oluşturursun (v0.2.0'da bu oldu). Taslağı Releases
    listesindeki kalem simgesinden aç.
-4. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek; şimdilik çıkarıldı).
-5. İstenirse açılış sayfasının (site/index.html) diğer dillere çevrilmesi.
+2. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
+3. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için
+   ekran görüntüleri; News18 Hindi / Bhaskar ikonları (şu an harf monogramı görünüyor).
+4. Faz 2 (komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik).
 
-**Sayılar (güncel):** 212 kaynak, 762 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi).
+**Sayılar (güncel):** 532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi).
 
 **Ortam:** Kurumsal TLS proxy yüzünden Node sertifikayı tanımıyor →
 `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca.pem` ile çalıştır (dev sunucusu, verify:feeds, her şey).
 `npm run verify:feeds` Node 22+ ister; bu Mac'te Node 20 olduğu için `npx vite-node scripts/verify-feeds.ts -- in`
 şeklinde çalıştır. Bu bilgisayara uygulama kurulmaz; doğrulama yalnızca `npm run dev:web` üzerinden.
+Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca.pem npx vite --config vite.web.config.ts --port 5173 --strictPort`.
 
 ## Sıradaki adım
 
@@ -160,6 +169,14 @@ Gereksinimler: Node.js 22.12+ (geliştirmede 24 kullanıldı), npm 10+. Windows'
       https, manşet akışı, dil eşliği, il tutarlılığı
 - [x] 2026-09-23 · Tarayıcıda doğrulandı: Almanya 1.123 haber (14 kaynak) + tam Almanca arayüz,
       Brezilya 1.012 haber (13 kaynak) + tam Portekizce arayüz
+- [x] 2026-09-23 · Hindistan Hintçe: 6 Hintçe kaynak + arayüzde हिन्दी (5. dil), Hintçe akıcılık denetimi
+- [x] 2026-09-23 · **Her ülke kendi dilinde:** Hindistan'ın İngilizce gazeteleri çıkarıldı, `CountryPack.languages`
+      silindi, test her kaynağın paket dilinde olmasını şart koşuyor
+- [x] 2026-09-23 · **Kaynaklar genişletildi:** ABD 52, İngiltere 29, Almanya 39, Brezilya 42, Hindistan 15
+      ulusal kaynak; her pakette dünya/ekonomi/spor/teknoloji/sağlık/eğlence/yaşam için ≥2 açık kaynak (testli)
+- [x] 2026-09-23 · **Her ülkeye yerel haber:** ABD 51 eyalet (124 yerel kaynak), İngiltere 51 BBC bölgesi +
+      38 gazete, Almanya 16 Land, Brezilya 27 eyalet, Hindistan 36 eyalet/UT (17'sinde Hintçe eyalet akışı);
+      `FeedDef.region`, `RegionDef.names`, `localUnit`, `placeWords`, Hintçe geo etiketleme; 799 akış doğrulandı
 
 ### Doğrulama
 - [x] 2026-09-23 · Ekran görüntüleriyle (EN/TR × açık/koyu, 56 PNG) 3 açılı tasarım incelemesi (görsel, haber UX,
@@ -226,6 +243,11 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-23 | Özet ≈1500 karaktere kadar tam, tam metin `news.detail()` ile isteğe bağlı | Tıklamadan okuma + küçük anlık görüntü |
 | 2026-09-23 | Okuyucuda `window.open` yalnızca kullanıcı girdisinden (tık/tuş) sonraki 1 sn içinde izlenir | Electron'da açılır pencere engelleyici yok; reklamlar haberi değiştirmesin |
 | 2026-09-23 | UTF-8 → windows-1254 yedeği yalnızca ASCII dışı karakterlerin çoğu bozuksa | Birkaç kesik bayt (CMS kırpması) tüm akışı bozmasın |
+| 2026-09-23 | Her ülkenin kaynakları yalnızca o ülkenin dilinde (Hindistan'ın İngilizce basını çıkarıldı) | Sahibinin isteği: ülkeyi seçen, o ülkenin haberini kendi dilinde okur |
+| 2026-09-23 | Yerel haber her ülkede aynı modelle: il/eyalet/Land/yöre = `Province`, bölge = `RegionDef` | Türkiye'nin şehir sayfaları, filtreleri ve akış planlaması olduğu gibi yeniden kullanılır |
+| 2026-09-23 | ABD'de yerel akış olarak Gray `/category/news/` ve Hearst `/local-news-rss` | Ana akışları ağın diğer eyaletlerdeki haberlerini karıştırıyor |
+| 2026-09-23 | Ulus geneli yerel gazeteler için `FeedDef.region` (İskoçya, Galler) | The Herald / STV gibi yayınlar tek bir bölgeye ait değil |
+| 2026-09-23 | Geo etiketlemede kesme işareti kuralı yalnızca Türkçe | İngilizce iyelik ("Washington's allies") yer adı olduğunu göstermez |
 
 ## Bilinen sorunlar / notlar
 

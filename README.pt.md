@@ -31,8 +31,8 @@ e deixa você lê-las sem anúncios, sem sair do aplicativo.
 ## Por que o Masthead?
 
 Acompanhar as notícias costuma significar uma dúzia de abas no navegador, avisos de cookies, vídeos que começam
-sozinhos e pop-ups. O Masthead reúne **212 redações de seis países** em uma única primeira página, tranquila e
-com cara de revista:
+sozinhos e pop-ups. O Masthead reúne **532 redações de seis países** — a imprensa de cada país, no seu próprio idioma — em uma
+única primeira página, tranquila e com cara de revista:
 
 - **Acompanhe a agenda sem clicar.** Manchete completa, resumo e foto em cada cartão — a notícia principal traz
   o resumo inteiro, as outras terminam com “Resumo completo”. O **Resumo** reúne a mesma notícia publicada por
@@ -43,7 +43,10 @@ com cara de revista:
 - **Urgente, primeira página e uma linha do tempo ao vivo.** Um letreiro de notícias urgentes, uma manchete
   montada a partir das notícias que mais veículos estão publicando e uma coluna de “últimas”, minuto a minuto.
 - **Suas fontes, suas regras.** Ligue ou desligue qualquer veículo. Filtre por período, fonte, ordem e
-  imagem — e, na Turquia, por região e pelas 81 províncias.
+  imagem — e por região e cidade, estado ou área.
+- **Notícias locais em todo lugar.** Escolha a sua cidade na Turquia, o seu estado no Brasil, nos EUA ou na Índia,
+  o seu Land na Alemanha ou a sua área no Reino Unido: os veículos de lá entram, com cada notícia nacional
+  que cita o lugar.
 - **Privado por princípio.** Sem conta, sem telemetria. Ajustes, notícias salvas e histórico ficam no seu computador.
 
 ### Leia a notícia, não o anúncio
@@ -90,17 +93,18 @@ veículo só:
 
 ## Seis países, cinco idiomas
 
-O idioma da interface e o idioma das notícias são independentes: leia jornais brasileiros com a interface em
-alemão, se for isso que você quer.
+Cada país é lido pelas suas próprias redações, no seu próprio idioma, até o noticiário local: uma cidade na
+Turquia, um estado nos EUA, no Brasil ou na Índia, um Land na Alemanha, uma área no Reino Unido. O idioma da
+interface é independente disso: leia jornais brasileiros com a interface em alemão, se for isso que você quer.
 
 | | |
 | --- | --- |
 | ![Primeira página do Masthead com fontes dos Estados Unidos](docs/images/us-home.png) | ![Primeira página do Masthead com fontes do Reino Unido](docs/images/gb-home.png) |
-| 🇺🇸 **Estados Unidos** — 18 redações, da NPR e do NYT à Fox News e à National Review | 🇬🇧 **Reino Unido** — BBC, Guardian, Sky News, Independent, FT |
+| 🇺🇸 **Estados Unidos** — 52 redações nacionais, da NPR e do NYT à Fox News e ao WSJ, e notícias locais de cada estado | 🇬🇧 **Reino Unido** — BBC, Guardian, Telegraph, Sky News, FT… e o noticiário local da BBC para 51 áreas |
 | ![Masthead em alemão com fontes alemãs](docs/images/de-home.png) | ![A página Resumo em português com fontes brasileiras](docs/images/br-digest.png) |
 | 🇩🇪 **Alemanha** — tagesschau, Spiegel, Zeit, FAZ, SZ… com a interface em alemão | 🇧🇷 **Brasil** — o Resumo em português: um cartão, a manchete de cada veículo |
-| ![A linha do tempo Últimas com fontes indianas](docs/images/in-latest.png) | ![Modo de leitura em uma matéria alemã](docs/images/de-reader.png) |
-| 🇮🇳 **Índia** — a linha do tempo Últimas com TOI, The Hindu, HT, NDTV e mais | 📖 **Modo de leitura** — a matéria e nada mais, na sua fonte de leitura |
+| ![A página Local do Rajastão, em híndi, com notícias do estado](docs/images/in-local.png) | ![Modo de leitura em uma matéria alemã](docs/images/de-reader.png) |
+| 🇮🇳 **Índia** — a imprensa em híndi (अमर उजाला, दैनिक भास्कर, आज तक, TV9 भारतवर्ष…) e a página Local do seu estado | 📖 **Modo de leitura** — a matéria e nada mais, na sua fonte de leitura |
 
 
 ## Baixar
@@ -145,9 +149,9 @@ não tem esse limite).
 | 📰 **Primeira página** | Uma manchete de abertura, manchetes secundárias, seções para os seus interesses, uma linha do tempo ao vivo de “últimas” |
 | ⚡ **Urgente** | Letreiro rolante, página dedicada, notificações opcionais no desktop |
 | 🧭 **Resumo** | Notícias reunidas de vários veículos, com a manchete de cada um — a agenda do dia em uma rolagem só |
-| 🔎 **Filtros e busca** | Período, fontes, ordem por mais publicadas, só com imagem, ocultar lidas — além de 7 regiões / 81 províncias na Turquia; busca que ignora acentos |
+| 🔎 **Filtros e busca** | Período, fontes, ordem por mais publicadas, só com imagem, ocultar lidas — além de regiões e cidades, estados ou áreas em cada país; busca que ignora acentos |
 | 📖 **Leitura no aplicativo** | Página do veículo em uma janela (<kbd>Esc</kbd> para fechar), Modo de leitura, bloqueio de anúncios e rastreadores |
-| 📍 **Notícias locais** | Turquia: escolha a sua cidade para ter os jornais locais e as notícias marcadas com a província |
+| 📍 **Notícias locais** | 81 províncias turcas, 50 estados americanos e D.C., 36 estados indianos, 16 Länder alemães, 27 estados brasileiros, 51 áreas britânicas — veículos locais e as notícias que citam o lugar |
 | 🗂️ **Fontes** | Ligue ou desligue cada veículo; o estado dos feeds de relance |
 | 🔖 **Biblioteca** | Notícias salvas e histórico de leitura, guardados localmente |
 | 🎨 **Do seu jeito** | Claro / escuro / sistema, cinco cores de destaque, doze fontes de leitura, tamanho do texto, modo compacto |
@@ -158,16 +162,17 @@ não tem esse limite).
 
 Cada país tem o seu **pacote de país** no Masthead: uma seleção de veículos politicamente equilibrada —
 emissoras públicas, agências de notícias, jornais da grande imprensa, mídia independente, além de títulos de
-negócios, esportes e tecnologia.
+negócios, esportes, tecnologia, saúde, viagem e cultura — e a imprensa local do país. Todo veículo escreve no
+idioma do país: a Índia é lida pela sua imprensa em híndi, a Alemanha pelas suas redações alemãs.
 
 | País | Fontes | Feeds |
 | --- | --- | --- |
 | 🇹🇷 Turquia | 136 (67 nacionais + locais: feeds de cidade para todas as 81 províncias, jornais em 33 delas) | 536 |
-| 🇺🇸 Estados Unidos | 18 | 49 |
-| 🇮🇳 Índia | 16 (6 em híndi + 10 em inglês) | 60 |
-| 🇬🇧 Reino Unido | 10 | 37 |
-| 🇩🇪 Alemanha | 15 | 46 |
-| 🇧🇷 Brasil | 17 | 34 |
+| 🇺🇸 Estados Unidos | 176 (52 nacionais + 124 redações locais, duas ou três em cada estado e em D.C.) | 240 |
+| 🇮🇳 Índia | 19, todas em híndi (15 nacionais + as páginas estaduais de quatro jornais, 17 estados) | 108 |
+| 🇬🇧 Reino Unido | 68 (29 nacionais + noticiário local da BBC para 51 áreas e 38 jornais regionais) | 161 |
+| 🇩🇪 Alemanha | 75 (39 nacionais + notícias regionais dos 16 Länder) | 157 |
+| 🇧🇷 Brasil | 58 (42 nacionais + g1 para os 27 estados e 15 jornais regionais) | 130 |
 
 Todo feed é conferido no site do próprio veículo, no ar, antes de entrar (`npm run verify:feeds`). Veja
 [docs/SOURCES.md](docs/SOURCES.md) para a lista completa, a estrutura do pacote de país e como adicionar a sua
