@@ -203,23 +203,16 @@
   "markets": {
     "kicker": "Investidor",
     "title": "Mercados",
-    "description": "As moedas, os metais, as criptomoedas e as empresas que você acompanha, com as notícias de cada um. Cotações e notícias se atualizam a cada minuto.",
+    "description": "Sua lista e as notícias do mercado conforme chegam, minuto a minuto.",
     "edit": "Editar lista",
     "watchlist": "Sua lista",
-    "noPrice": "Sem cotação",
     "noChange": "A fonte não informa a variação",
-    "newsToday_one": "{{count}} notícia hoje",
-    "newsToday_other": "{{count}} notícias hoje",
-    "noNewsToday": "Nenhuma notícia hoje",
     "live": "Ao vivo",
-    "updated": "Cotações das {{time}}",
     "loading": "Carregando cotações…",
     "failed": "As cotações estão fora do ar agora; nova tentativa em instantes.",
     "ratesDate": "Câmbio: taxa de referência do BCE de {{date}}",
     "news": "Notícias do mercado",
     "newsAbout": "Notícias sobre {{name}}",
-    "filter": "Mostrar notícias sobre",
-    "all": "Todas",
     "new": "Nova",
     "more": "Mostrar mais",
     "emptyNews": "Ainda não há notícias sobre isso.",
@@ -243,7 +236,10 @@
       "gram": "grama",
       "tenGrams": "10 g",
       "ounce": "onça"
-    }
+    },
+    "stories_one": "{{count}} notícia",
+    "stories_other": "{{count}} notícias",
+    "showAll": "Mostrar todas as notícias do mercado"
   },
   "category": {
     "kicker": "Tema",

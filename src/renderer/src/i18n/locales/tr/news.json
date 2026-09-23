@@ -203,23 +203,16 @@
   "markets": {
     "kicker": "Yatırımcı",
     "title": "Piyasalar",
-    "description": "İzlediğiniz kurlar, madenler, kripto paralar ve şirketler, haberleriyle birlikte. Fiyatlar ve haberler dakikada bir yenilenir.",
+    "description": "İzleme listeniz ve dakika dakika gelen piyasa haberleri.",
     "edit": "Listeyi düzenle",
     "watchlist": "İzleme listeniz",
-    "noPrice": "Fiyat yok",
     "noChange": "Kaynak değişim bilgisi vermiyor",
-    "newsToday_one": "Bugün {{count}} haber",
-    "newsToday_other": "Bugün {{count}} haber",
-    "noNewsToday": "Bugün haber yok",
     "live": "Canlı",
-    "updated": "Fiyatlar {{time}} itibarıyla",
     "loading": "Fiyatlar yükleniyor…",
     "failed": "Fiyatlara şu an ulaşılamıyor; birazdan yeniden denenecek.",
     "ratesDate": "Döviz: {{date}} ECB referans kuru",
     "news": "Piyasa haberleri",
     "newsAbout": "{{name}} haberleri",
-    "filter": "Haberleri süz",
-    "all": "Tümü",
     "new": "Yeni",
     "more": "Daha fazla göster",
     "emptyNews": "Şimdilik bu konuda haber yok.",
@@ -243,7 +236,10 @@
       "gram": "gram",
       "tenGrams": "10 g",
       "ounce": "ons"
-    }
+    },
+    "stories_one": "{{count}} haber",
+    "stories_other": "{{count}} haber",
+    "showAll": "Tüm piyasa haberlerini göster"
   },
   "category": {
     "kicker": "Konu",

@@ -203,23 +203,16 @@
   "markets": {
     "kicker": "Anleger",
     "title": "Märkte",
-    "description": "Die Währungen, Edelmetalle, Kryptowährungen und Unternehmen, denen Sie folgen, mit ihren Meldungen. Kurse und Meldungen werden jede Minute aktualisiert.",
+    "description": "Ihre Watchlist und die Marktmeldungen, Minute für Minute.",
     "edit": "Watchlist bearbeiten",
     "watchlist": "Ihre Watchlist",
-    "noPrice": "Kein Kurs",
     "noChange": "Die Quelle nennt keine Veränderung",
-    "newsToday_one": "{{count}} Meldung heute",
-    "newsToday_other": "{{count}} Meldungen heute",
-    "noNewsToday": "Heute keine Meldungen",
     "live": "Live",
-    "updated": "Kurse von {{time}}",
     "loading": "Kurse werden geladen …",
     "failed": "Die Kurse sind gerade nicht erreichbar; gleich neuer Versuch.",
     "ratesDate": "Devisen: EZB-Referenzkurs vom {{date}}",
     "news": "Marktmeldungen",
     "newsAbout": "Meldungen zu {{name}}",
-    "filter": "Meldungen zeigen zu",
-    "all": "Alle",
     "new": "Neu",
     "more": "Mehr anzeigen",
     "emptyNews": "Dazu gibt es noch keine Meldungen.",
@@ -243,7 +236,10 @@
       "gram": "Gramm",
       "tenGrams": "10 g",
       "ounce": "Unze"
-    }
+    },
+    "stories_one": "{{count}} Meldung",
+    "stories_other": "{{count}} Meldungen",
+    "showAll": "Alle Marktmeldungen zeigen"
   },
   "category": {
     "kicker": "Thema",

@@ -203,23 +203,16 @@
   "markets": {
     "kicker": "Investor",
     "title": "Markets",
-    "description": "The currencies, metals, crypto and companies you follow, with their news. Prices and news refresh every minute.",
+    "description": "Your watchlist and the markets news as it comes in, every minute.",
     "edit": "Edit watchlist",
     "watchlist": "Your watchlist",
-    "noPrice": "No price",
     "noChange": "No change figure from the source",
-    "newsToday_one": "{{count}} story today",
-    "newsToday_other": "{{count}} stories today",
-    "noNewsToday": "No stories today",
     "live": "Live",
-    "updated": "Prices as of {{time}}",
     "loading": "Loading prices…",
     "failed": "Prices are out of reach right now; trying again shortly.",
     "ratesDate": "Currencies: ECB reference rate of {{date}}",
     "news": "Markets news",
     "newsAbout": "News about {{name}}",
-    "filter": "Show news about",
-    "all": "All",
     "new": "New",
     "more": "Show more",
     "emptyNews": "No stories on this yet.",
@@ -243,7 +236,10 @@
       "gram": "gram",
       "tenGrams": "10 g",
       "ounce": "oz"
-    }
+    },
+    "stories_one": "{{count}} story",
+    "stories_other": "{{count}} stories",
+    "showAll": "Show all markets news"
   },
   "category": {
     "kicker": "Topic",

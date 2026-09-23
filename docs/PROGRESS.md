@@ -106,7 +106,8 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   PAXG'den. **Hisse fiyatı yok** (borsa verisi lisanslı; Yahoo/TradingView gibi resmî olmayan uçlar sahibinin
   isteğiyle kullanılmadı) — şirketler haberleriyle izleniyor. Sayfa açıkken fiyatlar dakikada bir, ekonomi/iş
   akışları dakikada bir (`news.refreshMarkets`, çekirdekte 50 sn kısma, koşullu GET); yeni haberler "Yeni"
-  etiketiyle en üste kayarak eklenir. Kutucuk/çip ile tek varlığın haberleri. Haber eşleştirme `keywordMatcher`
+  etiketiyle en üste kayarak eklenir. Sahibinin geri bildirimiyle sade tasarım: büyük kutucuklar yerine
+  haberlerin yanında yapışkan, satır satır izleme listesi paneli (dar pencerede üstte iki sütun); satır → o varlığın haberleri. Haber eşleştirme `keywordMatcher`
   (tam kelime; sonu `*` olan çekimleri de bulur; "altın" ≠ "altında", "dolar kuru" ≠ "milyar dolarlık");
   döviz/maden/kripto yalnızca ekonomi/iş haberlerinde aranır. Ayarlar → Piyasalar: ekle/çıkar, öneriler, özel
   şirket, kelime düzenleme, varsayılana dön. Yeni renk token'ları `--up`/`--down`, `animate-arrive`.
