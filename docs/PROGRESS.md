@@ -69,6 +69,11 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
   getter) → `(await import('electron-updater')).default` kullanılıyor. 10 yeni test (352 toplam).
   **Önemli:** v0.3.0 ve öncesinde güncelleyici yok; kullanıcılar v0.4.0'ı bir kez elle kurmalı, sonrası otomatik.
 
+- [x] 2026-09-23 · **Son Haberler'de üst üste binme düzeltildi:** filtre çubuğu artık sayfa zemini renginde bir
+  katmanla yapışıyor (üstündeki boşluktan haber görünmüyor, altı yumuşakça kayboluyor); "14:00" saat bandı yapışkan
+  değil, haberlerle birlikte kayıyor; "N yeni haber" düğmesi çubuğun ekrandaki gerçek alt kenarının 24 px altında
+  duruyor (`--sticky-bar-bottom`, FilterBar kaydırmada günceller; requestAnimationFrame yok — gizli pencerede durur).
+
 **Sıradaki somut adımlar:**
 1. `README.hi.md` (dört README'nin dil satırına `· [हिन्दी](README.hi.md)` eklenecek).
 2. İstenirse: açılış sayfasının diğer dillere çevrilmesi; ABD/İngiltere/Almanya/Brezilya yerel sayfaları için

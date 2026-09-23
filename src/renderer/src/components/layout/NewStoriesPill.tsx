@@ -7,8 +7,10 @@ import { useUi } from '@/stores/ui'
 import { isNewsRoute } from './routing'
 
 /**
- * Floating "12 new stories" pill at the top of the page area. Refreshes never
- * shift the page under the reader; this pill brings them to the top instead.
+ * Floating "12 new stories" pill at the top of the page area — below the page's
+ * filter bar when it has one (`--sticky-bar-bottom`, set by FilterBar), so it
+ * never covers the filters. Refreshes never shift the page under the reader;
+ * this pill brings them to the top instead.
  */
 export function NewStoriesPill(): React.JSX.Element {
   const { t } = useTranslation('common')
@@ -17,7 +19,7 @@ export function NewStoriesPill(): React.JSX.Element {
   const visible = unseen > 0 && onNews
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-3 z-20 flex justify-center">
+    <div className="pointer-events-none absolute inset-x-0 top-[calc(var(--sticky-bar-bottom,0px)+0.75rem)] z-30 flex justify-center">
       <AnimatePresence>
         {visible && (
           <motion.button

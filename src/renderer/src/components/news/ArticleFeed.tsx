@@ -193,9 +193,9 @@ function FeedBlock({ layout, articles, queue, features, ...card }: BlockProps): 
 }
 
 /**
- * A sticky hour rule: the clock icon, the hour (with the day when it is not
- * today) and a hairline. Sticks below the page's filter bar, whose height it
- * reads from `--feed-sticky-top` (set by FilterBar).
+ * An hour rule: the clock icon, the hour (with the day when it is not today)
+ * and a hairline. It scrolls with its stories; a stuck "14:00" above a list of
+ * 14:40 stories read as a clash with their own times.
  */
 function HourRule({
   hour,
@@ -210,7 +210,7 @@ function HourRule({
   const label =
     startOfDay(hour) === today ? clock(hour, lang) : `${dayLabel(hour, lang, today)} · ${clock(hour, lang)}`
   return (
-    <h3 className="sticky top-[var(--feed-sticky-top,0px)] z-10 mb-4 flex items-center gap-2.5 bg-canvas/90 py-2 font-ui text-[13px] font-semibold text-fg tabular-nums backdrop-blur">
+    <h3 className="mb-4 flex items-center gap-2.5 py-2 font-ui text-[13px] font-semibold text-fg tabular-nums">
       <Clock3
         size={15}
         strokeWidth={2}

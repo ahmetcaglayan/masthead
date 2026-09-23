@@ -294,27 +294,33 @@ export function FilterSummary({ hide = [] }: { hide?: readonly FilterControl[] }
   )
 }
 
-/** Gap between the stuck filter bar and what sticks below it (the feed's hour rules). */
-const STICKY_GAP = 8
-
 /**
- * Publish the bar's stuck bottom edge as `--feed-sticky-top` on its parent, so
- * the feed's sticky hour rules sit just below it instead of under it.
+ * Publish where the bar ends on screen — stuck at the top or still in place under the page
+ * header — as `--sticky-bar-bottom` on the page area (the parent of the `<main>` scroller), so
+ * floating page chrome like the "new stories" pill sits below the bar instead of on it. Updated
+ * on scroll and resize. A route change swaps pages in one commit, so there is only ever one bar.
  */
-function useStickyOffset(ref: React.RefObject<HTMLElement | null>): void {
+function usePublishedBottom(ref: React.RefObject<HTMLElement | null>): void {
   useLayoutEffect(() => {
     const el = ref.current
-    const parent = el?.parentElement
-    if (!el || !parent) return
-    const top = parseFloat(getComputedStyle(el).top) || 0
-    const observer = new ResizeObserver(([entry]) => {
-      const height = entry?.borderBoxSize?.[0]?.blockSize ?? el.offsetHeight
-      parent.style.setProperty('--feed-sticky-top', `${Math.round(top + height + STICKY_GAP)}px`)
-    })
+    const main = el?.closest('main')
+    const area = main?.parentElement
+    if (!el || !main || !area) return
+    // Straight from the scroll event (dispatched at most once a frame), not through
+    // requestAnimationFrame, which a hidden window pauses.
+    const publish = (): void => {
+      const bottom = el.getBoundingClientRect().bottom - area.getBoundingClientRect().top
+      area.style.setProperty('--sticky-bar-bottom', `${Math.max(0, Math.round(bottom))}px`)
+    }
+    publish()
+    const observer = new ResizeObserver(publish)
     observer.observe(el)
+    observer.observe(area)
+    main.addEventListener('scroll', publish, { passive: true })
     return () => {
       observer.disconnect()
-      parent.style.removeProperty('--feed-sticky-top')
+      main.removeEventListener('scroll', publish)
+      area.style.removeProperty('--sticky-bar-bottom')
     }
   }, [ref])
 }
@@ -339,7 +345,7 @@ export function FilterBar({ hide = [], count, className }: FilterBarProps): Reac
   const counts = useCounts()
   const country = useSettings((s) => s.settings.country)
   const ref = useRef<HTMLDivElement>(null)
-  useStickyOffset(ref)
+  usePublishedBottom(ref)
   const { filters, sourcesLabel, locationLabel, active: chips, clearAll } = useActiveFilters(hide)
   const selectedSources = filters.sourceIds
   const shows = (control: FilterControl): boolean =>
@@ -351,135 +357,142 @@ export function FilterBar({ hide = [], count, className }: FilterBarProps): Reac
   )
 
   return (
+    // The sticky layer spans the gap above the stuck bar and fades out just below it, so the
+    // stories scrolling underneath never show around the bar. Its padding is cancelled by
+    // negative margins: the layout is the same as for the bar alone.
     <div
       ref={ref}
-      role="toolbar"
-      aria-label={t('filters.label')}
-      className={cn(
-        'sticky top-3 z-20 rounded-panel border border-line bg-glass shadow-soft backdrop-blur-xl',
-        className
-      )}
+      className="sticky top-0 z-20 -mt-3 -mb-3 bg-[linear-gradient(to_bottom,var(--color-canvas)_calc(100%-0.75rem),transparent)] pt-3 pb-3"
     >
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-2 p-2">
-        {shows('time') && (
-          <SegmentedControl<TimeRange>
-            size="sm"
-            aria-label={t('filters.timeRange')}
-            value={filters.timeRange}
-            onChange={(timeRange) => setFilters({ timeRange })}
-            options={timeOptions}
-          />
-        )}
-        {shows('time') && (shows('sources') || shows('location') || shows('sort')) && (
-          <Divider orientation="vertical" className="mx-1 h-6 self-center" />
-        )}
+      <div
+        role="toolbar"
+        aria-label={t('filters.label')}
+        className={cn('rounded-panel border border-line bg-glass shadow-soft backdrop-blur-xl', className)}
+      >
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 p-2">
+          {shows('time') && (
+            <SegmentedControl<TimeRange>
+              size="sm"
+              aria-label={t('filters.timeRange')}
+              value={filters.timeRange}
+              onChange={(timeRange) => setFilters({ timeRange })}
+              options={timeOptions}
+            />
+          )}
+          {shows('time') && (shows('sources') || shows('location') || shows('sort')) && (
+            <Divider orientation="vertical" className="mx-1 h-6 self-center" />
+          )}
 
-        {shows('sources') && (
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={Rss}
-                iconRight={ChevronDown}
-                className={triggerClass(selectedSources.length > 0)}
-              >
-                {sourcesLabel}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-80 p-3">
-              <SourcePicker sources={enabled} selected={selectedSources} counts={counts.sources} />
-            </PopoverContent>
-          </Popover>
-        )}
+          {shows('sources') && (
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  icon={Rss}
+                  iconRight={ChevronDown}
+                  className={triggerClass(selectedSources.length > 0)}
+                >
+                  {sourcesLabel}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-80 p-3">
+                <SourcePicker sources={enabled} selected={selectedSources} counts={counts.sources} />
+              </PopoverContent>
+            </Popover>
+          )}
 
-        {shows('location') && (
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={MapPin}
-                iconRight={ChevronDown}
-                className={triggerClass(Boolean(locationLabel))}
-              >
-                {locationLabel ?? t('filters.location', { context: getCountryPack(country)?.localUnit })}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-[22rem] p-3">
-              <LocationPicker
-                value={{ provinceCode: filters.provinceCode, regionId: filters.regionId }}
-                onChange={(next) => setFilters(next)}
-                counts={counts}
-                autoFocus
-              />
-            </PopoverContent>
-          </Popover>
-        )}
+          {shows('location') && (
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  icon={MapPin}
+                  iconRight={ChevronDown}
+                  className={triggerClass(Boolean(locationLabel))}
+                >
+                  {locationLabel ?? t('filters.location', { context: getCountryPack(country)?.localUnit })}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[22rem] p-3">
+                <LocationPicker
+                  value={{ provinceCode: filters.provinceCode, regionId: filters.regionId }}
+                  onChange={(next) => setFilters(next)}
+                  counts={counts}
+                  autoFocus
+                />
+              </PopoverContent>
+            </Popover>
+          )}
 
-        {shows('sort') && (
-          <Menu>
-            <MenuTrigger asChild>
-              <Button variant="ghost" size="sm" icon={ArrowUpDown} iconRight={ChevronDown}>
-                {t(`filters.sort.${filters.sort}`)}
-              </Button>
-            </MenuTrigger>
-            <MenuContent align="start">
-              <MenuRadioGroup
-                value={filters.sort}
-                onValueChange={(value) => setFilters({ sort: value as SortOrder })}
-              >
-                {SORTS.map((sort) => (
-                  <MenuRadioItem key={sort} value={sort}>
-                    {t(`filters.sort.${sort}`)}
-                  </MenuRadioItem>
-                ))}
-              </MenuRadioGroup>
-            </MenuContent>
-          </Menu>
-        )}
+          {shows('sort') && (
+            <Menu>
+              <MenuTrigger asChild>
+                <Button variant="ghost" size="sm" icon={ArrowUpDown} iconRight={ChevronDown}>
+                  {t(`filters.sort.${filters.sort}`)}
+                </Button>
+              </MenuTrigger>
+              <MenuContent align="start">
+                <MenuRadioGroup
+                  value={filters.sort}
+                  onValueChange={(value) => setFilters({ sort: value as SortOrder })}
+                >
+                  {SORTS.map((sort) => (
+                    <MenuRadioItem key={sort} value={sort}>
+                      {t(`filters.sort.${sort}`)}
+                    </MenuRadioItem>
+                  ))}
+                </MenuRadioGroup>
+              </MenuContent>
+            </Menu>
+          )}
 
-        {(shows('images') || shows('read')) && (
-          <Divider orientation="vertical" className="mx-1 h-6 self-center" />
-        )}
-        {shows('images') && (
-          <ToggleChip
-            selected={filters.withImagesOnly}
-            onSelectedChange={(withImagesOnly) => setFilters({ withImagesOnly })}
-            icon={Image}
-            showCheck
-          >
-            {t('filters.withImages')}
-          </ToggleChip>
-        )}
-        {shows('read') && (
-          <ToggleChip
-            selected={filters.hideRead}
-            onSelectedChange={(hideRead) => setFilters({ hideRead })}
-            icon={EyeOff}
-            showCheck
-          >
-            {t('filters.hideRead')}
-          </ToggleChip>
-        )}
+          {(shows('images') || shows('read')) && (
+            <Divider orientation="vertical" className="mx-1 h-6 self-center" />
+          )}
+          {shows('images') && (
+            <ToggleChip
+              selected={filters.withImagesOnly}
+              onSelectedChange={(withImagesOnly) => setFilters({ withImagesOnly })}
+              icon={Image}
+              showCheck
+            >
+              {t('filters.withImages')}
+            </ToggleChip>
+          )}
+          {shows('read') && (
+            <ToggleChip
+              selected={filters.hideRead}
+              onSelectedChange={(hideRead) => setFilters({ hideRead })}
+              icon={EyeOff}
+              showCheck
+            >
+              {t('filters.hideRead')}
+            </ToggleChip>
+          )}
 
-        {count !== undefined && (
-          <span aria-live="polite" className="ml-auto px-2 font-ui text-[12.5px] text-fg-subtle tabular-nums">
-            {t('filters.results', { count, formatted: formatNumber(count, i18n.language) })}
-          </span>
+          {count !== undefined && (
+            <span
+              aria-live="polite"
+              className="ml-auto px-2 font-ui text-[12.5px] text-fg-subtle tabular-nums"
+            >
+              {t('filters.results', { count, formatted: formatNumber(count, i18n.language) })}
+            </span>
+          )}
+        </div>
+
+        {chips.length > 0 && (
+          <div className="flex flex-wrap items-center gap-1.5 border-t border-line px-3 py-2">
+            {chips.map((chip) => (
+              <ActiveChip key={chip.key} label={chip.label} onRemove={chip.remove} />
+            ))}
+            <Button variant="ghost" size="sm" onClick={clearAll} className="ml-1">
+              {t('filters.clearAll')}
+            </Button>
+          </div>
         )}
       </div>
-
-      {chips.length > 0 && (
-        <div className="flex flex-wrap items-center gap-1.5 border-t border-line px-3 py-2">
-          {chips.map((chip) => (
-            <ActiveChip key={chip.key} label={chip.label} onRemove={chip.remove} />
-          ))}
-          <Button variant="ghost" size="sm" onClick={clearAll} className="ml-1">
-            {t('filters.clearAll')}
-          </Button>
-        </div>
-      )}
     </div>
   )
 }
