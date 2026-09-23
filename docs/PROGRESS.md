@@ -13,7 +13,7 @@
 - **Tarih:** 2026-09-23
 - **Aktif faz:** Faz 1–4 tamamlandı; **v0.4.0 yayında** (2026-09-23, otomatik güncellemeli ilk sürüm). Faz 2 ve 3
   (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası, hava durumu ve
-  erişilebilirlik turu — hepsi bitti). Otomatik güncelleme v0.4.0 ile gelecek.
+  erişilebilirlik turu — hepsi bitti).
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
   **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 388 birim testi yeşil.** Her ülkenin
   kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
