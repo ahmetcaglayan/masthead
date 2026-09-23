@@ -11,7 +11,7 @@
 ## Son durum
 
 - **Tarih:** 2026-09-23
-- **Aktif faz:** Faz 1 tamamlandı, Faz 4'ün ilk adımı (6 ülke, 4 dil) tamamlandı; **v0.2.0 yayınlanıyor**
+- **Aktif faz:** Faz 1 + Faz 4'ün ilk adımı tamamlandı; **v0.2.0 yayında** (depo public, site yayında)
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
   206 kaynak (6 ülke), 317 birim testi, `npm run selftest` 11/11 (v0.1.0'da), tasarım ve kod
   incelemeleri yapıldı, Windows paketleri (Windows PC'de) `release/0.1.0/` altında. Kod GitHub'da
@@ -23,11 +23,10 @@
 
 ## Sıradaki adım
 
-1. ~~GitHub deposu + push~~ ✅ https://github.com/ahmetcaglayan/masthead
-2. `v0.1.0` etiketi → `.github/workflows/release.yml` Windows/macOS/Linux paketlerini taslak Release'e yükler;
-   notları `CHANGELOG.md`'den kontrol edip yayınla. (Ya da `release/0.1.0/` altındaki Windows dosyalarını elle yükle.)
-3. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
-4. Yeni ülkeler için ekran görüntüleri/README görselleri ve (istenirse) Fransa · İspanya/Meksika paketleri.
+1. ~~GitHub deposu + push~~ ✅ · ~~depo public + v0.2.0 Release~~ ✅ · ~~açılış sayfası (GitHub Pages)~~ ✅
+2. Faz 2'ye başla (bkz. PLAN.md): komut paleti, kısayollar, hikâye sayfası, kelime susturma, erişilebilirlik turu.
+3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
+4. Otomatik güncelleme (electron-updater) ve kod imzalama; sonraki ülke paketleri (Fransa, İspanya/Meksika).
 
 ---
 
@@ -164,7 +163,9 @@ Gereksinimler: Node.js 22.12+ (geliştirmede 24 kullanıldı), npm 10+. Windows'
 - [x] 2026-09-23 · Git deposu (`main`), ilk commit, `origin` = `https://github.com/ahmetcaglayan/masthead.git`
 - [x] 2026-09-23 · GitHub'a push: https://github.com/ahmetcaglayan/masthead (`main`); tüm bağlantılar küçük harfli
       depo adına çevrildi
-- [ ] v0.1.0 etiketi + Release (sahibinin onayıyla)
+- [x] 2026-09-23 · v0.1.0 yerine **v0.2.0 yayınlandı**: depo public, açıklama + 17 konu etiketi, GitHub Pages
+      sitesi (https://ahmetcaglayan.github.io/masthead/), `v0.2.0` etiketi ve 16 dosyalık Release
+      (Windows x64/arm64/portable, macOS arm64/x64 dmg, Linux AppImage/deb) — indirme linkleri doğrulandı
 - [ ] (İsteğe bağlı) Kod imzalama: SignPath Foundation (açık kaynak için ücretsiz) veya Azure Trusted Signing —
       Akıllı Uygulama Denetimi engelini kaldırır
 
