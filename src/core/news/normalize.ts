@@ -7,7 +7,7 @@ import { META_CATEGORIES, type CategoryId } from '../../shared/categories'
 import type { CountryPack } from '../../shared/countries/types'
 import type { Article, ArticleDetail, FeedDef, SourceDef } from '../../shared/types'
 import { categoriesFromLabel, categoriesFromUrl } from './categories'
-import { parseFeedDate } from './dates'
+import { parseFeedDate, publishedFromUrl } from './dates'
 import type { GeoTagger } from './geo'
 import { htmlImages, isJunkImage, pickImage, upgradeImageUrl } from './images'
 import type { RawItem } from './parse'
@@ -50,10 +50,11 @@ const MAX_DETAIL_IMAGES = 20
 /**
  * Matched on trLower'd text, where a capital I becomes ı ("BREAKING" → "breakıng",
  * "ACIL" → "acıl"). Covers the markers of every pack's language: Turkish, English,
- * German ("Eilmeldung") and Portuguese ("URGENTE", "Plantão").
+ * German ("Eilmeldung"), Portuguese ("URGENTE", "Plantão") and French ("ALERTE INFO",
+ * "Dernière minute", "Flash info", "URGENT").
  */
 const BREAKING_PREFIX =
-  /^\s*(?:[🔴🚨⚡❗‼]\s*)?(?:son ?dak[iı]ka(?: haber[iı]| haberler[iı])?|fla[şs](?: haber)?|ac[iı]l|break[iı]ng(?: news)?|e[iı]lmeldung|urgente|plant[aã]o)(?:\s*[:|!•»›–—.…-]+\s*|\s+ı\s+)/u
+  /^\s*(?:[🔴🚨⚡❗‼]\s*)?(?:son ?dak[iı]ka(?: haber[iı]| haberler[iı])?|fla[şs](?: haber)?|flash(?: [iı]nfo)?|ac[iı]l|break[iı]ng(?: news)?|e[iı]lmeldung|urgente?|plant[aã]o|alerte(?: [iı]nfo)?|dern[iı][eè]re m[iı]nute)(?:\s*[:|!•»›–—.…-]+\s*|\s+ı\s+)/u
 
 /**
  * A headline without Sabah's trailing hashtags and without a "SON DAKİKA:" /
@@ -240,8 +241,14 @@ export function normalizeItem(raw: RawItem, ctx: NormalizeContext): NormalizedIt
     detail = { id, paragraphs: capParagraphs(body, DETAIL_MAX_CHARS), images: [...images] }
   }
 
-  const parsed = parseFeedDate(raw.published, feed.timeZone ?? pack.timeZone, feed.timeZone !== undefined)
-  const publishedAt = parsed === null || parsed > now + FUTURE_TOLERANCE_MS ? now : parsed
+  const timeZone = feed.timeZone ?? pack.timeZone
+  const parsed = parseFeedDate(raw.published, timeZone, feed.timeZone !== undefined)
+  const publishedAt =
+    parsed === null
+      ? (publishedFromUrl(url, timeZone, now) ?? now)
+      : parsed > now + FUTURE_TOLERANCE_MS
+        ? now
+        : parsed
 
   const categories = new Set<CategoryId>([feed.category])
   if (feed.breaking || titleBreaking) categories.add('breaking')

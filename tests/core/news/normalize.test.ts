@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { describe, expect, it } from 'vitest'
 import { getSource } from '../../../src/shared/countries'
 import type { FeedDef, SourceDef } from '../../../src/shared/types'
-import { parseFeedDate } from '../../../src/core/news/dates'
+import { parseFeedDate, publishedFromUrl } from '../../../src/core/news/dates'
 import { createGeoTagger } from '../../../src/core/news/geo'
 import { pickImage } from '../../../src/core/news/images'
 import {
@@ -53,6 +53,34 @@ function raw(overrides: Partial<RawItem>): RawItem {
     ...overrides
   }
 }
+
+describe('publishedFromUrl', () => {
+  // Thursday 24 September 2026, 17:00 in Paris.
+  const now = Date.UTC(2026, 8, 24, 15, 0)
+  const paris = 'Europe/Paris'
+  const noon = (day: number): number => Date.UTC(2026, 8, day, 10, 0)
+
+  it('takes an earlier day from the URL, at noon', () => {
+    expect(
+      publishedFromUrl('https://www.leparisien.fr/faits-divers/un-titre-22-09-2026-ABCDEF.php', paris, now)
+    ).toBe(noon(22))
+    expect(
+      publishedFromUrl('https://www.lemonde.fr/politique/article/2026/09/23/un-titre_1_2.html', paris, now)
+    ).toBe(noon(23))
+    expect(publishedFromUrl('https://www.lefigaro.fr/politique/un-titre-20260921', paris, now)).toBe(noon(21))
+  })
+
+  it('leaves today, the future and URLs without a date to the time first seen', () => {
+    expect(
+      publishedFromUrl('https://www.leparisien.fr/paris-75/un-titre-24-09-2026-XYZ.php', paris, now)
+    ).toBeNull()
+    expect(
+      publishedFromUrl('https://www.leparisien.fr/paris-75/un-titre-25-09-2026-XYZ.php', paris, now)
+    ).toBeNull()
+    expect(publishedFromUrl('https://www.leparisien.fr/paris-75/un-titre-XYZ.php', paris, now)).toBeNull()
+    expect(publishedFromUrl('https://example.com/item/123456789', paris, now)).toBeNull()
+  })
+})
 
 describe('parseFeedDate', () => {
   it('reads RFC 822 with Turkish day and month names', () => {
@@ -138,6 +166,19 @@ describe('cleanTitle', () => {
       title: 'Meclis olağanüstü toplandı',
       breaking: true
     })
+    // French markers, re-capitalised by French rules.
+    for (const raw of [
+      'ALERTE INFO - le gouvernement engage sa responsabilité',
+      'Dernière minute : le gouvernement engage sa responsabilité',
+      'DERNIÈRE MINUTE. Le gouvernement engage sa responsabilité',
+      'Flash info | le gouvernement engage sa responsabilité',
+      'URGENT : le gouvernement engage sa responsabilité'
+    ]) {
+      expect(cleanTitle(raw, 'fr-FR')).toEqual({
+        title: 'Le gouvernement engage sa responsabilité',
+        breaking: true
+      })
+    }
   })
 
   it('leaves ordinary titles alone', () => {
@@ -157,6 +198,8 @@ describe('cleanTitle', () => {
       title: 'Buca’da memurlar iş bırakıyor',
       breaking: false
     })
+    expect(cleanTitle('Alerte aux orages sur le Sud-Ouest', 'fr-FR').breaking).toBe(false)
+    expect(cleanTitle('Urgences : les soignants en grève', 'fr-FR').breaking).toBe(false)
   })
 })
 

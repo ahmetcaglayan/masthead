@@ -1,0 +1,344 @@
+{
+  "kicker": {
+    "breaking": "Dernière minute"
+  },
+  "meta": {
+    "sources_one": "{{count}} source",
+    "sources_other": "{{count}} sources",
+    "updated": "mis à jour {{time}}",
+    "compare_one": "Voir comment {{count}} source en parle",
+    "compare_other": "Comparer comment {{count}} sources en parlent"
+  },
+  "card": {
+    "alsoReporting": "En parlent aussi"
+  },
+  "summary": {
+    "continueHere": "Lire la suite ici",
+    "loading": "Chargement de l'article complet…",
+    "openFull": "Ouvrir l'article complet",
+    "noDetail": "Le flux n'en dit pas plus — ouvrez l'article pour la suite."
+  },
+  "toast": {
+    "saved": "Enregistré pour plus tard",
+    "unsaved": "Retiré des enregistrés"
+  },
+  "cluster": {
+    "coveredBy_one": "Traité par {{count}} source",
+    "coveredBy_other": "Traité par {{count}} sources",
+    "otherHeadlines": "Ce qu'en disent les autres médias",
+    "moreSources_one": "{{count}} autre source",
+    "moreSources_other": "{{count}} autres sources"
+  },
+  "ticker": {
+    "label": "Dernière minute",
+    "pause": "Mettre le bandeau en pause",
+    "play": "Relancer le bandeau",
+    "previous": "Article précédent",
+    "next": "Article suivant",
+    "position": "{{current}}/{{total}}",
+    "all": "Toute la dernière minute ({{count}})"
+  },
+  "timeline": {
+    "showMore": "Afficher plus"
+  },
+  "header": {
+    "stories_one": "{{formatted}} article",
+    "stories_other": "{{formatted}} articles"
+  },
+  "feed": {
+    "loadMore": "Afficher plus ({{shown}} sur {{total}})",
+    "end": "Vous êtes à jour."
+  },
+  "gate": {
+    "allOffTitle": "Toutes les sources sont désactivées",
+    "allOffBody": "Activez au moins une source et ses articles apparaîtront ici.",
+    "manageSources": "Gérer les sources",
+    "offlineBody": "Aucun article n'est encore enregistré. Nous récupérerons l'actualité dès votre retour en ligne.",
+    "emptyTitle": "Pas encore d'articles",
+    "emptyBody": "Les flux ne sont pas encore arrivés. Actualisez maintenant ou revenez dans un instant."
+  },
+  "filters": {
+    "label": "Filtres",
+    "timeRange": "Période",
+    "time": {
+      "1h": "1 h",
+      "6h": "6 h",
+      "24h": "24 h",
+      "3d": "3 j",
+      "all": "Tout"
+    },
+    "timeLong": {
+      "1h": "Dernière heure",
+      "6h": "6 dernières heures",
+      "24h": "24 dernières heures",
+      "3d": "3 derniers jours"
+    },
+    "sources": "Sources",
+    "sourcesCount_one": "{{count}} source",
+    "sourcesCount_other": "{{count}} sources",
+    "searchSources": "Trouver une source…",
+    "allSources": "Toutes les sources",
+    "noSources": "Aucune source correspondante.",
+    "location": "Région / Province",
+    "location_state": "Région / État",
+    "location_land": "Région / Land",
+    "location_area": "Région / Zone",
+    "location_department": "Région / Département",
+    "sort": {
+      "latest": "Plus récents",
+      "popular": "Plus repris"
+    },
+    "withImages": "Avec images",
+    "hideRead": "Masquer les lus",
+    "results_one": "{{formatted}} article",
+    "results_other": "{{formatted}} articles",
+    "remove": "Retirer le filtre : {{label}}",
+    "clearAll": "Effacer les filtres",
+    "filtered": "Filtré : {{filters}}",
+    "noMatchTitle": "Aucun article ne correspond à ces filtres",
+    "noMatchBody": "Essayez une période plus longue ou retirez un ou deux filtres."
+  },
+  "location": {
+    "search": "Trouver une province…",
+    "search_state": "Trouver un État…",
+    "search_land": "Trouver un Land…",
+    "search_area": "Trouver une zone…",
+    "search_department": "Trouver un département…",
+    "noMatch": "Aucune province de ce nom.",
+    "noMatch_state": "Aucun État de ce nom.",
+    "noMatch_land": "Aucun Land de ce nom.",
+    "noMatch_area": "Aucune zone de ce nom.",
+    "noMatch_department": "Aucun département de ce nom.",
+    "anywhere": "Toutes les régions",
+    "showProvinces": "Afficher les provinces de la région {{region}}",
+    "showProvinces_state": "Afficher les États de la région {{region}}",
+    "showProvinces_land": "Afficher les Länder de la région {{region}}",
+    "showProvinces_area": "Afficher les zones de la région {{region}}",
+    "showProvinces_department": "Afficher les départements de la région {{region}}"
+  },
+  "home": {
+    "dateline_one": "{{stories}} articles de {{count}} source",
+    "dateline_other": "{{stories}} articles de {{count}} sources",
+    "topStories": "À la une",
+    "moreTopStories": "Autres titres à la une",
+    "digestKicker": "En bref",
+    "digestDescription": "Les sujets repris par plusieurs médias, une carte chacun — qui a dit quoi, côte à côte.",
+    "digestAll": "Voir tout l'essentiel"
+  },
+  "digest": {
+    "title": "L'essentiel",
+    "kicker": "En bref",
+    "description": "Chaque sujet repris par plusieurs médias, sur une seule carte avec le titre de chacun — sans avoir à cliquer.",
+    "summary_one": "{{formatted}} sujet de {{sources}} sources",
+    "summary_other": "{{formatted}} sujets de {{sources}} sources",
+    "emptyTitle": "Pas encore de sujet commun",
+    "emptyBody": "Les sujets traités par plus d'un média se rassembleront ici. Revenez dans un moment.",
+    "soloTitle": "À la une d'un seul média",
+    "soloBody": "Des sujets qu'un seul média a mis en avant pour l'instant.",
+    "more": "Afficher plus de sujets",
+    "sharedTitle": "Les sujets repris par plusieurs médias"
+  },
+  "latest": {
+    "title": "En continu",
+    "kicker": "Fil en direct",
+    "description": "Tous les articles de vos sources, minute par minute."
+  },
+  "breaking": {
+    "live": "En direct",
+    "title": "Dernière minute",
+    "description": "Directement des fils d'alerte de vos sources.",
+    "recent_one": "{{count}} nouvelle en 2 heures",
+    "recent_other": "{{count}} nouvelles en 2 heures",
+    "total_one": "{{formatted}} alerte au total",
+    "total_other": "{{formatted}} alertes au total",
+    "emptyTitle": "Aucune alerte pour le moment",
+    "emptyBody": "Dès qu'une information tombe, elle apparaîtra ici en premier."
+  },
+  "forYou": {
+    "title": "Pour vous",
+    "kicker": "Personnalisé",
+    "description": "Des articles choisis selon vos centres d'intérêt.",
+    "descriptionWithCity": "Des articles choisis selon vos centres d'intérêt et pour {{city}}.",
+    "interests": "Vos centres d'intérêt",
+    "pickTitle": "Que voulez-vous suivre ?",
+    "pickBody": "Choisissez quelques rubriques et votre fil les suivra. Vous pourrez les changer à tout moment.",
+    "emptyTitle": "Rien pour vous pour l'instant",
+    "emptyBody": "Ajoutez quelques rubriques de plus, ou revenez dans un moment.",
+    "reason": {
+      "reads": "Comme vos lectures : {{word}}",
+      "local": "Local : {{place}}",
+      "interest": "Votre centre d'intérêt",
+      "interestIn": "Votre centre d'intérêt : {{topic}}",
+      "habit": "Un sujet que vous lisez souvent",
+      "habitIn": "Vous lisez souvent : {{topic}}",
+      "popular": "Largement repris"
+    },
+    "history": {
+      "title": "D'après vos lectures",
+      "use": "Utiliser mon historique de lecture",
+      "body": "Ce qui ressort des articles lus récemment. Calculé uniquement sur cet appareil et jamais envoyé ailleurs.",
+      "learning": "Lisez quelques articles et votre fil apprendra aussi de vos lectures ({{count}} sur {{min}} pour l'instant). Calculé uniquement sur cet appareil.",
+      "nothing": "Rien ne ressort encore de vos lectures : le fil suit vos centres d'intérêt et votre lieu.",
+      "off": "Désactivé : le fil ne suit que vos centres d'intérêt et votre lieu.",
+      "search": "Rechercher « {{word}} »"
+    }
+  },
+  "local": {
+    "title": "Actualité locale",
+    "kicker": "Local",
+    "chooseBody": "Quelle ville voulez-vous suivre ? Ouvrez une région et choisissez votre province.",
+    "chooseBody_state": "Quel État voulez-vous suivre ? Ouvrez une région et choisissez votre État.",
+    "chooseBody_land": "Quel Land voulez-vous suivre ? Ouvrez une région et choisissez votre Land.",
+    "chooseBody_area": "Quelle zone voulez-vous suivre ? Ouvrez une région et choisissez votre zone.",
+    "chooseBody_department": "Quel département voulez-vous suivre ? Ouvrez une région et choisissez votre département.",
+    "change": "Changer de ville",
+    "change_state": "Changer d'État",
+    "change_land": "Changer de Land",
+    "change_area": "Changer de zone",
+    "change_department": "Changer de département",
+    "sources": "Médias locaux",
+    "description": "Toute l'actualité de {{city}}, avec ses médias locaux.",
+    "regionDescription": "L'actualité des provinces de votre région.",
+    "regionDescription_state": "L'actualité des États de votre région.",
+    "regionDescription_land": "L'actualité des Länder de votre région.",
+    "regionDescription_area": "L'actualité des zones de votre région.",
+    "regionDescription_department": "L'actualité des départements de votre région.",
+    "emptyTitle": "Pas encore d'article sur {{place}}",
+    "emptyBody": "Les flux locaux arrivent — revenez dans quelques minutes.",
+    "nearby": "Autour de la région {{region}}",
+    "top": "À la une : {{place}}"
+  },
+  "markets": {
+    "kicker": "Investisseur",
+    "title": "Marchés",
+    "description": "Votre liste de suivi et l'actualité des marchés au fil de l'eau, minute par minute.",
+    "edit": "Modifier la liste de suivi",
+    "watchlist": "Votre liste de suivi",
+    "noChange": "La source ne donne pas de variation",
+    "live": "En direct",
+    "loading": "Chargement des cours…",
+    "failed": "Les cours sont injoignables pour le moment ; nouvel essai sous peu.",
+    "ratesDate": "Devises : cours de référence BCE du {{date}}",
+    "news": "Actualité des marchés",
+    "newsAbout": "Actualité : {{name}}",
+    "new": "Nouveau",
+    "more": "Afficher plus",
+    "emptyNews": "Pas encore d'article à ce sujet.",
+    "emptyTitle": "Votre liste de suivi est vide",
+    "emptyBody": "Ajoutez les devises, métaux, cryptos et entreprises que vous voulez suivre.",
+    "sources": "Sources : devises — cours de référence de la Banque centrale européenne (via Frankfurter, chaque jour ouvré) ; métaux — gold-api.com ; cryptos — données de marché publiques de Binance ; variation de l'or sur 24 heures — PAX Gold sur Binance. Les cours des actions sont sous licence : les entreprises sont suivies à travers leur actualité.",
+    "disclaimer": "À titre d'information uniquement, pas un conseil en investissement. Les cours peuvent être différés.",
+    "kinds": {
+      "currency": "Devises",
+      "metal": "Métaux",
+      "crypto": "Cryptos",
+      "equity": "Actions et entreprises"
+    },
+    "metals": {
+      "XAU": "Or",
+      "XAG": "Argent",
+      "XPT": "Platine",
+      "XPD": "Palladium"
+    },
+    "unit": {
+      "gram": "gramme",
+      "tenGrams": "10 g",
+      "ounce": "once"
+    },
+    "stories_one": "{{count}} article",
+    "stories_other": "{{count}} articles",
+    "showAll": "Toute l'actualité des marchés"
+  },
+  "category": {
+    "kicker": "Rubrique",
+    "top": "À la une : {{topic}}",
+    "emptyTitle": "Pas encore d'article dans la rubrique {{topic}}",
+    "emptyBody": "Les articles de cette rubrique apparaîtront ici dès leur arrivée."
+  },
+  "source": {
+    "offBadge": "Désactivée",
+    "feeds_one": "{{count}} flux",
+    "feeds_other": "{{count}} flux",
+    "on": "Activée",
+    "off": "Désactivée",
+    "unknownTitle": "Source introuvable",
+    "unknownBody": "Cette source ne fait pas partie des sources du pays choisi.",
+    "disabledTitle": "{{name}} est désactivée",
+    "disabledBody": "Activez-la pour voir ses articles ici et dans vos fils.",
+    "turnOn": "Activer",
+    "emptyTitle": "Pas encore d'article de cette source",
+    "emptyBody": "Ses flux seront consultés à la prochaine actualisation."
+  },
+  "search": {
+    "title": "Recherche",
+    "kicker": "Résultats de recherche",
+    "titleFor": "« {{query}} »",
+    "results_one": "{{formatted}} résultat",
+    "results_other": "{{formatted}} résultats",
+    "order": "Ordre",
+    "relevance": "Les plus pertinents",
+    "newest": "Les plus récents",
+    "startTitle": "Que cherchez-vous ?",
+    "startKicker": "Toutes les sources",
+    "startBody": "La recherche porte sur les titres et les résumés. Les accents sont facultatifs — « elysee » trouve « Élysée », « sao paulo » trouve « São Paulo ».",
+    "focus": "Commencer la recherche",
+    "noResultsBody": "Essayez d'autres mots, ou moins de mots. Les expressions entre guillemets sont recherchées telles quelles.",
+    "noResultsFiltered": "Vos filtres masquent peut-être des résultats.",
+    "resultsHeading": "Résultats"
+  },
+  "saved": {
+    "title": "Enregistrés",
+    "description": "Les articles mis de côté pour plus tard.",
+    "emptyTitle": "Rien d'enregistré pour l'instant",
+    "emptyBody": "Utilisez le marque-page d'un article pour le garder ici."
+  },
+  "history": {
+    "title": "Historique",
+    "description": "Les articles ouverts, du plus récent au plus ancien.",
+    "clear": "Effacer l'historique",
+    "readAt": "Lu à {{time}}",
+    "emptyTitle": "Pas encore d'historique",
+    "emptyBody": "Les articles que vous ouvrez s'afficheront ici, jour par jour.",
+    "clearTitle": "Effacer votre historique de lecture ?",
+    "clearBody": "La liste des articles lus sera supprimée. Les articles enregistrés sont conservés. Cette action est définitive.",
+    "clearConfirm": "Effacer l'historique"
+  },
+  "story": {
+    "kicker": "Sujet",
+    "description_one": "{{count}} source en a parlé · d'abord à {{first}}",
+    "description_other": "{{count}} sources en ont parlé · d'abord à {{first}}",
+    "updated": "mis à jour {{time}}",
+    "reports_one": "Comment {{count}} média en a parlé",
+    "reports_other": "Comment {{count}} médias en ont parlé",
+    "order": "Ordre",
+    "orderFirst": "Premier à en parler",
+    "orderLatest": "Plus récents",
+    "first": "Premier",
+    "coverage": "Qui en a parlé",
+    "outlets": "Médias",
+    "goneTitle": "Ce sujet est passé",
+    "goneBody": "Il n'est plus dans l'actualité du moment, ou les médias qui en parlaient sont désactivés.",
+    "toDigest": "Aller à L'essentiel"
+  },
+  "weather": {
+    "label": "Météo à {{place}} : {{temp}}, {{sky}}",
+    "chooseCity": "Choisir une ville pour la météo",
+    "today": "Aujourd'hui",
+    "feelsLike": "ressenti {{temp}}",
+    "wind": "Vent {{speed}} {{unit}}",
+    "source": "Prévisions :",
+    "sky": {
+      "clear": "Dégagé",
+      "mainlyClear": "Plutôt dégagé",
+      "partlyCloudy": "Partiellement nuageux",
+      "overcast": "Nuageux",
+      "fog": "Brouillard",
+      "drizzle": "Bruine",
+      "rain": "Pluie",
+      "showers": "Averses",
+      "snow": "Neige",
+      "thunderstorm": "Orage"
+    }
+  },
+  "browse": "Parcourir l'actualité"
+}

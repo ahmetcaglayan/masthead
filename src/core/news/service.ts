@@ -32,6 +32,8 @@ import type { CreateNewsService } from './types'
 const CACHE_VERSION = 1
 const SAVE_DEBOUNCE_MS = 2000
 const FEED_TIMEOUT_MS = 15_000
+/** Wait before asking again when a site drops the connection (see `droppedConnection`). */
+const RETRY_DROPPED_MS = 750
 const FEED_CONCURRENCY = 8
 const FEED_ACCEPT =
   'application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.9, */*;q=0.8'
@@ -327,6 +329,16 @@ function readImageCache(raw: unknown): ImageCache {
 }
 
 const errorMessage = (error: unknown): string => (error instanceof Error ? error.message : String(error))
+
+/**
+ * The site dropped the connection (a reset or a closed socket) rather than refusing or
+ * timing out. Some CDNs do this to a share of requests at random (Libération's resets about
+ * one in five), and a second try a moment later almost always goes through.
+ */
+function droppedConnection(error: unknown): boolean {
+  const code = (error as { cause?: { code?: unknown } } | null)?.cause?.code
+  return code === 'ECONNRESET' || code === 'EPIPE' || code === 'UND_ERR_SOCKET'
+}
 
 export const createNewsService: CreateNewsService = (options) => {
   const { logger, now, manualRefresh } = options
@@ -630,8 +642,8 @@ export const createNewsService: CreateNewsService = (options) => {
     const previous = s.feedState.get(planned.key)
     const fetchedAt = now()
     const outcome = { planned, fetchedAt, ok: false, notModified: false, items: [], itemCount: 0 }
-    try {
-      const res = await fetchText(planned.feed.url, {
+    const request = (): ReturnType<typeof fetchText> =>
+      fetchText(planned.feed.url, {
         fetch: fetchUntilStopped,
         timeoutMs: FEED_TIMEOUT_MS,
         encoding: planned.feed.encoding,
@@ -640,6 +652,15 @@ export const createNewsService: CreateNewsService = (options) => {
         etag: force ? undefined : previous?.etag,
         lastModified: force ? undefined : previous?.lastModified
       })
+    try {
+      let res: Awaited<ReturnType<typeof fetchText>>
+      try {
+        res = await request()
+      } catch (error) {
+        if (!droppedConnection(error) || stopped) throw error
+        await new Promise((resolve) => setTimeout(resolve, RETRY_DROPPED_MS))
+        res = await request()
+      }
       if (res.notModified) {
         return { ...outcome, ok: true, notModified: true, itemCount: previous?.itemCount ?? 0 }
       }

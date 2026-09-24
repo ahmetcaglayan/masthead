@@ -186,3 +186,34 @@ export function parseFeedDate(value: string | undefined, timeZone: string, force
   }
   return Date.UTC(year, month, day, hour, minute, second) - parts.offset * 60_000
 }
+
+/** `/2026/09/24/` · `-24-09-2026-` · `-20260924` · `2026-09-24` in an article URL. */
+const URL_DATES: readonly { pattern: RegExp; order: 'ymd' | 'dmy' }[] = [
+  { pattern: /(?<!\d)(20\d\d)\/(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])(?!\d)/, order: 'ymd' },
+  { pattern: /(?<!\d)(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-(20\d\d)(?!\d)/, order: 'dmy' },
+  { pattern: /(?<!\d)(20\d\d)-?(0[1-9]|1[0-2])-?(0[1-9]|[12]\d|3[01])(?!\d)/, order: 'ymd' }
+]
+
+/**
+ * For an item whose feed gives no date at all (Le Parisien's): the day in its URL, at noon in
+ * `timeZone`. Null without one, and for today or later, where the time the story was first seen
+ * is the better guess — a story from two days ago should not be listed as just in.
+ */
+export function publishedFromUrl(url: string, timeZone: string, now: number): number | null {
+  let path: string
+  try {
+    path = new URL(url).pathname
+  } catch {
+    return null
+  }
+  for (const { pattern, order } of URL_DATES) {
+    const m = pattern.exec(path)
+    if (!m) continue
+    const [year, month, day] =
+      order === 'ymd' ? [m[1], m[2], m[3]].map(Number) : [m[3], m[2], m[1]].map(Number)
+    const noon = zonedTimeToUtc(year, month - 1, day, 12, 0, 0, timeZone)
+    const startOfToday = now - ((now + zoneOffsetMinutes(timeZone, now) * 60_000) % 86_400_000)
+    return noon < startOfToday ? noon : null
+  }
+  return null
+}

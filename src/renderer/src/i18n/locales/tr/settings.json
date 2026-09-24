@@ -101,7 +101,7 @@
     },
     "country": {
       "label": "Ülke",
-      "description": "Haberleri hangi ülkenin kaynaklarından okuyacağınız. Şimdilik altı ülke var; yenileri yolda.",
+      "description": "Haberleri hangi ülkenin kaynaklarından okuyacağınız. Şimdilik yedi ülke var; yenileri yolda.",
       "soon": "Yakında"
     },
     "city": {
@@ -109,6 +109,7 @@
       "label_state": "Eyalet veya bölge",
       "label_land": "Eyalet veya bölge",
       "label_area": "Yöre veya bölge",
+      "label_department": "Departman veya bölge",
       "description": "Yerel sayfanızı çevrenizdeki haberlerle doldurur."
     },
     "weather": {
@@ -136,10 +137,12 @@
     "cityOnly_state_one": "{{count}} yerel kaynak kendi eyaleti seçilince çekilir",
     "cityOnly_land_one": "{{count}} yerel kaynak kendi eyaleti seçilince çekilir",
     "cityOnly_area_one": "{{count}} yerel kaynak kendi yöresi seçilince çekilir",
+    "cityOnly_department_one": "{{count}} yerel kaynak kendi departmanı seçilince çekilir",
     "cityOnly_other": "{{count}} yerel kaynak kendi şehri seçilince çekilir",
     "cityOnly_state_other": "{{count}} yerel kaynak kendi eyaleti seçilince çekilir",
     "cityOnly_land_other": "{{count}} yerel kaynak kendi eyaleti seçilince çekilir",
     "cityOnly_area_other": "{{count}} yerel kaynak kendi yöresi seçilince çekilir",
+    "cityOnly_department_other": "{{count}} yerel kaynak kendi departmanı seçilince çekilir",
     "notDelivering": "Haber gelmeyenler ({{count}})",
     "feeds_one": "{{count}} akış",
     "feeds_other": "{{count}} akış",
@@ -158,14 +161,17 @@
     "yourCity_state": "Eyaletiniz",
     "yourCity_land": "Eyaletiniz",
     "yourCity_area": "Yöreniz",
+    "yourCity_department": "Departmanınız",
     "allProvinces": "{{count}} şehrin tamamı",
     "allProvinces_state": "{{count}} eyaletin tamamı",
     "allProvinces_land": "{{count}} eyaletin tamamı",
     "allProvinces_area": "{{count}} yörenin tamamı",
+    "allProvinces_department": "{{count}} departmanın tamamı",
     "localNote": "Yerel kaynaklar yalnızca seçtiğiniz şehir için çekilir.",
     "localNote_state": "Yerel kaynaklar yalnızca seçtiğiniz eyalet için çekilir.",
     "localNote_land": "Yerel kaynaklar yalnızca seçtiğiniz eyalet için çekilir.",
     "localNote_area": "Yerel kaynaklar yalnızca seçtiğiniz yöre için çekilir.",
+    "localNote_department": "Yerel kaynaklar yalnızca seçtiğiniz departman için çekilir.",
     "stories_one": "{{formatted}} haber",
     "stories_other": "{{formatted}} haber",
     "health": {
@@ -178,7 +184,8 @@
       "localIdle": "Şehri seçildiğinde çekilir",
       "localIdle_state": "Eyaleti seçildiğinde çekilir",
       "localIdle_land": "Eyaleti seçildiğinde çekilir",
-      "localIdle_area": "Yöresi seçildiğinde çekilir"
+      "localIdle_area": "Yöresi seçildiğinde çekilir",
+      "localIdle_department": "Departmanı seçildiğinde çekilir"
     },
     "toast": {
       "enabled_one": "{{count}} kaynak açıldı",
@@ -196,28 +203,34 @@
     "search_state": "Eyalet ara",
     "search_land": "Eyalet ara",
     "search_area": "Yöre ara",
+    "search_department": "Departman ara",
     "label": "Şehirler",
     "label_state": "Eyaletler",
     "label_land": "Eyaletler",
     "label_area": "Yöreler",
+    "label_department": "Departmanlar",
     "placeholder": "Şehir seçin",
     "placeholder_state": "Eyalet seçin",
     "placeholder_land": "Eyalet seçin",
     "placeholder_area": "Yöre seçin",
+    "placeholder_department": "Departman seçin",
     "clear": "Seçimi temizle",
     "wholeRegion": "Tüm {{region}} Bölgesi",
     "cities_one": "{{count}} şehir",
     "cities_state_one": "{{count}} eyalet",
     "cities_land_one": "{{count}} eyalet",
     "cities_area_one": "{{count}} yöre",
+    "cities_department_one": "{{count}} departman",
     "cities_other": "{{count}} şehir",
     "cities_state_other": "{{count}} eyalet",
     "cities_land_other": "{{count}} eyalet",
     "cities_area_other": "{{count}} yöre",
+    "cities_department_other": "{{count}} departman",
     "noMatch": "“{{query}}” ile eşleşen şehir yok",
     "noMatch_state": "“{{query}}” ile eşleşen eyalet yok",
     "noMatch_land": "“{{query}}” ile eşleşen eyalet yok",
-    "noMatch_area": "“{{query}}” ile eşleşen yöre yok"
+    "noMatch_area": "“{{query}}” ile eşleşen yöre yok",
+    "noMatch_department": "“{{query}}” ile eşleşen departman yok"
   },
   "reading": {
     "description": "Haberlere tıkladığınızda nasıl açılacakları.",

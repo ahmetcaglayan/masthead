@@ -101,7 +101,7 @@
     },
     "country": {
       "label": "Land",
-      "description": "Wessen Redaktionen Sie folgen. Sechs Länder sind dabei, weitere folgen.",
+      "description": "Wessen Redaktionen Sie folgen. Sieben Länder sind dabei, weitere folgen.",
       "soon": "Bald"
     },
     "city": {
@@ -109,6 +109,7 @@
       "label_state": "Bundesstaat oder Region",
       "label_land": "Bundesland oder Region",
       "label_area": "Gebiet oder Region",
+      "label_department": "Département oder Region",
       "description": "Füllt Ihre Seite „Regional“ mit Nachrichten aus Ihrer Umgebung."
     },
     "weather": {
@@ -136,10 +137,12 @@
     "cityOnly_state_one": "{{count}} regionales Medium wartet auf seinen Bundesstaat",
     "cityOnly_land_one": "{{count}} regionales Medium wartet auf sein Bundesland",
     "cityOnly_area_one": "{{count}} regionales Medium wartet auf sein Gebiet",
+    "cityOnly_department_one": "{{count}} regionales Medium wartet auf sein Département",
     "cityOnly_other": "{{count}} regionale Medien warten auf ihre Stadt",
     "cityOnly_state_other": "{{count}} regionale Medien warten auf ihren Bundesstaat",
     "cityOnly_land_other": "{{count}} regionale Medien warten auf ihr Bundesland",
     "cityOnly_area_other": "{{count}} regionale Medien warten auf ihr Gebiet",
+    "cityOnly_department_other": "{{count}} regionale Medien warten auf ihr Département",
     "notDelivering": "Liefern nichts ({{count}})",
     "feeds_one": "{{count}} Feed",
     "feeds_other": "{{count}} Feeds",
@@ -158,14 +161,17 @@
     "yourCity_state": "Ihr Bundesstaat",
     "yourCity_land": "Ihr Bundesland",
     "yourCity_area": "Ihr Gebiet",
+    "yourCity_department": "Ihr Département",
     "allProvinces": "Alle {{count}} Provinzen",
     "allProvinces_state": "Alle {{count}} Bundesstaaten",
     "allProvinces_land": "Alle {{count}} Bundesländer",
     "allProvinces_area": "Alle {{count}} Gebiete",
+    "allProvinces_department": "Alle {{count}} Départements",
     "localNote": "Regionale Medien werden nur für die gewählte Stadt abgerufen.",
     "localNote_state": "Regionale Medien werden nur für den gewählten Bundesstaat abgerufen.",
     "localNote_land": "Regionale Medien werden nur für das gewählte Bundesland abgerufen.",
     "localNote_area": "Regionale Medien werden nur für das gewählte Gebiet abgerufen.",
+    "localNote_department": "Regionale Medien werden nur für das gewählte Département abgerufen.",
     "stories_one": "{{formatted}} Meldung",
     "stories_other": "{{formatted}} Meldungen",
     "health": {
@@ -178,7 +184,8 @@
       "localIdle": "Wird abgerufen, sobald die Stadt gewählt ist",
       "localIdle_state": "Wird abgerufen, sobald der Bundesstaat gewählt ist",
       "localIdle_land": "Wird abgerufen, sobald das Bundesland gewählt ist",
-      "localIdle_area": "Wird abgerufen, sobald das Gebiet gewählt ist"
+      "localIdle_area": "Wird abgerufen, sobald das Gebiet gewählt ist",
+      "localIdle_department": "Wird abgerufen, sobald das Département gewählt ist"
     },
     "toast": {
       "enabled_one": "{{count}} Quelle eingeschaltet",
@@ -196,28 +203,34 @@
     "search_state": "Bundesstaaten suchen",
     "search_land": "Bundesländer suchen",
     "search_area": "Gebiete suchen",
+    "search_department": "Départements suchen",
     "label": "Städte",
     "label_state": "Bundesstaaten",
     "label_land": "Bundesländer",
     "label_area": "Gebiete",
+    "label_department": "Départements",
     "placeholder": "Stadt wählen",
     "placeholder_state": "Bundesstaat wählen",
     "placeholder_land": "Bundesland wählen",
     "placeholder_area": "Gebiet wählen",
+    "placeholder_department": "Département wählen",
     "clear": "Auswahl aufheben",
     "wholeRegion": "Ganze Region {{region}}",
     "cities_one": "{{count}} Stadt",
     "cities_state_one": "{{count}} Bundesstaat",
     "cities_land_one": "{{count}} Bundesland",
     "cities_area_one": "{{count}} Gebiet",
+    "cities_department_one": "{{count}} Département",
     "cities_other": "{{count}} Städte",
     "cities_state_other": "{{count}} Bundesstaaten",
     "cities_land_other": "{{count}} Bundesländer",
     "cities_area_other": "{{count}} Gebiete",
+    "cities_department_other": "{{count}} Départements",
     "noMatch": "Keine Stadt passt zu „{{query}}“",
     "noMatch_state": "Kein Bundesstaat passt zu „{{query}}“",
     "noMatch_land": "Kein Bundesland passt zu „{{query}}“",
-    "noMatch_area": "Kein Gebiet passt zu „{{query}}“"
+    "noMatch_area": "Kein Gebiet passt zu „{{query}}“",
+    "noMatch_department": "Kein Département passt zu „{{query}}“"
   },
   "reading": {
     "description": "Wie Meldungen sich öffnen, wenn Sie sie anklicken.",

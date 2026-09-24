@@ -10,7 +10,7 @@ const packs: CountryPack[] = COUNTRY_OPTIONS.filter((o) => o.available).map(
 describe('country packs', () => {
   it('ships a pack for every country offered as available', () => {
     expect(packs).toHaveLength(COUNTRY_OPTIONS.filter((o) => o.available).length)
-    expect(packs.map((p) => p.code)).toEqual(['tr', 'us', 'in', 'gb', 'de', 'br'])
+    expect(packs.map((p) => p.code)).toEqual(['tr', 'us', 'in', 'gb', 'de', 'br', 'fr'])
   })
 
   it.each(packs.map((pack) => [pack.code, pack] as const))('%s: source ids are unique', (_code, pack) => {

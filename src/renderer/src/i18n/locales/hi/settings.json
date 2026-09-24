@@ -101,7 +101,7 @@
     },
     "country": {
       "label": "देश",
-      "description": "आप किस देश की ख़बरें पढ़ेंगे। अभी छह देश शामिल हैं, और भी आ रहे हैं।",
+      "description": "आप किस देश की ख़बरें पढ़ेंगे। अभी सात देश शामिल हैं, और भी आ रहे हैं।",
       "soon": "जल्द"
     },
     "city": {
@@ -109,6 +109,7 @@
       "label_state": "राज्य या क्षेत्र",
       "label_land": "राज्य या क्षेत्र",
       "label_area": "इलाका या क्षेत्र",
+      "label_department": "विभाग या क्षेत्र",
       "description": "आपके स्थानीय पेज को आसपास की ख़बरों से भरता है।"
     },
     "weather": {
@@ -136,10 +137,12 @@
     "cityOnly_state_one": "{{count}} स्थानीय स्रोत अपने राज्य के इंतज़ार में",
     "cityOnly_land_one": "{{count}} स्थानीय स्रोत अपने राज्य के इंतज़ार में",
     "cityOnly_area_one": "{{count}} स्थानीय स्रोत अपने इलाके के इंतज़ार में",
+    "cityOnly_department_one": "{{count}} स्थानीय स्रोत अपने विभाग के इंतज़ार में",
     "cityOnly_other": "{{count}} स्थानीय स्रोत अपने शहर के इंतज़ार में",
     "cityOnly_state_other": "{{count}} स्थानीय स्रोत अपने राज्य के इंतज़ार में",
     "cityOnly_land_other": "{{count}} स्थानीय स्रोत अपने राज्य के इंतज़ार में",
     "cityOnly_area_other": "{{count}} स्थानीय स्रोत अपने इलाके के इंतज़ार में",
+    "cityOnly_department_other": "{{count}} स्थानीय स्रोत अपने विभाग के इंतज़ार में",
     "notDelivering": "कुछ नहीं आ रहा ({{count}})",
     "feeds_one": "{{count}} फ़ीड",
     "feeds_other": "{{count}} फ़ीड",
@@ -158,14 +161,17 @@
     "yourCity_state": "आपका राज्य",
     "yourCity_land": "आपका राज्य",
     "yourCity_area": "आपका इलाका",
+    "yourCity_department": "आपका विभाग",
     "allProvinces": "सभी {{count}} प्रांत",
     "allProvinces_state": "सभी {{count}} राज्य",
     "allProvinces_land": "सभी {{count}} राज्य",
     "allProvinces_area": "सभी {{count}} इलाके",
+    "allProvinces_department": "सभी {{count}} विभाग",
     "localNote": "स्थानीय स्रोत सिर्फ़ आपके चुने हुए शहर के लिए लाए जाते हैं।",
     "localNote_state": "स्थानीय स्रोत सिर्फ़ आपके चुने हुए राज्य के लिए लाए जाते हैं।",
     "localNote_land": "स्थानीय स्रोत सिर्फ़ आपके चुने हुए राज्य के लिए लाए जाते हैं।",
     "localNote_area": "स्थानीय स्रोत सिर्फ़ आपके चुने हुए इलाके के लिए लाए जाते हैं।",
+    "localNote_department": "स्थानीय स्रोत सिर्फ़ आपके चुने हुए विभाग के लिए लाए जाते हैं।",
     "stories_one": "{{formatted}} ख़बर",
     "stories_other": "{{formatted}} ख़बरें",
     "health": {
@@ -178,7 +184,8 @@
       "localIdle": "इसका शहर चुनने पर लाया जाएगा",
       "localIdle_state": "इसका राज्य चुनने पर लाया जाएगा",
       "localIdle_land": "इसका राज्य चुनने पर लाया जाएगा",
-      "localIdle_area": "इसका इलाका चुनने पर लाया जाएगा"
+      "localIdle_area": "इसका इलाका चुनने पर लाया जाएगा",
+      "localIdle_department": "इसका विभाग चुनने पर लाया जाएगा"
     },
     "toast": {
       "enabled_one": "{{count}} स्रोत चालू",
@@ -196,28 +203,34 @@
     "search_state": "राज्य खोजें",
     "search_land": "राज्य खोजें",
     "search_area": "इलाके खोजें",
+    "search_department": "विभाग खोजें",
     "label": "शहर",
     "label_state": "राज्य",
     "label_land": "राज्य",
     "label_area": "इलाके",
+    "label_department": "विभाग",
     "placeholder": "शहर चुनें",
     "placeholder_state": "राज्य चुनें",
     "placeholder_land": "राज्य चुनें",
     "placeholder_area": "इलाका चुनें",
+    "placeholder_department": "विभाग चुनें",
     "clear": "चुनाव हटाएँ",
     "wholeRegion": "पूरा {{region}} क्षेत्र",
     "cities_one": "{{count}} शहर",
     "cities_state_one": "{{count}} राज्य",
     "cities_land_one": "{{count}} राज्य",
     "cities_area_one": "{{count}} इलाका",
+    "cities_department_one": "{{count}} विभाग",
     "cities_other": "{{count}} शहर",
     "cities_state_other": "{{count}} राज्य",
     "cities_land_other": "{{count}} राज्य",
     "cities_area_other": "{{count}} इलाके",
+    "cities_department_other": "{{count}} विभाग",
     "noMatch": "“{{query}}” से कोई शहर नहीं मिला",
     "noMatch_state": "“{{query}}” से कोई राज्य नहीं मिला",
     "noMatch_land": "“{{query}}” से कोई राज्य नहीं मिला",
-    "noMatch_area": "“{{query}}” से कोई इलाका नहीं मिला"
+    "noMatch_area": "“{{query}}” से कोई इलाका नहीं मिला",
+    "noMatch_department": "“{{query}}” से कोई विभाग नहीं मिला"
   },
   "reading": {
     "description": "क्लिक करने पर ख़बरें कैसे खुलें।",

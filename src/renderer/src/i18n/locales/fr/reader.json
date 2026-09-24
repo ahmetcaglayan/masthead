@@ -1,0 +1,58 @@
+{
+  "mode": {
+    "label": "Affichage",
+    "web": "Web",
+    "reader": "Lecture"
+  },
+  "toolbar": {
+    "back": "Précédent",
+    "forward": "Suivant",
+    "reload": "Recharger la page",
+    "save": "Enregistrer",
+    "unsave": "Retirer des enregistrés",
+    "copyLink": "Copier le lien",
+    "linkCopied": "Lien copié",
+    "copyFailed": "Impossible de copier le lien",
+    "openInBrowser": "Ouvrir dans le navigateur",
+    "previous": "Article précédent",
+    "next": "Article suivant",
+    "position": "Article {{current}} sur {{total}}",
+    "close": "Fermer",
+    "textSettings": "Réglages du texte"
+  },
+  "text": {
+    "size": "Taille du texte",
+    "smaller": "Texte plus petit",
+    "larger": "Texte plus grand",
+    "typeface": "Police",
+    "readingFont": "Police de lecture",
+    "uiFont": "Police de l'interface"
+  },
+  "coverage": {
+    "label": "Également traité par",
+    "all": "Tout comparer"
+  },
+  "web": {
+    "loading": "Chargement de {{site}}…",
+    "failedTitle": "La page ne s'est pas chargée",
+    "failedDescription": "Impossible de joindre {{site}}. Vérifiez votre connexion et réessayez, ou lisez l'article en mode lecture.",
+    "retry": "Réessayer",
+    "tryReader": "Essayer le mode lecture",
+    "blockedTitle": "Ce site ne peut pas s'afficher dans le navigateur",
+    "blockedDescription": "{{site}} n'autorise pas son affichage dans une autre page. L'application de bureau n'a pas cette limite.",
+    "blockedNotice": "Ce site ne peut pas s'afficher dans le navigateur — affichage en mode lecture",
+    "openOriginal": "Ouvrir l'original"
+  },
+  "reader": {
+    "minutes_one": "{{count}} min de lecture",
+    "minutes_other": "{{count}} min de lecture",
+    "failedTitle": "Impossible d'extraire l'article",
+    "failedDescription": "Voici ce que {{source}} a partagé dans son flux. L'article complet se trouve sur le site de l'éditeur.",
+    "paywallTitle": "Réservé aux abonnés",
+    "paywallDescription": "{{source}} réserve cet article à ses abonnés, et Masthead ne contourne pas les paywalls. Voici ce que partage son flux ; lisez la suite sur son site.",
+    "retry": "Réessayer",
+    "showWeb": "Afficher la page web",
+    "sourceLabel": "Source",
+    "viewOriginal": "Voir la page d'origine"
+  }
+}

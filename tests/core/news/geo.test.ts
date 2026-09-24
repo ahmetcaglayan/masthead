@@ -103,7 +103,7 @@ describe('createGeoTagger', () => {
 })
 
 describe('createGeoTagger in other countries', () => {
-  const tagger = (code: 'in' | 'us' | 'gb' | 'de' | 'br') =>
+  const tagger = (code: 'in' | 'us' | 'gb' | 'de' | 'br' | 'fr') =>
     createGeoTagger(getCountryPack(code) as CountryPack)
 
   it('matches Hindi names, which have no capitals, and their cities', () => {
@@ -144,5 +144,28 @@ describe('createGeoTagger in other countries', () => {
       'RS'
     ])
     expect(tagger('br').tag('Para o governo, a medida em Belo Horizonte').provinces).toEqual(['MG'])
+  })
+
+  it('reads French departments, their cities and elided names', () => {
+    const france = tagger('fr')
+    expect(france.tag('Incendie dans le Var, alerte en Haute-Corse').provinces).toEqual(['83', '2B'])
+    expect(france.tag('Grève à Lille et à Marseille').provinces).toEqual(['59', '13'])
+    expect(france.tag("Orages en Côte-d'Or et dans le Val-d'Oise").provinces).toEqual(['21', '95'])
+    expect(france.tag("Les Sables-d'Olonne accueille le Vendée Globe").provinces).toEqual(['85'])
+    expect(france.tag('Cyclone à La Réunion, Mayotte en alerte').provinces).toEqual(['974', '976'])
+    expect(france.tag('La Bretagne et la Normandie sous la pluie')).toEqual({
+      provinces: [],
+      regions: ['brittany', 'normandy']
+    })
+  })
+
+  it('reads past French names that only contain a place', () => {
+    const france = tagger('fr')
+    expect(france.tag('La Grande-Bretagne et la Corée du Nord').regions).toEqual([])
+    expect(france.tag('Tempête en mer du Nord, traversée de la Manche suspendue').provinces).toEqual([])
+    expect(france.tag('Sommet à Vienne sur le nucléaire').provinces).toEqual([])
+    expect(france.tag('Poitiers (Vienne) : la mairie vote le budget').provinces).toEqual(['86'])
+    expect(france.tag("La VAR refuse le but de l'OM").provinces).toEqual([])
+    expect(france.tag('Le département du Nord et le Pas-de-Calais').provinces).toEqual(['59', '62'])
   })
 })

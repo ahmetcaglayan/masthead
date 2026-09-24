@@ -57,6 +57,8 @@ interface Route {
   hang?: boolean
   /** Answer only once this settles. */
   wait?: Promise<void>
+  /** Drop the connection this many times (a reset, as undici reports it) before answering. */
+  resets?: number
   /** Fail without an answer, like a network error. */
   error?: string
 }
@@ -163,6 +165,12 @@ function harness(
       )
     }
     if (route.error) throw new TypeError(route.error)
+    if (route.resets) {
+      route.resets--
+      throw new TypeError('fetch failed', {
+        cause: Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
+      })
+    }
     await route.wait
     if (route.etag && headers['if-none-match'] === route.etag) {
       return new Response(null, { status: 304, headers: { etag: route.etag } })
@@ -248,6 +256,24 @@ describe('news service', () => {
       lastFetchedAt: NOW
     })
     expect(h.errors).toEqual([])
+  })
+
+  it('asks again once when a site drops the connection', async () => {
+    const routes = defaultRoutes()
+    routes['https://dw.test/rdf'] = { ...routes['https://dw.test/rdf'], resets: 1 }
+    routes['https://ntv.test/gundem.rss'] = { ...routes['https://ntv.test/gundem.rss'], resets: 2 }
+    const h = harness({ routes })
+    await h.service.start()
+    await h.service.refresh()
+    const feeds = h.service.snapshot().feeds
+    expect(h.requests('https://dw.test/rdf')).toBe(2)
+    expect(feeds.find((f) => f.url === 'https://dw.test/rdf')).toMatchObject({ ok: true, itemCount: 3 })
+    // A second drop in a row is a failure like any other.
+    expect(h.requests('https://ntv.test/gundem.rss')).toBe(2)
+    expect(feeds.find((f) => f.url === 'https://ntv.test/gundem.rss')).toMatchObject({
+      ok: false,
+      lastError: 'fetch failed'
+    })
   })
 
   it('reports a page that is not a feed as an error', async () => {

@@ -5,7 +5,14 @@ import type { Settings } from '@shared/settings'
 import type { Article } from '@shared/types'
 
 const MAX_PER_BATCH = 3
-const LABEL = { en: 'Breaking', tr: 'Son dakika', de: 'Eilmeldung', pt: 'Urgente', hi: 'ब्रेकिंग' } as const
+const LABEL = {
+  en: 'Breaking',
+  tr: 'Son dakika',
+  de: 'Eilmeldung',
+  pt: 'Urgente',
+  hi: 'ब्रेकिंग',
+  fr: 'Alerte info'
+} as const
 
 export interface BreakingNotifierOptions {
   getSettings(): Settings

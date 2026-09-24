@@ -49,7 +49,8 @@ export function createWidgetsService(options: WidgetsOptions): WidgetsService {
   const now = options.now ?? Date.now
   const getJson = <T>(url: string): Promise<T> => fetchJson<T>(url, options.fetch)
 
-  async function search(name: string, country: CountryCode, language: string): Promise<GeoResult[]> {
+  /** Places named so in a country (ISO 3166-1 code, any case). */
+  async function search(name: string, country: string, language: string): Promise<GeoResult[]> {
     const url = new URL('https://geocoding-api.open-meteo.com/v1/search')
     url.search = new URLSearchParams({
       name,
@@ -75,9 +76,10 @@ export function createWidgetsService(options: WidgetsOptions): WidgetsService {
       [r.admin1, r.admin2].some((admin) => admin !== undefined && names.has(foldText(admin)))
     const city = pack.districts.find((d) => d.provinceCode === province.code)?.name
 
+    const iso = province.isoCountry ?? country
     const [named, listed] = await Promise.all([
-      search(province.name, country, pack.language),
-      city ? search(city, country, pack.language) : Promise.resolve([])
+      search(province.name, iso, pack.language),
+      city ? search(city, iso, pack.language) : Promise.resolve([])
     ])
     const candidates = [
       ...named.filter(inProvince),

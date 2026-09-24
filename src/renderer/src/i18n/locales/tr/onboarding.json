@@ -27,6 +27,7 @@
     "stats_state": "{{sources}} kaynak · {{cities}} eyalet",
     "stats_land": "{{sources}} kaynak · {{cities}} eyalet",
     "stats_area": "{{sources}} kaynak · {{cities}} yöre",
+    "stats_department": "{{sources}} kaynak · {{cities}} departman",
     "comingSoon": "Yeni ülkeler yakında"
   },
   "interests": {
@@ -39,14 +40,17 @@
     "kicker_state": "Eyalet",
     "kicker_land": "Eyalet",
     "kicker_area": "Yöre",
+    "kicker_department": "Departman",
     "title": "Şehrinizden haberler de ister misiniz?",
     "title_state": "Eyaletinizden haberler de ister misiniz?",
     "title_land": "Eyaletinizden haberler de ister misiniz?",
     "title_area": "Yörenizden haberler de ister misiniz?",
+    "title_department": "Departmanınızdan haberler de ister misiniz?",
     "hint": "İsteğe bağlı. Yerel sayfanız için bir şehir ya da bütün bir bölge seçin.",
     "hint_state": "İsteğe bağlı. Yerel sayfanız için bir eyalet ya da bütün bir bölge seçin.",
     "hint_land": "İsteğe bağlı. Yerel sayfanız için bir eyalet ya da bütün bir bölge seçin.",
     "hint_area": "İsteğe bağlı. Yerel sayfanız için bir yöre ya da bütün bir bölge seçin.",
+    "hint_department": "İsteğe bağlı. Yerel sayfanız için bir departman ya da bütün bir bölge seçin.",
     "skip": "Şimdilik geç",
     "chosen": "{{place}} için yerel haberler"
   },

@@ -1,7 +1,7 @@
 /**
  * Maps the free-form section names feeds use (`<category>Kültür Sanat</category>`,
- * `/dunya-haberleri/` in a URL) onto the app's CategoryIds. Turkish, English, German
- * and Portuguese section words, because every pack's URLs pass through here.
+ * `/dunya-haberleri/` in a URL) onto the app's CategoryIds. Turkish, English, German,
+ * Portuguese, French and Hindi section words, because every pack's URLs pass through here.
  */
 import type { CategoryId } from '../../shared/categories'
 import { foldTr } from './text'
@@ -153,6 +153,52 @@ const KEYWORDS: Record<string, CategoryId> = {
   opiniao: 'opinion',
   cotidiano: 'general',
 
+  // French
+  france: 'national',
+  monde: 'world',
+  politique: 'politics',
+  economie: 'economy',
+  bourse: 'economy',
+  entreprises: 'economy',
+  argent: 'economy',
+  emploi: 'economy',
+  immobilier: 'economy',
+  societe: 'general',
+  faits: 'general',
+  justice: 'general',
+  rugby: 'sports',
+  tennis: 'sports',
+  cyclisme: 'sports',
+  numerique: 'technology',
+  pixels: 'technology',
+  sante: 'health',
+  medecine: 'health',
+  cinema: 'culture',
+  musique: 'culture',
+  livres: 'culture',
+  people: 'entertainment',
+  television: 'entertainment',
+  series: 'entertainment',
+  loisirs: 'lifestyle',
+  mode: 'lifestyle',
+  beaute: 'lifestyle',
+  cuisine: 'lifestyle',
+  gastronomie: 'lifestyle',
+  maison: 'lifestyle',
+  voyage: 'travel',
+  tourisme: 'travel',
+  planete: 'environment',
+  environnement: 'environment',
+  climat: 'environment',
+  ecologie: 'environment',
+  idees: 'opinion',
+  tribunes: 'opinion',
+  editorial: 'opinion',
+  debats: 'opinion',
+  enseignement: 'education',
+  automobile: 'automotive',
+  regions: 'local',
+
   // Hindi (Devanagari sites write their section paths in Latin script)
   desh: 'national',
   rashtriya: 'national',
@@ -209,9 +255,19 @@ function fromWords(words: string[], language: string): CategoryId[] {
   return [...out]
 }
 
+const MARKS = /\p{M}/gu
+
+/** A label or path segment as bare lower-case words: Turkish letters folded, other accents dropped ("Économie", "Saúde"). */
+function sectionWords(text: string): string[] {
+  return foldTr(text)
+    .normalize('NFD')
+    .replace(MARKS, '')
+    .split(/[^a-z0-9]+/)
+}
+
 /** Categories for a feed's section label (`Gündem`, `Kültür Sanat`, `Bilim ve Teknoloji`). */
 export function categoriesFromLabel(label: string, language = 'tr'): CategoryId[] {
-  return fromWords(foldTr(label).split(/[^a-z0-9]+/), language)
+  return fromWords(sectionWords(label), language)
 }
 
 /** Categories implied by an article URL's section directories (`/dunya-haberleri/…`, `/haber/ekonomi/…`). */
@@ -224,7 +280,7 @@ export function categoriesFromUrl(url: string, language = 'tr'): CategoryId[] {
   }
   const directories = segments.slice(0, -1).slice(0, 2)
   return fromWords(
-    directories.flatMap((segment) => foldTr(decodeURIComponentSafe(segment)).split(/[^a-z0-9]+/)),
+    directories.flatMap((segment) => sectionWords(decodeURIComponentSafe(segment))),
     language
   )
 }

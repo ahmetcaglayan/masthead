@@ -112,11 +112,21 @@ const brazil = (
   </>
 )
 
+/** France: blue, white and red in three equal vertical bands. */
+const france = (
+  <>
+    <rect width="90" height="60" fill="#FFFFFF" />
+    <rect width="30" height="60" fill="#000091" />
+    <rect x="60" width="30" height="60" fill="#E1000F" />
+  </>
+)
+
 const FLAGS: Partial<Record<CountryCode, React.JSX.Element>> = {
   tr: turkey,
   us: unitedStates,
   gb: unitedKingdom,
   in: india,
   de: germany,
-  br: brazil
+  br: brazil,
+  fr: france
 }

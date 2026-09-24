@@ -101,7 +101,7 @@
     },
     "country": {
       "label": "Country",
-      "description": "Whose newsrooms you follow. Six countries are covered today; more are on the way.",
+      "description": "Whose newsrooms you follow. Seven countries are covered today; more are on the way.",
       "soon": "Soon"
     },
     "city": {
@@ -109,6 +109,7 @@
       "label_state": "State or region",
       "label_land": "State or region",
       "label_area": "Area or region",
+      "label_department": "Department or region",
       "description": "Fills your Local page with news from around you."
     },
     "weather": {
@@ -136,10 +137,12 @@
     "cityOnly_state_one": "{{count}} local outlet waits for its state",
     "cityOnly_land_one": "{{count}} local outlet waits for its state",
     "cityOnly_area_one": "{{count}} local outlet waits for its area",
+    "cityOnly_department_one": "{{count}} local outlet waits for its department",
     "cityOnly_other": "{{count}} local outlets wait for their city",
     "cityOnly_state_other": "{{count}} local outlets wait for their state",
     "cityOnly_land_other": "{{count}} local outlets wait for their state",
     "cityOnly_area_other": "{{count}} local outlets wait for their area",
+    "cityOnly_department_other": "{{count}} local outlets wait for their department",
     "notDelivering": "Not delivering ({{count}})",
     "feeds_one": "{{count}} feed",
     "feeds_other": "{{count}} feeds",
@@ -158,14 +161,17 @@
     "yourCity_state": "Your state",
     "yourCity_land": "Your state",
     "yourCity_area": "Your area",
+    "yourCity_department": "Your department",
     "allProvinces": "All {{count}} provinces",
     "allProvinces_state": "All {{count}} states",
     "allProvinces_land": "All {{count}} states",
     "allProvinces_area": "All {{count}} areas",
+    "allProvinces_department": "All {{count}} departments",
     "localNote": "Local outlets are fetched only for your selected city.",
     "localNote_state": "Local outlets are fetched only for your selected state.",
     "localNote_land": "Local outlets are fetched only for your selected state.",
     "localNote_area": "Local outlets are fetched only for your selected area.",
+    "localNote_department": "Local outlets are fetched only for your selected department.",
     "stories_one": "{{formatted}} story",
     "stories_other": "{{formatted}} stories",
     "health": {
@@ -178,7 +184,8 @@
       "localIdle": "Fetched when its city is selected",
       "localIdle_state": "Fetched when its state is selected",
       "localIdle_land": "Fetched when its state is selected",
-      "localIdle_area": "Fetched when its area is selected"
+      "localIdle_area": "Fetched when its area is selected",
+      "localIdle_department": "Fetched when its department is selected"
     },
     "toast": {
       "enabled_one": "{{count}} source switched on",
@@ -196,28 +203,34 @@
     "search_state": "Search states",
     "search_land": "Search states",
     "search_area": "Search areas",
+    "search_department": "Search departments",
     "label": "Cities",
     "label_state": "States",
     "label_land": "States",
     "label_area": "Areas",
+    "label_department": "Departments",
     "placeholder": "Choose a city",
     "placeholder_state": "Choose a state",
     "placeholder_land": "Choose a state",
     "placeholder_area": "Choose an area",
+    "placeholder_department": "Choose a department",
     "clear": "Clear selection",
     "wholeRegion": "Entire {{region}} region",
     "cities_one": "{{count}} city",
     "cities_state_one": "{{count}} state",
     "cities_land_one": "{{count}} state",
     "cities_area_one": "{{count}} area",
+    "cities_department_one": "{{count}} department",
     "cities_other": "{{count}} cities",
     "cities_state_other": "{{count}} states",
     "cities_land_other": "{{count}} states",
     "cities_area_other": "{{count}} areas",
+    "cities_department_other": "{{count}} departments",
     "noMatch": "No city matches “{{query}}”",
     "noMatch_state": "No state matches “{{query}}”",
     "noMatch_land": "No state matches “{{query}}”",
-    "noMatch_area": "No area matches “{{query}}”"
+    "noMatch_area": "No area matches “{{query}}”",
+    "noMatch_department": "No department matches “{{query}}”"
   },
   "reading": {
     "description": "How stories open when you click them.",

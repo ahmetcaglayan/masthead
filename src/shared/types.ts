@@ -71,6 +71,11 @@ export interface Province {
   aliases: string[]
   /** Name is also a common word (e.g. `Ordu` = army); needs stricter matching. */
   ambiguous?: boolean
+  /**
+   * ISO 3166-1 code the place goes by when it differs from its country's (France's overseas
+   * departments: `GP`, `RE`…), for services that look places up by country.
+   */
+  isoCountry?: string
 }
 
 export interface District {

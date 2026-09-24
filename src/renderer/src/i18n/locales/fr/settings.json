@@ -1,0 +1,364 @@
+{
+  "page": {
+    "title": "Paramètres",
+    "kicker": "Préférences",
+    "description": "Faites de Masthead le vôtre. Les changements sont enregistrés au fur et à mesure.",
+    "sections": "Sections des paramètres"
+  },
+  "nav": {
+    "appearance": "Apparence",
+    "typography": "Typographie",
+    "language": "Langue et région",
+    "interests": "Centres d'intérêt",
+    "muted": "Mots masqués",
+    "markets": "Marchés",
+    "sources": "Sources",
+    "reading": "Lecture",
+    "notifications": "Notifications",
+    "updates": "Actualisation",
+    "data": "Données et à propos"
+  },
+  "appearance": {
+    "description": "Thème, couleur et mise en page de votre une.",
+    "theme": {
+      "label": "Thème",
+      "description": "Papier chaud le jour, encre profonde la nuit, ou laissez votre appareil décider.",
+      "lightHint": "Papier chaud",
+      "darkHint": "Encre profonde",
+      "systemHint": "Suit votre appareil"
+    },
+    "accent": {
+      "label": "Couleur d'accent",
+      "description": "Pour les mises en valeur, les liens et la page où vous êtes.",
+      "ember": "Braise",
+      "ocean": "Océan",
+      "forest": "Forêt",
+      "violet": "Violet",
+      "gold": "Or"
+    },
+    "density": {
+      "label": "Densité",
+      "description": "Le mode compact affiche plus d'articles à l'écran.",
+      "comfortable": "Confortable",
+      "compact": "Compacte"
+    },
+    "cardStyle": {
+      "label": "Style des cartes",
+      "description": "La présentation des articles dans les listes et les rubriques.",
+      "magazine": "Magazine",
+      "magazineHint": "Grandes photos, résumés complets",
+      "grid": "Grille",
+      "gridHint": "Plus d'articles d'un coup d'œil",
+      "list": "Liste",
+      "listHint": "Une colonne sobre, le texte d'abord"
+    },
+    "sidebar": {
+      "label": "Barre latérale compacte",
+      "description": "N'afficher que les icônes dans la barre latérale pour laisser plus de place aux articles."
+    }
+  },
+  "typography": {
+    "description": "Choisissez les polices et la taille les plus reposantes pour vos yeux.",
+    "reset": "Réinitialiser la typographie",
+    "sans": "Sans empattement",
+    "serif": "Avec empattement",
+    "default": "Par défaut",
+    "uiFont": {
+      "label": "Police de l'interface",
+      "description": "Menus, libellés et résumés des articles."
+    },
+    "headlineFont": {
+      "label": "Police des titres",
+      "description": "Les titres des cartes et de l'article à la une."
+    },
+    "readingFont": {
+      "label": "Police de lecture",
+      "description": "Le texte des articles en mode lecture."
+    },
+    "scale": {
+      "label": "Taille du texte",
+      "description": "Agrandit ou réduit tout le texte de l'application."
+    },
+    "preview": {
+      "kicker": "Économie",
+      "headline": "La banque centrale maintient ses taux, l'inflation ralentit pour le troisième mois",
+      "summary": "Les responsables estiment que les tensions sur les prix s'apaisent plus vite que prévu et laissent entendre que les baisses pourraient commencer début d'année prochaine si la tendance se confirme.",
+      "meta": "Rédaction · il y a 5 min",
+      "readerLabel": "Mode lecture",
+      "body": "La décision était largement attendue. Les analystes voient désormais une première baisse au printemps, et les marchés sont restés calmes après l'annonce.",
+      "faces": {
+        "ui": "Interface",
+        "headline": "Titres",
+        "reading": "Lecture"
+      }
+    }
+  },
+  "locale": {
+    "description": "La langue de l'interface et l'origine de votre actualité.",
+    "language": {
+      "label": "Langue de l'interface",
+      "description": "L'actualité elle-même reste dans sa langue d'origine."
+    },
+    "country": {
+      "label": "Pays",
+      "description": "Les rédactions que vous suivez. Sept pays sont couverts aujourd'hui ; d'autres arrivent.",
+      "soon": "Bientôt"
+    },
+    "city": {
+      "label": "Ville ou région",
+      "label_state": "État ou région",
+      "label_land": "Land ou région",
+      "label_area": "Zone ou région",
+      "label_department": "Département ou région",
+      "description": "Remplit votre page Local avec l'actualité près de chez vous."
+    },
+    "weather": {
+      "label": "Météo sur la une",
+      "description": "La météo de votre ville à côté de la date, fournie par Open-Meteo. Seuls le nom et la position de votre ville sont envoyés, et seulement tant que l'option est activée."
+    }
+  },
+  "interests": {
+    "description": "Les rubriques que vous suivez façonnent votre page Pour vous et l'ordre des rubriques de l'accueil.",
+    "keepOne": "Gardez au moins une rubrique sélectionnée.",
+    "history": "Apprendre de mes lectures",
+    "historyHint": "Pour vous propose aussi des articles proches de ceux que vous lisez. Calculé à partir de votre historique, uniquement sur cet appareil, et jamais envoyé ailleurs."
+  },
+  "sources": {
+    "description": "Activez ou désactivez chaque média. Les sources désactivées ne sont jamais consultées.",
+    "page": {
+      "title": "Sources",
+      "description": "Choisissez les médias qui alimentent votre une. Les sources désactivées ne sont jamais consultées, et vos choix sont enregistrés."
+    },
+    "search": "Rechercher une source",
+    "summary": "{{on}} sources activées sur {{count}}",
+    "delivering_one": "{{count}} fournit des articles",
+    "delivering_other": "{{count}} fournissent des articles",
+    "cityOnly_one": "{{count}} média local attend sa ville",
+    "cityOnly_state_one": "{{count}} média local attend son État",
+    "cityOnly_land_one": "{{count}} média local attend son Land",
+    "cityOnly_area_one": "{{count}} média local attend sa zone",
+    "cityOnly_department_one": "{{count}} média local attend son département",
+    "cityOnly_other": "{{count}} médias locaux attendent leur ville",
+    "cityOnly_state_other": "{{count}} médias locaux attendent leur État",
+    "cityOnly_land_other": "{{count}} médias locaux attendent leur Land",
+    "cityOnly_area_other": "{{count}} médias locaux attendent leur zone",
+    "cityOnly_department_other": "{{count}} médias locaux attendent leur département",
+    "notDelivering": "Sans articles ({{count}})",
+    "feeds_one": "{{count}} flux",
+    "feeds_other": "{{count}} flux",
+    "failing_one": "{{count}} en échec",
+    "failing_other": "{{count}} en échec",
+    "enableAll": "Tout activer",
+    "disableAll": "Tout désactiver",
+    "enableMatches": "Activer les résultats",
+    "disableMatches": "Désactiver les résultats",
+    "restoreDefaults": "Rétablir les sources par défaut",
+    "undo": "Annuler",
+    "toggle": "Afficher l'actualité de {{name}}",
+    "groupToggle": "Basculer toutes les sources de {{group}}",
+    "groupCount": "{{on}} sur {{count}} activées",
+    "yourCity": "Votre ville",
+    "yourCity_state": "Votre État",
+    "yourCity_land": "Votre Land",
+    "yourCity_area": "Votre zone",
+    "yourCity_department": "Votre département",
+    "allProvinces": "Les {{count}} provinces",
+    "allProvinces_state": "Les {{count}} États",
+    "allProvinces_land": "Les {{count}} Länder",
+    "allProvinces_area": "Les {{count}} zones",
+    "allProvinces_department": "Les {{count}} départements",
+    "localNote": "Les médias locaux ne sont consultés que pour la ville choisie.",
+    "localNote_state": "Les médias locaux ne sont consultés que pour l'État choisi.",
+    "localNote_land": "Les médias locaux ne sont consultés que pour le Land choisi.",
+    "localNote_area": "Les médias locaux ne sont consultés que pour la zone choisie.",
+    "localNote_department": "Les médias locaux ne sont consultés que pour le département choisi.",
+    "stories_one": "{{formatted}} article",
+    "stories_other": "{{formatted}} articles",
+    "health": {
+      "ok_one": "Flux opérationnel · vérifié {{time}}",
+      "ok_other": "Les {{count}} flux fonctionnent · vérifié {{time}}",
+      "partial": "{{failing}} flux sur {{count}} en échec · vérifié {{time}}",
+      "failing_one": "Le flux ne répond pas · essayé {{time}}",
+      "failing_other": "Aucun de ses {{count}} flux ne répond · essayé {{time}}",
+      "idle": "Pas encore consulté",
+      "localIdle": "Consulté quand sa ville est choisie",
+      "localIdle_state": "Consulté quand son État est choisi",
+      "localIdle_land": "Consulté quand son Land est choisi",
+      "localIdle_area": "Consulté quand sa zone est choisie",
+      "localIdle_department": "Consulté quand son département est choisi"
+    },
+    "toast": {
+      "enabled_one": "{{count}} source activée",
+      "enabled_other": "{{count}} sources activées",
+      "disabled_one": "{{count}} source désactivée",
+      "disabled_other": "{{count}} sources désactivées",
+      "allOffHint": "Toutes les sources sont désactivées : votre une sera vide.",
+      "restored": "Les sources sont revenues à leurs réglages par défaut",
+      "groupOn": "{{group}} : tout est activé",
+      "groupOff": "{{group}} : tout est désactivé"
+    }
+  },
+  "province": {
+    "search": "Rechercher une ville",
+    "search_state": "Rechercher un État",
+    "search_land": "Rechercher un Land",
+    "search_area": "Rechercher une zone",
+    "search_department": "Rechercher un département",
+    "label": "Villes",
+    "label_state": "États",
+    "label_land": "Länder",
+    "label_area": "Zones",
+    "label_department": "Départements",
+    "placeholder": "Choisir une ville",
+    "placeholder_state": "Choisir un État",
+    "placeholder_land": "Choisir un Land",
+    "placeholder_area": "Choisir une zone",
+    "placeholder_department": "Choisir un département",
+    "clear": "Effacer la sélection",
+    "wholeRegion": "Toute la région {{region}}",
+    "cities_one": "{{count}} ville",
+    "cities_state_one": "{{count}} État",
+    "cities_land_one": "{{count}} Land",
+    "cities_area_one": "{{count}} zone",
+    "cities_department_one": "{{count}} département",
+    "cities_other": "{{count}} villes",
+    "cities_state_other": "{{count}} États",
+    "cities_land_other": "{{count}} Länder",
+    "cities_area_other": "{{count}} zones",
+    "cities_department_other": "{{count}} départements",
+    "noMatch": "Aucune ville ne correspond à « {{query}} »",
+    "noMatch_state": "Aucun État ne correspond à « {{query}} »",
+    "noMatch_land": "Aucun Land ne correspond à « {{query}} »",
+    "noMatch_area": "Aucune zone ne correspond à « {{query}} »",
+    "noMatch_department": "Aucun département ne correspond à « {{query}} »"
+  },
+  "reading": {
+    "description": "Comment s'ouvrent les articles quand vous cliquez dessus.",
+    "mode": {
+      "label": "Ouvrir les articles en",
+      "description": "La page web affiche le site d'origine. Le mode lecture n'affiche que le texte, dans votre police de lecture.",
+      "web": "Page web",
+      "reader": "Mode lecture"
+    },
+    "ads": {
+      "label": "Bloquer les publicités et les traqueurs",
+      "description": "Garde le navigateur intégré rapide et discret."
+    }
+  },
+  "desktopOnly": "Disponible dans l'application de bureau.",
+  "notifications": {
+    "description": "Suivez les grandes informations sans garder un œil sur l'application.",
+    "breaking": {
+      "label": "Alertes de dernière minute",
+      "description": "Recevez une notification sur le bureau quand une information importante tombe."
+    }
+  },
+  "updates": {
+    "description": "À quelle fréquence Masthead consulte chaque source pour de nouveaux articles.",
+    "refreshing": "Actualisation des flux · {{done}} sur {{total}}",
+    "failed": "Actualisation impossible pour le moment. Veuillez réessayer.",
+    "interval": {
+      "label": "Chercher de l'actualité toutes les",
+      "description": "Les vérifications sont légères : les flux inchangés ne sont pas retéléchargés.",
+      "minutes_one": "{{count}} min",
+      "minutes_other": "{{count}} min"
+    },
+    "now": {
+      "label": "Dernière vérification",
+      "action": "Actualiser maintenant"
+    }
+  },
+  "data": {
+    "description": "Votre historique de lecture, un nouveau départ, et un mot sur Masthead.",
+    "history": {
+      "label": "Historique de lecture",
+      "description_zero": "Votre historique est vide.",
+      "description_one": "{{count}} article dans votre historique, conservé uniquement sur cet appareil.",
+      "description_other": "{{count}} articles dans votre historique, conservés uniquement sur cet appareil.",
+      "action": "Effacer l'historique",
+      "done": "Historique de lecture effacé",
+      "confirmTitle": "Effacer votre historique de lecture ?",
+      "confirmDescription_one": "{{count}} article sera retiré de votre historique. Les articles enregistrés sont conservés.",
+      "confirmDescription_other": "{{count}} articles seront retirés de votre historique. Les articles enregistrés sont conservés."
+    },
+    "reset": {
+      "label": "Réinitialiser tous les paramètres",
+      "description": "Tout revient aux réglages par défaut et la visite d'accueil recommence. Les articles enregistrés et l'historique sont conservés.",
+      "action": "Réinitialiser les paramètres",
+      "confirmTitle": "Réinitialiser tous les paramètres ?",
+      "confirmDescription": "Votre thème, vos polices, vos sources et vos centres d'intérêt reviennent aux réglages par défaut, et la visite d'accueil recommence. Les articles enregistrés et l'historique sont conservés."
+    }
+  },
+  "about": {
+    "version": "Version {{version}}",
+    "runtime": "Electron {{electron}} · Chromium {{chrome}}",
+    "webMode": "Mode web",
+    "license": "Licence MIT",
+    "github": "Code source sur GitHub",
+    "issue": "Signaler un problème"
+  },
+  "appUpdates": {
+    "version": "Masthead {{version}}",
+    "hourly": "Recherche une nouvelle version toutes les heures.",
+    "upToDate": "À jour · vérifié {{time}}",
+    "checking": "Recherche de mises à jour…",
+    "downloading": "Téléchargement de {{version}} · {{percent}} %",
+    "ready": "{{version}} est téléchargée — redémarrez pour terminer.",
+    "available": "{{version}} est disponible.",
+    "availableManual": "{{version}} est disponible — téléchargez-la sur GitHub.",
+    "failed": "Impossible de rechercher des mises à jour. Nouvel essai dans l'heure.",
+    "web": "La version navigateur se met à jour depuis les sources : lancez git pull.",
+    "development": "Version de développement — mises à jour désactivées.",
+    "manualNote": "Cette copie (portable, macOS ou .deb) ne peut pas installer les mises à jour elle-même ; vous serez prévenu quand une nouvelle version sortira.",
+    "check": "Rechercher des mises à jour",
+    "restart": "Redémarrer",
+    "download": "Télécharger",
+    "install": "Télécharger et installer",
+    "auto": {
+      "label": "Installer les mises à jour automatiquement",
+      "description": "Masthead vérifie toutes les heures, télécharge les nouvelles versions en arrière-plan et vous propose de redémarrer."
+    }
+  },
+  "muted": {
+    "description": "Les articles qui mentionnent ces mots disparaissent de toutes les pages — et ne déclenchent jamais d'alerte.",
+    "label": "Mot ou expression à masquer",
+    "placeholder": "Ajouter un mot ou une expression…",
+    "add": "Masquer",
+    "hint": "La casse et les accents n'ont pas d'importance. Les mots de quatre lettres ou plus masquent aussi leurs autres formes : « élection » masque aussi « élections ».",
+    "duplicate": "Ce mot est déjà masqué.",
+    "full": "Vous pouvez masquer jusqu'à {{count}} mots.",
+    "listLabel": "Mots masqués",
+    "remove": "Ne plus masquer « {{word}} »",
+    "hidden_zero": "Aucun article ne les mentionne en ce moment.",
+    "hidden_one": "{{formatted}} article masqué en ce moment.",
+    "hidden_other": "{{formatted}} articles masqués en ce moment.",
+    "clear": "Tout réafficher",
+    "empty": "Aucun mot masqué."
+  },
+  "markets": {
+    "description": "Ce que suit la page Marchés. L'actualité de chaque élément est trouvée grâce aux mots listés dessous, dans la langue de l'actualité.",
+    "editWords": "Modifier les mots de {{name}}",
+    "remove": "Retirer {{name}}",
+    "words": "Mots à rechercher",
+    "wordsHint": "Séparez-les par des virgules. Un mot terminé par * trouve aussi ses autres formes (dollar* → dollars).",
+    "saveWords": "Enregistrer",
+    "addTitle": "Ajouter à la liste de suivi",
+    "offered": "Suggestions",
+    "add": "Ajouter",
+    "company": {
+      "hint": "Ou suivez n'importe quelle entreprise ou place boursière à travers son actualité :",
+      "name": "Nom",
+      "ticker": "Symbole (facultatif)",
+      "words": "Mots à rechercher (facultatif)"
+    },
+    "full": "La liste de suivi est pleine ({{count}}).",
+    "empty": "La liste de suivi est vide.",
+    "reset": "Revenir à la liste par défaut",
+    "kinds": {
+      "currency": "Devises",
+      "metal": "Métaux",
+      "crypto": "Cryptos",
+      "equity": "Actions et entreprises"
+    }
+  }
+}

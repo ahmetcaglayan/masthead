@@ -7,6 +7,7 @@ import type { CountryCode, Province, SourceDef } from '../types'
 import type { CountryPack } from './types'
 import { br } from './br/index.ts'
 import { de } from './de/index.ts'
+import { fr } from './fr/index.ts'
 import { gb } from './gb/index.ts'
 import { inPack } from './in/index.ts'
 import { tr } from './tr/index.ts'
@@ -20,7 +21,7 @@ export interface CountryOption {
   available: boolean
 }
 
-const PACKS: Partial<Record<CountryCode, CountryPack>> = { tr, us, in: inPack, gb, de, br }
+const PACKS: Partial<Record<CountryCode, CountryPack>> = { tr, us, in: inPack, gb, de, br, fr }
 
 const ORDER: readonly CountryCode[] = ['tr', 'us', 'in', 'gb', 'de', 'br', 'fr', 'es', 'it', 'nl', 'az']
 

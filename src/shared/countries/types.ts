@@ -37,13 +37,19 @@ export interface CountryPack {
   districts: District[]
   /**
    * What the UI calls a province when it is not a city: a `state` in the US, Brazil and
-   * India, a `land` (Bundesland) in Germany, an `area` (a county or city region) in the UK.
+   * India, a `land` (Bundesland) in Germany, an `area` (a county or city region) in the UK,
+   * a `department` (département) in France.
    */
-  localUnit?: 'state' | 'land' | 'area'
+  localUnit?: 'state' | 'land' | 'area' | 'department'
   /**
    * Words that, right after a place name that is also an ordinary word, make it a place
    * ("Washington state", "Georgia Governor"). Turkish ones are built into the geo tagger.
    */
   placeWords?: readonly string[]
+  /**
+   * Names that contain one of the pack's places but mean somewhere else: "Grande-Bretagne"
+   * is not Brittany, "Corée du Nord" not the Nord department. The geo tagger reads past them.
+   */
+  notPlaces?: readonly string[]
   googleNews?: GoogleNewsEdition
 }

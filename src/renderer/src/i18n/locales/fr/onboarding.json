@@ -1,0 +1,66 @@
+{
+  "intro": {
+    "headline": "Toute votre actualité. Au calme.",
+    "subtitle": "Les rédactions de votre pays sur une seule une apaisée. Quatre questions rapides et c'est parti.",
+    "subtitleWithCountry": "Les rédactions de votre pays sur une seule une apaisée. Cinq questions rapides et c'est parti.",
+    "country": "{{country}} · {{sources}} médias · d'autres pays bientôt"
+  },
+  "progress": "Étape {{current}} sur {{total}}",
+  "continue": "Continuer",
+  "orPress": "ou appuyez sur <0/>",
+  "language": {
+    "kicker": "Langue",
+    "title": "Quelle langue préférez-vous ?",
+    "hint": "Elle s'applique aux menus et aux boutons. L'actualité reste dans sa propre langue.",
+    "cardHint": "Menus et boutons en français"
+  },
+  "theme": {
+    "kicker": "Apparence",
+    "title": "Clair ou sombre ?",
+    "hint": "Appliqué tout de suite. Vous pourrez changer à tout moment depuis la barre de titre."
+  },
+  "country": {
+    "kicker": "Pays",
+    "title": "D'où vient votre actualité ?",
+    "hint": "Nous commençons à rassembler les titres pendant que vous terminez.",
+    "stats": "{{sources}} sources · {{cities}} villes",
+    "stats_state": "{{sources}} sources · {{cities}} États",
+    "stats_land": "{{sources}} sources · {{cities}} Länder",
+    "stats_area": "{{sources}} sources · {{cities}} zones",
+    "stats_department": "{{sources}} sources · {{cities}} départements",
+    "comingSoon": "D'autres pays bientôt"
+  },
+  "interests": {
+    "kicker": "Centres d'intérêt",
+    "title": "Qu'aimez-vous suivre ?",
+    "hint": "Choisissez-en autant que vous voulez. Ils façonnent votre page Pour vous et l'ordre des rubriques de l'accueil."
+  },
+  "city": {
+    "kicker": "Ville",
+    "kicker_state": "État",
+    "kicker_land": "Land",
+    "kicker_area": "Zone",
+    "kicker_department": "Département",
+    "title": "Voulez-vous aussi l'actualité de votre ville ?",
+    "title_state": "Voulez-vous aussi l'actualité de votre État ?",
+    "title_land": "Voulez-vous aussi l'actualité de votre Land ?",
+    "title_area": "Voulez-vous aussi l'actualité de votre zone ?",
+    "title_department": "Voulez-vous aussi l'actualité de votre département ?",
+    "hint": "Facultatif. Choisissez une ville, ou toute une région, pour votre page Local.",
+    "hint_state": "Facultatif. Choisissez un État, ou toute une région, pour votre page Local.",
+    "hint_land": "Facultatif. Choisissez un Land, ou toute une région, pour votre page Local.",
+    "hint_area": "Facultatif. Choisissez une zone, ou toute une région, pour votre page Local.",
+    "hint_department": "Facultatif. Choisissez un département, ou toute une région, pour votre page Local.",
+    "skip": "Passer pour l'instant",
+    "chosen": "Actualité locale : {{place}}"
+  },
+  "finish": {
+    "title": "Tout est prêt.",
+    "fetching": "Premiers titres en route · {{done}} flux sur {{total}}",
+    "ready_one": "{{count, number}} article vous attend.",
+    "ready_other": "{{count, number}} articles vous attendent.",
+    "soon": "Vos premiers titres arrivent dans un instant.",
+    "cta": "Ouvrir ma une",
+    "later": "Vous pourrez tout modifier plus tard dans les paramètres."
+  }
+}

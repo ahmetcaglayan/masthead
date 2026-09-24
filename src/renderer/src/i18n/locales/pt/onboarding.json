@@ -27,6 +27,7 @@
     "stats_state": "{{sources}} fontes · {{cities}} estados",
     "stats_land": "{{sources}} fontes · {{cities}} estados",
     "stats_area": "{{sources}} fontes · {{cities}} áreas",
+    "stats_department": "{{sources}} fontes · {{cities}} departamentos",
     "comingSoon": "Mais países em breve"
   },
   "interests": {
@@ -39,14 +40,17 @@
     "kicker_state": "Estado",
     "kicker_land": "Estado",
     "kicker_area": "Área",
+    "kicker_department": "Departamento",
     "title": "Quer também notícias da sua cidade?",
     "title_state": "Quer também notícias do seu estado?",
     "title_land": "Quer também notícias do seu estado?",
     "title_area": "Quer também notícias da sua área?",
+    "title_department": "Quer também notícias do seu departamento?",
     "hint": "Opcional. Escolha uma cidade, ou uma região inteira, para a sua página Local.",
     "hint_state": "Opcional. Escolha um estado, ou uma região inteira, para a sua página Local.",
     "hint_land": "Opcional. Escolha um estado, ou uma região inteira, para a sua página Local.",
     "hint_area": "Opcional. Escolha uma área, ou uma região inteira, para a sua página Local.",
+    "hint_department": "Opcional. Escolha um departamento, ou uma região inteira, para a sua página Local.",
     "skip": "Agora não",
     "chosen": "Notícias locais de {{place}}"
   },

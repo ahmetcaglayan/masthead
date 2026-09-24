@@ -7,7 +7,8 @@
  * words or surnames (`ambiguous` in the pack: Ordu, Tokat, Aydın, Van, Washington,
  * Sussex…) additionally need the apostrophe form or a place word after them ("Aydın
  * Valiliği", "Van Büyükşehir", "Washington state"). Districts map to their province;
- * every province adds its region.
+ * every province adds its region. A pack's `notPlaces` ("Grande-Bretagne", "Corée du
+ * Nord") are read past without a tag, so the place name inside them does not count.
  */
 import type { CountryPack } from '../../shared/countries/types'
 import type { RegionId } from '../../shared/types'
@@ -115,8 +116,8 @@ const FOREIGN = new Set(
 const WORD = /[\p{L}\p{M}\p{N}]+/gu
 /** A word that can start a name: a capital, or a letter of a script without case (Devanagari). */
 const CAPITALISED = /[\p{Lu}\p{Lo}][\p{L}\p{M}\p{N}]*/gu
-/** The next word of a multi-word name, after a space, dot or hyphen ("İç Anadolu", "K.Maraş"). */
-const NEXT_NAME_WORD = /[\s.-]{1,2}([\p{L}\p{M}\p{N}]+)/uy
+/** The next word of a multi-word name, after a space, dot, hyphen or elision ("İç Anadolu", "K.Maraş", "Côte-d'Or"). */
+const NEXT_NAME_WORD = /[\s.'’-]{1,2}([\p{L}\p{M}\p{N}]+)/uy
 const NEXT_WORD = /\s+([\p{L}\p{M}\p{N}]+)/uy
 const APOSTROPHE_SUFFIX = /['’‘´`]\p{L}/uy
 const WORD_CHAR = /[\p{L}\p{M}\p{N}]/u
@@ -131,6 +132,22 @@ interface Entry {
 
 const words = (name: string): string[] => [...name.matchAll(WORD)].map((m) => key(m[0]))
 
+/**
+ * One pattern for a pack's `notPlaces`, matched as written (case counts: "VAR" is the video
+ * referee, "Var" the department), with any spacing and either apostrophe.
+ */
+function notPlacesPattern(names: readonly string[] | undefined): RegExp | null {
+  if (!names?.length) return null
+  const phrases = names.map((name) =>
+    name
+      .trim()
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/\s+/g, '\\s+')
+      .replace(/['’]/g, "['’]")
+  )
+  return new RegExp(`(?<![\\p{L}\\p{N}])(?:${phrases.join('|')})(?![\\p{L}\\p{N}])`, 'gu')
+}
+
 /** Build a tagger for a country pack. Construction indexes names by their first word; tagging is linear. */
 export function createGeoTagger(pack: CountryPack): GeoTagger {
   const index = new Map<string, Entry[]>()
@@ -140,6 +157,7 @@ export function createGeoTagger(pack: CountryPack): GeoTagger {
   // In Turkish only proper nouns take an apostrophe suffix ("Ordu'da", never "ordu'da"); an
   // English possessive says nothing ("Washington's allies" is the federal government).
   const suffixMarksName = pack.language === 'tr'
+  const notPlaces = notPlacesPattern(pack.notPlaces)
 
   const add = (name: string, entry: Omit<Entry, 'words'>): void => {
     const nameWords = words(name)
@@ -198,7 +216,9 @@ export function createGeoTagger(pack: CountryPack): GeoTagger {
     return context && placeWords.has(key(context[1])) ? end : -1
   }
 
-  function tag(text: string): GeoTags {
+  function tag(raw: string): GeoTags {
+    // Blank out the names that only contain a place, keeping every other offset as it was.
+    const text = notPlaces ? raw.replace(notPlaces, (m) => ' '.repeat(m.length)) : raw
     const provinces: string[] = []
     const regions: RegionId[] = []
     /** Regions only a sea name gave so far. */

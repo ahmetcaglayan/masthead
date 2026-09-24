@@ -101,7 +101,7 @@
     },
     "country": {
       "label": "País",
-      "description": "De quais redações você acompanha as notícias. Seis países hoje; outros estão a caminho.",
+      "description": "De quais redações você acompanha as notícias. Sete países hoje; outros estão a caminho.",
       "soon": "Em breve"
     },
     "city": {
@@ -109,6 +109,7 @@
       "label_state": "Estado ou região",
       "label_land": "Estado ou região",
       "label_area": "Área ou região",
+      "label_department": "Departamento ou região",
       "description": "Preenche a sua página Local com notícias de perto de você."
     },
     "weather": {
@@ -136,10 +137,12 @@
     "cityOnly_state_one": "{{count}} veículo local espera pelo seu estado",
     "cityOnly_land_one": "{{count}} veículo local espera pelo seu estado",
     "cityOnly_area_one": "{{count}} veículo local espera pela sua área",
+    "cityOnly_department_one": "{{count}} veículo local espera pelo seu departamento",
     "cityOnly_other": "{{count}} veículos locais esperam pelas suas cidades",
     "cityOnly_state_other": "{{count}} veículos locais esperam pelos seus estados",
     "cityOnly_land_other": "{{count}} veículos locais esperam pelos seus estados",
     "cityOnly_area_other": "{{count}} veículos locais esperam pelas suas áreas",
+    "cityOnly_department_other": "{{count}} veículos locais esperam pelos seus departamentos",
     "notDelivering": "Sem notícias ({{count}})",
     "feeds_one": "{{count}} feed",
     "feeds_other": "{{count}} feeds",
@@ -158,14 +161,17 @@
     "yourCity_state": "Seu estado",
     "yourCity_land": "Seu estado",
     "yourCity_area": "Sua área",
+    "yourCity_department": "Seu departamento",
     "allProvinces": "Todas as {{count}} províncias",
     "allProvinces_state": "Todos os {{count}} estados",
     "allProvinces_land": "Todos os {{count}} estados",
     "allProvinces_area": "Todas as {{count}} áreas",
+    "allProvinces_department": "Todos os {{count}} departamentos",
     "localNote": "Os veículos locais só são consultados para a cidade escolhida.",
     "localNote_state": "Os veículos locais só são consultados para o estado escolhido.",
     "localNote_land": "Os veículos locais só são consultados para o estado escolhido.",
     "localNote_area": "Os veículos locais só são consultados para a área escolhida.",
+    "localNote_department": "Os veículos locais só são consultados para o departamento escolhido.",
     "stories_one": "{{formatted}} notícia",
     "stories_other": "{{formatted}} notícias",
     "health": {
@@ -178,7 +184,8 @@
       "localIdle": "Consultado quando a cidade for escolhida",
       "localIdle_state": "Consultado quando o estado for escolhido",
       "localIdle_land": "Consultado quando o estado for escolhido",
-      "localIdle_area": "Consultado quando a área for escolhida"
+      "localIdle_area": "Consultado quando a área for escolhida",
+      "localIdle_department": "Consultado quando o departamento for escolhido"
     },
     "toast": {
       "enabled_one": "{{count}} fonte ligada",
@@ -196,28 +203,34 @@
     "search_state": "Buscar estados",
     "search_land": "Buscar estados",
     "search_area": "Buscar áreas",
+    "search_department": "Buscar departamentos",
     "label": "Cidades",
     "label_state": "Estados",
     "label_land": "Estados",
     "label_area": "Áreas",
+    "label_department": "Departamentos",
     "placeholder": "Escolher uma cidade",
     "placeholder_state": "Escolher um estado",
     "placeholder_land": "Escolher um estado",
     "placeholder_area": "Escolher uma área",
+    "placeholder_department": "Escolher um departamento",
     "clear": "Limpar seleção",
     "wholeRegion": "Toda a região {{region}}",
     "cities_one": "{{count}} cidade",
     "cities_state_one": "{{count}} estado",
     "cities_land_one": "{{count}} estado",
     "cities_area_one": "{{count}} área",
+    "cities_department_one": "{{count}} departamento",
     "cities_other": "{{count}} cidades",
     "cities_state_other": "{{count}} estados",
     "cities_land_other": "{{count}} estados",
     "cities_area_other": "{{count}} áreas",
+    "cities_department_other": "{{count}} departamentos",
     "noMatch": "Nenhuma cidade corresponde a “{{query}}”",
     "noMatch_state": "Nenhum estado corresponde a “{{query}}”",
     "noMatch_land": "Nenhum estado corresponde a “{{query}}”",
-    "noMatch_area": "Nenhuma área corresponde a “{{query}}”"
+    "noMatch_area": "Nenhuma área corresponde a “{{query}}”",
+    "noMatch_department": "Nenhum departamento corresponde a “{{query}}”"
   },
   "reading": {
     "description": "Como as notícias abrem quando você clica.",

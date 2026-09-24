@@ -65,7 +65,8 @@ const COUNTRIES: Partial<Record<CountryCode, MarketsCountry>> = {
   in: { currency: 'INR', metalUnit: 'tenGrams' },
   gb: { currency: 'GBP', metalUnit: 'ounce' },
   de: { currency: 'EUR', metalUnit: 'ounce' },
-  br: { currency: 'BRL', metalUnit: 'gram' }
+  br: { currency: 'BRL', metalUnit: 'gram' },
+  fr: { currency: 'EUR', metalUnit: 'ounce' }
 }
 
 export function marketsCountry(country: CountryCode): MarketsCountry | undefined {
@@ -111,12 +112,13 @@ export const CRYPTOS: readonly { code: string; name: string }[] = [
   { code: 'SHIB', name: 'Shiba Inu' }
 ]
 
-type Lang = 'tr' | 'en' | 'de' | 'pt' | 'hi'
+type Lang = 'tr' | 'en' | 'de' | 'pt' | 'hi' | 'fr'
 
 /**
  * How the news calls the big currencies, by news language. Bare "dolar" or "Dollar" is left
  * out where it mostly states amounts ("2 milyar dolarlık", "Milliarden Dollar"): the rate's
- * own phrases are what market news uses.
+ * own phrases are what market news uses. French "la livre" is also a pound of weight, so
+ * sterling goes by its full name.
  */
 const CURRENCY_WORDS: Record<string, Record<Lang, string[]>> = {
   USD: {
@@ -132,73 +134,113 @@ const CURRENCY_WORDS: Record<string, Record<Lang, string[]>> = {
       'dólar abre',
       'dólar opera'
     ],
-    hi: ['डॉलर']
+    hi: ['डॉलर'],
+    fr: ['le dollar', 'du dollar', 'dollar américain', 'billet vert', 'EUR/USD']
   },
   EUR: {
     tr: ['euro/TL', 'euro kuru', 'avro', 'euro ne kadar', 'EUR/TRY'],
     en: ['the euro', 'euro zone', 'eurozone'],
     de: ['Euro-Kurs', 'Eurokurs', 'Euroraum', 'Eurozone'],
     pt: ['cotação do euro', 'euro hoje', 'euro sobe', 'euro cai'],
-    hi: ['यूरो']
+    hi: ['यूरो'],
+    fr: ["l'euro", 'zone euro', 'monnaie unique']
   },
   GBP: {
     tr: ['sterlin*'],
     en: ['sterling', 'the pound'],
     de: ['britische Pfund', 'Pfund Sterling'],
     pt: ['libra esterlina'],
-    hi: ['पाउंड']
+    hi: ['पाउंड'],
+    fr: ['livre sterling', 'sterling']
   },
   CHF: {
     tr: ['İsviçre frangı'],
     en: ['Swiss franc'],
     de: ['Franken'],
     pt: ['franco suíço'],
-    hi: ['स्विस फ्रैंक']
+    hi: ['स्विस फ्रैंक'],
+    fr: ['franc suisse']
   },
-  JPY: { tr: ['yen'], en: ['yen'], de: ['Yen'], pt: ['iene'], hi: ['येन'] },
-  CNY: { tr: ['yuan'], en: ['yuan', 'renminbi'], de: ['Yuan', 'Renminbi'], pt: ['yuan'], hi: ['युआन'] },
+  JPY: { tr: ['yen'], en: ['yen'], de: ['Yen'], pt: ['iene'], hi: ['येन'], fr: ['yen'] },
+  CNY: {
+    tr: ['yuan'],
+    en: ['yuan', 'renminbi'],
+    de: ['Yuan', 'Renminbi'],
+    pt: ['yuan'],
+    hi: ['युआन'],
+    fr: ['yuan', 'renminbi']
+  },
   TRY: {
     tr: ['Türk lirası'],
     en: ['Turkish lira'],
     de: ['türkische Lira'],
     pt: ['lira turca'],
-    hi: ['तुर्की लीरा']
+    hi: ['तुर्की लीरा'],
+    fr: ['livre turque']
   },
   INR: {
     tr: ['rupi'],
     en: ['rupee', 'rupees'],
     de: ['Rupie'],
     pt: ['rupia'],
-    hi: ['रुपया', 'रुपये', 'रुपए']
+    hi: ['रुपया', 'रुपये', 'रुपए'],
+    fr: ['roupie*']
   },
   BRL: {
     tr: ['Brezilya reali'],
     en: ['Brazilian real'],
     de: ['brasilianischer Real'],
     pt: ['real', 'reais'],
-    hi: ['ब्राज़ीली रियल']
+    hi: ['ब्राज़ीली रियल'],
+    fr: ['réal brésilien']
   },
   CAD: {
     tr: ['Kanada doları'],
     en: ['Canadian dollar', 'loonie'],
     de: ['kanadischer Dollar'],
     pt: ['dólar canadense'],
-    hi: ['कनाडाई डॉलर']
+    hi: ['कनाडाई डॉलर'],
+    fr: ['dollar canadien']
   }
 }
 
-/** How the news calls the metals. "altın" is a whole word only: "altında" means "under". */
+/**
+ * How the news calls the metals. "altın" is a whole word only: "altında" means "under". French
+ * "or" is also "but" and "argent" is money, so gold and silver go by their market phrases.
+ */
 const METAL_WORDS: Record<(typeof METALS)[number], Record<Lang, string[]>> = {
   XAU: {
     tr: ['altın', 'altının', 'gram altın', 'ons altın', 'çeyrek altın'],
     en: ['gold', 'bullion'],
     de: ['Gold', 'Goldpreis*'],
     pt: ['ouro'],
-    hi: ['सोना', 'सोने', 'गोल्ड']
+    hi: ['सोना', 'सोने', 'गोल्ड'],
+    fr: ["l'or", "cours de l'or", "prix de l'or", "once d'or", 'lingot*']
   },
-  XAG: { tr: ['gümüş'], en: ['silver'], de: ['Silber*'], pt: ['prata'], hi: ['चांदी', 'चाँदी'] },
-  XPT: { tr: ['platin'], en: ['platinum'], de: ['Platin'], pt: ['platina'], hi: ['प्लैटिनम'] },
-  XPD: { tr: ['paladyum'], en: ['palladium'], de: ['Palladium'], pt: ['paládio'], hi: ['पैलेडियम'] }
+  XAG: {
+    tr: ['gümüş'],
+    en: ['silver'],
+    de: ['Silber*'],
+    pt: ['prata'],
+    hi: ['चांदी', 'चाँदी'],
+    fr: ["cours de l'argent", "prix de l'argent", 'argent métal']
+  },
+  XPT: {
+    tr: ['platin'],
+    en: ['platinum'],
+    de: ['Platin'],
+    pt: ['platina'],
+    hi: ['प्लैटिनम'],
+    fr: ['platine']
+  },
+  XPD: {
+    tr: ['paladyum'],
+    en: ['palladium'],
+    de: ['Palladium'],
+    pt: ['paládio'],
+    hi: ['पैलेडियम'],
+    fr: ['palladium']
+  }
 }
 
 const CRYPTO_WORDS: Partial<Record<string, Partial<Record<Lang, string[]>>>> = {
@@ -206,10 +248,10 @@ const CRYPTO_WORDS: Partial<Record<string, Partial<Record<Lang, string[]>>>> = {
   ETH: { hi: ['एथेरियम'] }
 }
 
-/** The pack language as a key of the word tables (the five languages Masthead ships). */
+/** The pack language as a key of the word tables (the languages Masthead ships). */
 function langOf(language: string): Lang {
   const code = language.slice(0, 2)
-  return code === 'tr' || code === 'de' || code === 'pt' || code === 'hi' ? code : 'en'
+  return code === 'tr' || code === 'de' || code === 'pt' || code === 'hi' || code === 'fr' ? code : 'en'
 }
 
 export const watchItemId = (kind: AssetKind, code: string): string =>
@@ -263,7 +305,9 @@ interface EquitySeed {
 /**
  * The stock markets and companies most people there invest in: the default watchlist, and
  * the suggestions offered when adding. Keywords avoid names that are also everyday words
- * ("Garanti" alone means "guarantee", "Vale" is "worth" in Portuguese).
+ * ("Garanti" alone means "guarantee", "Vale" is "worth" in Portuguese, "Carrefour" is a
+ * crossroads), and tickers that are words ("OR", "AIR", "CA" — "ça" once accents fold) are
+ * left out, because a ticker is looked for in the news too.
  */
 const EQUITIES: Partial<Record<CountryCode, { defaults: EquitySeed[]; more: EquitySeed[] }>> = {
   tr: {
@@ -388,6 +432,31 @@ const EQUITIES: Partial<Record<CountryCode, { defaults: EquitySeed[]; more: Equi
       { name: 'JBS', ticker: 'JBSS3', keywords: ['JBS'] },
       { name: 'Eletrobras', ticker: 'ELET3', keywords: ['Eletrobras'] }
     ]
+  },
+  fr: {
+    defaults: [
+      { name: 'CAC 40', keywords: ['CAC 40', 'Bourse de Paris', 'Euronext Paris'] },
+      { name: 'LVMH', keywords: ['LVMH'] },
+      { name: 'TotalEnergies', ticker: 'TTE', keywords: ['TotalEnergies'] },
+      { name: 'Airbus', keywords: ['Airbus'] },
+      { name: "L'Oréal", keywords: ["L'Oréal"] },
+      { name: 'Schneider Electric', keywords: ['Schneider Electric'] },
+      { name: 'BNP Paribas', ticker: 'BNP', keywords: ['BNP Paribas'] }
+    ],
+    more: [
+      { name: 'Hermès', ticker: 'RMS', keywords: ['Hermès'] },
+      { name: 'Sanofi', keywords: ['Sanofi'] },
+      { name: 'Safran', ticker: 'SAF', keywords: ['Safran'] },
+      { name: 'AXA', keywords: ['AXA'] },
+      { name: 'Air Liquide', keywords: ['Air Liquide'] },
+      { name: 'Société Générale', ticker: 'GLE', keywords: ['Société générale'] },
+      { name: 'Stellantis', ticker: 'STLAM', keywords: ['Stellantis'] },
+      { name: 'Kering', ticker: 'KER', keywords: ['Kering'] },
+      { name: 'Danone', keywords: ['Danone'] },
+      { name: 'Renault', ticker: 'RNO', keywords: ['Renault'] },
+      { name: 'Dassault Systèmes', ticker: 'DSY', keywords: ['Dassault Systèmes'] },
+      { name: 'Carrefour', keywords: ['groupe Carrefour'] }
+    ]
   }
 }
 
@@ -406,7 +475,8 @@ const DEFAULT_CURRENCIES: Partial<Record<CountryCode, string[]>> = {
   in: ['USD', 'EUR', 'GBP'],
   gb: ['USD', 'EUR'],
   de: ['USD', 'GBP', 'CHF'],
-  br: ['USD', 'EUR']
+  br: ['USD', 'EUR'],
+  fr: ['USD', 'GBP', 'CHF']
 }
 
 /**

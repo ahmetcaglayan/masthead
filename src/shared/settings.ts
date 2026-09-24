@@ -4,7 +4,7 @@ import { cleanWatchlist, type WatchItem } from './markets'
 import { cleanMutedKeywords } from './mute'
 import type { CountryCode, RegionId } from './types'
 
-export const UI_LANGUAGES = ['en', 'tr', 'de', 'pt', 'hi'] as const
+export const UI_LANGUAGES = ['en', 'tr', 'de', 'pt', 'hi', 'fr'] as const
 export type UiLanguage = (typeof UI_LANGUAGES)[number]
 
 export type ThemeMode = 'system' | 'light' | 'dark'

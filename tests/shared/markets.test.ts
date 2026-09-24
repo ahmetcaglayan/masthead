@@ -59,7 +59,22 @@ describe('watchlist', () => {
       'Türk Hava Yolları',
       'THYAO'
     ])
-    expect(defaultWatchlist('fr', 'fr')).toEqual([])
+    expect(defaultWatchlist('es', 'es')).toEqual([])
+  })
+
+  it('gives France the CAC 40 and keeps word-like tickers out of the news words', () => {
+    const list = defaultWatchlist('fr', 'fr')
+    expect(list.slice(0, 3).map((item) => item.id)).toEqual(['currency:USD', 'currency:GBP', 'currency:CHF'])
+    expect(list.map((item) => item.id)).toContain('equity:cac-40')
+    const oreal = list.find((item) => item.name === "L'Oréal")
+    expect(oreal?.keywords).toEqual(["L'Oréal"])
+    expect(matches(oreal?.keywords ?? [], 'L’Oréal publie ses résultats')).toBe(true)
+    const gold = metalItem('XAU', 'fr').keywords
+    expect(matches(gold, "Le cours de l'or bat un record")).toBe(true)
+    expect(matches(gold, 'Or, le gouvernement a tranché')).toBe(false)
+    expect(matches(metalItem('XAG', 'fr').keywords, "L'argent public manque")).toBe(false)
+    expect(matches(currencyItem('USD', 'fr').keywords, 'Le dollar recule face à l’euro')).toBe(true)
+    expect(matches(currencyItem('USD', 'fr').keywords, 'Un plan de 3 milliards de dollars')).toBe(false)
   })
 
   it('finds the dollar rate, not amounts in dollars', () => {

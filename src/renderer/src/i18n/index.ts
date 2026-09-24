@@ -59,7 +59,7 @@ export function useLanguage(): string {
  * BCP-47 locale for Intl APIs for a UI language. English is British, like its
  * copy ("colour"): "Wednesday 23 September 2026"; Portuguese is Brazilian.
  */
-const LOCALES: Record<string, string> = { tr: 'tr-TR', de: 'de-DE', pt: 'pt-BR', hi: 'hi-IN' }
+const LOCALES: Record<string, string> = { tr: 'tr-TR', de: 'de-DE', pt: 'pt-BR', hi: 'hi-IN', fr: 'fr-FR' }
 
 export function localeFor(language: string): string {
   return LOCALES[language] ?? 'en-GB'
