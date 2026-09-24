@@ -4,11 +4,15 @@ import { localOutlet, provinceFeeds, type LocalOutlet } from '../build.ts'
 /*
  * Local news: g1's page for every state (the Globo affiliates' newsrooms) and the regional
  * papers with working feeds. Every feed is only fetched for the user's selected state.
- * Checked on 2026-09-23.
+ * Checked on 2026-09-24.
  *
- * Not included: GZH, Correio do Povo, O Tempo, Estado de Minas, O Povo, Diário do Nordeste,
- * Jornal do Commercio, O Liberal, A Crítica and O Popular (their feeds answer 403/404),
- * Correio (its feed stopped in 2023) and Imirante (a single 1,000-item feed).
+ * Not included: GZH, Correio do Povo, O Tempo, Itatiaia, Hoje em Dia, Diário do Nordeste,
+ * Diário de Pernambuco, Folha de Pernambuco, A Crítica, Portal do Holanda, D24am, O Popular,
+ * Jornal Opção, Mais Goiás, Jornal do Tocantins, Bem Paraná, Bahia Notícias, BNews,
+ * ac24horas, Folha de Boa Vista, Gazeta Digital, MídiaNews, Correio do Estado, GP1 and Cada
+ * Minuto (their feeds answer 403/404 or they have none), Correio Braziliense (its feed
+ * stopped in 2024), Correio (stopped in 2023), O Dia (stopped in 2018), Conexão Tocantins
+ * (no item dates) and Imirante (a single 1,000-item feed).
  */
 
 const g1 = (uf: string): string => `https://g1.globo.com/rss/g1/${uf}/`
@@ -106,7 +110,56 @@ const outlets: LocalOutlet[] = [
     province: 'SP',
     feed: 'https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/sao-paulo/?outputType=xml'
   },
-  { id: 'extra', name: 'Extra', province: 'RJ', feed: 'https://extra.globo.com/rss/extra' }
+  { id: 'extra', name: 'Extra', province: 'RJ', feed: 'https://extra.globo.com/rss/extra' },
+  {
+    id: 'o-globo-rio',
+    name: 'O Globo Rio',
+    province: 'RJ',
+    feed: 'https://oglobo.globo.com/rss/oglobo/rio/'
+  },
+  { id: 'estado-de-minas', name: 'Estado de Minas', province: 'MG', feed: 'https://www.em.com.br/feed' },
+  {
+    id: 'jornal-do-comercio-rs',
+    name: 'Jornal do Comércio',
+    province: 'RS',
+    feed: 'https://www.jornaldocomercio.com/_conteudo/home/rss.xml'
+  },
+  { id: 'sul21', name: 'Sul21', province: 'RS', feed: 'https://sul21.com.br/feed/' },
+  {
+    id: 'jornal-do-commercio',
+    name: 'Jornal do Commercio',
+    province: 'PE',
+    feed: 'https://jc.uol.com.br/ultimas/rss.xml'
+  },
+  {
+    id: 'o-povo',
+    name: 'O Povo',
+    province: 'CE',
+    feed: 'https://www.opovo.com.br/noticias/fortaleza/rss.xml'
+  },
+  {
+    id: 'o-liberal',
+    name: 'O Liberal',
+    province: 'PA',
+    feed: 'https://www.oliberal.com/cmlink/oliberal-com-1.169551'
+  },
+  { id: 'metro1', name: 'Metro1', province: 'BA', feed: 'https://www.metro1.com.br/rss' },
+  {
+    id: 'jornal-de-brasilia',
+    name: 'Jornal de Brasília',
+    province: 'DF',
+    feed: 'https://jornaldebrasilia.com.br/feed/'
+  },
+  { id: 'gazetaweb', name: 'GazetaWeb', province: 'AL', feed: 'https://www.gazetaweb.com/rss' },
+  { id: 'portal-o-dia', name: 'Portal O Dia', province: 'PI', feed: 'https://portalodia.com/rss' },
+  { id: 'o-imparcial', name: 'O Imparcial', province: 'MA', feed: 'https://oimparcial.com.br/feed/' },
+  { id: 'infonet', name: 'Infonet', province: 'SE', feed: 'https://infonet.com.br/feed/' },
+  { id: 'em-tempo', name: 'Em Tempo', province: 'AM', feed: 'https://emtempo.com.br/feed/' },
+  { id: 'contilnet', name: 'ContilNet', province: 'AC', feed: 'https://contilnet.com.br/feed/' },
+  { id: 'news-rondonia', name: 'News Rondônia', province: 'RO', feed: 'https://newsrondonia.com.br/feed' },
+  { id: 'roraima-1', name: 'Roraima 1', province: 'RR', feed: 'https://roraima1.com.br/feed/' },
+  { id: 'rdnews', name: 'RDNews', province: 'MT', feed: 'https://www.rdnews.com.br/feed' },
+  { id: 'o-hoje', name: 'O Hoje', province: 'GO', feed: 'https://ohoje.com/feed/' }
 ]
 
 export const localSources: SourceDef[] = [g1Regional, ...outlets.map((outlet) => localOutlet(outlet, 'pt'))]

@@ -12,7 +12,8 @@ import { localOutlet, type LocalOutlet } from '../build.ts'
  * Not included: the States Newsroom sites (Florida Phoenix, Georgia Recorder…), whose feeds
  * sit behind a Cloudflare challenge, Gannett papers, which no longer publish feeds, the Lee
  * Enterprises papers (Omaha World-Herald, St. Louis Post-Dispatch), which rate-limit feed
- * readers, and the Texas Tribune's feed, days behind the site.
+ * readers, the Texas Tribune's feed, days behind the site, and KING 5 (its feeds went empty,
+ * 2026-09-24).
  */
 
 const gray = (host: string): string =>
@@ -284,12 +285,6 @@ const outlets: LocalOutlet[] = [
     name: 'The Seattle Times',
     province: 'WA',
     feed: 'https://www.seattletimes.com/seattle-news/feed/'
-  },
-  {
-    id: 'king5',
-    name: 'KING 5',
-    province: 'WA',
-    feed: 'https://www.king5.com/feeds/syndication/rss/news/local'
   },
   { id: 'kiro7', name: 'KIRO 7', province: 'WA', feed: arc('kiro7.com') }
 ]

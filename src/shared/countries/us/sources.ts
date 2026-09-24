@@ -1,23 +1,34 @@
 import type { SourceDef } from '../../types'
+import { favicon } from '../build.ts'
 import { localSources } from './local.ts'
 
 /*
  * United States — English-language national sources, plus two or three local newsrooms
- * per state (see `local.ts`). Every feed was checked on 2026-09-23 (re-check with
+ * per state (see `local.ts`). Every feed was checked on 2026-09-24 (re-check with
  * `npm run verify:feeds us`): stale (> 3 days), empty and bot-blocked feeds dropped.
  *
- * Not included: the Associated Press and USA Today (their feeds answer 403 / no longer
- * serve XML), CNN, whose rss.cnn.com feeds have not been updated for years, and the
- * CBS health feed, which runs days behind.
+ * Not included: the Associated Press, Bleacher Report, PCMag, The Chronicle of Higher
+ * Education, Autoblog, Fodor's and Frommer's (bot walls answer 403), USA Today (its
+ * rssfeeds.usatoday.com feeds redirect to the home page), CNN, whose rss.cnn.com host
+ * refuses HTTPS and whose feeds stopped in 2024, People, Entertainment Weekly, Travel +
+ * Leisure, Food & Wine and Serious Eats (Dotdash Meredith answers feed readers with 402),
+ * The Ringer, MotorTrend, Vulture / New York, WebMD, Scripps News and Stars and Stripes
+ * (no feed), Space.com (its feed is empty), RealClearPolitics (it republishes other
+ * outlets' stories, foreign ones among them), and the CBS health feed, which runs days
+ * behind.
  *
- * The default set is balanced the way the Turkey pack is: public media and the
- * mainstream dailies alongside Fox News, the Wall Street Journal, the Washington
- * Examiner, the Washington Times, National Review, The Dispatch, The Free Press and
- * Reason from the right, with the tabloid and The Daily Wire off by default.
+ * The default set is balanced the way the Turkey pack is: public media, the mainstream
+ * dailies and networks (MS NOW among them) and the left-leaning magazines Slate, Mother
+ * Jones and The New Yorker alongside Fox News, Fox Business, Newsmax, the Wall Street
+ * Journal, the Washington Examiner, the Washington Times, National Review, The Dispatch,
+ * The Free Press and Reason from the right. Off by default: the tabloid (New York Post),
+ * the most partisan sites on both sides (Salon, The Daily Beast, The Nation, The New
+ * Republic, The Intercept; The Daily Wire, The Federalist, Breitbart) and niche titles
+ * (Kiplinger, MacRumors, Tom's Hardware, Defense One, Military Times).
  */
 
 const nationalSources: SourceDef[] = [
-  // Public media
+  // Public media and agencies
   {
     id: 'npr',
     name: 'NPR',
@@ -50,6 +61,19 @@ const nationalSources: SourceDef[] = [
     kind: 'public',
     language: 'en',
     feeds: [{ url: 'https://www.pbs.org/newshour/feeds/rss/headlines', category: 'top', headline: true }]
+  },
+  {
+    id: 'upi',
+    name: 'UPI',
+    homepage: 'https://www.upi.com',
+    icon: favicon('upi.com'),
+    color: '#B5121B',
+    kind: 'agency',
+    language: 'en',
+    feeds: [
+      { url: 'https://rss.upi.com/news/top_news.rss', category: 'top', headline: true },
+      { url: 'https://rss.upi.com/news/business_news.rss', category: 'economy' }
+    ]
   },
 
   // Mainstream
@@ -154,6 +178,40 @@ const nationalSources: SourceDef[] = [
     ]
   },
   {
+    id: 'ms-now',
+    name: 'MS NOW',
+    homepage: 'https://www.ms.now',
+    icon: favicon('ms.now'),
+    color: '#1F2A44',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.ms.now/feed', category: 'general' }]
+  },
+  {
+    id: 'newsnation',
+    name: 'NewsNation',
+    homepage: 'https://www.newsnationnow.com',
+    icon: favicon('newsnationnow.com'),
+    color: '#002D72',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.newsnationnow.com/feed/', category: 'general' }]
+  },
+  {
+    id: 'huffpost',
+    name: 'HuffPost',
+    homepage: 'https://www.huffpost.com',
+    icon: favicon('huffpost.com'),
+    color: '#0DBE98',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [
+      { url: 'https://www.huffpost.com/section/us-news/feed', category: 'national' },
+      { url: 'https://www.huffpost.com/section/politics/feed', category: 'politics' },
+      { url: 'https://www.huffpost.com/section/world-news/feed', category: 'world' }
+    ]
+  },
+  {
     id: 'fox-news',
     name: 'Fox News',
     homepage: 'https://www.foxnews.com',
@@ -172,6 +230,19 @@ const nationalSources: SourceDef[] = [
       { url: 'https://moxie.foxnews.com/google-publisher/travel.xml', category: 'travel' },
       { url: 'https://moxie.foxnews.com/google-publisher/sports.xml', category: 'sports' },
       { url: 'https://moxie.foxnews.com/google-publisher/opinion.xml', category: 'opinion' }
+    ]
+  },
+  {
+    id: 'newsmax',
+    name: 'Newsmax',
+    homepage: 'https://www.newsmax.com',
+    icon: favicon('newsmax.com'),
+    color: '#0A2B5C',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [
+      { url: 'https://www.newsmax.com/rss/Newsfront/16/', category: 'general' },
+      { url: 'https://www.newsmax.com/rss/Politics/1/', category: 'politics' }
     ]
   },
 
@@ -208,7 +279,7 @@ const nationalSources: SourceDef[] = [
     id: 'washington-times',
     name: 'The Washington Times',
     homepage: 'https://www.washingtontimes.com',
-    icon: 'https://www.google.com/s2/favicons?domain=washingtontimes.com&sz=128',
+    icon: favicon('washingtontimes.com'),
     color: '#1F3B6E',
     kind: 'mainstream',
     language: 'en',
@@ -221,7 +292,7 @@ const nationalSources: SourceDef[] = [
     id: 'the-dispatch',
     name: 'The Dispatch',
     homepage: 'https://thedispatch.com',
-    icon: 'https://www.google.com/s2/favicons?domain=thedispatch.com&sz=128',
+    icon: favicon('thedispatch.com'),
     color: '#1D1D1B',
     kind: 'independent',
     language: 'en',
@@ -231,7 +302,7 @@ const nationalSources: SourceDef[] = [
     id: 'the-free-press',
     name: 'The Free Press',
     homepage: 'https://www.thefp.com',
-    icon: 'https://www.google.com/s2/favicons?domain=thefp.com&sz=128',
+    icon: favicon('thefp.com'),
     color: '#1A1A1A',
     kind: 'independent',
     language: 'en',
@@ -241,7 +312,7 @@ const nationalSources: SourceDef[] = [
     id: 'reason',
     name: 'Reason',
     homepage: 'https://reason.com',
-    icon: 'https://www.google.com/s2/favicons?domain=reason.com&sz=128',
+    icon: favicon('reason.com'),
     color: '#E2231A',
     kind: 'independent',
     language: 'en',
@@ -251,12 +322,34 @@ const nationalSources: SourceDef[] = [
     id: 'daily-wire',
     name: 'The Daily Wire',
     homepage: 'https://www.dailywire.com',
-    icon: 'https://www.google.com/s2/favicons?domain=dailywire.com&sz=128',
+    icon: favicon('dailywire.com'),
     color: '#1C2331',
     kind: 'independent',
     language: 'en',
     defaultEnabled: false,
     feeds: [{ url: 'https://www.dailywire.com/feeds/rss.xml', category: 'politics' }]
+  },
+  {
+    id: 'the-federalist',
+    name: 'The Federalist',
+    homepage: 'https://thefederalist.com',
+    icon: favicon('thefederalist.com'),
+    color: '#1A1A1A',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://thefederalist.com/feed/', category: 'opinion' }]
+  },
+  {
+    id: 'breitbart',
+    name: 'Breitbart',
+    homepage: 'https://www.breitbart.com',
+    icon: favicon('breitbart.com'),
+    color: '#FF6A00',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://feeds.feedburner.com/breitbart', category: 'politics' }]
   },
 
   // Politics and independent
@@ -280,6 +373,16 @@ const nationalSources: SourceDef[] = [
     feeds: [{ url: 'https://thehill.com/news/feed/', category: 'politics' }]
   },
   {
+    id: 'roll-call',
+    name: 'Roll Call',
+    homepage: 'https://rollcall.com',
+    icon: favicon('rollcall.com'),
+    color: '#1F3864',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://rollcall.com/feed/', category: 'politics' }]
+  },
+  {
     id: 'axios',
     name: 'Axios',
     homepage: 'https://www.axios.com',
@@ -293,7 +396,7 @@ const nationalSources: SourceDef[] = [
     id: 'wall-street-journal',
     name: 'The Wall Street Journal',
     homepage: 'https://www.wsj.com',
-    icon: 'https://www.google.com/s2/favicons?domain=wsj.com&sz=128',
+    icon: favicon('wsj.com'),
     color: '#0080C3',
     kind: 'mainstream',
     language: 'en',
@@ -306,7 +409,7 @@ const nationalSources: SourceDef[] = [
     id: 'los-angeles-times',
     name: 'Los Angeles Times',
     homepage: 'https://www.latimes.com',
-    icon: 'https://www.google.com/s2/favicons?domain=latimes.com&sz=128',
+    icon: favicon('latimes.com'),
     color: '#000000',
     kind: 'mainstream',
     language: 'en',
@@ -316,7 +419,7 @@ const nationalSources: SourceDef[] = [
     id: 'csmonitor',
     name: 'The Christian Science Monitor',
     homepage: 'https://www.csmonitor.com',
-    icon: 'https://www.google.com/s2/favicons?domain=csmonitor.com&sz=128',
+    icon: favicon('csmonitor.com'),
     color: '#E03A3E',
     kind: 'independent',
     language: 'en',
@@ -326,7 +429,7 @@ const nationalSources: SourceDef[] = [
     id: 'propublica',
     name: 'ProPublica',
     homepage: 'https://www.propublica.org',
-    icon: 'https://www.google.com/s2/favicons?domain=propublica.org&sz=128',
+    icon: favicon('propublica.org'),
     color: '#333333',
     kind: 'independent',
     language: 'en',
@@ -336,7 +439,7 @@ const nationalSources: SourceDef[] = [
     id: 'semafor',
     name: 'Semafor',
     homepage: 'https://www.semafor.com',
-    icon: 'https://www.google.com/s2/favicons?domain=semafor.com&sz=128',
+    icon: favicon('semafor.com'),
     color: '#E8A33D',
     kind: 'independent',
     language: 'en',
@@ -346,27 +449,128 @@ const nationalSources: SourceDef[] = [
     id: 'the-atlantic',
     name: 'The Atlantic',
     homepage: 'https://www.theatlantic.com',
-    icon: 'https://www.google.com/s2/favicons?domain=theatlantic.com&sz=128',
+    icon: favicon('theatlantic.com'),
     color: '#000000',
     kind: 'independent',
     language: 'en',
     feeds: [{ url: 'https://www.theatlantic.com/feed/all/', category: 'culture' }]
   },
   {
+    id: 'the-new-yorker',
+    name: 'The New Yorker',
+    homepage: 'https://www.newyorker.com',
+    icon: favicon('newyorker.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [
+      { url: 'https://www.newyorker.com/feed/news/rss', category: 'general' },
+      { url: 'https://www.newyorker.com/feed/culture/rss', category: 'culture' }
+    ]
+  },
+  {
     id: 'vox',
     name: 'Vox',
     homepage: 'https://www.vox.com',
-    icon: 'https://www.google.com/s2/favicons?domain=vox.com&sz=128',
+    icon: favicon('vox.com'),
     color: '#FFF200',
     kind: 'independent',
     language: 'en',
     feeds: [{ url: 'https://www.vox.com/rss/index.xml', category: 'politics' }]
   },
   {
+    id: 'slate',
+    name: 'Slate',
+    homepage: 'https://slate.com',
+    icon: favicon('slate.com'),
+    color: '#2E2E2E',
+    kind: 'independent',
+    language: 'en',
+    feeds: [
+      { url: 'https://slate.com/feeds/news-and-politics.rss', category: 'politics' },
+      { url: 'https://slate.com/feeds/culture.rss', category: 'culture' }
+    ]
+  },
+  {
+    id: 'mother-jones',
+    name: 'Mother Jones',
+    homepage: 'https://www.motherjones.com',
+    icon: favicon('motherjones.com'),
+    color: '#D0021B',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.motherjones.com/feed/', category: 'politics' }]
+  },
+  {
+    id: 'the-bulwark',
+    name: 'The Bulwark',
+    homepage: 'https://www.thebulwark.com',
+    icon: favicon('thebulwark.com'),
+    color: '#1D3557',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.thebulwark.com/feed', category: 'opinion' }]
+  },
+  {
+    id: 'the-nation',
+    name: 'The Nation',
+    homepage: 'https://www.thenation.com',
+    icon: favicon('thenation.com'),
+    color: '#C8102E',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.thenation.com/feed/?post_type=article', category: 'politics' }]
+  },
+  {
+    id: 'the-new-republic',
+    name: 'The New Republic',
+    homepage: 'https://newrepublic.com',
+    icon: favicon('newrepublic.com'),
+    color: '#1A1A1A',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://newrepublic.com/rss.xml', category: 'politics' }]
+  },
+  {
+    id: 'the-intercept',
+    name: 'The Intercept',
+    homepage: 'https://theintercept.com',
+    icon: favicon('theintercept.com'),
+    color: '#000000',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://theintercept.com/feed/?rss', category: 'politics' }]
+  },
+  {
+    id: 'salon',
+    name: 'Salon',
+    homepage: 'https://www.salon.com',
+    icon: favicon('salon.com'),
+    color: '#E8212E',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.salon.com/feed/', category: 'general' }]
+  },
+  {
+    id: 'daily-beast',
+    name: 'The Daily Beast',
+    homepage: 'https://www.thedailybeast.com',
+    icon: favicon('thedailybeast.com'),
+    color: '#EB1C24',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.thedailybeast.com/arc/outboundfeeds/rss/articles/', category: 'general' }]
+  },
+  {
     id: 'time',
     name: 'TIME',
     homepage: 'https://time.com',
-    icon: 'https://www.google.com/s2/favicons?domain=time.com&sz=128',
+    icon: favicon('time.com'),
     color: '#E90606',
     kind: 'mainstream',
     language: 'en',
@@ -376,14 +580,38 @@ const nationalSources: SourceDef[] = [
     id: 'newsweek',
     name: 'Newsweek',
     homepage: 'https://www.newsweek.com',
-    icon: 'https://www.google.com/s2/favicons?domain=newsweek.com&sz=128',
+    icon: favicon('newsweek.com'),
     color: '#E4002B',
     kind: 'mainstream',
     language: 'en',
     feeds: [{ url: 'https://www.newsweek.com/rss', category: 'general' }]
   },
+  {
+    id: 'defense-one',
+    name: 'Defense One',
+    homepage: 'https://www.defenseone.com',
+    icon: favicon('defenseone.com'),
+    color: '#0B2D4D',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.defenseone.com/rss/all/', category: 'politics' }]
+  },
+  {
+    id: 'military-times',
+    name: 'Military Times',
+    homepage: 'https://www.militarytimes.com',
+    icon: favicon('militarytimes.com'),
+    color: '#1B365D',
+    kind: 'independent',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [
+      { url: 'https://www.militarytimes.com/arc/outboundfeeds/rss/?outputType=xml', category: 'national' }
+    ]
+  },
 
-  // Business, technology, sport
+  // Business and markets
   {
     id: 'cnbc',
     name: 'CNBC',
@@ -404,6 +632,83 @@ const nationalSources: SourceDef[] = [
     ]
   },
   {
+    id: 'marketwatch',
+    name: 'MarketWatch',
+    homepage: 'https://www.marketwatch.com',
+    icon: favicon('marketwatch.com'),
+    color: '#4B8A3A',
+    kind: 'business',
+    language: 'en',
+    feeds: [{ url: 'https://feeds.content.dowjones.io/public/rss/mw_topstories', category: 'economy' }]
+  },
+  {
+    id: 'bloomberg',
+    name: 'Bloomberg',
+    homepage: 'https://www.bloomberg.com',
+    icon: favicon('bloomberg.com'),
+    color: '#000000',
+    kind: 'business',
+    language: 'en',
+    feeds: [
+      { url: 'https://feeds.bloomberg.com/markets/news.rss', category: 'economy' },
+      { url: 'https://feeds.bloomberg.com/politics/news.rss', category: 'politics' },
+      { url: 'https://feeds.bloomberg.com/technology/news.rss', category: 'technology' }
+    ]
+  },
+  {
+    id: 'fox-business',
+    name: 'Fox Business',
+    homepage: 'https://www.foxbusiness.com',
+    icon: favicon('foxbusiness.com'),
+    color: '#003366',
+    kind: 'business',
+    language: 'en',
+    feeds: [{ url: 'https://moxie.foxbusiness.com/google-publisher/latest.xml', category: 'economy' }]
+  },
+  {
+    id: 'business-insider',
+    name: 'Business Insider',
+    homepage: 'https://www.businessinsider.com',
+    icon: favicon('businessinsider.com'),
+    color: '#0A2240',
+    kind: 'business',
+    language: 'en',
+    feeds: [{ url: 'https://feeds.businessinsider.com/custom/all', category: 'general' }]
+  },
+  {
+    id: 'forbes',
+    name: 'Forbes',
+    homepage: 'https://www.forbes.com',
+    icon: favicon('forbes.com'),
+    color: '#000000',
+    kind: 'business',
+    language: 'en',
+    feeds: [{ url: 'https://www.forbes.com/business/feed/', category: 'economy' }]
+  },
+  {
+    id: 'fortune',
+    name: 'Fortune',
+    homepage: 'https://fortune.com',
+    icon: favicon('fortune.com'),
+    color: '#E4002B',
+    kind: 'business',
+    language: 'en',
+    feeds: [{ url: 'https://fortune.com/feed/', category: 'economy' }]
+  },
+  {
+    id: 'kiplinger',
+    name: 'Kiplinger',
+    homepage: 'https://www.kiplinger.com',
+    icon: favicon('kiplinger.com'),
+    color: '#005596',
+    kind: 'business',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.kiplinger.com/feeds.xml', category: 'economy' }]
+  },
+
+  // Technology
+  {
     id: 'the-verge',
     name: 'The Verge',
     homepage: 'https://www.theverge.com',
@@ -423,6 +728,90 @@ const nationalSources: SourceDef[] = [
     feeds: [{ url: 'https://feeds.arstechnica.com/arstechnica/index', category: 'technology' }]
   },
   {
+    id: 'wired',
+    name: 'WIRED',
+    homepage: 'https://www.wired.com',
+    icon: favicon('wired.com'),
+    color: '#000000',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://www.wired.com/feed/rss', category: 'technology' }]
+  },
+  {
+    id: 'techcrunch',
+    name: 'TechCrunch',
+    homepage: 'https://techcrunch.com',
+    icon: favicon('techcrunch.com'),
+    color: '#0A9E01',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://techcrunch.com/feed/', category: 'technology' }]
+  },
+  {
+    id: 'engadget',
+    name: 'Engadget',
+    homepage: 'https://www.engadget.com',
+    icon: favicon('engadget.com'),
+    color: '#1A1A1A',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://www.engadget.com/rss.xml', category: 'technology' }]
+  },
+  {
+    id: 'cnet',
+    name: 'CNET',
+    homepage: 'https://www.cnet.com',
+    icon: favicon('cnet.com'),
+    color: '#E71D36',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://www.cnet.com/rss/news/', category: 'technology' }]
+  },
+  {
+    id: 'gizmodo',
+    name: 'Gizmodo',
+    homepage: 'https://gizmodo.com',
+    icon: favicon('gizmodo.com'),
+    color: '#000000',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://gizmodo.com/feed', category: 'technology' }]
+  },
+  {
+    id: 'mit-technology-review',
+    name: 'MIT Technology Review',
+    homepage: 'https://www.technologyreview.com',
+    icon: favicon('technologyreview.com'),
+    color: '#000000',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://www.technologyreview.com/feed/', category: 'technology' }]
+  },
+  {
+    id: 'macrumors',
+    name: 'MacRumors',
+    homepage: 'https://www.macrumors.com',
+    icon: favicon('macrumors.com'),
+    color: '#1E6BB8',
+    kind: 'technology',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://feeds.macrumors.com/MacRumors-All', category: 'technology' }]
+  },
+  {
+    id: 'toms-hardware',
+    name: "Tom's Hardware",
+    homepage: 'https://www.tomshardware.com',
+    icon: favicon('tomshardware.com'),
+    color: '#C4161C',
+    kind: 'technology',
+    language: 'en',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.tomshardware.com/feeds.xml', category: 'technology' }]
+  },
+
+  // Sport
+  {
     id: 'espn',
     name: 'ESPN',
     homepage: 'https://www.espn.com',
@@ -433,190 +822,10 @@ const nationalSources: SourceDef[] = [
     feeds: [{ url: 'https://www.espn.com/espn/rss/news', category: 'sports' }]
   },
   {
-    id: 'marketwatch',
-    name: 'MarketWatch',
-    homepage: 'https://www.marketwatch.com',
-    icon: 'https://www.google.com/s2/favicons?domain=marketwatch.com&sz=128',
-    color: '#4B8A3A',
-    kind: 'business',
-    language: 'en',
-    feeds: [{ url: 'https://feeds.content.dowjones.io/public/rss/mw_topstories', category: 'economy' }]
-  },
-  {
-    id: 'wired',
-    name: 'WIRED',
-    homepage: 'https://www.wired.com',
-    icon: 'https://www.google.com/s2/favicons?domain=wired.com&sz=128',
-    color: '#000000',
-    kind: 'technology',
-    language: 'en',
-    feeds: [{ url: 'https://www.wired.com/feed/rss', category: 'technology' }]
-  },
-  {
-    id: 'techcrunch',
-    name: 'TechCrunch',
-    homepage: 'https://techcrunch.com',
-    icon: 'https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128',
-    color: '#0A9E01',
-    kind: 'technology',
-    language: 'en',
-    feeds: [{ url: 'https://techcrunch.com/feed/', category: 'technology' }]
-  },
-  {
-    id: 'engadget',
-    name: 'Engadget',
-    homepage: 'https://www.engadget.com',
-    icon: 'https://www.google.com/s2/favicons?domain=engadget.com&sz=128',
-    color: '#1A1A1A',
-    kind: 'technology',
-    language: 'en',
-    feeds: [{ url: 'https://www.engadget.com/rss.xml', category: 'technology' }]
-  },
-  {
-    id: 'scientific-american',
-    name: 'Scientific American',
-    homepage: 'https://www.scientificamerican.com',
-    icon: 'https://www.google.com/s2/favicons?domain=scientificamerican.com&sz=128',
-    color: '#CC0000',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://www.scientificamerican.com/platform/syndication/rss/', category: 'science' }]
-  },
-  {
-    id: 'science-news',
-    name: 'Science News',
-    homepage: 'https://www.sciencenews.org',
-    icon: 'https://www.google.com/s2/favicons?domain=sciencenews.org&sz=128',
-    color: '#0C3B5E',
-    kind: 'independent',
-    language: 'en',
-    feeds: [{ url: 'https://www.sciencenews.org/feed', category: 'science' }]
-  },
-  {
-    id: 'stat',
-    name: 'STAT',
-    homepage: 'https://www.statnews.com',
-    icon: 'https://www.google.com/s2/favicons?domain=statnews.com&sz=128',
-    color: '#D52B1E',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://www.statnews.com/feed/', category: 'health' }]
-  },
-  {
-    id: 'kff-health-news',
-    name: 'KFF Health News',
-    homepage: 'https://kffhealthnews.org',
-    icon: 'https://www.google.com/s2/favicons?domain=kffhealthnews.org&sz=128',
-    color: '#1E5D8C',
-    kind: 'independent',
-    language: 'en',
-    feeds: [{ url: 'https://kffhealthnews.org/feed/', category: 'health' }]
-  },
-  {
-    id: 'hechinger-report',
-    name: 'The Hechinger Report',
-    homepage: 'https://hechingerreport.org',
-    icon: 'https://www.google.com/s2/favicons?domain=hechingerreport.org&sz=128',
-    color: '#0B4F6C',
-    kind: 'independent',
-    language: 'en',
-    feeds: [{ url: 'https://hechingerreport.org/feed/', category: 'education' }]
-  },
-  {
-    id: 'inside-higher-ed',
-    name: 'Inside Higher Ed',
-    homepage: 'https://www.insidehighered.com',
-    icon: 'https://www.google.com/s2/favicons?domain=insidehighered.com&sz=128',
-    color: '#00467F',
-    kind: 'independent',
-    language: 'en',
-    feeds: [{ url: 'https://www.insidehighered.com/rss.xml', category: 'education' }]
-  },
-  {
-    id: 'car-and-driver',
-    name: 'Car and Driver',
-    homepage: 'https://www.caranddriver.com',
-    icon: 'https://www.google.com/s2/favicons?domain=caranddriver.com&sz=128',
-    color: '#000000',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://www.caranddriver.com/rss/all.xml/', category: 'automotive' }]
-  },
-  {
-    id: 'electrek',
-    name: 'Electrek',
-    homepage: 'https://electrek.co',
-    icon: 'https://www.google.com/s2/favicons?domain=electrek.co&sz=128',
-    color: '#1E9E5A',
-    kind: 'technology',
-    language: 'en',
-    feeds: [{ url: 'https://electrek.co/feed/', category: 'automotive' }]
-  },
-  {
-    id: 'conde-nast-traveler',
-    name: 'Condé Nast Traveler',
-    homepage: 'https://www.cntraveler.com',
-    icon: 'https://www.google.com/s2/favicons?domain=cntraveler.com&sz=128',
-    color: '#000000',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://www.cntraveler.com/feed/rss', category: 'travel' }]
-  },
-  {
-    id: 'inside-climate-news',
-    name: 'Inside Climate News',
-    homepage: 'https://insideclimatenews.org',
-    icon: 'https://www.google.com/s2/favicons?domain=insideclimatenews.org&sz=128',
-    color: '#1A6A8D',
-    kind: 'independent',
-    language: 'en',
-    feeds: [{ url: 'https://insideclimatenews.org/feed/', category: 'environment' }]
-  },
-  {
-    id: 'grist',
-    name: 'Grist',
-    homepage: 'https://grist.org',
-    icon: 'https://www.google.com/s2/favicons?domain=grist.org&sz=128',
-    color: '#3C8D2F',
-    kind: 'independent',
-    language: 'en',
-    feeds: [{ url: 'https://grist.org/feed/', category: 'environment' }]
-  },
-  {
-    id: 'variety',
-    name: 'Variety',
-    homepage: 'https://variety.com',
-    icon: 'https://www.google.com/s2/favicons?domain=variety.com&sz=128',
-    color: '#000000',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://variety.com/feed/', category: 'entertainment' }]
-  },
-  {
-    id: 'hollywood-reporter',
-    name: 'The Hollywood Reporter',
-    homepage: 'https://www.hollywoodreporter.com',
-    icon: 'https://www.google.com/s2/favicons?domain=hollywoodreporter.com&sz=128',
-    color: '#000000',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://www.hollywoodreporter.com/feed/', category: 'entertainment' }]
-  },
-  {
-    id: 'rolling-stone',
-    name: 'Rolling Stone',
-    homepage: 'https://www.rollingstone.com',
-    icon: 'https://www.google.com/s2/favicons?domain=rollingstone.com&sz=128',
-    color: '#D32323',
-    kind: 'mainstream',
-    language: 'en',
-    feeds: [{ url: 'https://www.rollingstone.com/feed/', category: 'culture' }]
-  },
-  {
     id: 'cbs-sports',
     name: 'CBS Sports',
     homepage: 'https://www.cbssports.com',
-    icon: 'https://www.google.com/s2/favicons?domain=cbssports.com&sz=128',
+    icon: favicon('cbssports.com'),
     color: '#0B2A5B',
     kind: 'sports',
     language: 'en',
@@ -626,11 +835,382 @@ const nationalSources: SourceDef[] = [
     id: 'yahoo-sports',
     name: 'Yahoo Sports',
     homepage: 'https://sports.yahoo.com',
-    icon: 'https://www.google.com/s2/favicons?domain=sports.yahoo.com&sz=128',
+    icon: favicon('sports.yahoo.com'),
     color: '#6001D2',
     kind: 'sports',
     language: 'en',
     feeds: [{ url: 'https://sports.yahoo.com/rss/', category: 'sports' }]
+  },
+  {
+    id: 'fox-sports',
+    name: 'FOX Sports',
+    homepage: 'https://www.foxsports.com',
+    icon: favicon('foxsports.com'),
+    color: '#002244',
+    kind: 'sports',
+    language: 'en',
+    feeds: [
+      {
+        url: 'https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30',
+        category: 'sports'
+      }
+    ]
+  },
+  {
+    id: 'sports-illustrated',
+    name: 'Sports Illustrated',
+    homepage: 'https://www.si.com',
+    icon: favicon('si.com'),
+    color: '#E11B22',
+    kind: 'sports',
+    language: 'en',
+    feeds: [{ url: 'https://www.si.com/feed', category: 'sports' }]
+  },
+  {
+    id: 'the-athletic',
+    name: 'The Athletic',
+    homepage: 'https://www.nytimes.com/athletic/',
+    icon: favicon('theathletic.com'),
+    color: '#000000',
+    kind: 'sports',
+    language: 'en',
+    feeds: [{ url: 'https://www.nytimes.com/athletic/rss/news/', category: 'sports' }]
+  },
+
+  // Science and health
+  {
+    id: 'scientific-american',
+    name: 'Scientific American',
+    homepage: 'https://www.scientificamerican.com',
+    icon: favicon('scientificamerican.com'),
+    color: '#CC0000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.scientificamerican.com/platform/syndication/rss/', category: 'science' }]
+  },
+  {
+    id: 'science-news',
+    name: 'Science News',
+    homepage: 'https://www.sciencenews.org',
+    icon: favicon('sciencenews.org'),
+    color: '#0C3B5E',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.sciencenews.org/feed', category: 'science' }]
+  },
+  {
+    id: 'popular-science',
+    name: 'Popular Science',
+    homepage: 'https://www.popsci.com',
+    icon: favicon('popsci.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.popsci.com/feed/', category: 'science' }]
+  },
+  {
+    id: 'live-science',
+    name: 'Live Science',
+    homepage: 'https://www.livescience.com',
+    icon: favicon('livescience.com'),
+    color: '#1B75BB',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.livescience.com/feeds.xml', category: 'science' }]
+  },
+  {
+    id: 'smithsonian-magazine',
+    name: 'Smithsonian Magazine',
+    homepage: 'https://www.smithsonianmag.com',
+    icon: favicon('smithsonianmag.com'),
+    color: '#003A70',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.smithsonianmag.com/rss/latest_articles/', category: 'science' }]
+  },
+  {
+    id: 'stat',
+    name: 'STAT',
+    homepage: 'https://www.statnews.com',
+    icon: favicon('statnews.com'),
+    color: '#D52B1E',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.statnews.com/feed/', category: 'health' }]
+  },
+  {
+    id: 'kff-health-news',
+    name: 'KFF Health News',
+    homepage: 'https://kffhealthnews.org',
+    icon: favicon('kffhealthnews.org'),
+    color: '#1E5D8C',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://kffhealthnews.org/feed/', category: 'health' }]
+  },
+  {
+    id: 'medpage-today',
+    name: 'MedPage Today',
+    homepage: 'https://www.medpagetoday.com',
+    icon: favicon('medpagetoday.com'),
+    color: '#00539F',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.medpagetoday.com/rss/headlines.xml', category: 'health' }]
+  },
+
+  // Education, environment, travel and cars
+  {
+    id: 'hechinger-report',
+    name: 'The Hechinger Report',
+    homepage: 'https://hechingerreport.org',
+    icon: favicon('hechingerreport.org'),
+    color: '#0B4F6C',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://hechingerreport.org/feed/', category: 'education' }]
+  },
+  {
+    id: 'inside-higher-ed',
+    name: 'Inside Higher Ed',
+    homepage: 'https://www.insidehighered.com',
+    icon: favicon('insidehighered.com'),
+    color: '#00467F',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.insidehighered.com/rss.xml', category: 'education' }]
+  },
+  {
+    id: 'education-week',
+    name: 'Education Week',
+    homepage: 'https://www.edweek.org',
+    icon: favicon('edweek.org'),
+    color: '#002F6C',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.edweek.org/index.rss', category: 'education' }]
+  },
+  {
+    id: 'chalkbeat',
+    name: 'Chalkbeat',
+    homepage: 'https://www.chalkbeat.org',
+    icon: favicon('chalkbeat.org'),
+    color: '#1A1A1A',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.chalkbeat.org/arc/outboundfeeds/rss/?outputType=xml', category: 'education' }]
+  },
+  {
+    id: 'inside-climate-news',
+    name: 'Inside Climate News',
+    homepage: 'https://insideclimatenews.org',
+    icon: favicon('insideclimatenews.org'),
+    color: '#1A6A8D',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://insideclimatenews.org/feed/', category: 'environment' }]
+  },
+  {
+    id: 'grist',
+    name: 'Grist',
+    homepage: 'https://grist.org',
+    icon: favicon('grist.org'),
+    color: '#3C8D2F',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://grist.org/feed/', category: 'environment' }]
+  },
+  {
+    id: 'heatmap',
+    name: 'Heatmap News',
+    homepage: 'https://heatmap.news',
+    icon: favicon('heatmap.news'),
+    color: '#F04E23',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://heatmap.news/feeds/feed.rss', category: 'environment' }]
+  },
+  {
+    id: 'conde-nast-traveler',
+    name: 'Condé Nast Traveler',
+    homepage: 'https://www.cntraveler.com',
+    icon: favicon('cntraveler.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.cntraveler.com/feed/rss', category: 'travel' }]
+  },
+  {
+    id: 'the-points-guy',
+    name: 'The Points Guy',
+    homepage: 'https://thepointsguy.com',
+    icon: favicon('thepointsguy.com'),
+    color: '#2F6BD5',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://thepointsguy.com/feed/', category: 'travel' }]
+  },
+  {
+    id: 'car-and-driver',
+    name: 'Car and Driver',
+    homepage: 'https://www.caranddriver.com',
+    icon: favicon('caranddriver.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.caranddriver.com/rss/all.xml/', category: 'automotive' }]
+  },
+  {
+    id: 'road-and-track',
+    name: 'Road & Track',
+    homepage: 'https://www.roadandtrack.com',
+    icon: favicon('roadandtrack.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.roadandtrack.com/rss/all.xml/', category: 'automotive' }]
+  },
+  {
+    id: 'jalopnik',
+    name: 'Jalopnik',
+    homepage: 'https://www.jalopnik.com',
+    icon: favicon('jalopnik.com'),
+    color: '#1A1A1A',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.jalopnik.com/feed/', category: 'automotive' }]
+  },
+  {
+    id: 'electrek',
+    name: 'Electrek',
+    homepage: 'https://electrek.co',
+    icon: favicon('electrek.co'),
+    color: '#1E9E5A',
+    kind: 'technology',
+    language: 'en',
+    feeds: [{ url: 'https://electrek.co/feed/', category: 'automotive' }]
+  },
+
+  // Entertainment, culture and lifestyle
+  {
+    id: 'variety',
+    name: 'Variety',
+    homepage: 'https://variety.com',
+    icon: favicon('variety.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://variety.com/feed/', category: 'entertainment' }]
+  },
+  {
+    id: 'hollywood-reporter',
+    name: 'The Hollywood Reporter',
+    homepage: 'https://www.hollywoodreporter.com',
+    icon: favicon('hollywoodreporter.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.hollywoodreporter.com/feed/', category: 'entertainment' }]
+  },
+  {
+    id: 'deadline',
+    name: 'Deadline',
+    homepage: 'https://deadline.com',
+    icon: favicon('deadline.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://deadline.com/feed/', category: 'entertainment' }]
+  },
+  {
+    id: 'billboard',
+    name: 'Billboard',
+    homepage: 'https://www.billboard.com',
+    icon: favicon('billboard.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.billboard.com/feed/', category: 'entertainment' }]
+  },
+  {
+    id: 'rolling-stone',
+    name: 'Rolling Stone',
+    homepage: 'https://www.rollingstone.com',
+    icon: favicon('rollingstone.com'),
+    color: '#D32323',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.rollingstone.com/feed/', category: 'culture' }]
+  },
+  {
+    id: 'pitchfork',
+    name: 'Pitchfork',
+    homepage: 'https://pitchfork.com',
+    icon: favicon('pitchfork.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://pitchfork.com/feed/feed-news/rss', category: 'culture' }]
+  },
+  {
+    id: 'vanity-fair',
+    name: 'Vanity Fair',
+    homepage: 'https://www.vanityfair.com',
+    icon: favicon('vanityfair.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.vanityfair.com/feed/rss', category: 'culture' }]
+  },
+  {
+    id: 'vogue',
+    name: 'Vogue',
+    homepage: 'https://www.vogue.com',
+    icon: favicon('vogue.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.vogue.com/feed/rss', category: 'lifestyle' }]
+  },
+  {
+    id: 'gq',
+    name: 'GQ',
+    homepage: 'https://www.gq.com',
+    icon: favicon('gq.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.gq.com/feed/rss', category: 'lifestyle' }]
+  },
+  {
+    id: 'esquire',
+    name: 'Esquire',
+    homepage: 'https://www.esquire.com',
+    icon: favicon('esquire.com'),
+    color: '#000000',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.esquire.com/rss/all.xml/', category: 'lifestyle' }]
+  },
+  {
+    id: 'bon-appetit',
+    name: 'Bon Appétit',
+    homepage: 'https://www.bonappetit.com',
+    icon: favicon('bonappetit.com'),
+    color: '#D72027',
+    kind: 'mainstream',
+    language: 'en',
+    feeds: [{ url: 'https://www.bonappetit.com/feed/rss', category: 'lifestyle' }]
+  },
+  {
+    id: 'eater',
+    name: 'Eater',
+    homepage: 'https://www.eater.com',
+    icon: favicon('eater.com'),
+    color: '#E60023',
+    kind: 'independent',
+    language: 'en',
+    feeds: [{ url: 'https://www.eater.com/rss/index.xml', category: 'lifestyle' }]
   }
 ]
 

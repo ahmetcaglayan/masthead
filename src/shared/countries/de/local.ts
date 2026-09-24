@@ -4,12 +4,15 @@ import { localOutlet, provinceFeeds, type LocalOutlet } from '../build.ts'
 /*
  * Regional news: tagesschau's page for every Land (it carries the stories of the Land's
  * ARD broadcaster), the broadcasters' own feeds where they publish one, and regional
- * papers. Every feed is only fetched for the user's selected Land. Checked on 2026-09-23.
+ * papers. Every feed is only fetched for the user's selected Land. Checked on 2026-09-23;
+ * more papers and Radio Bremen added on 2026-09-24.
  *
- * Not included: BR24, Radio Bremen and the Saarländischer Rundfunk (no working public
- * feed), and the Stuttgarter Zeitung, Kölner Stadt-Anzeiger, Weser-Kurier, Volksstimme,
- * Mitteldeutsche Zeitung, Saarbrücker Zeitung and Badische Zeitung (their feeds answer
- * 403/404/410).
+ * Not included: BR24 and the Saarländischer Rundfunk (no working public feed); the
+ * Stuttgarter Zeitung, Stuttgarter Nachrichten, Rheinpfalz, Volksstimme, Mitteldeutsche
+ * Zeitung, Märkische Oderzeitung, Lausitzer Rundschau, NWZ, Rhein-Zeitung, Schwäbische,
+ * Heilbronner Stimme, Abendzeitung and PNP (no feed, 404), the Badische Zeitung (410), the
+ * Weser-Kurier (empty feed), the Nordkurier, Mannheimer Morgen and Aachener Zeitung (bot
+ * wall) and the Kölner Stadt-Anzeiger (its Cologne feed is 440 KB).
  */
 
 const ts = (slug: string): string => `https://www.tagesschau.de/inland/regional/${slug}/index~rss2.xml`
@@ -90,6 +93,18 @@ const outlets: LocalOutlet[] = [
     feed: 'https://www.mdr.de/nachrichten/thueringen/index~rss2.xml'
   },
   { id: 'rbb24', name: 'rbb24', province: 'BE', feed: 'https://www.rbb24.de/aktuell/index.xml/feed=rss.xml' },
+  {
+    id: 'rbb24-brandenburg',
+    name: 'rbb24 Brandenburg',
+    province: 'BB',
+    feed: 'https://www.rbb24.de/brandenburg/index.xml/feed=rss.xml'
+  },
+  {
+    id: 'radio-bremen',
+    name: 'buten un binnen',
+    province: 'HB',
+    feed: 'https://www.butenunbinnen.de/feed/rss/nachrichten/neuste-nachrichten100.xml'
+  },
   { id: 'hessenschau', name: 'hessenschau', province: 'HE', feed: 'https://www.hessenschau.de/index.rss' },
   {
     id: 'swr-bw',
@@ -109,6 +124,14 @@ const outlets: LocalOutlet[] = [
   { id: 'merkur', name: 'Münchner Merkur', province: 'BY', feed: 'https://www.merkur.de/rssfeed.rdf' },
   { id: 'tz', name: 'tz', province: 'BY', feed: 'https://www.tz.de/rssfeed.rdf' },
   {
+    id: 'nuernberger-nachrichten',
+    name: 'Nürnberger Nachrichten',
+    province: 'BY',
+    feed: 'https://www.nn.de/?isRss=true'
+  },
+  { id: 'mainpost', name: 'Main-Post', province: 'BY', feed: 'https://www.mainpost.de/rss' },
+  { id: 'suedkurier', name: 'Südkurier', province: 'BW', feed: 'https://www.suedkurier.de/rss' },
+  {
     id: 'augsburger-allgemeine',
     name: 'Augsburger Allgemeine',
     province: 'BY',
@@ -126,7 +149,19 @@ const outlets: LocalOutlet[] = [
     province: 'BE',
     feed: 'https://www.berliner-zeitung.de/feed.xml'
   },
+  {
+    id: 'berliner-morgenpost',
+    name: 'Berliner Morgenpost',
+    province: 'BE',
+    feed: 'https://www.morgenpost.de/rss'
+  },
   { id: 'maz', name: 'Märkische Allgemeine', province: 'BB', feed: arc('maz-online.de') },
+  {
+    id: 'tagesspiegel-potsdam',
+    name: 'Tagesspiegel Potsdam',
+    province: 'BB',
+    feed: 'https://www.tagesspiegel.de/contentexport/feed/potsdam'
+  },
   {
     id: 'hamburger-abendblatt',
     name: 'Hamburger Abendblatt',
@@ -149,10 +184,61 @@ const outlets: LocalOutlet[] = [
   { id: 'hna', name: 'HNA', province: 'HE', feed: 'https://www.hna.de/rssfeed.rdf' },
   { id: 'ostsee-zeitung', name: 'Ostsee-Zeitung', province: 'MV', feed: arc('ostsee-zeitung.de') },
   { id: 'haz', name: 'Hannoversche Allgemeine', province: 'NI', feed: arc('haz.de') },
+  { id: 'noz', name: 'Neue Osnabrücker Zeitung', province: 'NI', feed: 'https://www.noz.de/rss' },
+  {
+    id: 'braunschweiger-zeitung',
+    name: 'Braunschweiger Zeitung',
+    province: 'NI',
+    feed: 'https://www.braunschweiger-zeitung.de/rss'
+  },
+  {
+    id: 'kreiszeitung',
+    name: 'Kreiszeitung',
+    province: 'NI',
+    feed: 'https://www.kreiszeitung.de/rssfeed.rdf'
+  },
   { id: 'waz', name: 'WAZ', province: 'NW', feed: 'https://www.waz.de/rss' },
   { id: 'rheinische-post', name: 'Rheinische Post', province: 'NW', feed: 'https://rp-online.de/feed.rss' },
+  {
+    id: 'westfaelische-nachrichten',
+    name: 'Westfälische Nachrichten',
+    province: 'NW',
+    feed: 'https://www.wn.de/rss/feed'
+  },
+  {
+    id: 'neue-westfaelische',
+    name: 'Neue Westfälische',
+    province: 'NW',
+    feed: 'https://www.nw.de/_export/site_rss/nw/index.rss'
+  },
+  {
+    id: 'westdeutsche-zeitung',
+    name: 'Westdeutsche Zeitung',
+    province: 'NW',
+    feed: 'https://www.wz.de/feed.rss'
+  },
+  { id: 'ga-bonn', name: 'General-Anzeiger Bonn', province: 'NW', feed: 'https://ga.de/feed.rss' },
+  {
+    id: 'express-koeln',
+    name: 'Express',
+    province: 'NW',
+    feed: 'https://feed.express.de/feed/rss/koeln/index.rss'
+  },
+  {
+    id: 'volksfreund',
+    name: 'Trierischer Volksfreund',
+    province: 'RP',
+    feed: 'https://www.volksfreund.de/feed.rss'
+  },
+  {
+    id: 'saarbruecker-zeitung',
+    name: 'Saarbrücker Zeitung',
+    province: 'SL',
+    feed: 'https://www.saarbruecker-zeitung.de/feed.rss'
+  },
   { id: 'lvz', name: 'Leipziger Volkszeitung', province: 'SN', feed: arc('lvz.de') },
   { id: 'dnn', name: 'Dresdner Neueste Nachrichten', province: 'SN', feed: arc('dnn.de') },
+  { id: 'saechsische-zeitung', name: 'Sächsische Zeitung', province: 'SN', feed: arc('saechsische.de') },
   {
     id: 'freie-presse',
     name: 'Freie Presse',
@@ -167,7 +253,8 @@ const outlets: LocalOutlet[] = [
     name: 'Thüringer Allgemeine',
     province: 'TH',
     feed: 'https://www.thueringer-allgemeine.de/rss'
-  }
+  },
+  { id: 'otz', name: 'Ostthüringer Zeitung', province: 'TH', feed: 'https://www.otz.de/rss' }
 ]
 
 export const localSources: SourceDef[] = [

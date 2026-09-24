@@ -1,14 +1,25 @@
 import type { SourceDef } from '../../types'
+import { favicon } from '../build.ts'
 import { localSources } from './local.ts'
 
 /*
  * Germany — German-language national sources, plus regional news for every Land (see
- * `local.ts`). Every feed was checked on 2026-09-23 (re-check with
- * `npm run verify:feeds de`). Newsrooms outside Germany (NZZ, Der Standard) are left out.
+ * `local.ts`). Every feed was checked on 2026-09-23 and the pack was widened on 2026-09-24
+ * (re-check with `npm run verify:feeds de`). Newsrooms outside Germany (NZZ, Der Standard)
+ * are left out.
  *
  * Not included: the Zeit Online culture and science feeds (404), the old rss.focus.de news
- * feed, replaced by its section feed, Sport1 (403) and auto motor und sport (no feed).
- * Bild is off by default, like the tabloids in the Turkey pack.
+ * feed, replaced by its section feed, Sport1 (403), junge Welt (403), B.Z., Bunte, Freundin,
+ * Business Insider's front page, Finanztip, Börse Online, Börsen-Zeitung, NetDoktor, kino.de,
+ * TV Movie, Cosmopolitan, InStyle, Elle, Auto Zeitung, ADAC and Table.Media (no feed),
+ * Apotheken Umschau, Transfermarkt, GameStar/GamePro/PC Games/Mein-MMO, PC Games Hardware,
+ * TV Spielfilm, Prisma and Tagesspiegel Background (bot wall), Jungle World, Quotenmeter,
+ * the Ärzte Zeitung, Sport Bild and the Deutsches Schulportal (items carry no readable
+ * date), Quarks, Klimafakten and the Deutschlandfunk economy/Europe/sport pages (stale),
+ * CHIP and Fit for Fun (400-item feeds of 800 KB) and Verfassungsblog (mostly English).
+ * Bild, Focus, RTL and the celebrity press are off by default, like the tabloids in the
+ * Turkey pack; so are the partisan outlets on both edges (nd, Telepolis, NachDenkSeiten,
+ * Tichys Einblick, NIUS, Junge Freiheit, Apollo News, Achse des Guten, DWN).
  */
 
 const nationalSources: SourceDef[] = [
@@ -52,7 +63,10 @@ const nationalSources: SourceDef[] = [
     color: '#0098DB',
     kind: 'international',
     language: 'de',
-    feeds: [{ url: 'https://rss.dw.com/rdf/rss-de-all', category: 'general' }]
+    feeds: [
+      { url: 'https://rss.dw.com/xml/rss-de-top', category: 'top', headline: true },
+      { url: 'https://rss.dw.com/rdf/rss-de-all', category: 'general' }
+    ]
   },
 
   {
@@ -65,7 +79,8 @@ const nationalSources: SourceDef[] = [
     language: 'de',
     feeds: [
       { url: 'https://www.deutschlandfunk.de/nachrichten-100.rss', category: 'general' },
-      { url: 'https://www.deutschlandfunk.de/politikportal-100.rss', category: 'politics' }
+      { url: 'https://www.deutschlandfunk.de/politikportal-100.rss', category: 'politics' },
+      { url: 'https://www.deutschlandfunk.de/kulturportal-100.rss', category: 'culture' }
     ]
   },
   {
@@ -99,7 +114,8 @@ const nationalSources: SourceDef[] = [
       { url: 'https://www.spiegel.de/sport/index.rss', category: 'sports' },
       { url: 'https://www.spiegel.de/gesundheit/index.rss', category: 'health' },
       { url: 'https://www.spiegel.de/reise/index.rss', category: 'travel' },
-      { url: 'https://www.spiegel.de/psychologie/index.rss', category: 'lifestyle' }
+      { url: 'https://www.spiegel.de/familie/index.rss', category: 'lifestyle' },
+      { url: 'https://www.spiegel.de/start/index.rss', category: 'education' }
     ]
   },
   {
@@ -119,7 +135,8 @@ const nationalSources: SourceDef[] = [
       { url: 'https://newsfeed.zeit.de/gesundheit/index', category: 'health' },
       { url: 'https://newsfeed.zeit.de/sport/index', category: 'sports' },
       { url: 'https://newsfeed.zeit.de/entdecken/index', category: 'travel' },
-      { url: 'https://newsfeed.zeit.de/mobilitaet/index', category: 'automotive' }
+      { url: 'https://newsfeed.zeit.de/mobilitaet/index', category: 'automotive' },
+      { url: 'https://newsfeed.zeit.de/campus/index', category: 'education' }
     ]
   },
   {
@@ -215,6 +232,8 @@ const nationalSources: SourceDef[] = [
     language: 'de',
     feeds: [
       { url: 'https://www.stern.de/feed/standard/all/', category: 'general' },
+      { url: 'https://www.stern.de/feed/standard/politik/', category: 'politics' },
+      { url: 'https://www.stern.de/feed/standard/digital/', category: 'technology' },
       { url: 'https://www.stern.de/feed/standard/gesundheit/', category: 'health' },
       { url: 'https://www.stern.de/feed/standard/reise/', category: 'travel' },
       { url: 'https://www.stern.de/feed/standard/kultur/', category: 'culture' }
@@ -228,7 +247,11 @@ const nationalSources: SourceDef[] = [
     color: '#1A3A6B',
     kind: 'mainstream',
     language: 'de',
-    feeds: [{ url: 'https://www.tagesspiegel.de/contentexport/feed/home', category: 'general' }]
+    feeds: [
+      { url: 'https://www.tagesspiegel.de/contentexport/feed/home', category: 'general' },
+      { url: 'https://www.tagesspiegel.de/contentexport/feed/politik', category: 'politics' },
+      { url: 'https://www.tagesspiegel.de/contentexport/feed/kultur', category: 'culture' }
+    ]
   },
   {
     id: 'rnd',
@@ -301,7 +324,11 @@ const nationalSources: SourceDef[] = [
     color: '#E8730C',
     kind: 'business',
     language: 'de',
-    feeds: [{ url: 'https://www.handelsblatt.com/contentexport/feed/schlagzeilen', category: 'economy' }]
+    feeds: [
+      { url: 'https://www.handelsblatt.com/contentexport/feed/schlagzeilen', category: 'economy' },
+      { url: 'https://feeds.cms.handelsblatt.com/politik', category: 'politics' },
+      { url: 'https://feeds.cms.handelsblatt.com/technologie', category: 'technology' }
+    ]
   },
   {
     id: 'heise',
@@ -492,6 +519,594 @@ const nationalSources: SourceDef[] = [
     kind: 'mainstream',
     language: 'de',
     feeds: [{ url: 'https://www.musikexpress.de/feed/', category: 'culture' }]
+  },
+  // Public broadcasting: culture, young audiences, science
+  {
+    id: 'deutschlandfunk-kultur',
+    name: 'Deutschlandfunk Kultur',
+    homepage: 'https://www.deutschlandfunkkultur.de',
+    icon: favicon('deutschlandfunkkultur.de'),
+    kind: 'public',
+    language: 'de',
+    feeds: [
+      { url: 'https://www.deutschlandfunkkultur.de/aktuelle-kultur-themen-100.rss', category: 'culture' },
+      { url: 'https://www.deutschlandfunkkultur.de/meinung-debatte-100.rss', category: 'opinion' }
+    ]
+  },
+  {
+    id: 'deutschlandfunk-nova',
+    name: 'Deutschlandfunk Nova',
+    homepage: 'https://www.deutschlandfunknova.de',
+    icon: favicon('deutschlandfunknova.de'),
+    kind: 'public',
+    language: 'de',
+    feeds: [{ url: 'https://www.deutschlandfunknova.de/feeds/index', category: 'general' }]
+  },
+  {
+    id: 'mdr-wissen',
+    name: 'MDR Wissen',
+    homepage: 'https://www.mdr.de/wissen',
+    icon: favicon('mdr.de'),
+    kind: 'public',
+    language: 'de',
+    feeds: [{ url: 'https://www.mdr.de/wissen/index~rss2.xml', category: 'science' }]
+  },
+  {
+    id: 'das-parlament',
+    name: 'Das Parlament',
+    homepage: 'https://www.das-parlament.de',
+    icon: favicon('das-parlament.de'),
+    kind: 'public',
+    language: 'de',
+    feeds: [{ url: 'https://www.das-parlament.de/rss', category: 'politics' }]
+  },
+
+  // Independent, investigative and weekly press
+  {
+    id: 'correctiv',
+    name: 'CORRECTIV',
+    homepage: 'https://correctiv.org',
+    icon: favicon('correctiv.org'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://correctiv.org/feed/', category: 'general' }]
+  },
+  {
+    id: 'krautreporter',
+    name: 'Krautreporter',
+    homepage: 'https://krautreporter.de',
+    icon: favicon('krautreporter.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://krautreporter.de/feeds.rss', category: 'general' }]
+  },
+  {
+    id: 'freitag',
+    name: 'Der Freitag',
+    homepage: 'https://www.freitag.de',
+    icon: favicon('freitag.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.freitag.de/RSS', category: 'general' }]
+  },
+  {
+    id: 'uebermedien',
+    name: 'Übermedien',
+    homepage: 'https://uebermedien.de',
+    icon: favicon('uebermedien.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://uebermedien.de/feed/', category: 'culture' }]
+  },
+  {
+    id: 'lto',
+    name: 'Legal Tribune Online',
+    homepage: 'https://www.lto.de',
+    icon: favicon('lto.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.lto.de/rss/nachrichten-rss/feed.xml', category: 'politics' }]
+  },
+  {
+    id: 'watson-de',
+    name: 'watson',
+    homepage: 'https://www.watson.de',
+    icon: favicon('watson.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.watson.de/api/2.0/rss/index.xml?tag=Front', category: 'top', headline: true }]
+  },
+
+  // Partisan outlets on both edges and popular press, off by default
+  {
+    id: 'nd',
+    name: 'nd',
+    homepage: 'https://www.nd-aktuell.de',
+    icon: favicon('nd-aktuell.de'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [
+      { url: 'https://www.nd-aktuell.de/rss/aktuell.php', category: 'general' },
+      { url: 'https://www.nd-aktuell.de/rss/kommentare.xml', category: 'opinion' }
+    ]
+  },
+  {
+    id: 'telepolis',
+    name: 'Telepolis',
+    homepage: 'https://www.telepolis.de',
+    icon: favicon('telepolis.de'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.telepolis.de/feed.xml', category: 'general' }]
+  },
+  {
+    id: 'nachdenkseiten',
+    name: 'NachDenkSeiten',
+    homepage: 'https://www.nachdenkseiten.de',
+    icon: favicon('nachdenkseiten.de'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.nachdenkseiten.de/?feed=rss2', category: 'opinion' }]
+  },
+  {
+    id: 'tichys-einblick',
+    name: 'Tichys Einblick',
+    homepage: 'https://www.tichyseinblick.de',
+    icon: favicon('tichyseinblick.de'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.tichyseinblick.de/feed/', category: 'opinion' }]
+  },
+  {
+    id: 'nius',
+    name: 'NIUS',
+    homepage: 'https://nius.de',
+    icon: favicon('nius.de'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://nius.de/rss', category: 'general' }]
+  },
+  {
+    id: 'junge-freiheit',
+    name: 'Junge Freiheit',
+    homepage: 'https://jungefreiheit.de',
+    icon: favicon('jungefreiheit.de'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://jungefreiheit.de/feed/', category: 'general' }]
+  },
+  {
+    id: 'apollo-news',
+    name: 'Apollo News',
+    homepage: 'https://apollo-news.net',
+    icon: favicon('apollo-news.net'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://apollo-news.net/feed/', category: 'general' }]
+  },
+  {
+    id: 'achgut',
+    name: 'Die Achse des Guten',
+    homepage: 'https://www.achgut.com',
+    icon: favicon('achgut.com'),
+    kind: 'independent',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.achgut.com/rss', category: 'opinion' }]
+  },
+  {
+    id: 'rtl-news',
+    name: 'RTL',
+    homepage: 'https://www.rtl.de',
+    icon: favicon('rtl.de'),
+    kind: 'mainstream',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.rtl.de/rss/feed/news', category: 'general' }]
+  },
+  {
+    id: 'promiflash',
+    name: 'Promiflash',
+    homepage: 'https://www.promiflash.de',
+    icon: favicon('promiflash.de'),
+    kind: 'mainstream',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.promiflash.de/feed/', category: 'entertainment' }]
+  },
+  {
+    id: 'gala',
+    name: 'Gala',
+    homepage: 'https://www.gala.de',
+    icon: favicon('gala.de'),
+    kind: 'mainstream',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.gala.de/feed/standard-rss/', category: 'entertainment' }]
+  },
+
+  // Business and consumer advice
+  {
+    id: 'business-insider-de',
+    name: 'Business Insider Deutschland',
+    homepage: 'https://www.businessinsider.de',
+    icon: favicon('businessinsider.de'),
+    kind: 'business',
+    language: 'de',
+    feeds: [
+      { url: 'https://www.businessinsider.de/wirtschaft/feed/', category: 'economy' },
+      { url: 'https://www.businessinsider.de/gruenderszene/feed/', category: 'technology' }
+    ]
+  },
+  {
+    id: 'finanzen-net',
+    name: 'finanzen.net',
+    homepage: 'https://www.finanzen.net',
+    icon: favicon('finanzen.net'),
+    kind: 'business',
+    language: 'de',
+    feeds: [{ url: 'https://www.finanzen.net/rss/news', category: 'economy' }]
+  },
+  {
+    id: 'der-aktionaer',
+    name: 'Der Aktionär',
+    homepage: 'https://www.deraktionaer.de',
+    icon: favicon('deraktionaer.de'),
+    kind: 'business',
+    language: 'de',
+    feeds: [{ url: 'https://www.deraktionaer.de/aktionaer-news.rss', category: 'economy' }]
+  },
+  {
+    id: 'deutsche-wirtschafts-nachrichten',
+    name: 'Deutsche Wirtschafts Nachrichten',
+    homepage: 'https://deutsche-wirtschafts-nachrichten.de',
+    icon: favicon('deutsche-wirtschafts-nachrichten.de'),
+    kind: 'business',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://deutsche-wirtschafts-nachrichten.de/feed/', category: 'economy' }]
+  },
+  {
+    id: 'stiftung-warentest',
+    name: 'Stiftung Warentest',
+    homepage: 'https://www.test.de',
+    icon: favicon('test.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.test.de/rss/news/', category: 'lifestyle' }]
+  },
+  {
+    id: 'oekotest',
+    name: 'ÖKO-TEST',
+    homepage: 'https://www.oekotest.de',
+    icon: favicon('oekotest.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [
+      {
+        url: 'https://feeds.purplemanager.com/353c4833-8b25-428b-825c-d3339038bf4c/newsfeed',
+        category: 'lifestyle'
+      }
+    ]
+  },
+
+  // Technology
+  {
+    id: 'computer-bild',
+    name: 'Computer Bild',
+    homepage: 'https://www.computerbild.de',
+    icon: favicon('computerbild.de'),
+    kind: 'technology',
+    language: 'de',
+    feeds: [{ url: 'https://www.computerbild.de/rss/35011529.xml', category: 'technology' }]
+  },
+  {
+    id: 'giga',
+    name: 'GIGA',
+    homepage: 'https://www.giga.de',
+    icon: favicon('giga.de'),
+    kind: 'technology',
+    language: 'de',
+    feeds: [{ url: 'https://www.giga.de/feed/giga/', category: 'technology' }]
+  },
+  {
+    id: 'netzwelt',
+    name: 'netzwelt',
+    homepage: 'https://www.netzwelt.de',
+    icon: favicon('netzwelt.de'),
+    kind: 'technology',
+    language: 'de',
+    feeds: [{ url: 'https://www.netzwelt.de/feed/news_full.xml', category: 'technology' }]
+  },
+  {
+    id: 'caschys-blog',
+    name: 'Caschys Blog',
+    homepage: 'https://stadt-bremerhaven.de',
+    icon: favicon('stadt-bremerhaven.de'),
+    kind: 'technology',
+    language: 'de',
+    feeds: [{ url: 'https://stadt-bremerhaven.de/feed/', category: 'technology' }]
+  },
+  {
+    id: 'winfuture',
+    name: 'WinFuture',
+    homepage: 'https://winfuture.de',
+    icon: favicon('winfuture.de'),
+    kind: 'technology',
+    language: 'de',
+    feeds: [{ url: 'https://static.winfuture.de/feeds/WinFuture-News-rss2.0.xml', category: 'technology' }]
+  },
+  {
+    id: 'mobiflip',
+    name: 'Mobiflip',
+    homepage: 'https://www.mobiflip.de',
+    icon: favicon('mobiflip.de'),
+    kind: 'technology',
+    language: 'de',
+    defaultEnabled: false,
+    feeds: [{ url: 'https://www.mobiflip.de/feed/', category: 'technology' }]
+  },
+
+  // Sport
+  {
+    id: '11-freunde',
+    name: '11 Freunde',
+    homepage: 'https://www.11freunde.de',
+    icon: favicon('11freunde.de'),
+    kind: 'sports',
+    language: 'de',
+    feeds: [{ url: 'https://www.11freunde.de/aktuelles/index.rss', category: 'sports' }]
+  },
+  {
+    id: 'spox',
+    name: 'SPOX',
+    homepage: 'https://www.spox.com',
+    icon: favicon('spox.com'),
+    kind: 'sports',
+    language: 'de',
+    feeds: [{ url: 'https://feeds.footballco.com/spox/feed/in9xv2rmbt7qjzpk', category: 'sports' }]
+  },
+  {
+    id: 'sport-de',
+    name: 'sport.de',
+    homepage: 'https://www.sport.de',
+    icon: favicon('sport.de'),
+    kind: 'sports',
+    language: 'de',
+    feeds: [{ url: 'https://www.sport.de/rss/news/', category: 'sports' }]
+  },
+  {
+    id: 'motorsport-total',
+    name: 'Motorsport-Total.com',
+    homepage: 'https://www.motorsport-total.com',
+    icon: favicon('motorsport-total.com'),
+    kind: 'sports',
+    language: 'de',
+    feeds: [{ url: 'https://www.motorsport-total.com/rss/rss.xml', category: 'sports' }]
+  },
+
+  // Science and health
+  {
+    id: 'geo',
+    name: 'GEO',
+    homepage: 'https://www.geo.de',
+    icon: favicon('geo.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.geo.de/feed/rss/geo/', category: 'science' }]
+  },
+  {
+    id: 'scinexx',
+    name: 'scinexx',
+    homepage: 'https://www.scinexx.de',
+    icon: favicon('scinexx.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.scinexx.de/feed/', category: 'science' }]
+  },
+  {
+    id: 'wissenschaft-de',
+    name: 'bild der wissenschaft',
+    homepage: 'https://wissenschaft.de',
+    icon: favicon('wissenschaft.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://wissenschaft.de/feed.xml', category: 'science' }]
+  },
+  {
+    id: 'riffreporter',
+    name: 'RiffReporter',
+    homepage: 'https://www.riffreporter.de',
+    icon: favicon('riffreporter.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://riff.media/de/rss/umwelt', category: 'environment' }]
+  },
+  {
+    id: 'pharmazeutische-zeitung',
+    name: 'Pharmazeutische Zeitung',
+    homepage: 'https://www.pharmazeutische-zeitung.de',
+    icon: favicon('pharmazeutische-zeitung.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [
+      { url: 'https://www.pharmazeutische-zeitung.de/fileadmin/rss/pz_online_rss.php', category: 'health' }
+    ]
+  },
+  {
+    id: 'mens-health-de',
+    name: "Men's Health",
+    homepage: 'https://www.menshealth.de',
+    icon: favicon('menshealth.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.menshealth.de/rss/alle/', category: 'health' }]
+  },
+  {
+    id: 'womens-health-de',
+    name: "Women's Health",
+    homepage: 'https://www.womenshealth.de',
+    icon: favicon('womenshealth.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.womenshealth.de/rss/alle/', category: 'health' }]
+  },
+
+  // Entertainment and culture
+  {
+    id: 'moviepilot',
+    name: 'Moviepilot',
+    homepage: 'https://www.moviepilot.de',
+    icon: favicon('moviepilot.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.moviepilot.de/rss/moviepilot-standard', category: 'entertainment' }]
+  },
+  {
+    id: 'serienjunkies',
+    name: 'Serienjunkies',
+    homepage: 'https://www.serienjunkies.de',
+    icon: favicon('serienjunkies.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.serienjunkies.de/news/rssfeed.xml', category: 'entertainment' }]
+  },
+  {
+    id: 'laut-de',
+    name: 'laut.de',
+    homepage: 'https://laut.de',
+    icon: favicon('laut.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://laut.de/_feeds/news/rss', category: 'culture' }]
+  },
+  {
+    id: 'perlentaucher',
+    name: 'Perlentaucher',
+    homepage: 'https://www.perlentaucher.de',
+    icon: favicon('perlentaucher.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.perlentaucher.de/index.rss', category: 'culture' }]
+  },
+  {
+    id: 'monopol',
+    name: 'Monopol',
+    homepage: 'https://www.monopol-magazin.de',
+    icon: favicon('monopol-magazin.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.monopol-magazin.de/rss.xml', category: 'culture' }]
+  },
+
+  // Lifestyle, motoring and travel
+  {
+    id: 'brigitte',
+    name: 'Brigitte',
+    homepage: 'https://www.brigitte.de',
+    icon: favicon('brigitte.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.brigitte.de/feed.rss', category: 'lifestyle' }]
+  },
+  {
+    id: 'eltern',
+    name: 'Eltern',
+    homepage: 'https://www.eltern.de',
+    icon: favicon('eltern.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.eltern.de/feed/all/', category: 'lifestyle' }]
+  },
+  {
+    id: 'vogue-de',
+    name: 'Vogue',
+    homepage: 'https://www.vogue.de',
+    icon: favicon('vogue.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.vogue.de/feed/rss', category: 'lifestyle' }]
+  },
+  {
+    id: 'gq-de',
+    name: 'GQ',
+    homepage: 'https://www.gq-magazin.de',
+    icon: favicon('gq-magazin.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.gq-magazin.de/feed/rss', category: 'lifestyle' }]
+  },
+  {
+    id: 'auto-motor-und-sport',
+    name: 'auto motor und sport',
+    homepage: 'https://www.auto-motor-und-sport.de',
+    icon: favicon('auto-motor-und-sport.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.auto-motor-und-sport.de/rss/alle/', category: 'automotive' }]
+  },
+  {
+    id: 'motor1-de',
+    name: 'Motor1',
+    homepage: 'https://de.motor1.com',
+    icon: favicon('motor1.com'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://de.motor1.com/rss/news/all/', category: 'automotive' }]
+  },
+  {
+    id: 'electrive',
+    name: 'electrive',
+    homepage: 'https://www.electrive.net',
+    icon: favicon('electrive.net'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.electrive.net/feed/', category: 'automotive' }]
+  },
+  {
+    id: 'travelbook',
+    name: 'TRAVELBOOK',
+    homepage: 'https://www.travelbook.de',
+    icon: favicon('travelbook.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.travelbook.de/feed', category: 'travel' }]
+  },
+  {
+    id: 'merian',
+    name: 'Merian',
+    homepage: 'https://www.merian.de',
+    icon: favicon('merian.de'),
+    kind: 'mainstream',
+    language: 'de',
+    feeds: [{ url: 'https://www.merian.de/feed', category: 'travel' }]
+  },
+
+  // Education and environment
+  {
+    id: 'bildungsklick',
+    name: 'bildungsklick',
+    homepage: 'https://bildungsklick.de',
+    icon: favicon('bildungsklick.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://bildungsklick.de/rss/top-news', category: 'education' }]
+  },
+  {
+    id: 'klimareporter',
+    name: 'klimareporter°',
+    homepage: 'https://www.klimareporter.de',
+    icon: favicon('klimareporter.de'),
+    kind: 'independent',
+    language: 'de',
+    feeds: [{ url: 'https://www.klimareporter.de/?format=feed&type=rss', category: 'environment' }]
   }
 ]
 
