@@ -39,8 +39,12 @@ mac:
   target:
     - target: dmg
       arch: [arm64, x64]
+  # No Developer ID yet: ad-hoc sign ("-"). Unsigned, the bundle electron-builder rewrites
+  # keeps Electron's now-broken signature, and Gatekeeper calls a downloaded copy "damaged"
+  # with only "Move to Trash"; ad-hoc signed, it can be allowed from Privacy & Security.
+  # Ad-hoc signing needs the hardened runtime off (library validation rejects Electron's frameworks).
   hardenedRuntime: false
-  identity: null
+  identity: '-'
 dmg:
   artifactName: ${productName}-${version}-${arch}.${ext}
 
