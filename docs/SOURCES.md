@@ -1,16 +1,17 @@
 # Sources
 
 Every country Masthead covers is one **country pack** under `src/shared/countries/<code>/`, registered in
-`countries/index.ts`. Six packs ship today:
+`countries/index.ts`. Seven packs ship today:
 
 | Pack | Language | Sources | Feeds | On by default | Local news |
 | --- | --- | --- | --- | --- | --- |
 | `tr` Türkiye | Turkish | 136 | 536 | 93 | 81 provinces in 7 regions |
-| `us` United States | English | 176 | 240 | 174 | 50 states and D.C. in 4 regions |
-| `in` India | Hindi | 19 | 108 | 18 | 36 states and union territories in 6 zones |
-| `gb` United Kingdom | English | 68 | 161 | 63 | 51 areas in 12 regions and nations |
-| `de` Germany | German | 75 | 157 | 73 | 16 Länder in 4 regions |
-| `br` Brazil | Portuguese | 58 | 130 | 54 | 27 states in 5 regions |
+| `us` United States | English | 227 | 299 | 213 | 50 states and D.C. in 4 regions |
+| `in` India | Hindi | 48 | 263 | 36 | 36 states and union territories in 6 zones |
+| `gb` United Kingdom | English | 139 | 251 | 126 | 51 areas in 12 regions and nations |
+| `de` Germany | German | 154 | 249 | 139 | 16 Länder in 4 regions |
+| `br` Brazil | Portuguese | 130 | 221 | 92 | 27 states in 5 regions |
+| `fr` France | French | 121 | 423 | 115 | 101 departments in 13 regions and the overseas departments |
 
 **Every source writes in its pack's language** (`tests/shared/countries.test.ts` enforces it): a country's front
 page is written by its own newsrooms. India's English-language papers were removed on 2026-09-23 for that reason.
@@ -38,7 +39,7 @@ set — apply to every pack.
 | `tr/index.ts`        | The `CountryPack` (`tr-TR`, `Europe/Istanbul`, Google News edition `hl=tr&gl=TR&ceid=TR:tr`)                                    |
 | `countries/index.ts` | Registry: `COUNTRY_OPTIONS`, `getCountryPack`, `listSources`, `getSource`, `getProvince`, `isSourceEnabled`, `setSourceEnabled` |
 
-In total, the Turkey pack: **136 sources, 536 feeds** (all six packs together: 532 sources, 1,332 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
+In total, the Turkey pack: **136 sources, 536 feeds** (all seven packs together: 955 sources, 2,242 feeds). Region ids: `marmara`, `aegean`, `mediterranean`, `central-anatolia`,
 `black-sea`, `eastern-anatolia`, `southeastern-anatolia`.
 
 ### Categories
@@ -324,25 +325,30 @@ items; it is **stale** when its newest item is older than 3 days. The exit code 
 The five packs added on 2026-09-23 follow the Turkey pack's rules. On the same day they grew from national
 sources only to full packs: more newsrooms in every topic (each pack has at least two default-on sources for
 world, economy, sport, technology, health, entertainment and lifestyle news) and local news for every state,
-Land or area. Every feed was checked against the live site (`npm run verify:feeds -- us in gb de br --all`:
-799 feeds, 796 fresh); the stale, empty and bot-blocked ones were dropped before shipping.
+Land or area. On 2026-09-24 they roughly doubled again (US 52 → 104 national sources, India 15 → 40, UK 29 → 71,
+Germany 39 → 99, Brazil 42 → 95, with more local papers and Hindi state pages), and France joined with 121
+sources for all 101 departments. Every feed was checked against the live site (`npm run verify:feeds -- us in gb
+de br fr --all`: 1,708 feeds, 1,700 fresh after a re-run of the ones a network drop had timed out); the stale,
+empty and bot-blocked ones were dropped before shipping.
 
-**Why these five:** the countries with the largest online-news audiences that Masthead can serve well today —
+**Why these countries:** the countries with the largest online-news audiences that Masthead can serve well today —
 the United States (322M internet users), India (806M; its Hindi press is the largest), the United Kingdom,
-Germany (66% weekly online news use) and Brazil (183M, among the highest news engagement anywhere).
+Germany (66% weekly online news use) and Brazil (183M, among the highest news engagement anywhere) — and France,
+the next large market whose press publishes open feeds for every department.
 
 ### National sources
 
 | Pack | Sources |
 | --- | --- |
-| `us` | NPR, PBS NewsHour, The New York Times, The Washington Post, NBC News, CBS News, ABC News, Fox News, Washington Examiner, National Review, New York Post*, The Washington Times, The Dispatch, The Free Press, Reason, The Daily Wire*, Politico, The Hill, Axios, The Wall Street Journal, Los Angeles Times, The Christian Science Monitor, ProPublica, Semafor, The Atlantic, Vox, TIME, Newsweek, CNBC, MarketWatch, The Verge, Ars Technica, WIRED, TechCrunch, Engadget, Scientific American, Science News, STAT, KFF Health News, The Hechinger Report, Inside Higher Ed, Car and Driver, Electrek, Condé Nast Traveler, Inside Climate News, Grist, Variety, The Hollywood Reporter, Rolling Stone, ESPN, CBS Sports, Yahoo Sports |
-| `in` | अमर उजाला, दैनिक भास्कर, दैनिक जागरण, प्रभात खबर, आज तक, NDTV इंडिया, News18 हिंदी, TV9 भारतवर्ष, इंडिया टीवी, ABP न्यूज़, वेबदुनिया, द वायर हिंदी, सत्य हिंदी, ऑपइंडिया*, BBC News हिंदी |
-| `gb` | BBC News, The Guardian, The Telegraph, The i Paper, Sky News, GB News, Channel 4 News, The Independent, Evening Standard, Financial Times, The Economist, New Statesman, The Conversation UK, City A.M., This is Money, The Register, TechRadar, Pulse, Carbon Brief, Autocar, Auto Express, Sky Sports, NME, Radio Times, Daily Mail*, Daily Mirror*, Metro*, The Sun*, Daily Express* |
-| `de` | tagesschau, ZDFheute, Deutsche Welle, Deutschlandfunk, Sportschau, Der Spiegel, Zeit Online, FAZ, Süddeutsche Zeitung, Welt, n-tv, Stern, Der Tagesspiegel, RedaktionsNetzwerk Deutschland, t-online, Cicero, Bild*, Focus Online*, taz, Handelsblatt, WirtschaftsWoche, manager magazin, Capital, heise online, Golem.de, t3n, ComputerBase, netzpolitik.org, Spektrum der Wissenschaft, Deutsches Ärzteblatt, News4teachers, Utopia, reisereporter, Auto Bild, DWDL.de, Filmstarts, Rolling Stone, Musikexpress, kicker |
-| `br` | G1, Folha de S.Paulo, O Globo, UOL, Estadão, CNN Brasil, Jovem Pan, IstoÉ, Veja, Revista Oeste, Intercept Brasil, Agência Pública, Nexo Jornal, piauí, Metrópoles*, Agência Brasil, BBC News Brasil, Poder360, CartaCapital*, Gazeta do Povo*, InfoMoney, Exame, Valor Econômico, Época Negócios, Seu Dinheiro, Money Times, Olhar Digital, Canaltech, Tecnoblog*, Superinteressante, Veja Saúde, Porvir, ((o))eco, Um Só Planeta, Autoesporte, Quatro Rodas, Viagem e Turismo, ge, Placar, Trivela, Notícias da TV, Rolling Stone Brasil |
+| `us` | NPR, PBS NewsHour, UPI, The New York Times, The Washington Post, NBC News, CBS News, ABC News, MS NOW, NewsNation, HuffPost, Fox News, Newsmax, Washington Examiner, National Review, New York Post*, The Washington Times, The Dispatch, The Free Press, Reason, The Daily Wire*, The Federalist*, Breitbart*, Politico, The Hill, Roll Call, Axios, The Wall Street Journal, Los Angeles Times, The Christian Science Monitor, ProPublica, Semafor, The Atlantic, The New Yorker, Vox, Slate, Mother Jones, The Bulwark, The Nation*, The New Republic*, The Intercept*, Salon*, The Daily Beast*, TIME, Newsweek, Defense One*, Military Times*, CNBC, MarketWatch, Bloomberg, Fox Business, Business Insider, Forbes, Fortune, Kiplinger*, The Verge, Ars Technica, WIRED, TechCrunch, Engadget, CNET, Gizmodo, MIT Technology Review, MacRumors*, Tom's Hardware*, ESPN, CBS Sports, Yahoo Sports, FOX Sports, Sports Illustrated, The Athletic, Scientific American, Science News, Popular Science, Live Science, Smithsonian Magazine, STAT, KFF Health News, MedPage Today, The Hechinger Report, Inside Higher Ed, Education Week, Chalkbeat, Inside Climate News, Grist, Heatmap News, Condé Nast Traveler, The Points Guy, Car and Driver, Road & Track, Jalopnik, Electrek, Variety, The Hollywood Reporter, Deadline, Billboard, Rolling Stone, Pitchfork, Vanity Fair, Vogue, GQ, Esquire, Bon Appétit, Eater |
+| `in` | अमर उजाला, दैनिक भास्कर, दैनिक जागरण, प्रभात खबर, नवभारत टाइम्स, लाइव हिन्दुस्तान, पत्रिका, आज तक, NDTV इंडिया, News18 हिंदी, TV9 भारतवर्ष, इंडिया टीवी, ABP न्यूज़, ज़ी न्यूज़, टाइम्स नाउ नवभारत, न्यूज़ नेशन, इंडिया न्यूज़, यूनीवार्ता, बिज़नेस स्टैंडर्ड हिंदी, ज़ी बिज़नेस, Money9*, GoodReturns हिंदी*, कृषि जागरण*, CricTracker हिंदी, Gizbot हिंदी*, DriveSpark हिंदी*, Filmibeat हिंदी*, Boldsky हिंदी*, Careerindia हिंदी*, वेबदुनिया, वनइंडिया हिंदी, द वायर हिंदी, सत्य हिंदी, खबर लहरिया, जनचौक*, नवजीवन*, पाञ्चजन्य*, ऑपइंडिया*, BBC News हिंदी, UN News हिंदी |
+| `gb` | BBC News, The Guardian, Sky News, The Independent, Evening Standard, Financial Times, The Economist, The Telegraph, The i Paper, GB News, Channel 4 News, New Statesman, The Conversation UK, HuffPost UK, The Big Issue, PoliticsHome, Politics.co.uk, UnHerd, The Critic, The New World, City A.M., This is Money, MoneyWeek, Which?, The Register, TechRadar, Computer Weekly, T3, Stuff, Trusted Reviews, New Scientist, BBC Science Focus, Pulse, Nursing Times, Wonkhe, Carbon Brief, Climate Home News, edie, Autocar, Auto Express, Motoring Research, Sky Sports, talkSPORT, Football365, Planet Rugby, Wisden, Autosport, Cycling Weekly, NME, Radio Times, Digital Spy, Empire, British Vogue, British GQ, Good Housekeeping UK, BBC Good Food, Condé Nast Traveller, Wanderlust, Daily Mail*, Daily Mirror*, Metro*, The Sun*, Daily Express*, Daily Star*, HELLO!*, OK!*, openDemocracy*, Byline Times*, Morning Star*, ConservativeHome*, LabourList* |
+| `de` | tagesschau, ZDFheute, Deutsche Welle, Deutschlandfunk, Sportschau, Der Spiegel, Zeit Online, Frankfurter Allgemeine, Süddeutsche Zeitung, Welt, n-tv, Stern, Der Tagesspiegel, RedaktionsNetzwerk Deutschland, t-online, Cicero, Bild*, Focus Online*, taz, Handelsblatt, heise online, kicker, WirtschaftsWoche, manager magazin, Capital, Golem.de, t3n, ComputerBase, netzpolitik.org, Spektrum der Wissenschaft, Deutsches Ärzteblatt, News4teachers, Utopia, reisereporter, Auto Bild, DWDL.de, Filmstarts, Rolling Stone, Musikexpress, Deutschlandfunk Kultur, Deutschlandfunk Nova, MDR Wissen, Das Parlament, CORRECTIV, Krautreporter, Der Freitag, Übermedien, Legal Tribune Online, watson, nd*, Telepolis*, NachDenkSeiten*, Tichys Einblick*, NIUS*, Junge Freiheit*, Apollo News*, Die Achse des Guten*, RTL*, Promiflash*, Gala*, Business Insider Deutschland, finanzen.net, Der Aktionär, Deutsche Wirtschafts Nachrichten*, Stiftung Warentest, ÖKO-TEST, Computer Bild, GIGA, netzwelt, Caschys Blog, WinFuture, Mobiflip*, 11 Freunde, SPOX, sport.de, Motorsport-Total.com, GEO, scinexx, bild der wissenschaft, RiffReporter, Pharmazeutische Zeitung, Men's Health, Women's Health, Moviepilot, Serienjunkies, laut.de, Perlentaucher, Monopol, Brigitte, Eltern, Vogue, GQ, auto motor und sport, Motor1, electrive, TRAVELBOOK, Merian, bildungsklick, klimareporter° |
+| `br` | G1, Folha de S.Paulo, UOL, Estadão, CNN Brasil, O Globo, Jovem Pan, IstoÉ, Revista Oeste, Intercept Brasil, Agência Pública, Nexo Jornal, piauí, Metrópoles*, SBT News, CBN, Terra*, Agência Brasil, BBC News Brasil, Agência Senado*, Agência Câmara*, DW Brasil, RFI Brasil, Poder360, CartaCapital*, Gazeta do Povo*, Veja, Congresso em Foco, JOTA, Consultor Jurídico*, The Conversation Brasil*, Brasil de Fato*, Revista Fórum*, Brasil 247*, Diário do Centro do Mundo*, O Antagonista*, InfoMoney, Exame, Olhar Digital, Tecnoblog*, ge, Valor Econômico, Época Negócios, Seu Dinheiro, Money Times, Canaltech, Superinteressante, Veja Saúde, Porvir, ((o))eco, Um Só Planeta, Autoesporte, Quatro Rodas, Viagem e Turismo, Placar, Trivela, Notícias da TV, Rolling Stone Brasil, Brazil Journal, NeoFeed*, IstoÉ Dinheiro*, Valor Investe*, Pequenas Empresas & Grandes Negócios*, Globo Rural, Canal Rural*, ESPN Brasil, Gazeta Esportiva, TecMundo, TechTudo*, MacMagazine*, Tudocelular*, Showmetech*, Revista Galileu, Pesquisa FAPESP*, Portal Drauzio Varella, Agência Fiocruz*, Guia do Estudante, Amazônia Real, ClimaInfo*, Pipoca Moderna, Revista Cult, gshow*, Quem*, Contigo!*, Caras*, Hugo Gloss*, Claudia, Marie Claire Brasil, Vogue Brasil*, ELLE Brasil*, GQ Brasil*, Crescer*, Catraca Livre*, Melhores Destinos*, Motor1 Brasil* |
+| `fr` | franceinfo, France 24, RFI, Euronews, Le Monde, Le Figaro, Le Parisien, 20 Minutes, Ouest-France, BFMTV, TF1 Info, L'Express, L'Obs, Libération, Le JDD, La Croix, L'Humanité, L'Opinion, Marianne, Valeurs actuelles, HuffPost, Slate.fr, Sud Radio, Courrier international, Mediapart, Le Monde diplomatique, Blast, Basta!, Reporterre, Vert, Atlantico, Causeur, Contrepoints*, Arrêt sur images*, Les Jours*, Les Echos, La Tribune, Challenges, Capital, Le Revenu, L'Équipe, RMC Sport, So Foot, Foot Mercato, Numerama, 01net, Frandroid, Les Numériques, Clubic, Journal du Geek, Presse-citron, Korben, Futura, Sciences et Avenir, Science & Vie, Ça m'intéresse, National Geographic, GEO, Doctissimo, Santé Magazine, Top Santé, AlloCiné, Télérama, Les Inrocks, Konbini, Paris Match, Télé-Loisirs, Télé Star, Voici*, Closer*, Public*, Vogue France, Grazia, Femme Actuelle, Caradisiac, L'argus, Auto Plus, L'Etudiant |
 
-\* off by default (popular press, or a partisan second voice from the same corner), like the tabloids in the
-Turkey pack. Newsrooms outside the country are left out even when they write its language (NZZ for Germany).
+\* off by default (popular press, a partisan second voice from the same corner, a subscriber-only outlet or a
+secondary specialist site), like the tabloids in the Turkey pack. Newsrooms outside the country are left out even when they write its language (NZZ for Germany).
 
 ### Local news
 
@@ -352,20 +358,23 @@ whole nation, and are only fetched for the user's chosen place, exactly like Tur
 
 | Pack | Places | Local sources |
 | --- | --- | --- |
-| `us` | 50 states + D.C. (postal codes), 4 Census regions | 124 newsrooms, two or three per state: Gray TV stations (`/arc/outboundfeeds/rss/category/news/`), Hearst stations (`/local-news-rss`), Nexstar stations, metro papers (Philadelphia Inquirer, Tampa Bay Times, Seattle Times, Star Tribune…), public radio and nonprofits (CalMatters, CT Mirror, Mississippi Today, VTDigger…) |
-| `in` | 28 states + 8 UTs (ISO codes), 6 zones; Hindi names with English aliases | The state pages of अमर उजाला (15 states), दैनिक भास्कर (13), News18 हिंदी (14) and प्रभात खबर (4): 17 states in all. The south and most of the northeast have no Hindi desk; their Local page is filled by the national stories that name them. |
-| `gb` | 51 BBC local-news areas (slugs), 9 English regions + Scotland, Wales, Northern Ireland | `bbc-local`: a feed for every area, plus the BBC Scotland and BBC Wales feeds for their whole nation; 38 regional papers (Manchester Evening News, Liverpool Echo, Yorkshire Post…; The Herald, The Scotsman, STV News, Daily Record, WalesOnline and Nation.Cymru nation-wide) |
-| `de` | 16 Länder (ISO codes), North/East/South/West | `tagesschau-regional`: tagesschau's page for every Land; the ARD broadcasters with a feed (NDR, WDR, MDR, rbb, hr, SWR) and regional papers (Merkur, Augsburger Allgemeine, Tagesspiegel Berlin, Hamburger Abendblatt, WAZ, LVZ…) |
-| `br` | 26 states + DF (UF codes), 5 IBGE regions | `g1-regional`: g1's page for every state; 15 regional papers (NSC Total, A Tarde, A Gazeta, Campo Grande News, Extra…) |
+| `us` | 50 states + D.C. (postal codes), 4 Census regions | 123 newsrooms, two or three per state: Gray TV stations (`/arc/outboundfeeds/rss/category/news/`), Hearst stations (`/local-news-rss`), Nexstar stations, metro papers (Philadelphia Inquirer, Tampa Bay Times, Seattle Times, Star Tribune…), public radio and nonprofits (CalMatters, CT Mirror, Mississippi Today, VTDigger…) |
+| `in` | 28 states + 8 UTs (ISO codes), 6 zones; Hindi names with English aliases | The state pages of अमर उजाला (15 states), दैनिक भास्कर (13), News18 हिंदी (14), प्रभात खबर (4), नवभारत टाइम्स (20), लाइव हिन्दुस्तान (14), पत्रिका (18) and दैनिक जागरण (11): 23 states in all. The south and most of the northeast have no Hindi desk; their Local page is filled by the national stories that name them. |
+| `gb` | 51 BBC local-news areas (slugs), 9 English regions + Scotland, Wales, Northern Ireland | `bbc-local`: a feed for every area, plus the BBC Scotland and BBC Wales feeds for their whole nation; 67 regional papers (Manchester Evening News, Liverpool Echo, Birmingham Mail, Yorkshire Post, Eastern Daily Press…; The Herald, The Scotsman, STV News, Daily Record, WalesOnline and Nation.Cymru nation-wide) |
+| `de` | 16 Länder (ISO codes), North/East/South/West | `tagesschau-regional`: tagesschau's page for every Land; the ARD broadcasters with a feed (NDR, WDR, MDR, rbb, Radio Bremen, hr, SWR) and 38 regional papers (Merkur, Nürnberger Nachrichten, Main-Post, Südkurier, Augsburger Allgemeine, Berliner Morgenpost, Hamburger Abendblatt, WAZ, LVZ…) |
+| `br` | 26 states + DF (UF codes), 5 IBGE regions | `g1-regional`: g1's page for every state; 34 regional papers (NSC Total, A Tarde, Estado de Minas, Jornal do Commercio, O Povo, O Liberal, Correio do Povo's Sul21, Extra…) |
+| `fr` | 101 departments (official numbers: 01–95, 2A/2B, 971–976), 13 regions + overseas | `france3-regions`: France 3's page for each of the 96 metropolitan departments; `ici-local`: the "infos" feed of 43 ici (ex-France Bleu) stations and ici RCFM for Corsica; `actu-fr`: actu.fr for 11 regions; the department editions of Le Parisien, Le Télégramme, Sud Ouest, Midi Libre, L'Indépendant, Le Progrès, Le Dauphiné Libéré, L'Est Républicain and La Nouvelle République; single-feed dailies (La Voix du Nord, DNA, Nice-Matin…) and the overseas newsrooms (France-Antilles, Guyaweb, Clicanoo, Le Journal de Mayotte…) |
 
 The UI calls a pack's places by its `localUnit`: `state` (US, Brazil, India), `land` (Germany: "Bundesland"), `area`
-(UK); Turkey's are cities. Strings with a unit have `_state`, `_land` and `_area` variants in every locale, picked
-through i18next's `context`.
+(UK), `department` (France); Turkey's are cities. Strings with a unit have `_state`, `_land`, `_area` and
+`_department` variants in every locale, picked through i18next's `context`.
 
 Geo tagging works the same way in every pack: names match as whole capitalised words — or any whole word in
 scripts without capitals, like Hindi. Names that are also common words (Washington, Georgia, Sussex, Berkshire)
 are `ambiguous` and need a place word after them from the pack's `placeWords` ("Washington state", "Sussex
-Police"); the Turkish apostrophe rule ("Ordu'da") only applies to Turkish.
+Police"); the Turkish apostrophe rule ("Ordu'da") only applies to Turkish. A pack's `notPlaces` are blanked out before
+tagging, matched as written: France's "Grande-Bretagne", "Corée du Nord", "mer du Nord", "régime de Vichy",
+"châteaux de la Loire" and "VAR" (the video referee, not the Var department).
 
 ### Left out
 

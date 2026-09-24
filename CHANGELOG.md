@@ -4,6 +4,42 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.5.0] - 2026-09-24
+
+France joins, in French, and every other country gets many more of its own newsrooms.
+
+### Added
+
+- **France.** Masthead now covers France, in French: 121 newsrooms and 423 feeds — franceinfo, Le Monde, Le
+  Figaro, Le Parisien, 20 Minutes, Ouest-France, BFMTV, Libération, Les Echos, L'Équipe and the rest of the national
+  press — and local news for all 101 departments, which the picker lists by their number like a French reader knows
+  them: France 3's page for every metropolitan department, the local ici (ex-France Bleu) station, the regional
+  dailies' department editions (Sud Ouest, Le Progrès, Le Dauphiné, Midi Libre, Le Télégramme, La Voix du Nord…) and
+  the overseas newsrooms of Guadeloupe, Martinique, Guyane, La Réunion and Mayotte. The Markets page starts from
+  the euro, gold by the ounce, the CAC 40, LVMH, TotalEnergies, Airbus, L'Oréal, Schneider Electric and BNP Paribas.
+- **French interface.** Français is the sixth interface language, set with French typography.
+- **Many more newsrooms everywhere.** Masthead now reads 955 newsrooms and 2,242 feeds across seven countries (it
+  was 532 and 1,332). The United States goes from 52 to 104 national sources (UPI, Bloomberg, Fox Business,
+  Business Insider, Forbes, The New Yorker, Slate, Mother Jones, HuffPost, The Athletic, Deadline, Vanity Fair,
+  CNET…); India from 15 to 40, all in Hindi (नवभारत टाइम्स, लाइव हिन्दुस्तान, पत्रिका, ज़ी न्यूज़, टाइम्स नाउ नवभारत,
+  न्यूज़ नेशन…), with state pages from four more dailies (23 states now have Hindi state news); the United Kingdom
+  from 29 to 71 (HuffPost UK, UnHerd, PoliticsHome, Which?, New Scientist, T3, talkSPORT, Planet Rugby, Digital
+  Spy, Empire, British Vogue…) and 67 regional papers; Germany from 39 to 99 (Deutschlandfunk Kultur, CORRECTIV, Der
+  Freitag, Legal Tribune Online, finanzen.net, Stiftung Warentest, Computer Bild, 11 Freunde, GEO, Brigitte, auto
+  motor und sport…) and more regional papers; Brazil from 42 to 95 (SBT News, Terra, DW Brasil, RFI Brasil,
+  Congresso em Foco, JOTA, ESPN Brasil, TecMundo, Revista Galileu, Claudia…) and 34 regional papers (Estado de
+  Minas, Jornal do Commercio, O Povo, O Liberal…).
+
+### Fixed
+
+- **"Damaged" on macOS.** The Mac app was not signed at all, so macOS called a downloaded copy damaged and offered
+  only to move it to the Bin. It is now ad-hoc signed: macOS still asks before the first start (Masthead has no
+  Apple Developer ID yet), and System Settings → Privacy & Security → "Open Anyway" lets it run.
+- Feeds whose site drops a connection now and then (Libération resets about one request in five) are asked again
+  once instead of being counted as down.
+- Stories from feeds that give no date (Le Parisien) take the day in their address instead of all showing as just in.
+- Section names with accents ("Économie", "Saúde") now sort stories into their topic.
+
 ## [0.4.0] - 2026-09-23
 
 Masthead keeps itself up to date, gets a Markets page, and For You learns from your reading.

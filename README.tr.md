@@ -8,7 +8,7 @@
 
 Bir ülkenin önde gelen haber kaynaklarının manşetlerini tek bir yerde toplayan, haberleri reklamsız ve
 uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygulaması.
-**Türkiye · ABD · Hindistan · Birleşik Krallık · Almanya · Brezilya.**
+**Türkiye · ABD · Hindistan · Birleşik Krallık · Almanya · Brezilya · Fransa.**
 
 [![Sürüm](https://img.shields.io/github/v/release/ahmetcaglayan/masthead?style=flat-square&color=f4502f&label=s%C3%BCr%C3%BCm)](https://github.com/ahmetcaglayan/masthead/releases/latest)
 [![İndirme](https://img.shields.io/github/downloads/ahmetcaglayan/masthead/total?style=flat-square&color=f4502f&label=indirme)](https://github.com/ahmetcaglayan/masthead/releases)
@@ -16,7 +16,7 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 [![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-2f2a24?style=flat-square)](LICENSE)
 
 [**Web sitesi**](https://ahmetcaglayan.github.io/masthead/) ·
-[**0.4.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**0.5.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Değişiklikler](CHANGELOG.md)
 
 [English](README.md) · **Türkçe** · [Deutsch](README.de.md) · [Português](README.pt.md)
@@ -30,7 +30,7 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 ## Neden Masthead?
 
 Gündemi takip etmek genelde onlarca sekme, çerez uyarıları, kendiliğinden açılan videolar ve pop-up'lar demek.
-Masthead **altı ülkeden 532 haber kaynağını** — her ülkenin kendi basınını, kendi dilinde — tek, sakin, dergi gibi
+Masthead **yedi ülkeden 955 haber kaynağını** — her ülkenin kendi basınını, kendi dilinde — tek, sakin, dergi gibi
 bir ön sayfada toplar:
 
 - **Tıklamadan gündemi takip et.** Her kartta tam başlık, özet ve fotoğraf; manşetin özeti tam, diğerlerinde
@@ -44,7 +44,8 @@ bir ön sayfada toplar:
 - **Kaynaklar senin kontrolünde.** Her siteyi tek tıkla aç/kapat. Zamana, kaynağa, sıralamaya, görsele, bölgeye
   ve şehre, eyalete ya da yöreye göre filtrele.
 - **Her ülkede yerel haber.** Türkiye'de şehrini, ABD, Brezilya ve Hindistan'da eyaletini, Almanya'da Bundesland'ını,
-  Birleşik Krallık'ta yöreni seç: oranın yerel gazeteleri ve yayıncıları ile orayı anan ulusal haberler gelir.
+  Birleşik Krallık'ta yöreni, Fransa'da département'ını seç: oranın yerel gazeteleri ve yayıncıları ile orayı anan
+  ulusal haberler gelir.
 - **Gizlilik öncelikli.** Üyelik yok, izleme yok. Ayarların, kaydettiklerin ve geçmişin bilgisayarında kalır.
 
 ### Reklamı değil, haberi oku
@@ -85,20 +86,23 @@ kümeler; böylece haberi tek bir kaynaktan değil, etrafını dolaşarak okursu
 | ![İlk açılış](docs/images/onboarding.png) | ![Ayarlar](docs/images/settings.png) |
 | **İlk açılış** — birkaç kısa soru ve hazırsın | **Ayarlar** — tema, vurgu rengi, fontlar, kaynaklar |
 
-## Altı ülke, beş dil
+## Yedi ülke, altı dil
 
 Her ülke kendi haber kaynaklarından, kendi dilinde okunur; yerel habere kadar: Türkiye'de şehir, ABD, Brezilya ve
-Hindistan'da eyalet, Almanya'da Bundesland, Birleşik Krallık'ta yöre. Arayüz dili bundan bağımsız: istersen
-Brezilya gazetelerini Almanca arayüzle okursun.
+Hindistan'da eyalet, Almanya'da Bundesland, Birleşik Krallık'ta yöre, Fransa'da département. Arayüz dili bundan
+bağımsız: istersen Brezilya gazetelerini Almanca arayüzle okursun.
 
 | | |
 | --- | --- |
 | ![ABD kaynaklarıyla Masthead ön sayfası](docs/images/us-home.png) | ![Birleşik Krallık kaynaklarıyla Masthead ön sayfası](docs/images/gb-home.png) |
-| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve WSJ'e 52 ulusal kaynak, her eyalet için yerel haber | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Telegraph, Sky News, FT… ve 51 yöre için BBC yerel haberleri |
+| 🇺🇸 **ABD** — NPR ve NYT'den Fox News ve WSJ'e 104 ulusal kaynak, her eyalet için yerel haber | 🇬🇧 **Birleşik Krallık** — BBC, Guardian, Telegraph, Sky News, FT… ve 51 yöre için BBC yerel haberleri |
 | ![Almanca arayüz ve Alman kaynakları](docs/images/de-home.png) | ![Portekizce arayüzle Gündem Özeti](docs/images/br-digest.png) |
 | 🇩🇪 **Almanya** — tagesschau, Spiegel, Zeit, FAZ, SZ… arayüz de Almanca | 🇧🇷 **Brezilya** — Portekizce Gündem Özeti: tek kart, her kaynağın başlığı |
 | ![Rajasthan için Yerel sayfa, Hintçe arayüz ve Hintçe eyalet haberleri](docs/images/in-local.png) | ![Almanca bir haberde Okuma modu](docs/images/de-reader.png) |
-| 🇮🇳 **Hindistan** — Hintçe basın (अमर उजाला, दैनिक भास्कर, आज तक, TV9 भारतवर्ष…) ve eyaletinin Yerel sayfası | 📖 **Okuma modu** — haber ve başka hiçbir şey, kendi okuma fontunla |
+| 🇮🇳 **Hindistan** — Hintçe basın (अमर उजाला, दैनिक भास्कर, नवभारत टाइम्स, हिन्दुस्तान, आज तक…) ve eyaletinin Yerel sayfası | 📖 **Okuma modu** — haber ve başka hiçbir şey, kendi okuma fontunla |
+
+🇫🇷 **Fransa** — franceinfo, Le Monde, Le Figaro, Le Parisien, Libération, Les Echos, L'Équipe… arayüz de Fransızca;
+101 département'ın hepsi için yerel haber: France 3, bölgenin ici radyosu ve bölge gazeteleri.
 
 
 ## İndir
@@ -122,7 +126,8 @@ sürüm çıkınca haber verir. Otomatik kurulumu Ayarlar → Veriler ve uygulam
 > - **Akıllı Uygulama Denetimi** (Smart App Control) açıksa (Windows 11 → Windows Güvenliği → Uygulama ve tarayıcı
 >   denetimi), Windows imzasız uygulamaları "Yine de çalıştır" seçeneği sunmadan engelleyebilir. Bu durumda aşağıdaki
 >   tarayıcı sürümünü kullan ya da kaynaktan derle.
-> - macOS'te ilk açılışta uygulamaya sağ tıklayıp **Aç**'ı seç.
+> - macOS ilk açılışta uygulamayı açmaz: Sistem Ayarları → Gizlilik ve Güvenlik'ten **Yine de Aç**'ı seç.
+>   (0.4.0 ve öncesi "hasar görmüş" diyebilir: bir kez `xattr -cr /Applications/Masthead.app` çalıştır.)
 
 ### Program kuramıyor musun? Tarayıcıda çalıştır
 
@@ -148,7 +153,7 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 🧭 **Gündem Özeti** | Kaynaklar arası gruplanmış haberler ve her kaynağın başlığı — günün gündemi tek kaydırmada |
 | 🔎 **Filtre ve arama** | Zaman, kaynak, en çok kaynak sıralaması, görselli, okunanları gizle — her ülkede bölge ve şehir/eyalet/yöre; aksana duyarsız arama |
 | 📖 **Uygulama içi okuma** | Yayıncının sayfası pencerede (<kbd>Esc</kbd> ile kapat), Okuma modu, reklam ve izleyici engelleme |
-| 📍 **Yerel haberler** | Türkiye'de 81 il, ABD'de 50 eyalet ve D.C., Hindistan'da 36 eyalet, Almanya'da 16 Bundesland, Brezilya'da 27 eyalet, Birleşik Krallık'ta 51 yöre — yerel gazeteler, yayıncılar ve orayı anan haberler |
+| 📍 **Yerel haberler** | Türkiye'de 81 il, ABD'de 50 eyalet ve D.C., Hindistan'da 36 eyalet, Almanya'da 16 Bundesland, Brezilya'da 27 eyalet, Birleşik Krallık'ta 51 yöre, Fransa'da 101 département — yerel gazeteler, yayıncılar ve orayı anan haberler |
 | 📈 **Piyasalar** | İzlediğin döviz, maden, kripto ve şirketler — dakikada bir fiyat, her birinin haberleri ve canlı akan piyasa haberleri |
 | ✨ **Size Özel** | İlgi alanların, şehrin ve okuduklarından (bilgisayarında) öğrenilenler; her kart neden orada olduğunu söyler |
 | 🧵 **Hikâye sayfası** | Bir haberi veren her kaynağın haberi yan yana: ilk kim verdi, kim nasıl başlık attı |
@@ -158,8 +163,8 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 | 🗂️ **Kaynaklar** | Her siteyi aç/kapat; akışların durumu bir bakışta |
 | 🔖 **Kitaplık** | Kaydedilen haberler ve okuma geçmişi, yerelde |
 | 🎨 **Kişiselleştir** | Açık / koyu / sistem tema, 5 vurgu rengi, 12 okuma fontu, yazı boyutu, sıkı görünüm |
-| 🌍 **Ülkeler** | Türkiye, ABD, Hindistan, Birleşik Krallık, Almanya ve Brezilya — Ayarlar'dan değiştir |
-| 💬 **Diller** | İngilizce, Türkçe, Almanca, Portekizce ve Hintçe arayüz; haberler kendi dilinde kalır |
+| 🌍 **Ülkeler** | Türkiye, ABD, Hindistan, Birleşik Krallık, Almanya, Brezilya ve Fransa — Ayarlar'dan değiştir |
+| 💬 **Diller** | İngilizce, Türkçe, Almanca, Portekizce, Hintçe ve Fransızca arayüz; haberler kendi dilinde kalır |
 | 🔄 **Otomatik güncelleme** | Yeni sürümler arka planda iner; tek tıkla yeniden başlatıp geçersin |
 
 ## Kaynaklar
@@ -167,16 +172,17 @@ sitesinin başka bir sayfaya gömülmesini engeller; masaüstü uygulamada bu s�
 Masthead her ülke için bir **ülke paketi** ile gelir: kamu yayıncıları, haber ajansları, ana akım gazeteler,
 bağımsız medya ile ekonomi, spor, teknoloji, sağlık, gezi ve kültür siteleri arasından dengeli seçilmiş bir liste —
 ve o ülkenin yerel basını. Her kaynak ülkenin kendi dilinde yayın yapar: Hindistan'ı Hintçe basından, Almanya'yı
-Alman yayın kuruluşlarından okursun.
+Alman, Fransa'yı Fransız yayın kuruluşlarından okursun.
 
 | Ülke | Kaynak | Akış |
 | --- | --- | --- |
 | 🇹🇷 Türkiye | 136 (67 ulusal + yerel: 81 ilin akışı, 33 ilde yerel gazete) | 536 |
-| 🇺🇸 ABD | 176 (52 ulusal + her eyalette ve D.C.'de iki-üç tane olmak üzere 124 yerel kaynak) | 240 |
-| 🇮🇳 Hindistan | 19, hepsi Hintçe (15 ulusal + dört gazetenin eyalet sayfaları, 17 eyalet) | 108 |
-| 🇬🇧 Birleşik Krallık | 68 (29 ulusal + 51 yöre için BBC yerel haberleri ve 38 bölge gazetesi) | 161 |
-| 🇩🇪 Almanya | 75 (39 ulusal + 16 Bundesland'ın hepsi için bölgesel haber) | 157 |
-| 🇧🇷 Brezilya | 58 (42 ulusal + 27 eyaletin hepsi için g1 ve 15 bölge gazetesi) | 130 |
+| 🇺🇸 ABD | 227 (104 ulusal + her eyalette ve D.C.'de iki-üç tane olmak üzere 123 yerel kaynak) | 299 |
+| 🇮🇳 Hindistan | 48, hepsi Hintçe (40 ulusal + sekiz gazetenin eyalet sayfaları, 23 eyalet) | 263 |
+| 🇬🇧 Birleşik Krallık | 139 (71 ulusal + 51 yöre için BBC yerel haberleri ve 67 bölge gazetesi) | 251 |
+| 🇩🇪 Almanya | 154 (99 ulusal + 16 Bundesland'ın hepsi için 55 bölgesel yayın) | 249 |
+| 🇧🇷 Brezilya | 130 (95 ulusal + 27 eyaletin hepsi için g1 ve 34 bölge gazetesi) | 221 |
+| 🇫🇷 Fransa | 121 (78 ulusal + 101 département'ın hepsi için France 3, ici ve bölge gazeteleri) | 423 |
 
 Her akış yayına girmeden önce canlı sitelere karşı doğrulanır (`npm run verify:feeds`). Tam liste, ülke paketi
 yapısı ve yeni bir kaynak ya da ülke ekleme: [docs/SOURCES.md](docs/SOURCES.md).

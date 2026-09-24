@@ -10,15 +10,55 @@
 
 ## Son durum
 
-- **Tarih:** 2026-09-23
+- **Tarih:** 2026-09-24
 - **Aktif faz:** Faz 1–4 tamamlandı; **v0.4.0 yayında** (2026-09-23, otomatik güncellemeli ilk sürüm). Faz 2 ve 3
   (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası, hava durumu ve
-  erişilebilirlik turu — hepsi bitti).
+  erişilebilirlik turu — hepsi bitti). **v0.5.0 (2026-09-24):** Fransa + Fransızca arayüz, diğer beş ülkenin
+  kaynakları iki katına yakın, macOS ad-hoc imza.
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
-  **532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi); 388 birim testi yeşil.** Her ülkenin
-  kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre).
+  **955 kaynak, 2.242 akış, 7 ülke, 6 arayüz dili (en, tr, de, pt, hi, fr); 410 birim testi yeşil.** Her ülkenin
+  kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre / département).
   Kod GitHub'da (https://github.com/ahmetcaglayan/masthead). Geliştirme macOS'ta sürüyor:
   **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
+
+## Devralma notu (2026-09-24)
+
+**Yapılan son iş:** v0.5.0 = Fransa paketi + Fransızca arayüz + diğer beş ülkenin kaynak artışı (sahibinin isteği:
+"fransızcayı bitirince 0.5 olarak yayınlama diğer bölgelerin rss yayınlarını da arttır öyle yayınla"). Sahibi
+şimdilik başka yeni dil/ülke istemiyor (Arapça hiç yok).
+
+- **Diğer ülkeler (her ülke için bir ajan, sahibinin izniyle; ülke başına 250–300 akış yeter denince durduruldu):**
+  ABD 176/240 → 227/299 (ulusal 52 → 104), Hindistan 19/108 → 48/263 (ulusal 15 → 40; 8 gazetenin eyalet sayfaları,
+  23 eyalet), İngiltere 68/179 → 139/251 (ulusal 29 → 71, 67 bölge gazetesi), Almanya 75/157 → 154/249 (ulusal
+  39 → 99), Brezilya 58/130 → 130/221 (ulusal 42 → 95, 34 bölge gazetesi). `verify:feeds us in gb de br --all`:
+  1.285 akış, ağ kopmasıyla düşen 16'sı tekrarda ok; ölü iki akış çıkarıldı (KING 5 boş, Deshbandhu 44 gün eski).
+  Hindistan'a eklenen 29 kaynağın hepsinin başlıkları Devanagari (denetlendi). README/site/SOURCES.md'deki eski
+  sayılar düzeltildi (İngiltere README'de 161 yazıyordu, pakette 179 vardı).
+
+- **Fransa:** 121 kaynak / 423 akış (70 ulusal + 51 yerel). 101 département (Türkiye'nin plakası gibi numaralı:
+  01–95, 2A/2B, 971–976), 13 bölge + Outre-mer. Yerel: France 3 Régions'ın 96 département akışı, ici'nin (eski
+  France Bleu) 43 istasyonunun "infos" akışı + ici RCFM (Korsika), actu.fr'nin 11 bölge akışı, bölge gazetelerinin
+  département sürümleri (Le Parisien, Le Télégramme, Sud Ouest, Midi Libre, L'Indépendant, Le Progrès, Le Dauphiné,
+  L'Est Républicain, La Nouvelle République) + tek akışlı gazeteler + denizaşırı yayınlar. 403 veren siteler (Le Point,
+  CNews, Europe 1, La Montagne grubu) ve akışı olmayanlar dışarıda (ayrıntı `fr/sources.ts`, `fr/local.ts` başı).
+  `verify:feeds fr --all`: 423 akış, 418 ok, 5 seyrek (küçük département'ların France 3 akışı), 0 hata.
+- **Arayüz:** 6. dil Fransızca (`locales/fr`, tipografik boşluklarla); `localUnit: 'department'` + tüm dillerde
+  `_department` metinleri; 14 Fransız bölge adı 6 dilde; `national_fr`; "altı ülke" → "yedi ülke"; FR bayrağı.
+- **Çekirdek:** Fransızca son dakika işaretleri (ALERTE INFO, Dernière minute, Flash info, URGENT); Fransızca rubrik
+  kelimeleri + kategori eşleyicide aksan temizleme ("Économie", Portekizce "Saúde" artık eşleşiyor);
+  `CountryPack.notPlaces` (Grande-Bretagne, mer du Nord, VAR… metinden silinip öyle etiketlenir, büyük/küçük harfe
+  duyarlı); çok kelimeli yer adlarında kesme işareti (Côte-d'Or); `Province.isoCountry` (denizaşırı département'ların
+  hava durumu); **kopan bağlantıda (ECONNRESET) akış bir kez daha denenir** (Libération istekleri %20 kesiyor);
+  **tarihsiz akışlarda gün haber adresinden okunur** (Le Parisien: eski haberler "şimdi" görünmüyor).
+- **Piyasalar:** Fransa = EUR + ons; CAC 40, LVMH, TotalEnergies, Airbus, L'Oréal, Schneider, BNP Paribas; Fransızca
+  döviz/maden kelimeleri ("or" = "ama", "argent" = para olduğu için piyasa ifadeleri).
+- **macOS:** `electron-builder.yml` → `identity: '-'` (ad-hoc imza). İmzasız DMG "hasar görmüş" diyordu; ad-hoc
+  imzalı sürümde Gizlilik ve Güvenlik'ten "Yine de Aç" çıkar. Bu Mac'te derleme denetimi engellendi; doğrulama bir
+  sonraki sürümün CI derlemesinde. Şimdilik çözüm: `xattr -cr /Applications/Masthead.app`.
+- Tarayıcıda uçtan uca denendi: ilk kurulum (6 dil, 7 ülke, département seçici), ana sayfa (Bordeaux hava durumu),
+  Gironde yerel sayfası, Piyasalar, Kaynaklar ("38 médias locaux attendent leur département"); 0 hatalı akış.
+  Sahibinin tarayıcı ayarları test sonrası geri yüklendi (tr / Erzurum).
+- Testler: 410 (yeni: `categories.test.ts`, Fransızca geo/son dakika/piyasa/URL tarihi/yeniden deneme).
 
 ## Devralma notu (2026-09-23, oturum sonu)
 
@@ -156,9 +196,10 @@ fazla ulusal kaynak + her ülkeye yerel haber; kendi dilinde yayın yapmayan kay
    açar); listedeki "Assets" sayısı yayından hemen sonra yanlış (2) görünebilir —
    `releases/expanded_assets/<tag>` ile doğrula.
 
-**Sayılar (güncel):** 532 kaynak, 1.332 akış, 6 ülke, 5 arayüz dili (en, tr, de, pt, hi).
+**Sayılar (güncel):** 955 kaynak, 2.242 akış, 7 ülke, 6 arayüz dili (en, tr, de, pt, hi, fr).
 
-**Ortam:** Kurumsal TLS proxy yüzünden Node sertifikayı tanımıyor →
+**Ortam:** `verify:feeds` bu Mac'te: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca.pem ~/.nvm/versions/node/v24.19.0/bin/node scripts/verify-feeds.ts fr --all`.
+Kurumsal TLS proxy yüzünden Node sertifikayı tanımıyor →
 `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca.pem` ile çalıştır (dev sunucusu, verify:feeds, her şey).
 `npm run verify:feeds` Node 22+ ister; bu Mac'te Node 20 olduğu için `npx vite-node scripts/verify-feeds.ts -- in`
 şeklinde çalıştır. Bu bilgisayara uygulama kurulmaz; doğrulama yalnızca `npm run dev:web` üzerinden.
@@ -170,8 +211,11 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 2. Faz 2 ve 3'ü bitir (bkz. PLAN.md): ~~komut paleti, kısayollar, hikâye sayfası, kelime susturma~~ ✅,
    ~~Size Özel okuma geçmişi~~ ✅, ~~Piyasalar + hava durumu~~ ✅, ~~erişilebilirlik~~ ✅, ~~ödeme duvarı + yayıncı notu~~ ✅. Sıradaki: v0.4.0.
 3. Alan adı alınınca Settings → Pages → Custom domain (site `site/` klasöründen otomatik yayımlanıyor).
-4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; sonraki ülke paketleri
-   (Fransa, İspanya/Meksika).
+4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; ~~Fransa~~ ✅.
+5. ~~Mevcut ülkelerin kaynaklarını artır + v0.5.0~~ ✅ (yayın adımı: etiket → taslak → Releases listesinden yayınla).
+   İstenirse: README.fr.md, Fransa ekran görüntüsü (README/site galerisinde Fransa'nın görseli yok).
+6. Sonra (sahibi izin verirse): İspanya+Meksika, İtalya, Hollanda, Endonezya, Azerbaycan, Japonya/Çin/Tayland
+   (kelime bölme gerekir). Arapça yapılmayacak.
 
 ---
 
@@ -353,6 +397,11 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-23 | Vurgu rengi yazıda `--accent-ink`, dolguda `--accent` | Marka rengi korunur, yazılar WCAG AA (4,5:1) geçer |
 | 2026-09-23 | Ödeme duvarlı haberde okuma modu hiç metin çıkarmaz (metered dahil) | Hukuki risk: sunucu tarafında çekmek sayaçlı ödeme duvarını da aşar; abone yayıncının sayfasında okur |
 | 2026-09-23 | Yayıncı iletişimi GitHub issue ile | Kişisel e-posta yayımlanmaz |
+| 2026-09-24 | Fransa'da yerel birim département (101), bölge = 13 bölge + Outre-mer | Türkiye'deki il/plaka modeline en yakın yapı; France 3'ün her département'a akışı var |
+| 2026-09-24 | `notPlaces` metinden silinir (büyük/küçük harfe duyarlı), dizine blok girdi olarak eklenmez | "mer du Nord" gibi küçük harfle başlayanlar da yakalanır; "VAR" (hakem) ile "Var" (département) ayrılır |
+| 2026-09-24 | Kopan bağlantıya (ECONNRESET/EPIPE/UND_ERR_SOCKET) tek yeniden deneme; zaman aşımına değil | Bazı CDN'ler istekleri rastgele kesiyor; zaman aşımını tekrarlamak yenilemeyi uzatır |
+| 2026-09-24 | Tarihsiz akış öğesinde gün URL'den (öğlen); bugün/gelecek ise ilk görülme zamanı | Le Parisien'in günler önceki haberleri "şimdi" görünüyordu |
+| 2026-09-24 | macOS için ad-hoc imza (`identity: '-'`), Developer ID yok | İmzasız DMG "hasar görmüş" diye açılmıyor; ücretli sertifika sahibinin kararı |
 
 ## Bilinen sorunlar / notlar
 

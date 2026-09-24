@@ -1,7 +1,7 @@
 # Masthead — Ürün ve Teknik Plan
 
-> Durum: **Faz 1–3 tamamlandı — v0.4.0 yayında; Faz 4: 6 ülke tam paketle (ulusal + yerel), 5 arayüz dili**
-> · Son güncelleme: 2026-09-23
+> Durum: **Faz 1–3 tamamlandı — v0.5.0 yayında; Faz 4: 7 ülke tam paketle (ulusal + yerel), 6 arayüz dili**
+> · Son güncelleme: 2026-09-24
 > Bu doküman projenin yol haritasıdır: ne yapıyoruz, nasıl yapıyoruz, hangi sırayla yapıyoruz.
 > Her faz bittiğinde ilgili kutucuklar işaretlenir.
 
@@ -12,8 +12,8 @@
 **Masthead**, Türkiye'nin (ileride seçilen ülkenin) önde gelen haber sitelerinden haberleri toplayıp tek,
 sakin ve modern bir masaüstü arayüzünde sunan açık kaynak bir haber uygulamasıdır.
 
-- **Toplar:** 6 ülkeden 532 kaynağın (Türkiye 136, ABD 176, Hindistan 19, Birleşik Krallık 68, Almanya 75,
-  Brezilya 58; her ülkede yalnızca o ülkenin dilinde) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
+- **Toplar:** 7 ülkeden 955 kaynağın (Türkiye 136, ABD 227, Hindistan 48, Birleşik Krallık 139, Almanya 154,
+  Brezilya 130, Fransa 121; her ülkede yalnızca o ülkenin dilinde) RSS/Atom akışlarını düzenli aralıklarla çeker, tekrarları birleştirir, aynı olayı veren
   haberleri kümeler ("5 kaynak bu haberi verdi").
 - **Sunar:** Modern bir haber sitesi düzeni — manşet alanı, son dakika bandı, kategori bölümleri,
   son haberler akışı.
@@ -420,7 +420,11 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 - [x] 2026-09-23 · Hintçe arayüz (5. dil); her ülkenin kaynakları yalnızca kendi dilinde
 - [x] 2026-09-23 · Paketler genişletildi: 532 kaynak / 1.332 akış (ABD 52, UK 29, DE 39, BR 42, IN 15 ulusal)
 - [ ] Google News yedeği (paketi olmayan ülkeler için)
-- [ ] Sonraki paketler: Fransa, İspanya/Meksika, Azerbaycan…; yeni diller (fr, es, ar — RTL desteğiyle)
+- [x] 2026-09-24 · Fransa paketi (121 kaynak / 423 akış; 101 département, France 3 + ici + bölge gazeteleri,
+      denizaşırı département'lar) ve Fransızca arayüz (6. dil)
+- [x] 2026-09-24 · Paketler yeniden genişletildi: 955 kaynak / 2.242 akış (ABD 104, UK 71, DE 99, BR 95, IN 40 ulusal)
+- [ ] Sonraki paketler (sahibi izin verince): İspanya/Meksika, İtalya, Hollanda, Endonezya, Azerbaycan;
+      Japonya/Çin/Tayland için önce kelime bölme. Arapça yapılmayacak (sahibinin kararı, 2026-09-24).
 - [x] 2026-09-23 · Ülke bazlı eyalet/bölge etiketleme ve yerel haber: ABD, Hindistan, Birleşik Krallık,
       Almanya, Brezilya (`places.ts` + `local.ts`, `FeedDef.region`, `localUnit`, Hintçe geo etiketleme)
 
