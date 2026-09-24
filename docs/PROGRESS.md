@@ -23,6 +23,12 @@
 
 ## Devralma notu (2026-09-24)
 
+- [x] 2026-09-24 · **v0.5.0 yayınlandı:** 4 commit (macOS ad-hoc imza, Fransa, beş ülkenin kaynak artışı, sürüm) →
+  `v0.5.0` etiketi → Release iş akışı #6 başarılı (~3 dk) → taslak Releases listesindeki kalemden
+  (`releases/edit/untagged-…`) Chrome ile açılıp notlarla yayınlandı (Latest). 14 derleme dosyası + 2 kaynak
+  arşivi; `releases/latest/download/…` bağlantıları ve `latest*.yml` (0.5.0) doğrulandı. macOS iş günlüğünde iki
+  mimari de `identityName=-` (ad-hoc) ile imzalandı; noter onayı (notarization) yok, beklendiği gibi.
+
 **Yapılan son iş:** v0.5.0 = Fransa paketi + Fransızca arayüz + diğer beş ülkenin kaynak artışı (sahibinin isteği:
 "fransızcayı bitirince 0.5 olarak yayınlama diğer bölgelerin rss yayınlarını da arttır öyle yayınla"). Sahibi
 şimdilik başka yeni dil/ülke istemiyor (Arapça hiç yok).
