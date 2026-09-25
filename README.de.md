@@ -17,8 +17,10 @@ und in der Sie sie werbefrei lesen, ohne die App je zu verlassen.
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
 [**Website**](https://ahmetcaglayan.github.io/masthead/) ·
-[**0.5.0 herunterladen**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**1.0.0 herunterladen**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Changelog](CHANGELOG.md)
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-de.svg" width="250" alt="Bei Microsoft herunterladen" /></a>
 
 [English](README.md) · [Türkçe](README.tr.md) · **Deutsch** · [Português](README.pt.md)
 
@@ -118,7 +120,12 @@ auf Französisch, dazu Lokales für alle 101 Départements: France 3, der ici-Se
 
 ## Download
 
-Die aktuelle Version gibt es auf der [Releases-Seite](https://github.com/ahmetcaglayan/masthead/releases/latest):
+**Unter Windows am besten aus dem Microsoft Store** (dort als *Masthead News*). Microsoft signiert die Store-Version,
+deshalb installiert Windows sie ohne SmartScreen-Warnung und hält sie im Hintergrund aktuell.
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-de.svg" width="200" alt="Bei Microsoft herunterladen" /></a>
+
+Alles andere gibt es auf der [Releases-Seite](https://github.com/ahmetcaglayan/masthead/releases/latest):
 
 | Plattform | Datei |
 | --- | --- |
@@ -133,7 +140,7 @@ suchen stündlich nach einer neuen Version, laden sie im Hintergrund und bitten 
 portable exe, die macOS-App und das .deb melden, wenn eine neue Version da ist. Automatische Installation
 abschalten: Einstellungen → Daten & Über.
 
-> **Die Builds sind noch nicht signiert.**
+> **Die Dateien auf der Releases-Seite sind noch nicht signiert.**
 > - Windows SmartScreen warnt beim ersten Start unter Umständen: Wählen Sie
 >   **Weitere Informationen → Trotzdem ausführen**.
 > - Ist die **Intelligente App-Steuerung** (Smart App Control) eingeschaltet (Windows 11 → Windows-Sicherheit →

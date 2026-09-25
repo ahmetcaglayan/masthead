@@ -16,8 +16,10 @@ uygulamadan hiç çıkmadan okumanı sağlayan şık bir masaüstü haber uygula
 [![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-2f2a24?style=flat-square)](LICENSE)
 
 [**Web sitesi**](https://ahmetcaglayan.github.io/masthead/) ·
-[**0.5.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**1.0.0'ı indir**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Değişiklikler](CHANGELOG.md)
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-tr.svg" width="250" alt="Microsoft Store'dan edinin" /></a>
 
 [English](README.md) · **Türkçe** · [Deutsch](README.de.md) · [Português](README.pt.md)
 
@@ -107,7 +109,12 @@ bağımsız: istersen Brezilya gazetelerini Almanca arayüzle okursun.
 
 ## İndir
 
-Son sürümü [Releases sayfasından](https://github.com/ahmetcaglayan/masthead/releases/latest) indir:
+**Windows'ta Microsoft Store'dan indir** (mağazadaki adı *Masthead News*). Store sürümünü Microsoft imzalar;
+Windows onu SmartScreen uyarısı olmadan kurar ve arka planda kendiliğinden günceller.
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-tr.svg" width="200" alt="Microsoft Store'dan edinin" /></a>
+
+Diğer tüm sürümler [Releases sayfasında](https://github.com/ahmetcaglayan/masthead/releases/latest):
 
 | Platform | Dosya |
 | --- | --- |
@@ -121,7 +128,7 @@ Son sürümü [Releases sayfasından](https://github.com/ahmetcaglayan/masthead/
 olmadığına bakar, arka planda indirir ve yeniden başlatmanı ister; taşınabilir exe, macOS uygulaması ve .deb yeni
 sürüm çıkınca haber verir. Otomatik kurulumu Ayarlar → Veriler ve uygulama bölümünden kapatabilirsin.
 
-> **Sürümler henüz dijital olarak imzalı değil.**
+> **Releases sayfasındaki dosyalar henüz dijital olarak imzalı değil.**
 > - Windows SmartScreen uyarısında **Ek bilgi → Yine de çalıştır**'ı seç.
 > - **Akıllı Uygulama Denetimi** (Smart App Control) açıksa (Windows 11 → Windows Güvenliği → Uygulama ve tarayıcı
 >   denetimi), Windows imzasız uygulamaları "Yine de çalıştır" seçeneği sunmadan engelleyebilir. Bu durumda aşağıdaki

@@ -10,13 +10,14 @@
 
 ## Son durum
 
-- **Tarih:** 2026-09-24
+- **Tarih:** 2026-09-25
 - **Aktif faz:** Faz 1–4 tamamlandı; **v0.4.0 yayında** (2026-09-23, otomatik güncellemeli ilk sürüm). Faz 2 ve 3
   (komut paleti, hikâye sayfası, kelime susturma, kişisel "Size Özel", Piyasalar sayfası, hava durumu ve
   erişilebilirlik turu — hepsi bitti). **v0.5.0 (2026-09-24):** Fransa + Fransızca arayüz, diğer beş ülkenin
-  kaynakları iki katına yakın, macOS ad-hoc imza.
+  kaynakları iki katına yakın, macOS ad-hoc imza. **v1.0.0 (2026-09-25):** Microsoft Store — mağazadaki adı
+  *Masthead News* (ürün 9PFZD4CRGSQV), her etikette paket `store.yml` ile derlenir; ayrıntı `docs/STORE.md`.
 - **Durum:** Uygulama masaüstünde (Electron) ve tarayıcıda (`npm run dev:web`) uçtan uca çalışıyor.
-  **955 kaynak, 2.242 akış, 7 ülke, 6 arayüz dili (en, tr, de, pt, hi, fr); 410 birim testi yeşil.** Her ülkenin
+  **955 kaynak, 2.242 akış, 7 ülke, 6 arayüz dili (en, tr, de, pt, hi, fr); 411 birim testi yeşil.** Her ülkenin
   kaynakları yalnızca o ülkenin dilinde; her ülkede yerel haber var (şehir / eyalet / Bundesland / yöre / département).
   Kod GitHub'da (https://github.com/ahmetcaglayan/masthead). Geliştirme macOS'ta sürüyor:
   **Bu Mac'e uygulama kurulmaz** — doğrulama yalnızca tarayıcı modundan.
@@ -220,7 +221,10 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; ~~Fransa~~ ✅.
 5. ~~Mevcut ülkelerin kaynaklarını artır + v0.5.0~~ ✅ (yayın adımı: etiket → taslak → Releases listesinden yayınla).
    İstenirse: README.fr.md, Fransa ekran görüntüsü (README/site galerisinde Fransa'nın görseli yok).
-6. Sonra (sahibi izin verirse): İspanya+Meksika, İtalya, Hollanda, Endonezya, Azerbaycan, Japonya/Çin/Tayland
+6. ~~Microsoft Store + v1.0.0~~ ✅ (2026-09-25; ilk gönderim Partner Center'dan elle). **Her sürümde:** mağaza
+   anahtarları (`docs/STORE.md`) tanımlıysa `store.yml` paketi kendisi gönderir; değilse açtığı
+   "Microsoft Store: submit vX.Y.Z" issue'sundaki adımlarla `.msixbundle` Partner Center'a elle yüklenir.
+7. Sonra (sahibi izin verirse): İspanya+Meksika, İtalya, Hollanda, Endonezya, Azerbaycan, Japonya/Çin/Tayland
    (kelime bölme gerekir). Arapça yapılmayacak.
 
 ---
@@ -408,6 +412,9 @@ Bkz. [`PLAN.md` → Yol Haritası](PLAN.md#11-yol-haritası).
 | 2026-09-24 | Kopan bağlantıya (ECONNRESET/EPIPE/UND_ERR_SOCKET) tek yeniden deneme; zaman aşımına değil | Bazı CDN'ler istekleri rastgele kesiyor; zaman aşımını tekrarlamak yenilemeyi uzatır |
 | 2026-09-24 | Tarihsiz akış öğesinde gün URL'den (öğlen); bugün/gelecek ise ilk görülme zamanı | Le Parisien'in günler önceki haberleri "şimdi" görünüyordu |
 | 2026-09-24 | macOS için ad-hoc imza (`identity: '-'`), Developer ID yok | İmzasız DMG "hasar görmüş" diye açılmıyor; ücretli sertifika sahibinin kararı |
+| 2026-09-25 | Windows'ta Microsoft Store (MSIX), mağaza adı "Masthead News"; repo ve uygulama adı Masthead kalır | Store paketi Microsoft imzalar → SmartScreen uyarısı yok, ücretsiz; "Masthead" adı mağazada alınmıştı |
+| 2026-09-25 | Sürüm 1.0.0 | Store 0 ile başlayan sürüm numarasını kabul etmiyor; tüm platformlarda aynı numara kalsın |
+| 2026-09-25 | Store kopyasında GitHub güncelleyicisi kapalı (mod `store`), AUMID'e dokunulmaz | Güncellemeyi Windows/Store yapar; paket kimliğini ezmek bildirimleri ve görev çubuğunu bozar |
 
 ## Bilinen sorunlar / notlar
 

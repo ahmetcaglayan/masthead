@@ -1,6 +1,6 @@
 # Masthead — Ürün ve Teknik Plan
 
-> Durum: **Faz 1–3 tamamlandı — v0.5.0 yayında; Faz 4: 7 ülke tam paketle (ulusal + yerel), 6 arayüz dili**
+> Durum: **Faz 1–3 tamamlandı — v1.0.0 yayında (Microsoft Store dahil); Faz 4: 7 ülke tam paketle (ulusal + yerel), 6 arayüz dili**
 > · Son güncelleme: 2026-09-24
 > Bu doküman projenin yol haritasıdır: ne yapıyoruz, nasıl yapıyoruz, hangi sırayla yapıyoruz.
 > Her faz bittiğinde ilgili kutucuklar işaretlenir.
@@ -434,7 +434,9 @@ Kaynak eklemek için `sources.ts` içine yeni bir `SourceDef` eklemek yeterlidir
 - [x] 2026-09-23 · Otomatik güncelleme (electron-updater, GitHub Releases): açılışta + saatte bir kontrol, arka planda
       indirme, "Şimdi yeniden başlat" diyaloğu; taşınabilir/macOS/.deb için "yeni sürüm çıktı" bildirimi
 - [x] README (EN + TR), ekran görüntüleri, CONTRIBUTING, SECURITY, CHANGELOG, MIT lisansı
-- [ ] Kod imzalama (SignPath Foundation / Azure Trusted Signing) — Akıllı Uygulama Denetimi için
+- [x] 2026-09-25 · Microsoft Store (MSIX, "Masthead News"): Microsoft imzalar, SmartScreen / Akıllı Uygulama
+      Denetimi uyarısı yok, güncellemeyi Windows yapar; her etikette `store.yml` paketi derler (bkz. `docs/STORE.md`)
+- [ ] GitHub'daki exe'ler için kod imzalama (SignPath Foundation / OV sertifika) — Store dışı kurulumlar için
 
 ---
 

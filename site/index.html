@@ -333,6 +333,16 @@
       .btn-ghost:hover {
         background: var(--muted);
       }
+      .store-badge {
+        display: inline-block;
+        line-height: 0;
+        border-radius: 8px;
+      }
+      .store-badge img {
+        display: block;
+        width: 200px;
+        height: auto;
+      }
 
       .shot img {
         aspect-ratio: 8 / 5;
@@ -573,7 +583,7 @@
     <main id="main">
       <div id="top" class="wrap hero">
         <p class="dateline">
-          <span>Masthead 0.5.0 — free and open source</span>
+          <span>Masthead 1.0.0 — free and open source</span>
           <span>Türkiye · United States · India · United Kingdom · Germany · Brazil · France</span>
         </p>
 
@@ -585,6 +595,9 @@
         </p>
 
         <p class="cta-row">
+          <a class="store-badge" href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct">
+            <img src="images/store-badge.svg" width="161" height="44" alt="Get it from Microsoft" />
+          </a>
           <a class="btn btn-primary" href="#download">Download Masthead</a>
           <a class="btn btn-ghost" href="#reading">See how it reads</a>
         </p>
@@ -874,7 +887,7 @@
       <section id="download">
         <div class="wrap">
           <p class="kicker">Download</p>
-          <h2>Get Masthead 0.5.0</h2>
+          <h2>Get Masthead 1.0.0</h2>
           <p class="lede">
             Free, MIT licensed, no account. Every build is produced in the open by GitHub Actions and published
             on the Releases page.
@@ -884,23 +897,24 @@
             <div class="card">
               <h3>Windows</h3>
               <ul>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — Intel / AMD</a><br /><span class="small"><code>Masthead-0.5.0-win-x64.exe</code></span></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — ARM64</a><br /><span class="small"><code>Masthead-0.5.0-win-arm64.exe</code></span></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Portable, no install</a><br /><span class="small"><code>Masthead-0.5.0-portable.exe</code></span></li>
+                <li><a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct">Microsoft Store</a> — recommended<br /><span class="small">Listed as <i>Masthead News</i>; signed by Microsoft, updated by Windows</span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — Intel / AMD</a><br /><span class="small"><code>Masthead-1.0.0-win-x64.exe</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Installer — ARM64</a><br /><span class="small"><code>Masthead-1.0.0-win-arm64.exe</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Portable, no install</a><br /><span class="small"><code>Masthead-1.0.0-portable.exe</code></span></li>
               </ul>
             </div>
             <div class="card">
               <h3>macOS</h3>
               <ul>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Apple Silicon</a><br /><span class="small"><code>Masthead-0.5.0-arm64.dmg</code></span></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Intel</a><br /><span class="small"><code>Masthead-0.5.0-x64.dmg</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Apple Silicon</a><br /><span class="small"><code>Masthead-1.0.0-arm64.dmg</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Intel</a><br /><span class="small"><code>Masthead-1.0.0-x64.dmg</code></span></li>
               </ul>
             </div>
             <div class="card">
               <h3>Linux</h3>
               <ul>
                 <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">AppImage</a><br /><span class="small"><code>Masthead-linux-x86_64.AppImage</code></span></li>
-                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Debian / Ubuntu</a><br /><span class="small"><code>Masthead-0.5.0-linux-amd64.deb</code></span></li>
+                <li><a href="https://github.com/ahmetcaglayan/masthead/releases/latest">Debian / Ubuntu</a><br /><span class="small"><code>Masthead-1.0.0-linux-amd64.deb</code></span></li>
               </ul>
             </div>
           </div>
@@ -910,18 +924,19 @@
               All downloads on GitHub
             </a>
             <a class="btn btn-ghost" href="https://github.com/ahmetcaglayan/masthead/blob/main/CHANGELOG.md">
-              What's new in 0.5.0
+              What's new in 1.0.0
             </a>
           </p>
 
           <div class="note">
             <p style="margin: 0 0 0.5rem">
-              <b>Install once.</b> The Windows installer and the Linux AppImage keep themselves up to date: they
-              download new versions in the background and ask you to restart. The portable, macOS and .deb builds
-              tell you when a new version is out.
+              <b>Install once.</b> Windows updates the Microsoft Store version by itself. The Windows installer and
+              the Linux AppImage keep themselves up to date too: they download new versions in the background and
+              ask you to restart. The portable, macOS and .deb builds tell you when a new version is out.
             </p>
             <p style="margin: 0 0 0.5rem">
-              <b>The builds are not code-signed yet.</b> Windows SmartScreen may warn on first launch — choose
+              <b>The files on GitHub are not code-signed yet</b> (the Microsoft Store version is signed by
+              Microsoft). Windows SmartScreen may warn on first launch — choose
               <em>More info → Run anyway</em>. On macOS, the first start is refused: choose <em>Open Anyway</em> in
               System Settings → Privacy &amp; Security.
             </p>

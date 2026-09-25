@@ -17,8 +17,10 @@ and lets you read them, ad-free, without ever leaving the app.
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
 [**Website**](https://ahmetcaglayan.github.io/masthead/) ·
-[**Download 0.5.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**Download 1.0.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Changelog](CHANGELOG.md)
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-en.svg" width="250" alt="Get it from Microsoft" /></a>
 
 **English** · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · [Português](README.pt.md)
 
@@ -108,7 +110,12 @@ French, and local news for all 101 departments: France 3, the local ici station 
 
 ## Download
 
-Grab the latest version from the [Releases page](https://github.com/ahmetcaglayan/masthead/releases/latest):
+**On Windows, get it from the Microsoft Store** (listed as *Masthead News*). Microsoft signs the Store version,
+so Windows installs it without a SmartScreen warning and keeps it up to date in the background.
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-en.svg" width="200" alt="Get it from Microsoft" /></a>
+
+Everything else is on the [Releases page](https://github.com/ahmetcaglayan/masthead/releases/latest):
 
 | Platform | File |
 | --- | --- |
@@ -122,7 +129,7 @@ Grab the latest version from the [Releases page](https://github.com/ahmetcaglaya
 version every hour, download it in the background and ask you to restart; the portable exe, the macOS app and
 the .deb tell you when one is out. Switch automatic installs off in Settings → Data & About.
 
-> **Builds are not code-signed yet.**
+> **The files on the Releases page are not code-signed yet.**
 > - Windows SmartScreen may warn on first launch: choose **More info → Run anyway**.
 > - If **Smart App Control** is on (Windows 11 → Windows Security → App & browser control), Windows may block
 >   unsigned apps outright, without a "Run anyway" option. Use the browser version below, or build from source.

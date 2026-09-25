@@ -17,8 +17,10 @@ e deixa você lê-las sem anúncios, sem sair do aplicativo.
 ![Platforms](https://img.shields.io/badge/platforms-Windows%20·%20macOS%20·%20Linux%20·%20Web-2f2a24?style=flat-square)
 
 [**Site**](https://ahmetcaglayan.github.io/masthead/) ·
-[**Baixar 0.5.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
+[**Baixar 1.0.0**](https://github.com/ahmetcaglayan/masthead/releases/latest) ·
 [Changelog](CHANGELOG.md)
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-pt.svg" width="250" alt="Obtenha na Microsoft" /></a>
 
 [English](README.md) · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · **Português**
 
@@ -112,7 +114,12 @@ francês, e notícias locais para os 101 departamentos: France 3, a rádio ici d
 
 ## Baixar
 
-Baixe a versão mais recente na [página de Releases](https://github.com/ahmetcaglayan/masthead/releases/latest):
+**No Windows, baixe pela Microsoft Store** (lá ele se chama *Masthead News*). A Microsoft assina a versão da Store,
+então o Windows a instala sem o aviso do SmartScreen e a mantém atualizada em segundo plano.
+
+<a href="https://apps.microsoft.com/detail/9PFZD4CRGSQV?mode=direct"><img src="assets/store/badge-pt.svg" width="200" alt="Obtenha na Microsoft" /></a>
+
+Todo o resto está na [página de Releases](https://github.com/ahmetcaglayan/masthead/releases/latest):
 
 | Plataforma | Arquivo |
 | --- | --- |
@@ -126,7 +133,7 @@ Baixe a versão mais recente na [página de Releases](https://github.com/ahmetca
 versão a cada hora, baixam em segundo plano e pedem que você reinicie; o exe portátil, o app de macOS e o .deb
 avisam quando sai uma nova versão. Desligue a instalação automática em Ajustes → Dados e sobre.
 
-> **Os builds ainda não são assinados digitalmente.**
+> **Os arquivos da página de Releases ainda não são assinados digitalmente.**
 > - O SmartScreen do Windows pode avisar na primeira execução: escolha **Mais informações → Executar assim mesmo**.
 > - Se o **Controle Inteligente de Aplicativos** (Smart App Control) estiver ligado (Windows 11 → Segurança do
 >   Windows → Controle de aplicativos e navegador), o Windows pode simplesmente bloquear aplicativos não

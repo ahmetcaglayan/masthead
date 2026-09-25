@@ -4,6 +4,23 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.0.0] - 2026-09-25
+
+Masthead comes to the Microsoft Store.
+
+### Added
+
+- **Microsoft Store.** On Windows, Masthead can now be installed from the Microsoft Store, where it is listed as
+  *Masthead News* (the plain name was taken). Microsoft signs the Store version, so Windows installs it without a
+  SmartScreen warning, even with Smart App Control on, and keeps it up to date in the background. Settings → Data &
+  About says so instead of checking GitHub. The installer, portable exe, macOS and Linux builds on the Releases page
+  are unchanged and update themselves as before.
+
+### Changed
+
+- **Version 1.0.** The Store does not accept 0.x version numbers, and Masthead is ready for it anyway: seven
+  countries, six languages and 955 newsrooms.
+
 ## [0.5.0] - 2026-09-24
 
 France joins, in French, and every other country gets many more of its own newsrooms.
