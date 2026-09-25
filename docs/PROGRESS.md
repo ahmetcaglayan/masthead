@@ -221,7 +221,10 @@ Dev sunucusunu yeniden başlatmak: `NODE_EXTRA_CA_CERTS=~/.masthead/corporate-ca
 4. ~~Otomatik güncelleme (electron-updater)~~ ✅ (v0.4.0 ile gelecek) · kod imzalama; ~~Fransa~~ ✅.
 5. ~~Mevcut ülkelerin kaynaklarını artır + v0.5.0~~ ✅ (yayın adımı: etiket → taslak → Releases listesinden yayınla).
    İstenirse: README.fr.md, Fransa ekran görüntüsü (README/site galerisinde Fransa'nın görseli yok).
-6. ~~Microsoft Store + v1.0.0~~ ✅ (2026-09-25; ilk gönderim Partner Center'dan elle). **Her sürümde:** mağaza
+6. ~~Microsoft Store + v1.0.0~~ ✅ (2026-09-25; ilk gönderim Partner Center'dan elle — 6 dilde mağaza sayfası,
+   ekran görüntüleri ve logolar girildi, **sertifikaya gönderildi**; geçince yayına girer). Açık kalanlar: mağaza
+   anahtar kelimeleri (Keywords kutusu otomasyonla doldurulamıyor, sahibi elle girecek), Fransızca arayüzlü ekran
+   görüntüsü yok (Fransızca sayfada İngilizce görüntüler var), issue #1 sertifika geçince kapatılacak. **Her sürümde:** mağaza
    anahtarları (`docs/STORE.md`) tanımlıysa `store.yml` paketi kendisi gönderir; değilse açtığı
    "Microsoft Store: submit vX.Y.Z" issue'sundaki adımlarla `.msixbundle` Partner Center'a elle yüklenir.
 7. Sonra (sahibi izin verirse): İspanya+Meksika, İtalya, Hollanda, Endonezya, Azerbaycan, Japonya/Çin/Tayland
