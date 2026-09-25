@@ -20,10 +20,10 @@ The Store only accepts version numbers whose first part is not 0 and whose fourt
 ## Every release
 
 Pushing a `vX.Y.Z` tag runs `.github/workflows/store.yml` next to the release workflow. It builds
-`Masthead-X.Y.Z.msixbundle` and `Masthead-X.Y.Z.msixupload` and keeps them as the run's `store-package-X.Y.Z`
+`Masthead-X.Y.Z.msixbundle` (x64 and arm64, about 340 MB) and keeps it as the run's `store-package-X.Y.Z`
 artifact. Then:
 
-- **With the Partner Center secrets set**, it submits the `.msixupload` to the Store. Certification usually takes
+- **With the Partner Center secrets set**, it submits the bundle to the Store (wrapped in a `.msixupload`). Certification usually takes
   from a few hours to three working days; the new version then reaches users by itself.
 - **Without them**, it opens an issue, *Microsoft Store: submit vX.Y.Z*, with a link to the artifact. To submit by
   hand: unzip the artifact, open Partner Center → *Start update* → **Packages**, drop in the `.msixbundle`, remove

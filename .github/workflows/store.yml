@@ -1,8 +1,8 @@
 name: Microsoft Store
 
 # Every version tag also builds the Microsoft Store package: one .appx per architecture from
-# electron-builder, bundled into Masthead-x.y.z.msixbundle (what Partner Center takes by hand) and
-# wrapped in a .msixupload (what the Store CLI takes). The Store signs it; no certificate here.
+# electron-builder, bundled into Masthead-x.y.z.msixbundle. Partner Center takes the bundle by hand;
+# the Store CLI takes it wrapped in a .msixupload. The Store signs it; no certificate here.
 #
 # With the four Partner Center secrets set (see docs/STORE.md) the tag is submitted to the Store
 # by itself. Without them the package waits as a workflow artifact and an issue says so, so a
@@ -48,16 +48,19 @@ jobs:
           New-Item -ItemType Directory -Force store/parts | Out-Null
           $appx | Copy-Item -Destination store/parts
 
+          # Print one manifest, so the identity, version and languages Partner Center checks are in the log.
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [IO.Compression.ZipFile]::OpenRead($appx[0].FullName)
+          $reader = [IO.StreamReader]::new($zip.GetEntry('AppxManifest.xml').Open())
+          $reader.ReadToEnd()
+          $reader.Dispose(); $zip.Dispose()
+
           $makeappx = Get-ChildItem "${env:ProgramFiles(x86)}\Windows Kits\10\bin\*\x64\makeappx.exe" |
             Sort-Object FullName -Descending | Select-Object -First 1
           if (-not $makeappx) { throw 'makeappx.exe not found' }
           $bundle = "store/Masthead-$version.msixbundle"
           & $makeappx.FullName bundle /o /d store/parts /p $bundle /bv "$($version).0"
           if ($LASTEXITCODE -ne 0) { throw "makeappx bundle failed ($LASTEXITCODE)" }
-
-          # A .msixupload is a zip holding the bundle.
-          Compress-Archive -Path $bundle -DestinationPath "store/Masthead-$version.zip" -Force
-          Move-Item "store/Masthead-$version.zip" "store/Masthead-$version.msixupload" -Force
           Remove-Item store/parts -Recurse
           Get-ChildItem store | Format-Table Name, Length
           "version=$version" >> $env:GITHUB_OUTPUT
@@ -81,8 +84,11 @@ jobs:
           CLIENT_SECRET: ${{ secrets.AZURE_AD_APPLICATION_SECRET }}
           VERSION: ${{ steps.bundle.outputs.version }}
         run: |
+          # A .msixupload is a zip holding the bundle.
+          Compress-Archive -Path "store/Masthead-$($env:VERSION).msixbundle" -DestinationPath upload.zip
+          Move-Item upload.zip "Masthead-$($env:VERSION).msixupload"
           msstore reconfigure --tenantId $env:TENANT_ID --sellerId $env:SELLER_ID --clientId $env:CLIENT_ID --clientSecret $env:CLIENT_SECRET
-          msstore publish "store/Masthead-$($env:VERSION).msixupload" -id $env:PRODUCT_ID
+          msstore publish "Masthead-$($env:VERSION).msixupload" -id $env:PRODUCT_ID
 
       - name: Ask for a hand-made submission
         if: startsWith(github.ref, 'refs/tags/v') && env.HAS_STORE_KEYS != 'true'
