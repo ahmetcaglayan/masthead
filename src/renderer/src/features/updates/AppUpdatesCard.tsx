@@ -19,6 +19,7 @@ function useStatusText(status: UpdateStatus | null, host: 'electron' | 'web' | u
     if (!status) return ''
     const { version, percent, checkedAt } = status
     if (status.mode === 'none') return host === 'web' ? t('appUpdates.web') : t('appUpdates.development')
+    if (status.mode === 'store') return t('appUpdates.store')
     switch (status.state) {
       case 'checking':
         return t('appUpdates.checking')
@@ -53,7 +54,7 @@ export function AppUpdatesCard(): React.JSX.Element {
   const state = status?.state ?? 'idle'
 
   const action = (): React.ReactNode => {
-    if (mode === 'none') return null
+    if (mode === 'none' || mode === 'store') return null
     if (state === 'ready') {
       return (
         <Button variant="primary" icon={RotateCw} onClick={() => void useUpdates.getState().install()}>

@@ -78,9 +78,10 @@ export interface AppInfo {
  * How this copy of Masthead gets new versions.
  * - `auto`: it downloads and installs them itself (Windows installer, Linux AppImage).
  * - `manual`: it can only tell the user one is out (portable exe, unsigned macOS app, .deb).
+ * - `store`: the Microsoft Store installs them; the app never checks GitHub.
  * - `none`: no updates here (web mode, a development build).
  */
-export type UpdateMode = 'auto' | 'manual' | 'none'
+export type UpdateMode = 'auto' | 'manual' | 'store' | 'none'
 
 export type UpdateState =
   /** Nothing to report: never checked yet, or the last check found no newer version. */

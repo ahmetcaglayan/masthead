@@ -90,6 +90,11 @@ describe('detectUpdateMode', () => {
     expect(detectUpdateMode({}, 'darwin', true)).toBe('manual')
     expect(detectUpdateMode({}, 'win32', false)).toBe('none')
   })
+
+  it('leaves a Microsoft Store copy to the Store', () => {
+    expect(detectUpdateMode({}, 'win32', true, true)).toBe('store')
+    expect(detectUpdateMode({}, 'win32', false, true)).toBe('none')
+  })
 })
 
 describe('UpdateController', () => {

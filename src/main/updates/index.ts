@@ -19,13 +19,15 @@ export interface UpdatesOptions {
 /**
  * The app's updater: GitHub Releases through electron-updater, which reads the
  * `latest*.yml` files every release publishes and picks the installer for this
- * machine's architecture. Development builds and automation runs get a controller
- * that never checks.
+ * machine's architecture. Development builds, automation runs and Microsoft Store copies
+ * get a controller that never checks.
  */
 export async function createUpdates(options: UpdatesOptions): Promise<UpdateController> {
-  const mode = options.disabled ? 'none' : detectUpdateMode(process.env, process.platform, app.isPackaged)
+  const mode = options.disabled
+    ? 'none'
+    : detectUpdateMode(process.env, process.platform, app.isPackaged, process.windowsStore === true)
   let updater: Updater | null = null
-  if (mode !== 'none') {
+  if (mode === 'auto' || mode === 'manual') {
     // electron-updater is CommonJS and defines `autoUpdater` as a lazy getter, which Node
     // does not expose as a named export through import(); the default export (its
     // module.exports) has it.

@@ -309,6 +309,7 @@
     "failed": "Konnte nicht nach Updates suchen. Neuer Versuch innerhalb einer Stunde.",
     "web": "Die Browser-Version wird aus dem Quellcode aktualisiert: git pull ausführen.",
     "development": "Entwicklungsversion – Updates sind aus.",
+    "store": "Aus dem Microsoft Store installiert – der Store hält die App aktuell.",
     "manualNote": "Diese Kopie (portabel, macOS oder .deb) kann Updates nicht selbst installieren; Sie erfahren, wenn eine neue Version da ist.",
     "check": "Nach Updates suchen",
     "restart": "Jetzt neu starten",

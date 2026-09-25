@@ -309,6 +309,7 @@
     "failed": "Couldn't check for updates. It will try again within the hour.",
     "web": "The browser version updates from source: run git pull.",
     "development": "Development build — updates are off.",
+    "store": "Installed from the Microsoft Store — the Store keeps it up to date.",
     "manualNote": "This copy (portable, macOS or .deb) can't install updates itself; you'll be told when a new version is out.",
     "check": "Check for updates",
     "restart": "Restart now",

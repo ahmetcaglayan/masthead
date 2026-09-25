@@ -1,0 +1,104 @@
+name: Microsoft Store
+
+# Every version tag also builds the Microsoft Store package: one .appx per architecture from
+# electron-builder, bundled into Masthead-x.y.z.msixbundle (what Partner Center takes by hand) and
+# wrapped in a .msixupload (what the Store CLI takes). The Store signs it; no certificate here.
+#
+# With the four Partner Center secrets set (see docs/STORE.md) the tag is submitted to the Store
+# by itself. Without them the package waits as a workflow artifact and an issue says so, so a
+# release never leaves the Store copy behind unnoticed.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  PRODUCT_ID: 9PFZD4CRGSQV
+
+jobs:
+  store:
+    runs-on: windows-latest
+    env:
+      # The secrets context is not available in a step's `if`; resolve it once here.
+      HAS_STORE_KEYS: ${{ secrets.SELLER_ID != '' && secrets.AZURE_AD_APPLICATION_SECRET != '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx electron-vite build
+      - name: Package the .appx files
+        run: npx electron-builder --win appx --x64 --arm64 --publish never
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+
+      - name: Bundle both architectures
+        id: bundle
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          $appx = Get-ChildItem "release/$version" -Filter *.appx
+          if ($appx.Count -ne 2) { throw "Expected two .appx files, found $($appx.Count)" }
+          New-Item -ItemType Directory -Force store/parts | Out-Null
+          $appx | Copy-Item -Destination store/parts
+
+          $makeappx = Get-ChildItem "${env:ProgramFiles(x86)}\Windows Kits\10\bin\*\x64\makeappx.exe" |
+            Sort-Object FullName -Descending | Select-Object -First 1
+          if (-not $makeappx) { throw 'makeappx.exe not found' }
+          $bundle = "store/Masthead-$version.msixbundle"
+          & $makeappx.FullName bundle /o /d store/parts /p $bundle /bv "$($version).0"
+          if ($LASTEXITCODE -ne 0) { throw "makeappx bundle failed ($LASTEXITCODE)" }
+
+          # A .msixupload is a zip holding the bundle.
+          Compress-Archive -Path $bundle -DestinationPath "store/Masthead-$version.zip" -Force
+          Move-Item "store/Masthead-$version.zip" "store/Masthead-$version.msixupload" -Force
+          Remove-Item store/parts -Recurse
+          Get-ChildItem store | Format-Table Name, Length
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: store-package-${{ steps.bundle.outputs.version }}
+          path: store/
+          if-no-files-found: error
+
+      - name: Set up the Microsoft Store CLI
+        if: startsWith(github.ref, 'refs/tags/v') && env.HAS_STORE_KEYS == 'true'
+        uses: microsoft/microsoft-store-apppublisher@v1.1
+      - name: Submit to the Microsoft Store
+        if: startsWith(github.ref, 'refs/tags/v') && env.HAS_STORE_KEYS == 'true'
+        shell: pwsh
+        env:
+          TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+          SELLER_ID: ${{ secrets.SELLER_ID }}
+          CLIENT_ID: ${{ secrets.AZURE_AD_APPLICATION_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.AZURE_AD_APPLICATION_SECRET }}
+          VERSION: ${{ steps.bundle.outputs.version }}
+        run: |
+          msstore reconfigure --tenantId $env:TENANT_ID --sellerId $env:SELLER_ID --clientId $env:CLIENT_ID --clientSecret $env:CLIENT_SECRET
+          msstore publish "store/Masthead-$($env:VERSION).msixupload" -id $env:PRODUCT_ID
+
+      - name: Ask for a hand-made submission
+        if: startsWith(github.ref, 'refs/tags/v') && env.HAS_STORE_KEYS != 'true'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.bundle.outputs.version }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          $body = @"
+          The Microsoft Store package for **v$env:VERSION** is built, but the Store has not been told: the Partner Center secrets are not set.
+
+          1. Download the ``store-package-$env:VERSION`` artifact from [this run]($env:RUN_URL) and unzip it.
+          2. [Partner Center](https://partner.microsoft.com/dashboard/products/$env:PRODUCT_ID/overview) → *Start update* → **Packages**: drop in ``Masthead-$($env:VERSION).msixbundle`` and remove the previous version's package.
+          3. **Submit to the Store**, then close this issue.
+
+          Set the four secrets in [docs/STORE.md]($env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/blob/main/docs/STORE.md) and future tags are submitted without this step.
+          "@
+          gh issue create --repo $env:GITHUB_REPOSITORY --title "Microsoft Store: submit v$env:VERSION" --body $body

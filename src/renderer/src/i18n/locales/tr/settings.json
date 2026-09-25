@@ -309,6 +309,7 @@
     "failed": "Güncellemelere bakılamadı. Bir saat içinde yeniden denenecek.",
     "web": "Tarayıcı sürümü kaynaktan güncellenir: git pull çalıştırın.",
     "development": "Geliştirme sürümü — güncellemeler kapalı.",
+    "store": "Microsoft Store'dan kuruldu — güncellemeleri Store yapar.",
     "manualNote": "Bu kopya (taşınabilir, macOS ya da .deb) güncellemeleri kendisi kuramaz; yeni sürüm çıkınca haber verilir.",
     "check": "Güncellemeleri denetle",
     "restart": "Şimdi yeniden başlat",

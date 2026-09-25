@@ -309,6 +309,7 @@
     "failed": "Não foi possível procurar atualizações. Nova tentativa em até uma hora.",
     "web": "A versão de navegador se atualiza pelo código-fonte: rode git pull.",
     "development": "Versão de desenvolvimento — atualizações desligadas.",
+    "store": "Instalado pela Microsoft Store — a Store mantém o app atualizado.",
     "manualNote": "Esta cópia (portátil, macOS ou .deb) não instala atualizações sozinha; você será avisado quando sair uma nova versão.",
     "check": "Procurar atualizações",
     "restart": "Reiniciar agora",

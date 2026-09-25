@@ -32,6 +32,20 @@ nsis:
   uninstallDisplayName: Masthead
 portable:
   artifactName: ${productName}-${version}-portable.${ext}
+# Microsoft Store package, built only by .github/workflows/store.yml (`--win appx`). The identity
+# comes from Partner Center (product 9PFZD4CRGSQV; "Masthead" alone was taken there). The Store
+# signs the package itself, so no certificate is needed. Tiles: build/appx/ (npm run icons).
+appx:
+  identityName: AHCA.MastheadNews
+  publisher: CN=2AF3F876-B6CA-4908-B249-C6DD1C654700
+  publisherDisplayName: AHCA
+  displayName: Masthead News
+  applicationId: Masthead
+  backgroundColor: transparent
+  languages: [en-US, tr-TR, de-DE, fr-FR, pt-BR, hi-IN]
+  # Windows 10 1809: the oldest Partner Center accepts, and older than Electron supports anyway.
+  minVersion: 10.0.17763.0
+  maxVersionTested: 10.0.26100.0
 
 mac:
   icon: build/icon.png

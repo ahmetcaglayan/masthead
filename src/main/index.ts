@@ -27,7 +27,7 @@ let host: (HostWindow & Pick<MainWindow, 'flushBounds'>) | null = null
 
 if (automation) {
   // A temporary profile of its own: no single-instance lock, so it runs next to an open Masthead.
-  app.setAppUserModelId(APP_ID)
+  setAppIdentity()
   Menu.setApplicationMenu(null)
   hardenWebContents()
   app
@@ -41,7 +41,7 @@ if (automation) {
 } else if (!app.requestSingleInstanceLock()) {
   app.quit()
 } else {
-  app.setAppUserModelId(APP_ID)
+  setAppIdentity()
   if (process.platform !== 'darwin') Menu.setApplicationMenu(null)
   hardenWebContents()
   app.on('second-instance', () => {
@@ -200,6 +200,14 @@ function stopBackendOnQuit(backend: Backend): () => Promise<void> {
     void stop().then(() => app.quit())
   })
   return stop
+}
+
+/**
+ * Windows groups the taskbar button and attributes notifications by this id. A Microsoft Store copy
+ * already has one from its package; replacing it would unpin the app and silence its notifications.
+ */
+function setAppIdentity(): void {
+  if (!process.windowsStore) app.setAppUserModelId(APP_ID)
 }
 
 /** App-wide defaults for every web contents: no new windows, no <webview>. Views opt in to more themselves. */

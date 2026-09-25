@@ -309,6 +309,7 @@
     "failed": "Impossible de rechercher des mises à jour. Nouvel essai dans l'heure.",
     "web": "La version navigateur se met à jour depuis les sources : lancez git pull.",
     "development": "Version de développement — mises à jour désactivées.",
+    "store": "Installée depuis le Microsoft Store — le Store la tient à jour.",
     "manualNote": "Cette copie (portable, macOS ou .deb) ne peut pas installer les mises à jour elle-même ; vous serez prévenu quand une nouvelle version sortira.",
     "check": "Rechercher des mises à jour",
     "restart": "Redémarrer",

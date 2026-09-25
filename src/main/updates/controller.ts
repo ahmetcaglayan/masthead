@@ -34,13 +34,16 @@ export interface Updater {
  * How a copy of the app can update itself. The Windows installer and the Linux AppImage
  * replace themselves; the portable exe, the unsigned macOS app (Squirrel.Mac only installs
  * signed apps) and the .deb (it would need root) can only point the user to the download.
+ * A Microsoft Store copy is the Store's to update.
  */
 export function detectUpdateMode(
   env: Record<string, string | undefined>,
   platform: string,
-  packaged: boolean
+  packaged: boolean,
+  windowsStore = false
 ): UpdateMode {
   if (!packaged) return 'none'
+  if (windowsStore) return 'store'
   if (platform === 'win32') return env.PORTABLE_EXECUTABLE_DIR ? 'manual' : 'auto'
   if (platform === 'linux') return env.APPIMAGE ? 'auto' : 'manual'
   return 'manual'
@@ -107,7 +110,7 @@ export class UpdateController {
     return this.status
   }
 
-  /** First check shortly after startup, then every hour. Nothing happens in `none` mode. */
+  /** First check shortly after startup, then every hour. Nothing happens without an updater (`store`, `none`). */
   start(): void {
     if (!this.options.updater) return
     const tick = (): void => void this.check()
